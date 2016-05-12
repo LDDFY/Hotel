@@ -1,0 +1,8 @@
+package cn.edu.whut.hotelsystem.baseinfor.serviceimp;
+
+import cn.edu.whut.hotelsystem.baseinfor.vo.User;
+
+public interface UserService {
+
+	public User Login();
+}

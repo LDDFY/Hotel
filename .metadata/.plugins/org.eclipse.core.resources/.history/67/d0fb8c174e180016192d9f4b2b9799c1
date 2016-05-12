@@ -1,0 +1,10 @@
+package cn.edu.whut.hotelsystem.news.serviceimp;
+
+import java.util.List;
+
+import cn.edu.whut.hotelsystem.news.vo.News;
+
+public interface NewsService {
+
+	public List<News> findAllNews();
+}

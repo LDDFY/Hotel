@@ -1,0 +1,321 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Travel Agency - HTML5 Booking template</title>
+	
+    <!-- Bootstrap -->
+    <link href="resourse/dist/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="resourse/assets/css/custom.css" rel="stylesheet" media="screen">
+    <link href="resourse/assets/css/intro.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+	
+    <!-- Fonts -->	
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,400,300,300italic' rel='stylesheet' type='text/css'>	
+	<!-- Font-Awesome -->
+    <link rel="stylesheet" type="text/css" href="resourse/assets/css/font-awesome.css" media="screen" />
+    <!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="assets/css/font-awesome-ie7.css" media="screen" /><![endif]-->
+	
+    <!-- Carousel -->	
+	<link href="resourse/examples/carousel/carousel.css" rel="stylesheet">
+	
+    <!-- Revolution banner css settings -->
+    <link rel="stylesheet" type="text/css" href="resourse/css/fullscreen.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="resourse/rs-plugin/css/settings.css" media="screen" />
+
+	<!-- PIECHART -->
+	<link rel="stylesheet" type="text/css" href="resourse/assets/css/jquery.easy-pie-chart.css">	
+	
+	<!-- Animo css-->
+	<link href="resourse/plugins/animo/animate+animo.css" rel="stylesheet" media="screen">
+
+    <!-- Picker -->	
+	<link rel="stylesheet" href="resourse/assets/css/jquery-ui.css" />	
+	
+    <!-- jQuery -->	
+    <script src="resourse/assets/js/jquery.v2.0.3.js"></script>
+	
+  </head>
+  <body>
+    
+	<!-- BLUE SECTION -->	
+	<div class="bluediv">
+		<div class="loader"><img src="resourse/images/loading.gif" alt="" /></div>
+		
+		<a href="intro2.html"><img class="logointro" src="resourse/images/logo-intro.png" alt="" /></a>
+		
+		<div class="tabscontainer">
+			<ul class='tabs'>
+				<li class="b1" onclick='mySelectUpdate(); changeAnimation1();'><a href='#tab1'><div class="anivacations"><img src="resourse/images/spacer.png" alt=""/>关于我们</div></a></li>
+				<li class="b2" onclick='mySelectUpdate(); changeAnimation2();'><a href='#tab2'><div class="anihotels"><img src="resourse/images/spacer.png" alt=""/>酒店预订</div></a></li>
+				<li class="b3" onclick='mySelectUpdate(); changeAnimation3();'><a href='#tab3'><div class="aniflights"><img src="resourse/images/spacer.png" alt=""/>系统登陆</div></a></li>
+				<li class="b4" onclick='mySelectUpdate(); changeAnimation4();'><a href='#tab4'><div class="anicars"><img src="resourse/images/spacer.png" alt=""/>最新新闻</div></a></li>
+				<li class="b5" onclick='mySelectUpdate(); changeAnimation5();'><a href='#tab5'><div class="anicruises"><img src="resourse/images/spacer.png" alt=""/>Cruises</div></a></li>
+			</ul>
+		</div>
+		
+		<div class="social">
+			<a href="#" ><img src="resourse/images/icon-facebook.png" alt=""/></a>
+			<a href="#" ><img src="resourse/images/icon-twitter.png" alt=""/></a>
+			<a href="#" ><img src="resourse/images/icon-gplus.png" alt=""/></a>
+			<a href="#" ><img src="resourse/images/icon-youtube.png" alt=""/></a>
+			<br/><br/>
+			&copy; 2013 |<a href="#">Travel Agency</a><br/>All rights reserved.
+		</div>
+	</div>
+	<!-- END OF BLUE SECTION -->	
+
+	<!--WHITE SECTION -->	
+	<div class="whitediv">
+	
+		<!--HOME OBJECTS -->	
+		<img class="couple" src="resourse/images/couple.png" alt="" />
+		<img class="girl" src="resourse/images/girl.png" alt="" />
+		<img class="girl2" src="resourse/images/girl2.png" alt="" />
+		<img class="girl-car" src="resourse/images/girl-car.png" alt="" />
+		<img class="car" src="resourse/images/car.png" alt="" />
+		<img class="girl-cruise" src="resourse/images/girl-cruise.png" alt="" />
+		<div class="palmbgcontainer"></div>
+		<img class="dubai" src="resourse/images/dubai.jpg" alt="" />
+		<img class="plane" src="resourse/images/plane.jpg" alt="" />
+		<img class="road" src="resourse/images/road.jpg" alt="" />
+		<img class="cruise" src="resourse/images/cruise.jpg" alt="" />
+
+		<!--TAB 1 -->	
+		<div id="tab1">
+			<div class="w50percent">
+				<div class="wh90percent textleft right">
+					<div class="item ">
+						<div class="msbox"><a href="#"><img src="resourse/images/about-man.jpg" class="fhimg" alt=""></a></div>
+					</div>
+				</div>
+			</div>
+			<div class="w50percent">
+				<div class="wh90percent textleft right">
+						<div class="opensans size18 grey">
+							<span class="lato dark bold">公司</span><br/>
+							艺龙旅行网 (NASDAQ: LONG)是中国领先的在线住宿服务提供商之一，致力于为消费者打造专注专业、物超所值、智能便捷的住宿预订平台。通过手机和平板客户端、手机艺龙网（m.eLong.com）和PC电脑网站（eLong.com）、24小时预订热线（4009-333-333），为消费者提供酒店、公寓、客栈、机票及火车票等预订服务。 
+							<br/><br/>
+						</div>
+					</div>
+				</div>
+		</div>
+		<!-- END OF TAB1 -->
+		
+		<!--TAB 2 -->			
+		<div id="tab2">
+			<span class="opensans size18">请选择您的目的地</span>
+			<input type="text" class="form-control" placeholder="Greece">
+			
+			<br/>
+			
+			<div class="w50percent">
+				<div class="wh90percent textleft">
+					<span class="opensans size13"><b>入住日期</b></span>
+					<input type="text" class="form-control mySelectCalendar2" id="datepicker7" placeholder="mm/dd/yyyy"/>
+				</div>
+			</div>
+
+			<div class="w50percentlast">
+				<div class="wh90percent textleft right">
+					<span class="opensans size13"><b>退房日期</b></span>
+					<input type="text" class="form-control mySelectCalendar2" id="datepicker8" placeholder="mm/dd/yyyy"/>
+				</div>
+			</div>
+			
+			<div class="clearfix"></div>
+			
+			<div class="room1" >
+				<div class="w50percent">
+					<div class="wh90percent textleft">
+						<span class="opensans size13"><b>房间 1</b></span><br/>
+						
+						<div class="addroom1 block"><a href="#room2" onclick="addroom2()" class="grey">+ 添加房间</a></div>
+					</div>
+				</div>
+
+				<div class="w50percentlast">	
+					<div class="wh90percent textleft right">
+						<div class="w50percent">
+							<div class="wh90percent textleft left">
+								<span class="opensans size13"><b>成年人</b></span>
+								<select class="form-control mySelectBoxClass">
+								  <option>1</option>
+								  <option selected>2</option>
+								  <option>3</option>
+								  <option>4</option>
+								  <option>5</option>
+								</select>
+							</div>
+						</div>							
+						<div class="w50percentlast">
+							<div class="wh90percent textleft right">
+							<span class="opensans size13"><b>孩子</b></span>
+								<select class="form-control mySelectBoxClass">
+								  <option>0</option>
+								  <option selected>1</option>
+								  <option>2</option>
+								  <option>3</option>
+								  <option>4</option>
+								  <option>5</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="room2 none">
+				<div class="clearfix"></div><div class="line1"></div>
+				<div class="w50percent">
+					<div class="wh90percent textleft">
+						<span class="opensans size13"><b>房间 2</b></span><br/>
+						<div class="addroom2 block grey"><a href="#" onclick="addroom3()" class="grey">+ 添加房间</a> | <a href="#" onclick="removeroom2()" class="orange"><img src="images/delete.png" alt="delete"/></a></div>
+					</div>
+				</div>
+
+				<div class="w50percentlast">	
+					<div class="wh90percent textleft right">
+						<div class="w50percent">
+							<div class="wh90percent textleft left">
+								<span class="opensans size13"><b>成年人</b></span>
+								<select class="form-control mySelectBoxClass">
+								  <option>1</option>
+								  <option>2</option>
+								  <option selected>3</option>
+								  <option>4</option>
+								  <option>5</option>
+								</select>
+							</div>
+						</div>							
+						<div class="w50percentlast">
+							<div class="wh90percent textleft right">
+							<span class="opensans size13"><b>孩子</b></span>
+								<select class="form-control mySelectBoxClass">
+								  <option selected>0</option>
+								  <option>1</option>
+								  <option>2</option>
+								  <option>3</option>
+								  <option>4</option>
+								  <option>5</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
+
+			<div class="room3 none">
+				<div class="clearfix"></div><div class="line1"></div>
+				<div class="w50percent">
+					<div class="wh90percent textleft">
+						<span class="opensans size13"><b>房间 3</b></span><br/>
+						<div class="addroom3 block grey"><a href="#" onclick="addroom3()" class="grey">+ 添加房间</a> | <a href="#" onclick="removeroom3()" class="orange"><img src="images/delete.png" alt="delete"/></a></div>
+					</div>
+				</div>
+
+				<div class="w50percentlast">	
+					<div class="wh90percent textleft right">
+						<div class="w50percent">
+							<div class="wh90percent textleft left">
+								<span class="opensans size13"><b>成年人</b></span>
+								<select class="form-control mySelectBoxClass">
+								  <option selected>1</option>
+								  <option>2</option>
+								  <option>3</option>
+								  <option>4</option>
+								  <option>5</option>
+								</select>
+							</div>
+						</div>							
+						<div class="w50percentlast">
+							<div class="wh90percent textleft right">
+							<span class="opensans size13"><b>孩子</b></span>
+								<select class="form-control mySelectBoxClass">
+								  <option selected>0</option>
+								  <option>1</option>
+								  <option>2</option>
+								  <option>3</option>
+								  <option>4</option>
+								  <option>5</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>	
+			<form action="list4.html">
+				<button type="submit" class="btn-search2">查询</button>	
+			</form>
+		</div>
+		<!--END OF TAB 2 -->	
+		
+		<!--TAB 3 -->			
+		<div id="tab3">
+			<div class="tab-content" id="myTabContent">
+			</div>
+		</div>
+		<!-- END OF TAB3 -->
+		
+		<!--TAB 4 -->	
+		<div id="tab4">
+			<div class="tab-content" id="myTabContent">
+			</div>
+		</div>
+		<!-- END OF TAB4 -->
+		
+		
+		
+	</div>
+	<!-- END OF WHITE SECTION -->	
+	
+	
+	
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="resourse/dist/js/bootstrap.min.js"></script>
+	
+    <!-- Javascript -->
+	<script src="resourse/assets/js/js-intro2.js"></script>
+	
+	<!-- Preload images -->
+    <script src="resourse/assets/js/jquery.preload.js"></script>	
+	
+    <!-- Easing -->	
+    <script src="resourse/assets/js/jquery.easing.js"></script>	
+	
+    <!-- Nicescroll  -->	
+	<script src="resourse/assets/js/jquery.nicescroll.min.js"></script>	
+	
+    <!-- Picker UI-->		
+	<script src="resourse/assets/js/jquery-ui.js"></script>		
+	
+    <!-- Custom Select -->
+	<script type="text/javascript" src="resourse/assets/js/jquery.customSelect.js"></script>
+	
+    <!-- Functions -->
+    <script src="assets/js/functions.js"></script>
+	
+    <!-- CarouFredSel -->
+    <script src="resourse/assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script src="resourse/assets/js/helper-plugins/jquery.touchSwipe.min.js"></script>
+	<script type="resourse/text/javascript" src="assets/js/helper-plugins/jquery.mousewheel.min.js"></script>
+	<script type="resourse/text/javascript" src="assets/js/helper-plugins/jquery.transit.min.js"></script>
+	<script type="resourse/text/javascript" src="assets/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+	
+  </body>
+</html>

@@ -39,7 +39,7 @@ public class User implements java.io.Serializable {
 	private String idnumber;
 	private String utel;
 	private String uemail;
-	private String level;
+	private Integer level;
 	private Double money;
 	private Set<Olist> olists = new HashSet<Olist>(0);
 	private Set<Evaluation> evaluations = new HashSet<Evaluation>(0);
@@ -57,7 +57,7 @@ public class User implements java.io.Serializable {
 
 	/** full constructor */
 	public User(String uname, String upwd, String realname, String ugender,
-			String idnumber, String utel, String uemail, String level,
+			String idnumber, String utel, String uemail, Integer level,
 			Double money, Set<Olist> olists, Set<Evaluation> evaluations) {
 		this.uname = uname;
 		this.upwd = upwd;
@@ -148,11 +148,11 @@ public class User implements java.io.Serializable {
 	}
 
 	@Column(name = "level", length = 1)
-	public String getLevel() {
+	public Integer getLevel() {
 		return this.level;
 	}
 
-	public void setLevel(String level) {
+	public void setLevel(Integer level) {
 		this.level = level;
 	}
 

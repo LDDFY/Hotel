@@ -1,0 +1,5 @@
+package cn.edu.whut.hotelsystem.news.control;
+
+public class NewsAction {
+
+}

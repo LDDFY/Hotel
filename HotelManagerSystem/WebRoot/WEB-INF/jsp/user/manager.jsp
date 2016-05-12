@@ -77,7 +77,7 @@
 					<br /> <a href="index.jsp"><img src="resourse/images/dash/logo.png"
 						alt="" /></a><br /> <span class="size12 grey lh5">欢迎来到管理员面板</span><br />
 					<a href="#"><img src="resourse/images/dash/avatar.jpg"
-						class="dash-avatar" alt="" /></a><br /> <span class="size12 dark">Administrator</span><br />
+						class="dash-avatar" alt="" /></a><br /> <span class="size12 dark">用户名：${user.uname }</span><br />
 					<a href="#"><img src="resourse/images/dash/logout.png" alt="" /></a><br /> <br />
 					<br />
 

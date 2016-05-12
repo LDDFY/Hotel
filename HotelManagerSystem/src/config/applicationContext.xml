@@ -43,7 +43,7 @@
 				</prop>
 			</props>
 		</property>
-		<property name="packagesToScan" value="com.test.springmvc.vo" />
+		<property name="packagesToScan" value="cn.edu.whut.hotelsystem" />
 	</bean>
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">

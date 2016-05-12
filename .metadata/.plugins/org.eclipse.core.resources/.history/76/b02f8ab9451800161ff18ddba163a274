@@ -1,0 +1,24 @@
+package cn.edu.whut.hotelsystem.managesystem.ordermanage.control;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * @author WangYang
+ *@Service
+ */
+@Controller
+public class LoginAction {
+	/*@Autowired
+	IOlistDAO i;
+	
+	*/
+	
+	@RequestMapping("/login")
+	public String loginUI()
+	{
+		
+		return "public/login.jsp";
+		//		return "user/manager";
+	}
+}

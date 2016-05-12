@@ -2,16 +2,18 @@ package cn.edu.whut.hotelsystem.baseinfor.daoimp;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.edu.whut.hotelsystem.basedao.BaseHibernateDAO;
 import cn.edu.whut.hotelsystem.baseinfor.dao.IUserDAO;
 import cn.edu.whut.hotelsystem.baseinfor.vo.User;
+
 @Transactional
 @Repository
 public class UserDAO extends BaseHibernateDAO<User> implements IUserDAO {
-	
+
 	public static final String UNAME = "uname";
 	public static final String UPWD = "upwd";
 	public static final String REALNAME = "realname";
@@ -22,13 +24,13 @@ public class UserDAO extends BaseHibernateDAO<User> implements IUserDAO {
 	public static final String LEVEL = "level";
 	public static final String MONEY = "money";
 
-	
 	public UserDAO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public List<User> findByUname(Object uname) {
+
 		return findByProperty(UNAME, uname);
 	}
 
@@ -85,7 +87,7 @@ public class UserDAO extends BaseHibernateDAO<User> implements IUserDAO {
 	@Override
 	public List<User> findUserByExample(User instance) {
 		// TODO Auto-generated method stub
-		return null;
+		return findUserByExample(instance);
 	}
 
 	@Override
@@ -118,5 +120,19 @@ public class UserDAO extends BaseHibernateDAO<User> implements IUserDAO {
 		return false;
 	}
 
-	
+	@Override
+	public User Login(String uname, String upwd) {
+		// TODO Auto-generated method stub
+		String hql = "FROM User u WHERE u.uname=? AND u.upwd=?";
+		Query sqlQuery = getSession().createQuery(hql);
+		sqlQuery.setParameter(0, uname);
+		sqlQuery.setParameter(1, upwd);
+		@SuppressWarnings("unchecked")
+		List<User> userList = sqlQuery.list();
+		if (!userList.isEmpty()) {
+			return userList.get(0);
+		} else
+			return null;
+	}
+
 }

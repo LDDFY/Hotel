@@ -1,0 +1,19 @@
+package cn.edu.whut.hotelsystem.baseinfor.serviceimp;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import cn.edu.whut.hotelsystem.baseinfor.dao.IUserDAO;
+import cn.edu.whut.hotelsystem.baseinfor.service.IUserService;
+import cn.edu.whut.hotelsystem.baseinfor.vo.User;
+
+public class UserService implements IUserService{
+@Autowired
+	private IUserDAO userdao;
+	public User Login(String username){
+		
+	return userdao.findUserById(id);	
+	}
+
+	
+	
+}

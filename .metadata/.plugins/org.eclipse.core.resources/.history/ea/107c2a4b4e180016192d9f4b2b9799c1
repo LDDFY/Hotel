@@ -1,0 +1,11 @@
+package cn.edu.whut.hotelsystem.news.serviceimp;
+
+import java.util.List;
+
+import cn.edu.whut.hotelsystem.news.service.INewsService;
+import cn.edu.whut.hotelsystem.news.vo.News;
+
+public class NewsService implements INewsService {
+
+	public List<News> findAllNews();
+}
