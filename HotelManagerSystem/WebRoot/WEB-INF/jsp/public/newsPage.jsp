@@ -110,17 +110,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<div class="navbar-collapse collapse">
 						<ul class="nav nav2 navlight navbar-nav navbar-right">
-							<li><a href="index.html">首页</a></li>
+							<li><a href="index.jsp">首页</a></li>
 							<li><a href="list4.html">宾馆</a></li>
-							<li class="dropdown active"><a href="newsPage.html">新闻</a></li>
+							<li class="dropdown active"><a href="newsPageUI">新闻</a></li>
 							<li><a href="about.html">关于我们</a></li>
-							<li class="dropdown"><a data-toggle="dropdown"
-								class="dropdown-toggle" href="#">我的信息<b
-									class="lightcaret mt-2"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="#">查看个人信息</a></li>
-									<li><a href="#">修改密码</a></li>
-								</ul></li>
+							<li><a href="loginUI">登录</a></li>			  			  
+				  			<li><a href="#">我的信息</a></li>
 						</ul>
 					</div>
 					<!-- /Navigation-->

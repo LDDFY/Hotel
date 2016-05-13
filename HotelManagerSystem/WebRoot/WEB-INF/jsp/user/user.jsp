@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>profile</title>
+    <title>汉驿连锁酒店</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -67,17 +67,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  </div>
 			  <div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-				  <li class="dropdown active"><a href="index.html">首页</a></li>
+				  <li><a href="index.jsp">首页</a></li>
 				  <li><a href="list4.html">宾馆</a></li>
-				  <li><a href="newsPage.html">新闻</a></li>			  			  
+				  <li><a href="newsPageUI">新闻</a></li>			  			  
 				  <li><a href="about.html">关于我们</a></li>				  			  
-				  <li class="dropdown">
-					<a data-toggle="dropdown" class="dropdown-toggle" href="#">我的信息<b class="lightcaret mt-2"></b></a>
-					<ul class="dropdown-menu">	
-					  <li><a href="#">查看个人信息</a></li>
-					  <li><a href="#">修改密码</a></li>
-					</ul>
-				  </li>		
+				  <li class="dropdown active"><a href="#">我的信息</a></li>	
+				  <li><a href="">注销</a></li>	
 				</ul>
 			  </div>
 			  <!-- /Navigation-->			  
@@ -119,12 +114,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  <li class="active">
 						<a href="#profile" data-toggle="tab">
 						<span class="profile-icon"></span>
-						我的个人信息
+						个人信息
 						</a></li>
 					  <li>
 						  <a href="#bookings" data-toggle="tab" onclick="mySelectUpdate()">
 						  <span class="bookings-icon"></span>						  
-						  预定
+						  我的订单
 						  </a></li>
 					  <li>
 						  <a href="#wishlist" data-toggle="tab" onclick="mySelectUpdate()">
@@ -139,7 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  <li>
 						  <a href="#history" data-toggle="tab" onclick="mySelectUpdate()">
 						  <span class="history-icon"></span>								  
-						  历史
+						  订单历史
 						  </a></li>
 					  <li>
 						  <a href="#password" data-toggle="tab" onclick="mySelectUpdate()">
@@ -169,7 +164,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="resourse/images/user.png" alt="" class="left margright20"/>
 							<p class="size12 grey margtop10">
 							您好 <span class="lred">${user.uname }</span><br/>
-							<a href="#" class="lblue">更换头像</a>
+							<!-- <a href="#" class="lblue">更换头像</a> -->
 							</p>
 							<div class="clearfix"></div>
 						  </div>
@@ -198,7 +193,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<td>
 										<div class="radio left">
 										  <label>
-											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+											<input type="radio" name="ugender" id="ugender" value="女" ${user.ugender=="女"?"checked":''}/>
 											女 
 										  </label>
 										</div>
@@ -206,7 +201,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<td>
 										<div class="radio">
 										  <label>
-											<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+											<input type="radio" name="ugender" id="ugender" value="男" ${user.ugender=="男"?"checked":''}/>
 											男 
 										  </label>
 										</div>
@@ -217,16 +212,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							
 							<br/>
 							姓名*:
-							<input type="text" class="form-control" placeholder="John Doe" rel="popover" id="name" >
+							<input type="text" class="form-control" value="${user.realname }" rel="popover" id="relname" >
 							<br/>
 							用户名*:
-							<input type="text" class="form-control" placeholder="Jack" rel="popover" id="username" data-content="This field is mandatory" data-original-title="Here you can edit your username">						  
+							<input type="text" class="form-control" value="${user.uname }" rel="popover" id="uname">					  
 							<br/>
 							E-mail*:
-							<input type="text" class="form-control" placeholder="office@email.com" id="email" data-content="This field is mandatory" data-original-title="Edit your email address">
+							<input type="text" class="form-control" value="${user.uemail }" id="ueemail">
 							<br/>
 							电话号码:
-							<input type="text" class="form-control" placeholder="">	
+							<input type="text" class="form-control" value="${user.utel }" id="utel">	
 							
 							<br/>	
 						<br/>
@@ -275,44 +270,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  <!-- TAB 2 -->					  
 					  <div class="tab-pane" id="bookings">
 						<div class="padding40">
-						
-							<div class="col-md-4 offset-0">
-								<span class="dark size18">Places</span>
-								<div class="line4"></div>
-								<ul class="blogcat">
-									<li><a href="#">Rome</a> <span class="badge indent0">3</span></li>
-									<li><a href="#">Malaga</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Marbella</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Gibraltar</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Zakynthos</a> <span class="badge indent0">2</span></li>
-									<li><a href="#">Thasos</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Santorini</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Golden Sands</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Sunny Beach</a> <span class="badge indent0">1</span></li>
-								</ul>
-							</div>
-							<div class="col-md-4 offset-0">
-								<span class="dark size18">Trips</span>
-								<div class="line4"></div>
-								<ul class="blogcat">
-									<li><a href="#">Italy</a> <span class="badge indent0">2</span></li>
-									<li><a href="#">England</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Greece</a> <span class="badge indent0">2</span></li>
-									<li><a href="#">Spain</a> <span class="badge indent0">1</span></li>
-									<li><a href="#">Bulgary</a> <span class="badge indent0">1</span></li>
-								</ul>
-							</div>							
-							<div class="col-md-4 offset-0">
-								<span class="dark size18">Countries</span>
-								<div class="line4"></div>
-								<!-- <ul class="blogcat">
-									<li><img src="resourse/images/flags/IT.png" class="right" alt=""/><a href="#">Italy</a></li>
-									<li><img src="resourse/images/flags/GB.png" class="right" alt=""/><a href="#">England</a></li>
-									<li><img src="resourse/images/flags/GR.png" class="right" alt=""/><a href="#">Greece</a></li>
-									<li><img src="resourse/images/flags/ES.png" class="right" alt=""/><a href="#">Spain</a></li>
-									<li><img src="resourse/images/flags/BG.png" class="right" alt=""/><a href="#">Bulgary</a></li>
-								</ul> -->
-							</div>
 							<div class="clearfix"></div>							
 							<br/>
 							<br/>
@@ -320,29 +277,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							
 							<table class="table table-bordered  mt-10">
 							<tr class="grey opensans">
-								<td class="center"><span class="size30 slim lh4 dark">10</span><br/><span class="size12">Trips</span></td>
-								<td class="center"><span class="size30 slim lh4 dark">20</span><br/><span class="size12">Places</span></td>
-								<td class="center"><span class="size30 slim lh4 dark">14</span><br/><span class="size12">Days away</span></td>
-								<td class="center"><span class="size30 slim lh4 dark">5</span><br/><span class="size12">Countries</span></td>
+								<td class="center"><span class="size30 slim lh4 dark">10</span><br/><span class="size12">旅行</span></td>
+								<td class="center"><span class="size30 slim lh4 dark">20</span><br/><span class="size12">地点</span></td>
+								<td class="center"><span class="size30 slim lh4 dark">14</span><br/><span class="size12">距离天数</span></td>
+								<td class="center"><span class="size30 slim lh4 dark">5</span><br/><span class="size12">国家</span></td>
 							</tr>
 							</table>
 							
 							<br/>
 							<br/>
 							
-							<span class="dark size18">Your latest bookings</span>
+							<span class="dark size18">最新订单</span>
 							<div class="right mt-5">
 								<select class="form-control mySelectBoxClass hasCustomSelect cpwidth">
-								  <option value="">All time</option>
-								  <option value="">Countries</option>
-								  <option value="">Date</option>
+								  <option value="">时间</option>
+								  <option value="">国家</option>
+								  <option value="">日期</option>
 								</select>
 							</div>		
 							<div class="right mr20 mt-5">
 								<select class="form-control mySelectBoxClass hasCustomSelect cpwidth2">
-								  <option value="">5/page</option>
-								  <option value="">15/page</option>
-								  <option value="">20/page</option>
+								  <option value="">5条/页</option>
+								  <option value="">15条/页</option>
+								  <option value="">20条/页</option>
 								</select>
 							</div>								
 							<div class="line4"></div>
@@ -352,7 +309,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a href="#"><img alt="" class="left mr20" src="resourse/images/smallthumb-1.jpg"></a>
 								<a class="dark" href="#"><b>Hotel Dany</b></a> /
 								<span class="dark size12">Greece - Zakynthos</span><br>
-								<span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br>
+								<span class="opensans green bold size14">36RMB-160RMB</span> <span class="grey">平均每晚</span><br>
 								<img alt="" src="resourse/images/filter-rating-5.png"><br/>
 							</div>
 							<div class="col-md-7">
@@ -446,28 +403,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  <div class="tab-pane" id="wishlist">
 						<div class="padding40">
 						
-
-							<input type="text" placeholder="Make new category" class="form-control wh80percent left">
-							<button type="submit" class="btn-search5 right"><span class="glyphicon glyphicon-plus"></span>Add new</button>
-
-							<div class="clearfix"></div>
-							<br/>
-							
-							<ul class="blogcat">
-								<li><a href="#">Incredible places</a> <span class="badge indent0">3</span></li>
-								<li><a href="#">My next places</a> <span class="badge indent0">1</span></li>
-								<li><a href="#">Europe</a> <span class="badge indent0">1</span></li>
-							</ul>
-						
-							<br/>
-							<br/>
-							
-							<span class="dark size18">Favourites list</span>
+							<span class="dark size18">收藏夹列表</span>
 							<div class="right mt-5">
 								<select class="form-control mySelectBoxClass hasCustomSelect cpwidth2">
-								  <option value="">5/page</option>
-								  <option value="">15/page</option>
-								  <option value="">20/page</option>
+								  <option value="">5条/页</option>
+								  <option value="">15条/页</option>
+								  <option value="">20条/页</option>
 								</select>
 							</div>								
 							<div class="line4"></div>
@@ -589,63 +530,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="padding40 dark">
 						
 						
-							<span class="dark size18">Settings</span>
+							<span class="dark size18">设置</span>
 							<div class="line4"></div>
 							
-							<span class="dark size14 bold">Notifications</span><br/>
-							Change the way you recieve notifications.
-							
-							<div class="checkbox dark">
-							  <label>
-								<input type="checkbox" checked> Make my profile private
-							  </label>
-							</div>
-							<div class="checkbox dark">
-							  <label>
-								<input type="checkbox"> Send an email when someone replyes to one of your comments.
-							  </label>
-							</div>
-							
+							<span class="dark size14 bold">信用卡详细信息</span>
 							<br/>
-							<br/>
-						
-							<span class="dark size14 bold">Who can contact me?</span><br/>
+							信用卡类型<br/>
 							<select class="form-control mySelectBoxClass hasCustomSelect cpwidth">
-							  <option value="">Everyone</option>
-							  <option value="">No one</option>
-							  <option value="">Friends</option>
-							</select>
-						
-							<br/>
-							<br/>
-							<br/>
-						
-							<span class="dark size14 bold">Payments</span><br/>
-							<div class="checkbox dark">
-							  <label>
-								<input type="checkbox" checked> Auto Payment
-							  </label>
-							</div>
-							
-							<br/>
-							<br/>
-													
-							<span class="dark size14 bold">Credit Card Details</span>
-							<div class="line4"></div>							
-							<br/>
-							Card Type<br/>
-							<select class="form-control mySelectBoxClass hasCustomSelect cpwidth">
-							  <option value="">Visa</option>
-							  <option value="">MasterCard</option>
-							  <option value="">Discover</option>
-							  <option value="">American Express</option>
+							  <option value="">中国银行</option>
+							  <option value="">建设银行</option>
+							  <option value="">农业银行</option>
+							  <option value="">工商银行</option>
 							</select>
 							<br/>
 							<br/>
-							Card Number<br/>
+							信用卡卡号<br/>
 							<input type="text" class="form-control" placeholder="XXXX-XXXX-XXXX-XXX">
 							<br/>
-							Expiry date<br/>
+							到期日<br/>
 							<select class="form-control mySelectBoxClass hasCustomSelect cpwidth2">
 							  <option value="">01</option>
 							  <option value="">02</option>
@@ -672,12 +574,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</select>
 							
 							<br/>
-							CVV<br/>
+							信用卡验证值<br/>
 							<input type="text" class="form-control cpwidth2" placeholder="">
 							<br/>
 							<br/>
 							
-							<button type="submit" class="btn-search5">Save changes</button>
+							<button type="submit" class="btn-search5">保存更改</button>
 							
 							
 							
@@ -690,13 +592,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  <div class="tab-pane" id="history">
 						<div class="padding40">
 						
-							<span class="dark size18">History</span>
+							<span class="dark size18">历史记录</span>
 							<div class="line4"></div>
 							
 							<br/>
 							
-							<div class="col-md-3 bold">Date</div>
-							<div class="col-md-3 bold">Destination</div>
+							<div class="col-md-3 bold">日期</div>
+							<div class="col-md-3 bold">目的地</div>
 							<div class="col-md-3 bold">Service</div>
 							<div class="col-md-3 bold textright">Action</div>
 							<div class="clearfix"></div>
@@ -910,12 +812,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<div class="footerbg3black">
 		<div class="container center grey"> 
-		<a href="#">首页</a> | 
-		<a href="#">关于我们</a> | 
+		<a href="index.jsp">首页</a> | 
+		<a href="about.jsp">关于我们</a> | 
 		<a href="#">预订</a> | 
-		<a href="#">特价优惠</a> | 
-		<a href="#">博客</a> | 
-		<a href="#">联系</a>
+		<a href="newsPageUI">新闻</a> | 
+		<a href="contactUI">联系我们</a>
 		<a href="#top" class="gotop scroll"><img src="resourse/images/spacer.png" alt=""/></a>
 		</div>
 	</div>

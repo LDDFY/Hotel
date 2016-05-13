@@ -41,8 +41,7 @@
 	
     <!-- jQuery -->	
     <script src="resourse/assets/js/jquery.v2.0.3.js"></script>
-
-	
+    
   </head>
   <body id="top">
     
@@ -63,18 +62,12 @@
 			  </div>
 			  <div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-				  <li><a href="#">首页</a></li>
+				  <li class="dropdown active"><a href="#">首页</a></li>
 				  <li><a href="#">宾馆</a></li>
 				  <li><a href="newsPageUI">新闻</a></li>			  			  
-				  <li><a href="#">关于我们</a></li>
+				  <li><a href="aboutUI">关于我们</a></li>
 				  <li><a href="loginUI">登录</a></li>			  			  
-				  <li class="dropdown">
-					<a data-toggle="dropdown" class="dropdown-toggle" href="#">我的信息<b class="lightcaret mt-2"></b></a>
-					<ul class="dropdown-menu">	
-					  <li><a href="#">查看个人信息</a></li>
-					  <li><a href="#">修改密码</a></li>
-					</ul>
-				  </li>		
+				  <li style="display:none"><a href="#">我的信息</a></li>	
 				</ul>
 			  </div>
 			  <!-- /Navigation-->			  
@@ -100,17 +93,34 @@
 					<!-- FADE -->
 					<li data-transition="fade" data-slotamount="1" data-masterspeed="300"> 										
 						<img src="resourse/images/slider/rome.jpg" alt=""/>
+						<div class="tp-caption scrolleffect sft"
+							 data-x="center"
+							 data-y="120"
+							 data-speed="1000"
+							 data-start="800"
+							 data-easing="easeOutExpo">
 					</li>	
 
 					<!-- FADE -->
 					<li data-transition="fade" data-slotamount="1" data-masterspeed="300"> 										
-						
 						<img src="resourse/images/slider/paris.jpg" alt=""/>
+						<div class="tp-caption scrolleffect sft"
+							 data-x="center"
+							 data-y="120"
+							 data-speed="1000"
+							 data-start="800"
+							 data-easing="easeOutExpo">
 					</li>	
 					
 					<!-- FADE -->
 					<li data-transition="fade" data-slotamount="1" data-masterspeed="300"> 							
 						<img src="resourse/images/slider/santorini.jpg" alt=""/>
+						<div class="tp-caption scrolleffect sft"
+							 data-x="center"
+							 data-y="120"
+							 data-speed="1000"
+							 data-start="800"
+							 data-easing="easeOutExpo">
 					</li>
 					
 
@@ -206,7 +216,7 @@
 				
 					<ul class="nav nav-tabs" id="myTab">
 						<li onclick="mySelectUpdate()" class="active">
-							<a data-toggle="tab" href="resourse/#hotel"><span class="hotel"></span>Hotel</a>
+							<a data-toggle="tab" href="resourse/#hotel"><span class="hotel"></span>宾馆</a>
 						</li>
 					</ul>
 					
