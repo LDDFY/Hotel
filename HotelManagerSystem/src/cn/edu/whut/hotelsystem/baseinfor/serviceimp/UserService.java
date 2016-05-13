@@ -17,4 +17,10 @@ public class UserService implements IUserService {
 		return userDAO.Login(uname, upwd);
 	}
 
+	@Override
+	public boolean saveOrUpdate(User user) {
+		// TODO Auto-generated method stub
+		return userDAO.attachDirtyUser(user);
+	}
+
 }

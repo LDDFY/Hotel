@@ -93,31 +93,33 @@ public class UserDAO extends BaseHibernateDAO<User> implements IUserDAO {
 	@Override
 	public List<User> findUserByProperty(String propertyName, Object value) {
 		// TODO Auto-generated method stub
-		return null;
+		return findUserByProperty(propertyName, value);
 	}
 
 	@Override
 	public List<User> findAllUser() {
 		// TODO Auto-generated method stub
-		return null;
+		return findAll();
 	}
 
 	@Override
 	public User mergeUser(User detachedInstance) {
 		// TODO Auto-generated method stub
-		return null;
+		return merge(detachedInstance);
 	}
 
 	@Override
 	public boolean attachDirtyUser(User instance) {
 		// TODO Auto-generated method stub
-		return false;
+	
+		User user = mergeUser(instance);
+		return true;
 	}
 
 	@Override
 	public boolean attachCleanUser(User instance) {
 		// TODO Auto-generated method stub
-		return false;
+		return attachClean(instance);
 	}
 
 	@Override

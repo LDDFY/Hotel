@@ -6,7 +6,8 @@
 			+ path + "/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!DOCTYPE html>
 <html>
 <head>
 <base href="<%=basePath%>">
@@ -22,9 +23,12 @@
 
 
 <!-- Bootstrap -->
-<link href="resourse/dist/css/bootstrap.css" rel="stylesheet" media="screen">
-<link href="resourse/assets/css/custom.css" rel="stylesheet" media="screen">
-<link href="resourse/assets/css/dashboard.css" rel="stylesheet" media="screen">
+<link href="resourse/dist/css/bootstrap.css" rel="stylesheet"
+	media="screen">
+<link href="resourse/assets/css/custom.css" rel="stylesheet"
+	media="screen">
+<link href="resourse/assets/css/dashboard.css" rel="stylesheet"
+	media="screen">
 
 <!-- Carousel -->
 <link href="resourse/css/carousel.css" rel="stylesheet">
@@ -52,6 +56,7 @@
 <!-- jQuery -->
 <script src="resourse/assets/js/jquery.v2.0.3.js"></script>
 
+
 </head>
 
 <body id="top">
@@ -73,93 +78,58 @@
 				<!-- LEFT MENU -->
 				<div class="dashboard-left offset-0 textcenter">
 
-					<br />
-					<br /> <a href="index.jsp"><img src="resourse/images/dash/logo.png"
-						alt="" /></a><br /> <span class="size12 grey lh5">欢迎来到管理员面板</span><br />
-					<a href="#"><img src="resourse/images/dash/avatar.jpg"
-						class="dash-avatar" alt="" /></a><br /> <span class="size12 dark">用户名：${user.uname }</span><br />
-					<a href="#"><img src="resourse/images/dash/logout.png" alt="" /></a><br /> <br />
-					<br />
+					<br /> <br /> <a href="index.jsp"><img
+						src="resourse/images/dash/logo.png" alt="" /></a><br />
+					<!--  <span class="size12 grey lh5">欢迎来到管理员面板</span> -->
+					<br /> <a href="#"><img src="resourse/images/dash/avatar.jpg"
+						class="dash-avatar" alt="" /></a><br /> <span class="size12 dark">管理员：${user.uname }</span><br />
+					<a href="#"><img src="resourse/images/dash/logout.png" alt="" /></a><br />
+					<br /> <br />
 
 					<!-- Nav tabs -->
 					<ul class="nav dashboard-tabs">
-						<li class="dropdown"><a data-toggle="dropdown"
-							class="dropdown-toggle" id="myTabDrop1" href="#">
+
+						<li><a href="#profile" data-toggle="tab">
 								<div class="dash-ct">
-									<span class="dashboard-icon left"></span> <span class="dtxt">Dashboard
-										<b class="lightcaret "></b>
+									<span class="dashboard-icon left"></span> <span class="dtxt">酒店信息管理
 									</span>
 								</div>
-						</a>
-							<ul aria-labelledby="myTabDrop1" role="menu"
-								class="dropdown-menu2 lftwidth">
-								<li><a data-toggle="tab" href="#profile">首页</a></li>
-								<li><a data-toggle="tab" href="#dropdown2">更新 <span
-										class="badge indent0">10</span></a></li>
-							</ul></li>
-						<li><a href="#posts" data-toggle="tab">
-								<div class="dash-ct">
-									<span class="posts-icon left"></span> <span class="dtxt">Posts</span>
-								</div>
 						</a></li>
-						<li><a href="#media" data-toggle="tab">
-								<div class="dash-ct">
-									<span class="media-icon left"></span> <span class="dtxt">Media</span>
-								</div>
-						</a></li>
+
 						<li><a href="#pages" data-toggle="tab">
 								<div class="dash-ct">
-									<span class="pages-icon left"></span> <span class="dtxt">Pages</span>
+									<span class="pages-icon left"></span> <span class="dtxt">订单管理</span>
 								</div>
 						</a></li>
-						<li class="margbottom20"><a href="#comments"
-							data-toggle="tab">
+						<li><a href="#comments" data-toggle="tab">
 								<div class="dash-ct">
-									<span class="comments-icon left"></span> <span class="dtxt">Comments</span>
+									<span class="comments-icon left"></span> <span class="dtxt">评价信息管理</span>
 								</div>
 						</a></li>
+
 						<li><a href="#forums" data-toggle="tab">
 								<div class="dash-ct">
-									<span class="forums-icon left"></span> <span class="dtxt">Forums</span>
+									<span class="forums-icon left"></span> <span class="dtxt">邮件</span>
 								</div>
 						</a></li>
-						<li><a href="#topics" data-toggle="tab">
+
+						<li><a href="#replies" data-toggle="tab">
 								<div class="dash-ct">
-									<span class="topics-icon left"></span> <span class="dtxt">Topics</span>
-								</div>
-						</a></li>
-						<li class="margbottom20"><a href="#replies" data-toggle="tab">
-								<div class="dash-ct">
-									<span class="replies-icon left"></span> <span class="dtxt">Replies</span>
+									<span class="replies-icon left"></span> <span class="dtxt">新闻信息管理</span>
 								</div>
 						</a></li>
 						<li><a href="#appearance" data-toggle="tab">
 								<div class="dash-ct">
-									<span class="appearance-icon left"></span> <span class="dtxt">Appearance</span>
+									<span class="appearance-icon left"></span> <span class="dtxt">用户信息管理</span>
 								</div>
 						</a></li>
-						<li><a href="#plugins" data-toggle="tab">
-								<div class="dash-ct">
-									<span class="wishlist-icon left"></span> <span class="dtxt">Plugins
-										<span class="badge indent0">3</span>
-									</span>
-								</div>
-						</a></li>
+
 						<li><a href="#users" data-toggle="tab">
 								<div class="dash-ct">
-									<span class="profile-icon left"></span> <span class="dtxt">Users</span>
+									<span class="profile-icon left"></span> <span class="dtxt">管理员信息管理</span>
 								</div>
 						</a></li>
-						<li><a href="#tools" data-toggle="tab">
-								<div class="dash-ct">
-									<span class="tools-icon left"></span> <span class="dtxt">Tools</span>
-								</div>
-						</a></li>
-						<li><a href="#settings" data-toggle="tab">
-								<div class="dash-ct">
-									<span class="settings-icon left"></span> <span class="dtxt">Settings</span>
-								</div>
-						</a></li>
+
 					</ul>
 					<br /> <span class="dtxt"> <span class="size12 grey">
 							Copyright &copy; 2013.<br /> TitanicThemes.com
@@ -177,8 +147,10 @@
 						<!-- TAB 1 -->
 						<div class="tab-pane cpadding40 active" id="profile">
 
-							<span class="lato size12 grey">Good Morning <a href="#"
-								class="orange">Administrator</a></span>
+
+
+							<span class="lato size12 grey">Welcome:&nbsp; <a href="#"
+								class="orange">${user.uname} </a></span>
 							<ul class="d-status">
 								<li class="popwidth2"><a href="#" id="notifications"
 									data-content="No new messages...">Notifications<span
@@ -233,7 +205,8 @@
 								<div class="col-md-3">
 									<div class="dbox-visitors">
 										<div class="orangebox">
-											<a href="#"><img src="resourse/images/dash/icon-visits.png" alt="" /></a>
+											<a href="#"><img
+												src="resourse/images/dash/icon-visits.png" alt="" /></a>
 										</div>
 										<span class="size11 mt-5">Today’s visitors</span><br /> <span
 											class="countvisitors lato size24"></span>
@@ -244,8 +217,8 @@
 								<div class="col-md-3">
 									<div class="dbox-visitors">
 										<div class="cyanbox">
-											<a href="#"><img src="resourse/images/dash/icon-revenue.png"
-												alt="" /></a>
+											<a href="#"><img
+												src="resourse/images/dash/icon-revenue.png" alt="" /></a>
 										</div>
 										<span class="size11 mt-5">This month’s revenue</span><br /> <span
 											class="lato size24">$<span class="countrevenue"></span></span>
@@ -256,7 +229,8 @@
 								<div class="col-md-3">
 									<div class="dbox-visitors">
 										<div class="greenbox">
-											<a href="#"><img src="resourse/images/dash/icon-email.png" alt="" /></a>
+											<a href="#"><img
+												src="resourse/images/dash/icon-email.png" alt="" /></a>
 										</div>
 										<span class="size11 mt-5">Mail</span><br /> <span
 											class="countemail lato size24">1</span>
@@ -267,8 +241,8 @@
 								<div class="col-md-3">
 									<div class="dbox-visitors">
 										<div class="darkbox">
-											<a href="#"><img src="resourse/images/dash/icon-bookings.png"
-												alt="" /></a>
+											<a href="#"><img
+												src="resourse/images/dash/icon-bookings.png" alt="" /></a>
 										</div>
 										<span class="size11 mt-5">Bookings</span><br /> <span
 											class="countbookings lato size24">56</span>
@@ -366,30 +340,25 @@
 								<br />
 								<div class="col-md-12 peoplevisits offset-0">
 									<div class="col-md-4">
-										Visits<br />
-										<span class="size18 dark">10,090</span><br />
+										Visits<br /> <span class="size18 dark">10,090</span><br /> <span
+											class="cvisits"></span>
+									</div>
+									<div class="col-md-4">
+										Unique Visitors<br /> <span class="size18 dark">8,173</span><br />
 										<span class="cvisits"></span>
 									</div>
 									<div class="col-md-4">
-										Unique Visitors<br />
-										<span class="size18 dark">8,173</span><br />
-										<span class="cvisits"></span>
-									</div>
-									<div class="col-md-4">
-										Previews<br />
-										<span class="size18 dark">16,462</span><br />
+										Previews<br /> <span class="size18 dark">16,462</span><br />
 										<span class="cpreview"></span>
 									</div>
 									<div class="clearfix"></div>
 									<br />
 									<div class="col-md-4">
-										Pages / Visit<br />
-										<span class="size18 dark">1.63</span><br />
+										Pages / Visit<br /> <span class="size18 dark">1.63</span><br />
 										<span class="cvisits2"></span>
 									</div>
 									<div class="col-md-4">
-										Avg. Visit Duration<br />
-										<span class="size18 dark">00:01:39</span><br />
+										Avg. Visit Duration<br /> <span class="size18 dark">00:01:39</span><br />
 										<span class="cvisits2"></span>
 									</div>
 									<div class="clearfix"></div>
@@ -400,8 +369,7 @@
 								<div class="col-md-12 pdfix">
 									<div class="col-md-6 offset-0">
 										<div class="pdfix">
-											<span class="lato size18">Visits by Browser</span><br />
-											<br />
+											<span class="lato size18">Visits by Browser</span><br /> <br />
 											<div class="table-responsive">
 												<table class="table">
 													<tr class="active">
@@ -431,8 +399,7 @@
 									</div>
 									<div class="col-md-6 offset-0">
 										<div class="pdfix">
-											<span class="lato size18">Mobile overview</span><br />
-											<br />
+											<span class="lato size18">Mobile overview</span><br /> <br />
 											<div class="table-responsive">
 												<table class="table">
 													<tr class="active">
@@ -481,7 +448,8 @@
 												<div class="fixedtopic">
 													<table class="tablehover">
 														<tr>
-															<td><img src="resourse/images/dash/no-avatar.jpg" alt="" /></td>
+															<td><img src="resourse/images/dash/no-avatar.jpg"
+																alt="" /></td>
 															<td><span class="dark">Load Container Content</span><br />
 																Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 																Vestibulum et dictum urna. Donec et tortor ullamcorper,
@@ -492,7 +460,8 @@
 													<div class="line3"></div>
 													<table class="tablehover">
 														<tr>
-															<td><img src="resourse/images/dash/no-avatar.jpg" alt="" /></td>
+															<td><img src="resourse/images/dash/no-avatar.jpg"
+																alt="" /></td>
 															<td><span class="dark">Customize Twitter api
 																	& add sign up/login</span><br /> Lorem ipsum dolor sit amet,
 																consectetur adipiscing elit. Vestibulum et dictum urna.
@@ -504,7 +473,8 @@
 													<div class="line3"></div>
 													<table class="tablehover">
 														<tr>
-															<td><img src="resourse/images/dash/no-avatar.jpg" alt="" /></td>
+															<td><img src="resourse/images/dash/no-avatar.jpg"
+																alt="" /></td>
 															<td><span class="dark">Changing top Nav text
 																	colors</span><br /> Lorem ipsum dolor sit amet, consectetur
 																adipiscing elit. Vestibulum et dictum urna. Donec et
@@ -515,7 +485,8 @@
 													<div class="line3"></div>
 													<table class="tablehover">
 														<tr>
-															<td><img src="resourse/images/dash/no-avatar.jpg" alt="" /></td>
+															<td><img src="resourse/images/dash/no-avatar.jpg"
+																alt="" /></td>
 															<td><span class="dark">Load Container Content</span><br />
 																Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 																Vestibulum et dictum urna. Donec et tortor ullamcorper,
@@ -526,7 +497,8 @@
 													<div class="line3"></div>
 													<table class="tablehover">
 														<tr>
-															<td><img src="resourse/images/dash/no-avatar.jpg" alt="" /></td>
+															<td><img src="resourse/images/dash/no-avatar.jpg"
+																alt="" /></td>
 															<td><span class="dark">Customize Twitter api
 																	& add sign up/login</span><br /> Lorem ipsum dolor sit amet,
 																consectetur adipiscing elit. Vestibulum et dictum urna.
@@ -538,7 +510,8 @@
 													<div class="line3"></div>
 													<table class="tablehover">
 														<tr>
-															<td><img src="resourse/images/dash/no-avatar.jpg" alt="" /></td>
+															<td><img src="resourse/images/dash/no-avatar.jpg"
+																alt="" /></td>
 															<td><span class="dark">Changing top Nav text
 																	colors</span><br /> Lorem ipsum dolor sit amet, consectetur
 																adipiscing elit. Vestibulum et dictum urna. Donec et
@@ -564,7 +537,8 @@
 											<div class="table-responsive">
 												<table class="tablehover">
 													<tr>
-														<td><img src="resourse/images/dash/no-avatar.jpg" alt="" /></td>
+														<td><img src="resourse/images/dash/no-avatar.jpg"
+															alt="" /></td>
 														<td><span class="dark">Customize Twitter api &
 																add sign up/login</span><br /> Lorem ipsum dolor sit amet,
 															consectetur adipiscing elit. Vestibulum et dictum urna.
@@ -590,7 +564,8 @@
 											<div class="table-responsive">
 												<table class="tablehover">
 													<tr>
-														<td><img src="resourse/images/dash/no-avatar.jpg" alt="" /></td>
+														<td><img src="resourse/images/dash/no-avatar.jpg"
+															alt="" /></td>
 														<td><span class="dark">Changing top Nav text
 																colors</span><br /> Lorem ipsum dolor sit amet, consectetur
 															adipiscing elit. Vestibulum et dictum urna. Donec et
@@ -601,7 +576,8 @@
 												<div class="line3"></div>
 												<table class="tablehover">
 													<tr>
-														<td><img src="resourse/images/dash/no-avatar.jpg" alt="" /></td>
+														<td><img src="resourse/images/dash/no-avatar.jpg"
+															alt="" /></td>
 														<td><span class="dark">Customize Twitter api &
 																add sign up/login</span><br /> Lorem ipsum dolor sit amet,
 															consectetur adipiscing elit. Vestibulum et dictum urna.
@@ -623,8 +599,7 @@
 									</div>
 								</div>
 								<div class="col-md-6 cpadding01">
-									<span class="lato size18">Server stats</span><br />
-									<br />
+									<span class="lato size18">Server stats</span><br /> <br />
 									<div class="progress2 progress-striped">
 										<div class="progress-bar progress-bar-info" role="progressbar"
 											aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
@@ -644,8 +619,8 @@
 											role="progressbar" aria-valuenow="65" aria-valuemin="0"
 											aria-valuemax="100" style="width: 65%"></div>
 									</div>
-									<span class="lato size13 grey">Subdomains: 7/15</span> <br /> <br />
-									<br />
+									<span class="lato size13 grey">Subdomains: 7/15</span> <br />
+									<br /> <br />
 									<div class="progress2 progress-striped active">
 										<div class="progress-bar progress-bar-danger"
 											role="progressbar" aria-valuenow="70" aria-valuemin="0"
@@ -674,24 +649,7 @@
 						<div class="tab-pane padding40" id="dropdown1">dropdown1</div>
 						<!-- END OF DROPDOWN 1 -->
 
-						<!-- DROPDOWN 2 -->
-						<div class="tab-pane padding40" id="dropdown2">Updates</div>
-						<!-- END OF DROPDOWN 2 -->
-
-
-						<!-- TAB 2 -->
-						<div class="tab-pane" id="posts">
-							<div class="padding40">Posts - comingsoon</div>
-						</div>
-						<!-- END OF TAB 2 -->
-
-						<!-- TAB 3 -->
-						<div class="tab-pane" id="media">
-							<div class="padding40">Media - comingsoon</div>
-						</div>
-						<!-- END OF TAB 3 -->
-
-						<!-- TAB 4 -->
+						<!--  TAB 4 -->
 						<div class="tab-pane" id="pages">
 							<div class="padding40">Pages - comingsoon</div>
 						</div>
@@ -709,13 +667,9 @@
 						</div>
 						<!-- END OF TAB 6 -->
 
-						<!-- TAB 7 -->
-						<div class="tab-pane" id="topics">
-							<div class="padding40">Topics - comingsoon</div>
-						</div>
-						<!-- END OF TAB 7 -->
 
-						<!-- TAB 8 -->
+
+						<!--  TAB 8 -->
 						<div class="tab-pane" id="replies">
 							<div class="padding40">Replies - comingsoon</div>
 						</div>
@@ -727,39 +681,21 @@
 						</div>
 						<!-- END OF TAB 9 -->
 
-						<!-- TAB 10 -->
-						<div class="tab-pane" id="plugins">
-							<div class="padding40">Plugins - comingsoon</div>
-						</div>
-						<!-- END OF TAB 10 -->
-
-						<!-- TAB 11 -->
+						<!-- TAB 11  -->
 						<div class="tab-pane" id="users">
 							<div class="padding40">Users - comingsoon</div>
+
 						</div>
 						<!-- END OF TAB 11 -->
-
-						<!-- TAB 12 -->
-						<div class="tab-pane" id="tools">
-							<div class="padding40">Tools - comingsoon</div>
-						</div>
-						<!-- END OF TAB 12 -->
-
-						<!-- TAB 13 -->
-						<div class="tab-pane" id="settings">
-							<div class="padding40">Settings - comingsoon</div>
-						</div>
-						<!-- END OF TAB 13 -->
-
 					</div>
+
 					<!-- End of Tab panes from left menu -->
 
 				</div>
 				<!-- END OF RIGHT CPNTENT -->
 
 				<div class="clearfix"></div>
-				<br />
-				<br />
+				<br /> <br />
 			</div>
 			<!-- END CONTENT -->
 
@@ -800,7 +736,8 @@
 
 	<!-- CarouFredSel -->
 	<script src="resourse/assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
-	<script src="resourse/assets/js/helper-plugins/jquery.touchSwipe.min.js"></script>
+	<script
+		src="resourse/assets/js/helper-plugins/jquery.touchSwipe.min.js"></script>
 	<script type="text/javascript"
 		src="resourse/assets/js/helper-plugins/jquery.mousewheel.min.js"></script>
 	<script type="text/javascript"
@@ -809,7 +746,8 @@
 		src="resourse/assets/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
 
 	<!-- Custom Select -->
-	<script type='text/javascript' src='resourse/assets/js/jquery.customSelect.js'></script>
+	<script type='text/javascript'
+		src='resourse/assets/js/jquery.customSelect.js'></script>
 
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="resourse/dist/js/bootstrap.min.js"></script>
