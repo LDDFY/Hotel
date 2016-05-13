@@ -1,7 +1,0 @@
-INDEX VERSION 1.122+E:\Workspaces\Hotel\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1076668765.index
-3547545541.index
-1912249091.index
-2172977902.index
-269372060.index
-2229434715.index
