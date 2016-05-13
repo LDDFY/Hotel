@@ -22,6 +22,5 @@ public class LoginAction {
 
 		return "public/login";
 	}
-
 	
 }

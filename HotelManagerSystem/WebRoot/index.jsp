@@ -63,11 +63,12 @@
 			  <div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
 				  <li class="dropdown active"><a href="#">首页</a></li>
-				  <li><a href="#">宾馆</a></li>
+				  <li><a href="hotelListUI">宾馆</a></li>
 				  <li><a href="newsPageUI">新闻</a></li>			  			  
 				  <li><a href="aboutUI">关于我们</a></li>
-				  <li><a href="loginUI">登录</a></li>			  			  
-				  <li style="display:none"><a href="#">我的信息</a></li>	
+				  <li style="display:${user.uname==null?"":'none'}"><a href="loginUI">登录</a></li>			  			  
+				  <li style="display:${user.uname==null?"none":''}"><a href="userUI">我的信息</a></li>
+				  <li style="display:${user.uname==null?"none":''}"><a href="loginOut">注销</a></li>	
 				</ul>
 			  </div>
 			  <!-- /Navigation-->			  

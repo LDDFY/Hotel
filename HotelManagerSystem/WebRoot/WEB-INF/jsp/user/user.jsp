@@ -68,11 +68,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  <div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
 				  <li><a href="index.jsp">首页</a></li>
-				  <li><a href="list4.html">宾馆</a></li>
+				  <li><a href="hotelListUI">宾馆</a></li>
 				  <li><a href="newsPageUI">新闻</a></li>			  			  
 				  <li><a href="about.html">关于我们</a></li>				  			  
-				  <li class="dropdown active"><a href="#">我的信息</a></li>	
-				  <li><a href="">注销</a></li>	
+				  <li style="display:${user.uname==null?"none":''}" class="dropdown active"><a href="#">我的信息</a></li>	
+				  <li style="display:${user.uname==null?"none":''}"><a href="loginOut">注销</a></li>	
 				</ul>
 			  </div>
 			  <!-- /Navigation-->			  
@@ -211,6 +211,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							
 							
 							<br/>
+							<input type="text" style="display:none;" class="form-control" value="${user.uid }" rel="popover" id="uid" >
 							姓名*:
 							<input type="text" class="form-control" value="${user.realname }" rel="popover" id="relname" >
 							<br/>
@@ -218,7 +219,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<input type="text" class="form-control" value="${user.uname }" rel="popover" id="uname">					  
 							<br/>
 							E-mail*:
-							<input type="text" class="form-control" value="${user.uemail }" id="ueemail">
+							<input type="text" class="form-control" value="${user.uemail }" id="uemail">
 							<br/>
 							电话号码:
 							<input type="text" class="form-control" value="${user.utel }" id="utel">	

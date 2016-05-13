@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="71" version="2.0">
+<workbench progressCount="72" version="2.0">
 <workbenchAdvisor/>
-<window height="804" maximized="true" width="1289" x="25" y="31">
+<window height="804" maximized="true" width="1289" x="192" y="312">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -46,8 +46,6 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
-<part id="4"/>
-<part id="5"/>
 </presentation>
 </folder>
 </info>
@@ -55,23 +53,15 @@
 <editor id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="user.jsp" partName="user.jsp" path="E:/Workspaces/Hotel/HotelManagerSystem/WebRoot/WEB-INF/jsp/user/user.jsp" title="user.jsp" tooltip="HotelManagerSystem/WebRoot/WEB-INF/jsp/user/user.jsp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/user/user.jsp"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IUserService.java" partName="IUserService.java" path="E:/Workspaces/Hotel/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/service/IUserService.java" title="IUserService.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/service/IUserService.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/service/IUserService.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UserAction.java" partName="UserAction.java" path="E:/Workspaces/Hotel/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/UserAction.java" title="UserAction.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/UserAction.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/UserAction.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="980" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="NewsAction.java" partName="NewsAction.java" path="E:/Workspaces/Hotel/HotelManagerSystem/src/cn/edu/whut/hotelsystem/news/control/NewsAction.java" title="NewsAction.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/news/control/NewsAction.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/news/control/NewsAction.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="newsPage.jsp" partName="newsPage.jsp" path="E:/Workspaces/Hotel/HotelManagerSystem/WebRoot/WEB-INF/jsp/public/newsPage.jsp" title="newsPage.jsp" tooltip="HotelManagerSystem/WebRoot/WEB-INF/jsp/public/newsPage.jsp" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/public/newsPage.jsp"/>
-</editor>
-<editor activePart="true" focus="true" id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="index.jsp" partName="index.jsp" path="E:/Workspaces/Hotel/HotelManagerSystem/WebRoot/index.jsp" title="index.jsp" tooltip="HotelManagerSystem/WebRoot/index.jsp" workbook="DefaultEditorWorkbook">
+<editor id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="index.jsp" partName="index.jsp" path="E:/Workspaces/Hotel/HotelManagerSystem/WebRoot/index.jsp" title="index.jsp" tooltip="HotelManagerSystem/WebRoot/index.jsp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/HotelManagerSystem/WebRoot/index.jsp"/>
+</editor>
+<editor activePart="true" focus="true" id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="about.jsp" partName="about.jsp" path="E:/Workspaces/Hotel/HotelManagerSystem/WebRoot/WEB-INF/jsp/public/about.jsp" title="about.jsp" tooltip="HotelManagerSystem/WebRoot/WEB-INF/jsp/public/about.jsp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/public/about.jsp"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HotelAction.java" partName="HotelAction.java" path="E:/Workspaces/Hotel/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/HotelAction.java" title="HotelAction.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/HotelAction.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/HotelAction.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="406" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -90,7 +80,8 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (4 items)"/>
+<category IMemento.internal.id="Warnings (1 item)"/>
+<category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -239,6 +230,7 @@
 <view id="com.genuitec.eclipse.ui.HTMLView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="com.genuitec.eclipse.ast.deploy.core.serverview"/>
+<view id="uky.article.imageviewer.views.ImageView"/>
 <fastViewBars>
 <fastViewBar fastViewLocation="131072" id="org.eclipse.ui.internal.ViewStack@52cc6a6e" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
 <fastViews>
@@ -252,7 +244,6 @@
 </fastViewBar>
 <fastViewBar fastViewLocation="16384" id="bottomleft" orientation="512" selectedTabId="uky.article.imageviewer.views.ImageView" style="0">
 <fastViews>
-<view id="uky.article.imageviewer.views.ImageView" ratio="0.3"/>
 <view id="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
@@ -271,20 +262,20 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.26618183" ratioLeft="366" ratioRight="1009" relationship="2" relative="cvslocation"/>
+<info part="org.eclipse.ui.editorss" ratio="0.27636364" ratioLeft="380" ratioRight="995" relationship="2" relative="cvslocation"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@52cc6a6e" ratio="0.7497733" ratioLeft="827" ratioRight="276" relationship="2" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@6a5f8639" ratio="0.5491481" ratioLeft="419" ratioRight="344" relationship="4" relative="org.eclipse.ui.internal.ViewStack@52cc6a6e">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="bottom" ratio="0.7881579" ratioLeft="599" ratioRight="161" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottom" ratio="0.91842103" ratioLeft="698" ratioRight="62" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
@@ -314,10 +305,37 @@
 </folder>
 </info>
 <info folder="true" part="bottomleft" ratio="0.5491481" ratioLeft="419" ratioRight="344" relationship="4" relative="topleft">
-<folder appearance="2" expanded="0">
-<page content="uky.article.imageviewer.views.ImageView" label="LabelNotFound"/>
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.wst.common.snippets.internal.ui.SnippetsView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@6f6b747e" ratio="0.75789475" ratioLeft="576" ratioRight="184" relationship="4" relative="topleft">
+<folder appearance="2" expanded="0">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@34533236" ratio="0.4993447" ratioLeft="381" ratioRight="382" relationship="4" relative="topleft">
+<folder appearance="2" expanded="0">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@69640849" ratio="0.4993447" ratioLeft="381" ratioRight="382" relationship="4" relative="topleft">
+<folder appearance="2" expanded="0">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@eefc17b" ratio="0.4993447" ratioLeft="381" ratioRight="382" relationship="4" relative="topleft">
+<folder appearance="2" expanded="0">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@47242753" ratio="0.5947368" ratioLeft="452" ratioRight="308" relationship="4" relative="topleft">
+<folder activePageID="uky.article.imageviewer.views.ImageView" appearance="2" expanded="2">
+<page content="uky.article.imageviewer.views.ImageView" label="Image Preview"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
 </folder>
 </info>
 </mainWindow>
@@ -377,33 +395,51 @@
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer"/>
-<fastViewBars>&#x0A;<fastViewBar fastViewLocation="131072" id="right" orientation="512" selectedTabId="org.eclipse.ui.views.PropertySheet" style="0">&#x0A;<fastViews>&#x0A;<view id="org.eclipse.ui.views.PropertySheet" ratio="0.3"/>
+<fastViewBars>
+<fastViewBar fastViewLocation="131072" id="right" orientation="512" selectedTabId="org.eclipse.ui.views.PropertySheet" style="0">
+<fastViews>
+<view id="org.eclipse.ui.views.PropertySheet" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
-<fastViewBar fastViewLocation="16384" id="bottomleft" orientation="512" selectedTabId="uky.article.imageviewer.views.ImageView" style="0">&#x0A;<fastViews>&#x0A;<view id="uky.article.imageviewer.views.ImageView" ratio="0.3"/>
+<fastViewBar fastViewLocation="16384" id="bottomleft" orientation="512" selectedTabId="uky.article.imageviewer.views.ImageView" style="0">
+<fastViews>
+<view id="uky.article.imageviewer.views.ImageView" ratio="0.3"/>
 </fastViews>
 </fastViewBar>
 </fastViewBars>
-<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="cvslocation">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.team.ccvs.ui.RepositoriesView" label="LabelNotFound"/>
+<layout>
+<mainWindow>
+<info folder="true" part="cvslocation">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.team.ccvs.ui.RepositoriesView" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="stickyFolderRight" ratio="0.7496371" ratioLeft="1033" ratioRight="345" relationship="2" relative="cvslocation">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<info folder="true" part="stickyFolderRight" ratio="0.7494662" ratioLeft="1053" ratioRight="352" relationship="2" relative="cvslocation">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.2829091" ratioLeft="389" ratioRight="986" relationship="2" relative="cvslocation"/>
-<info folder="true" part="right" ratio="0.77969176" ratioLeft="860" ratioRight="243" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder appearance="2" expanded="0">&#x0A;<page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
+<info part="org.eclipse.ui.editorss" ratio="0.2" ratioLeft="281" ratioRight="1124" relationship="2" relative="cvslocation"/>
+<info folder="true" part="right" ratio="0.77935946" ratioLeft="876" ratioRight="248" relationship="2" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="0">
+<page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info folder="true" part="topleft" ratio="0.39973786" ratioLeft="305" ratioRight="458" relationship="4" relative="cvslocation">&#x0A;<folder activePageID="org.eclipse.jdt.ui.PackageExplorer" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.jdt.ui.PackageExplorer" label="Package Explorer"/>
+<info folder="true" part="topleft" ratio="0.39973786" ratioLeft="305" ratioRight="458" relationship="4" relative="cvslocation">
+<folder activePageID="org.eclipse.jdt.ui.PackageExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="Package Explorer"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="bottomleft" ratio="0.5491481" ratioLeft="419" ratioRight="344" relationship="4" relative="topleft">&#x0A;<folder appearance="2" expanded="0">&#x0A;<page content="uky.article.imageviewer.views.ImageView" label="LabelNotFound"/>
+<info folder="true" part="bottomleft" ratio="0.5491481" ratioLeft="419" ratioRight="344" relationship="4" relative="topleft">
+<folder appearance="2" expanded="0">
+<page content="uky.article.imageviewer.views.ImageView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
@@ -414,110 +450,83 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/public/login.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/UserAction.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/daoimp/UserDAO.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/managesystem/ordermanage/control/LoginAction.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/user/manager.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/vo/User.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" path="/HotelManagerSystem/WebRoot/index.jsp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/user/user.jsp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/service/IUserService.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/UserAction.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/user/manager.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/vo/User.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/news/control/NewsAction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/hotel/hotelList1.jsp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/public/newsPage.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/public/login.jsp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" path="/HotelManagerSystem/WebRoot/index.jsp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" path="/HotelManagerSystem/WebRoot/参考/updates/update1/js/masonry.pkgd.js"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/UserAction.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/public/about.jsp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/public/newsPage.jsp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/HotelAction.java"/>
 </editors>
-<item historyLabel="UserDAO.java" index="2">
-<position info="not_deleted" x="3456" y="0"/>
+<item historyLabel="index.jsp" index="0"/>
+<item historyLabel="newsPage.jsp" index="4"/>
+<item historyLabel="user.jsp" index="1"/>
+<item historyLabel="newsPage.jsp" index="4"/>
+<item historyLabel="user.jsp" index="1"/>
+<item historyLabel="index.jsp" index="0"/>
+<item historyLabel="newsPage.jsp" index="4"/>
+<item historyLabel="index.jsp" index="0"/>
+<item historyLabel="newsPage.jsp" index="4"/>
+<item historyLabel="user.jsp" index="1"/>
+<item historyLabel="newsPage.jsp" index="4"/>
+<item historyLabel="index.jsp" index="0"/>
+<item historyLabel="masonry.pkgd.js" index="5">
+<position info="not_deleted" x="42547" y="0"/>
 </item>
-<item historyLabel="UserDAO.java" index="2">
-<position info="not_deleted" x="3459" y="0"/>
-</item>
-<item historyLabel="UserAction.java" index="1">
-<position info="not_deleted" x="980" y="0"/>
-</item>
-<item historyLabel="login.jsp" index="0"/>
-<item historyLabel="UserAction.java" index="1">
-<position info="not_deleted" x="980" y="0"/>
-</item>
-<item historyLabel="LoginAction.java" index="3">
-<position info="not_deleted" x="396" y="0"/>
-</item>
-<item historyLabel="UserAction.java" index="1">
-<position info="not_deleted" x="1051" y="0"/>
-</item>
-<item historyLabel="manager.jsp" index="4"/>
-<item historyLabel="UserAction.java" index="1">
-<position info="not_deleted" x="1106" y="4"/>
-</item>
-<item historyLabel="manager.jsp" index="4"/>
-<item historyLabel="UserAction.java" index="1">
-<position info="not_deleted" x="1106" y="4"/>
-</item>
-<item historyLabel="User.java" index="5">
-<position info="not_deleted" x="883" y="5"/>
-</item>
-<item historyLabel="UserAction.java" index="1">
-<position info="not_deleted" x="1106" y="4"/>
-</item>
-<item historyLabel="manager.jsp" index="4"/>
-<item historyLabel="UserAction.java" index="1">
-<position info="not_deleted" x="1011" y="0"/>
-</item>
-<item historyLabel="user.jsp" index="6"/>
-<item historyLabel="manager.jsp" index="4"/>
-<item historyLabel="user.jsp" index="6"/>
-<item historyLabel="IUserService.java" index="7">
+<item historyLabel="index.jsp" index="0"/>
+<item historyLabel="newsPage.jsp" index="4"/>
+<item historyLabel="user.jsp" index="1"/>
+<item historyLabel="IUserService.java" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="UserAction.java" index="8">
-<position info="not_deleted" x="1025" y="0"/>
-</item>
-<item historyLabel="user.jsp" index="6"/>
-<item historyLabel="UserAction.java" index="8">
-<position info="not_deleted" x="980" y="0"/>
-</item>
-<item historyLabel="manager.jsp" index="9"/>
-<item historyLabel="UserAction.java" index="8">
-<position info="not_deleted" x="980" y="0"/>
-</item>
-<item historyLabel="user.jsp" index="6"/>
-<item historyLabel="User.java" index="10">
+<item historyLabel="user.jsp" index="1"/>
+<item historyLabel="IUserService.java" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="user.jsp" index="6"/>
-<item historyLabel="NewsAction.java" index="11">
+<item historyLabel="newsPage.jsp" index="4"/>
+<item historyLabel="user.jsp" index="1"/>
+<item historyLabel="newsPage.jsp" index="4"/>
+<item historyLabel="user.jsp" index="1"/>
+<item historyLabel="UserAction.java" index="6">
+<position info="not_deleted" x="1434" y="0"/>
+</item>
+<item historyLabel="hotelList1.jsp" index="3"/>
+<item historyLabel="UserAction.java" index="6">
+<position info="not_deleted" x="1434" y="0"/>
+</item>
+<item historyLabel="newsPage.jsp" index="4"/>
+<item historyLabel="user.jsp" index="1"/>
+<item historyLabel="newsPage.jsp" index="4"/>
+<item historyLabel="index.jsp" index="0"/>
+<item historyLabel="hotelList1.jsp" index="3"/>
+<item historyLabel="user.jsp" index="1"/>
+<item historyLabel="hotelList1.jsp" index="3"/>
+<item historyLabel="index.jsp" index="0"/>
+<item historyLabel="hotelList1.jsp" index="3"/>
+<item historyLabel="index.jsp" index="0"/>
+<item historyLabel="user.jsp" index="1"/>
+<item historyLabel="UserAction.java" index="6">
+<position info="not_deleted" x="1434" y="0"/>
+</item>
+<item historyLabel="index.jsp" index="0"/>
+<item historyLabel="hotelList1.jsp" index="3"/>
+<item historyLabel="index.jsp" index="0"/>
+<item historyLabel="about.jsp" index="7"/>
+<item historyLabel="newsPage.jsp" index="8"/>
+<item historyLabel="about.jsp" index="7"/>
+<item historyLabel="index.jsp" index="0"/>
+<item historyLabel="about.jsp" index="7"/>
+<item historyLabel="index.jsp" index="0"/>
+<item historyLabel="HotelAction.java" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="UserAction.java" index="8">
-<position info="not_deleted" x="980" y="0"/>
+<item historyLabel="HotelAction.java" index="9">
+<position info="not_deleted" x="406" y="0"/>
 </item>
-<item historyLabel="user.jsp" index="6"/>
-<item historyLabel="newsPage.jsp" index="12"/>
-<item historyLabel="user.jsp" index="6"/>
-<item historyLabel="login.jsp" index="13"/>
-<item historyLabel="user.jsp" index="6"/>
-<item historyLabel="index.jsp" index="14"/>
-<item historyLabel="user.jsp" index="6"/>
-<item historyLabel="index.jsp" index="14"/>
-<item historyLabel="newsPage.jsp" index="12"/>
-<item historyLabel="index.jsp" index="14"/>
-<item historyLabel="newsPage.jsp" index="12"/>
-<item historyLabel="index.jsp" index="14"/>
-<item historyLabel="newsPage.jsp" index="12"/>
-<item historyLabel="NewsAction.java" index="11">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="index.jsp" index="14"/>
-<item historyLabel="newsPage.jsp" index="12"/>
-<item historyLabel="index.jsp" index="14"/>
-<item historyLabel="user.jsp" index="6"/>
-<item historyLabel="index.jsp" index="14"/>
-<item historyLabel="user.jsp" index="6"/>
-<item active="true" historyLabel="index.jsp" index="14"/>
+<item active="true" historyLabel="about.jsp" index="7"/>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
@@ -526,13 +535,16 @@
 <trimLayout>
 <trimArea IMemento.internal.id="16384">
 <trimItem IMemento.internal.id="bottomleft"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@6f6b747e"/>
 <trimItem IMemento.internal.id="topleft"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@34533236"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@69640849"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@eefc17b"/>
 </trimArea>
 <trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@4d3e9963"/>
-<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@48c85a33"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@52cc6a6e"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@6a5f8639"/>
+<trimItem IMemento.internal.id="right"/>
 </trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
@@ -546,50 +558,50 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HotelAction.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/HotelAction.java">
+<persistable path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/HotelAction.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="newsPage.jsp" tooltip="HotelManagerSystem/WebRoot/WEB-INF/jsp/public/newsPage.jsp">
+<persistable path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/public/newsPage.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="about.jsp" tooltip="HotelManagerSystem/WebRoot/WEB-INF/jsp/public/about.jsp">
+<persistable path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/public/about.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="hotelList1.jsp" tooltip="HotelManagerSystem/WebRoot/WEB-INF/jsp/hotel/hotelList1.jsp">
+<persistable path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/hotel/hotelList1.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UserAction.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/UserAction.java">
+<persistable path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/UserAction.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.wst.jsdt.ui.CompilationUnitEditor" name="masonry.pkgd.js" tooltip="HotelManagerSystem/WebRoot/参考/updates/update1/js/masonry.pkgd.js">
+<persistable path="/HotelManagerSystem/WebRoot/参考/updates/update1/js/masonry.pkgd.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="hotelList2.jsp" tooltip="HotelManagerSystem/WebRoot/WEB-INF/jsp/hotel/hotelList2.jsp">
+<persistable path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/hotel/hotelList2.jsp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.imageeditor.editor.ImageEditor" name="user.png" tooltip="HotelManagerSystem/WebRoot/resourse/images/user.png">
+<persistable path="/HotelManagerSystem/WebRoot/resourse/images/user.png"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginAction.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/managesystem/ordermanage/control/LoginAction.java">
+<persistable path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/managesystem/ordermanage/control/LoginAction.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="User.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/vo/User.java">
+<persistable path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/vo/User.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="index.jsp" tooltip="HotelManagerSystem/WebRoot/index.jsp">
 <persistable path="/HotelManagerSystem/WebRoot/index.jsp"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="login.jsp" tooltip="HotelManagerSystem/WebRoot/WEB-INF/jsp/public/login.jsp">
 <persistable path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/public/login.jsp"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="newsPage.jsp" tooltip="HotelManagerSystem/WebRoot/WEB-INF/jsp/public/newsPage.jsp">
-<persistable path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/public/newsPage.jsp"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="NewsAction.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/news/control/NewsAction.java">
 <persistable path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/news/control/NewsAction.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="User.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/vo/User.java">
-<persistable path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/vo/User.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="manager.jsp" tooltip="HotelManagerSystem/WebRoot/WEB-INF/jsp/user/manager.jsp">
 <persistable path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/user/manager.jsp"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UserAction.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/UserAction.java">
-<persistable path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/control/UserAction.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IUserService.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/service/IUserService.java">
 <persistable path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/service/IUserService.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="com.genuitec.eclipse.webdesigner3.editors.jsp" name="user.jsp" tooltip="HotelManagerSystem/WebRoot/WEB-INF/jsp/user/user.jsp">
-<persistable path="/HotelManagerSystem/WebRoot/WEB-INF/jsp/user/user.jsp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoginAction.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/managesystem/ordermanage/control/LoginAction.java">
-<persistable path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/managesystem/ordermanage/control/LoginAction.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BaseHibernateDAO.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/basedao/BaseHibernateDAO.java">
-<persistable path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/basedao/BaseHibernateDAO.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="IUserDAO.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/dao/IUserDAO.java">
-<persistable path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/dao/IUserDAO.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UserDAO.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/daoimp/UserDAO.java">
-<persistable path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/daoimp/UserDAO.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UserService.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/serviceimp/UserService.java">
-<persistable path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/serviceimp/UserService.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="UserService.java" tooltip="HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/service/UserService.java">
-<persistable path="/HotelManagerSystem/src/cn/edu/whut/hotelsystem/baseinfor/service/UserService.java"/>
 </file>
 </mruList>
 </workbench>

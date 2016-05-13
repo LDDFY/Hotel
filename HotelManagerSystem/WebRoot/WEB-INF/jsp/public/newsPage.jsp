@@ -16,14 +16,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 <!-- Bootstrap -->
-<link href="resourse/dist/css/bootstrap.css" rel="stylesheet"
-	media="screen">
-<link href="resourse/assets/css/custom.css" rel="stylesheet"
-	media="screen">
+<link href="resourse/dist/css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="resourse/assets/css/custom.css" rel="stylesheet" media="screen">
 
 <!-- Updates -->
-<link href="resourse/updates/update1/css/style01.css" rel="stylesheet"
-	media="screen">
+<link href="resourse/updates/update1/css/style01.css" rel="stylesheet" media="screen">
 
 <!-- Carousel -->
 <link href="resourse/css/carousel.css" rel="stylesheet">
@@ -111,13 +108,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="navbar-collapse collapse">
 						<ul class="nav nav2 navlight navbar-nav navbar-right">
 							<li><a href="index.jsp">首页</a></li>
-							<li><a href="list4.html">宾馆</a></li>
-							<li class="dropdown active"><a href="newsPageUI">新闻</a></li>
-							<li><a href="about.html">关于我们</a></li>
-							<li><a href="loginUI">登录</a></li>			  			  
-				  			<li><a href="#">我的信息</a></li>
-						</ul>
-					</div>
+							  <li><a href="hotelListUI">宾馆</a></li>
+							  <li><a href="newsPageUI">新闻</a></li>			  			  
+							  <li><a href="about.html">关于我们</a></li>				  			  
+							  <li style="display:${user.uname==null?"none":''}" class="dropdown active"><a href="#">我的信息</a></li>	
+							  <li style="display:${user.uname==null?"none":''}"><a href="#">注销</a></li>	
+							</ul>
+						  </div>
 					<!-- /Navigation-->
 				</div>
 
@@ -159,7 +156,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<!-- FADE -->
 				<li data-transition="fade" data-slotamount="1"
 					data-masterspeed="300"><img
-					src="resourse/updates/update1/img/slider/slide1.jpg" alt="" />
+					src="resourse/updates/update1/img/slider/slide4.jpg" alt="" />
 					<div class="tp-caption scrolleffect sft" data-x="center"
 						data-y="120" data-speed="1000" data-start="800"
 						data-easing="easeOutExpo"></div></li>
