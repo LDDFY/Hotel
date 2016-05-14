@@ -1,5 +1,7 @@
 package cn.edu.whut.hotelsystem.baseinfor.control;
 
+import javax.xml.ws.RequestWrapper;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,5 +16,11 @@ public class HotelAction {
 	@RequestMapping("/aboutUI")
 	public String aboutUI(){
 		return "public/about";
+	}
+	
+	@RequestMapping("/hotelDetailsUI")
+	public String hotelDetailsUI(){
+		
+		return "hotel/hotelDetails";
 	}
 }

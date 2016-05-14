@@ -98,18 +98,26 @@
 						</button>
 						<a href="index.html" class="navbar-brand"><img
 							src="resourse/images/logo.png" alt="Travel Agency Logo"
-							class="logo" /></a>
+							class="logo" />
+						</a>
 					</div>
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="index.jsp">首页</a></li>
-							<li><a href="hotelListUI">宾馆</a></li>
-							<li><a href="newsPageUI">新闻</a></li>
-							<li><a href="about.html">关于我们</a></li>
-							<li style="display:${user.uname==null?"
-								none":''}" class="dropdown active"><a href="#">我的信息</a></li>
-							<li style="display:${user.uname==null?"none":''}"><a
-								href="loginOut">注销</a></li>
+							<li><a href="index.jsp">首页</a>
+							</li>
+							<li><a href="hotelListUI">宾馆</a>
+							</li>
+							<li><a href="newsPageUI">新闻</a>
+							</li>
+							<li><a href="aboutUI">关于我们</a>
+							</li>
+							<li class="dropdown" style="display:${user.uname==null?"none":''}">
+								<a data-toggle="dropdown" class="dropdown-toggle" href="#">操作<b class="lightcaret mt-2"></b></a>
+								<ul class="dropdown-menu">
+									<li><a>登录名：${user.uname }</a></li>
+									<li class="dropdown active"><a>我的信息</a></li>
+									<li><a href="loginOut">注销</a></li>
+								</ul></li>
 						</ul>
 					</div>
 					<!-- /Navigation-->
@@ -125,7 +133,8 @@
 			<div class="left">
 				<ul class="bcrumbs">
 					<li>/</li>
-					<li><a href="#" class="active">个人信息</a></li>
+					<li><a href="#" class="active">个人信息</a>
+					</li>
 				</ul>
 			</div>
 			<a class="backbtn right" href="#"></a>
@@ -149,32 +158,32 @@
 					<!-- Nav tabs -->
 					<ul class="nav profile-tabs">
 						<li class="active"><a href="#profile" data-toggle="tab">
-								<span class="profile-icon"></span> 个人信息
-						</a></li>
+								<span class="profile-icon"></span> 个人信息 </a>
+						</li>
 						<li><a href="#bookings" data-toggle="tab"
 							onclick="mySelectUpdate()"> <span class="bookings-icon"></span>
-								我的订单
-						</a></li>
+								我的订单 </a>
+						</li>
 						<li><a href="#wishlist" data-toggle="tab"
 							onclick="mySelectUpdate()"> <span class="wishlist-icon"></span>
-								收藏夹
-						</a></li>
+								收藏夹 </a>
+						</li>
 						<li><a href="#settings" data-toggle="tab"
 							onclick="mySelectUpdate()"> <span class="settings-icon"></span>
-								设置
-						</a></li>
+								设置 </a>
+						</li>
 						<li><a href="#history" data-toggle="tab"
 							onclick="mySelectUpdate()"> <span class="history-icon"></span>
-								订单历史
-						</a></li>
+								订单历史 </a>
+						</li>
 						<li><a href="#password" data-toggle="tab"
 							onclick="mySelectUpdate()"> <span class="password-icon"></span>
-								修改密码
-						</a></li>
+								修改密码 </a>
+						</li>
 						<li><a href="#newsletter" data-toggle="tab"
 							onclick="mySelectUpdate()"> <span class="newsletter-icon"></span>
-								我的信箱
-						</a></li>
+								我的信箱 </a>
+						</li>
 					</ul>
 					<div class="clearfix"></div>
 				</div>
@@ -203,13 +212,17 @@
 								<table class="table table-bordered  mt-10">
 									<tr class="grey opensans">
 										<td class="center"><span class="size30 slim lh4">2</span><br />
-										<span class="size12">旅行</span></td>
+											<span class="size12">旅行</span>
+										</td>
 										<td class="center"><span class="size30 slim lh4">5</span><br />
-										<span class="size12">地点</span></td>
+											<span class="size12">地点</span>
+										</td>
 										<td class="center"><span class="size30 slim lh4">14</span><br />
-										<span class="size12">距离天数</span></td>
+											<span class="size12">距离天数</span>
+										</td>
 										<td class="center"><span class="size30 slim lh4">3</span><br />
-										<span class="size12">国家</span></td>
+											<span class="size12">国家</span>
+										</td>
 									</tr>
 								</table>
 							</div>
@@ -226,19 +239,15 @@
 										<td>
 											<div class="radio left">
 												<label> <input type="radio" name="ugender"
-													id="ugender" value="女" ${user.ugender=="女"?"checked":''} />
-													女
-												</label>
-											</div>
-										</td>
+													id="ugender" value="女" ${user.ugender== "女"?"checked":''} />
+													女 </label>
+											</div></td>
 										<td>
 											<div class="radio">
 												<label> <input type="radio" name="ugender"
-													id="ugender" value="男" ${user.ugender=="男"?"checked":''} />
-													男
-												</label>
-											</div>
-										</td>
+													id="ugender" value="男" ${user.ugender== "男"?"checked":''} />
+													男 </label>
+											</div></td>
 									</tr>
 								</table>
 
@@ -260,9 +269,7 @@
 							<!-- END OF COL 1 -->
 
 							<div class="clearfix"></div>
-							<br />
-							<br />
-							<br />
+							<br /> <br /> <br />
 
 
 							<div class="row">
@@ -309,13 +316,17 @@
 								<table class="table table-bordered  mt-10">
 									<tr class="grey opensans">
 										<td class="center"><span class="size30 slim lh4 dark">10</span><br />
-										<span class="size12">旅行</span></td>
+											<span class="size12">旅行</span>
+										</td>
 										<td class="center"><span class="size30 slim lh4 dark">20</span><br />
-										<span class="size12">地点</span></td>
+											<span class="size12">地点</span>
+										</td>
 										<td class="center"><span class="size30 slim lh4 dark">14</span><br />
-										<span class="size12">距离天数</span></td>
+											<span class="size12">距离天数</span>
+										</td>
 										<td class="center"><span class="size30 slim lh4 dark">5</span><br />
-										<span class="size12">国家</span></td>
+											<span class="size12">国家</span>
+										</td>
 									</tr>
 								</table>
 
@@ -341,10 +352,11 @@
 
 								<div class="col-md-4 offset-0">
 									<a href="#"><img alt="" class="left mr20"
-										src="resourse/images/smallthumb-1.jpg"></a> <a class="dark"
-										href="#"><b>Hotel Dany</b></a> / <span class="dark size12">Greece
-										- Zakynthos</span><br> <span class="opensans green bold size14">36RMB-160RMB</span>
-									<span class="grey">平均每晚</span><br> <img alt=""
+										src="resourse/images/smallthumb-1.jpg">
+									</a> <a class="dark" href="#"><b>Hotel Dany</b>
+									</a> / <span class="dark size12">Greece - Zakynthos</span><br>
+									<span class="opensans green bold size14">36RMB-160RMB</span> <span
+										class="grey">平均每晚</span><br> <img alt=""
 										src="resourse/images/filter-rating-5.png"><br />
 								</div>
 								<div class="col-md-7">
@@ -362,10 +374,11 @@
 
 								<div class="col-md-4 offset-0">
 									<a href="#"><img alt="" class="left mr20"
-										src="resourse/images/smallthumb-2.jpg"></a> <a class="dark"
-										href="#"><b>Hotel Dany</b></a> / <span class="dark size12">Greece
-										- Zakynthos</span><br> <span class="opensans green bold size14">$36-$160</span>
-									<span class="grey">avg/night</span><br> <img alt=""
+										src="resourse/images/smallthumb-2.jpg">
+									</a> <a class="dark" href="#"><b>Hotel Dany</b>
+									</a> / <span class="dark size12">Greece - Zakynthos</span><br>
+									<span class="opensans green bold size14">$36-$160</span> <span
+										class="grey">avg/night</span><br> <img alt=""
 										src="resourse/images/filter-rating-5.png"><br />
 								</div>
 								<div class="col-md-7">
@@ -383,10 +396,11 @@
 
 								<div class="col-md-4 offset-0">
 									<a href="#"><img alt="" class="left mr20"
-										src="resourse/images/smallthumb-3.jpg"></a> <a class="dark"
-										href="#"><b>Hotel Dany</b></a> / <span class="dark size12">Greece
-										- Zakynthos</span><br> <span class="opensans green bold size14">$36-$160</span>
-									<span class="grey">avg/night</span><br> <img alt=""
+										src="resourse/images/smallthumb-3.jpg">
+									</a> <a class="dark" href="#"><b>Hotel Dany</b>
+									</a> / <span class="dark size12">Greece - Zakynthos</span><br>
+									<span class="opensans green bold size14">$36-$160</span> <span
+										class="grey">avg/night</span><br> <img alt=""
 										src="resourse/images/filter-rating-5.png"><br />
 								</div>
 								<div class="col-md-7">
@@ -404,10 +418,11 @@
 
 								<div class="col-md-4 offset-0">
 									<a href="#"><img alt="" class="left mr20"
-										src="resourse/images/smallthumb-1.jpg"></a> <a class="dark"
-										href="#"><b>Hotel Dany</b></a> / <span class="dark size12">Greece
-										- Zakynthos</span><br> <span class="opensans green bold size14">$36-$160</span>
-									<span class="grey">avg/night</span><br> <img alt=""
+										src="resourse/images/smallthumb-1.jpg">
+									</a> <a class="dark" href="#"><b>Hotel Dany</b>
+									</a> / <span class="dark size12">Greece - Zakynthos</span><br>
+									<span class="opensans green bold size14">$36-$160</span> <span
+										class="grey">avg/night</span><br> <img alt=""
 										src="resourse/images/filter-rating-5.png"><br />
 								</div>
 								<div class="col-md-7">
@@ -425,10 +440,11 @@
 
 								<div class="col-md-4 offset-0">
 									<a href="#"><img alt="" class="left mr20"
-										src="resourse/images/smallthumb-2.jpg"></a> <a class="dark"
-										href="#"><b>Hotel Dany</b></a> / <span class="dark size12">Greece
-										- Zakynthos</span><br> <span class="opensans green bold size14">$36-$160</span>
-									<span class="grey">avg/night</span><br> <img alt=""
+										src="resourse/images/smallthumb-2.jpg">
+									</a> <a class="dark" href="#"><b>Hotel Dany</b>
+									</a> / <span class="dark size12">Greece - Zakynthos</span><br>
+									<span class="opensans green bold size14">$36-$160</span> <span
+										class="grey">avg/night</span><br> <img alt=""
 										src="resourse/images/filter-rating-5.png"><br />
 								</div>
 								<div class="col-md-7">
@@ -445,11 +461,16 @@
 
 								<div class="line4"></div>
 								<ul class="pagination right paddingbtm20">
-									<li class="disabled"><a href="#">«</a></li>
-									<li><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">»</a></li>
+									<li class="disabled"><a href="#">«</a>
+									</li>
+									<li><a href="#">1</a>
+									</li>
+									<li><a href="#">2</a>
+									</li>
+									<li><a href="#">3</a>
+									</li>
+									<li><a href="#">»</a>
+									</li>
 								</ul>
 
 
@@ -477,10 +498,11 @@
 								<div>
 									<div class="col-md-4 offset-0">
 										<a href="#"><img alt="" class="left mr20"
-											src="resourse/images/smallthumb-1.jpg"></a> <a class="dark"
-											href="#"><b>Hotel Dany</b></a> / <span class="dark size12">Greece
-											- Zakynthos</span><br> <span class="opensans green bold size14">$36-$160</span>
-										<span class="grey">avg/night</span><br> <img alt=""
+											src="resourse/images/smallthumb-1.jpg">
+										</a> <a class="dark" href="#"><b>Hotel Dany</b>
+										</a> / <span class="dark size12">Greece - Zakynthos</span><br>
+										<span class="opensans green bold size14">$36-$160</span> <span
+											class="grey">avg/night</span><br> <img alt=""
 											src="resourse/images/filter-rating-5.png"><br />
 									</div>
 									<div class="col-md-7">
@@ -504,10 +526,11 @@
 								<div>
 									<div class="col-md-4 offset-0">
 										<a href="#"><img alt="" class="left mr20"
-											src="resourse/images/smallthumb-2.jpg"></a> <a class="dark"
-											href="#"><b>Hotel Dany</b></a> / <span class="dark size12">Greece
-											- Zakynthos</span><br> <span class="opensans green bold size14">$36-$160</span>
-										<span class="grey">avg/night</span><br> <img alt=""
+											src="resourse/images/smallthumb-2.jpg">
+										</a> <a class="dark" href="#"><b>Hotel Dany</b>
+										</a> / <span class="dark size12">Greece - Zakynthos</span><br>
+										<span class="opensans green bold size14">$36-$160</span> <span
+											class="grey">avg/night</span><br> <img alt=""
 											src="resourse/images/filter-rating-5.png"><br />
 									</div>
 									<div class="col-md-7">
@@ -531,10 +554,11 @@
 								<div>
 									<div class="col-md-4 offset-0">
 										<a href="#"><img alt="" class="left mr20"
-											src="resourse/images/smallthumb-3.jpg"></a> <a class="dark"
-											href="#"><b>Hotel Dany</b></a> / <span class="dark size12">Greece
-											- Zakynthos</span><br> <span class="opensans green bold size14">$36-$160</span>
-										<span class="grey">avg/night</span><br> <img alt=""
+											src="resourse/images/smallthumb-3.jpg">
+										</a> <a class="dark" href="#"><b>Hotel Dany</b>
+										</a> / <span class="dark size12">Greece - Zakynthos</span><br>
+										<span class="opensans green bold size14">$36-$160</span> <span
+											class="grey">avg/night</span><br> <img alt=""
 											src="resourse/images/filter-rating-5.png"><br />
 									</div>
 									<div class="col-md-7">
@@ -558,10 +582,11 @@
 								<div>
 									<div class="col-md-4 offset-0">
 										<a href="#"><img alt="" class="left mr20"
-											src="resourse/images/smallthumb-1.jpg"></a> <a class="dark"
-											href="#"><b>Hotel Dany</b></a> / <span class="dark size12">Greece
-											- Zakynthos</span><br> <span class="opensans green bold size14">$36-$160</span>
-										<span class="grey">avg/night</span><br> <img alt=""
+											src="resourse/images/smallthumb-1.jpg">
+										</a> <a class="dark" href="#"><b>Hotel Dany</b>
+										</a> / <span class="dark size12">Greece - Zakynthos</span><br>
+										<span class="opensans green bold size14">$36-$160</span> <span
+											class="grey">avg/night</span><br> <img alt=""
 											src="resourse/images/filter-rating-5.png"><br />
 									</div>
 									<div class="col-md-7">
@@ -585,10 +610,11 @@
 								<div>
 									<div class="col-md-4 offset-0">
 										<a href="#"><img alt="" class="left mr20"
-											src="resourse/images/smallthumb-2.jpg"></a> <a class="dark"
-											href="#"><b>Hotel Dany</b></a> / <span class="dark size12">Greece
-											- Zakynthos</span><br> <span class="opensans green bold size14">$36-$160</span>
-										<span class="grey">avg/night</span><br> <img alt=""
+											src="resourse/images/smallthumb-2.jpg">
+										</a> <a class="dark" href="#"><b>Hotel Dany</b>
+										</a> / <span class="dark size12">Greece - Zakynthos</span><br>
+										<span class="opensans green bold size14">$36-$160</span> <span
+											class="grey">avg/night</span><br> <img alt=""
 											src="resourse/images/filter-rating-5.png"><br />
 									</div>
 									<div class="col-md-7">
@@ -610,10 +636,14 @@
 
 								<div class="line4"></div>
 								<ul class="pagination right paddingbtm20">
-									<li class="disabled"><a href="#">«</a></li>
-									<li><a href="#">1</a></li>
-									<li><a href="#">2</a></li>
-									<li><a href="#">»</a></li>
+									<li class="disabled"><a href="#">«</a>
+									</li>
+									<li><a href="#">1</a>
+									</li>
+									<li><a href="#">2</a>
+									</li>
+									<li><a href="#">»</a>
+									</li>
 								</ul>
 
 
@@ -791,8 +821,7 @@
 
 								<div class="checkbox dark">
 									<label> <input type="checkbox" checked>
-										选中单选框以获得每月系统邮件
-									</label>
+										选中单选框以获得每月系统邮件 </label>
 								</div>
 
 								<br />
@@ -812,8 +841,7 @@
 				<!-- END OF RIGHT CPNTENT -->
 
 				<div class="clearfix"></div>
-				<br />
-				<br />
+				<br /> <br />
 			</div>
 			<!-- END CONTENT -->
 
@@ -837,47 +865,56 @@
 				<span class="ftitleblack">交流</span>
 				<div class="scont">
 					<a href="#" class="social1b"><img
-						src="resourse/images/icon-facebook.png" alt="" /></a> <a href="#"
-						class="social2b"><img src="resourse/images/icon-twitter.png"
-						alt="" /></a> <a href="#" class="social3b"><img
-						src="resourse/images/icon-gplus.png" alt="" /></a> <a href="#"
-						class="social4b"><img src="resourse/images/icon-youtube.png"
-						alt="" /></a> <br />
-					<br />
-					<br /> <a href="#"><img src="resourse/images/logosmal2.png"
-						alt="" /></a><br /> <span class="grey2">&copy; 2013 | <a
-						href="#">隐私权政策</a><br /> All Rights Reserved
-					</span> <br />
-					<br />
+						src="resourse/images/icon-facebook.png" alt="" />
+					</a> <a href="#" class="social2b"><img
+						src="resourse/images/icon-twitter.png" alt="" />
+					</a> <a href="#" class="social3b"><img
+						src="resourse/images/icon-gplus.png" alt="" />
+					</a> <a href="#" class="social4b"><img
+						src="resourse/images/icon-youtube.png" alt="" />
+					</a> <br /> <br /> <br /> <a href="#"><img
+						src="resourse/images/logosmal2.png" alt="" />
+					</a><br /> <span class="grey2">&copy; 2013 | <a href="#">隐私权政策</a><br />
+						All Rights Reserved </span> <br /> <br />
 
 				</div>
 			</div>
 			<!-- End of column 1-->
 
 			<div class="col-md-3">
-				<span class="ftitleblack">Travel Specialists</span> <br />
-				<br />
+				<span class="ftitleblack">Travel Specialists</span> <br /> <br />
 				<ul class="footerlistblack">
-					<li><a href="#">Golf Vacations</a></li>
-					<li><a href="#">Ski & Snowboarding</a></li>
-					<li><a href="#">Disney Parks Vacations</a></li>
-					<li><a href="#">Disneyland Vacations</a></li>
-					<li><a href="#">Disney World Vacations</a></li>
-					<li><a href="#">Vacations As Advertised</a></li>
+					<li><a href="#">Golf Vacations</a>
+					</li>
+					<li><a href="#">Ski & Snowboarding</a>
+					</li>
+					<li><a href="#">Disney Parks Vacations</a>
+					</li>
+					<li><a href="#">Disneyland Vacations</a>
+					</li>
+					<li><a href="#">Disney World Vacations</a>
+					</li>
+					<li><a href="#">Vacations As Advertised</a>
+					</li>
 				</ul>
 			</div>
 			<!-- End of column 2-->
 
 			<div class="col-md-3">
-				<span class="ftitleblack">Travel Specialists</span> <br />
-				<br />
+				<span class="ftitleblack">Travel Specialists</span> <br /> <br />
 				<ul class="footerlistblack">
-					<li><a href="#">Weddings</a></li>
-					<li><a href="#">Accessible Travel</a></li>
-					<li><a href="#">Disney Parks</a></li>
-					<li><a href="#">Cruises</a></li>
-					<li><a href="#">Round the World</a></li>
-					<li><a href="#">First Class Flights</a></li>
+					<li><a href="#">Weddings</a>
+					</li>
+					<li><a href="#">Accessible Travel</a>
+					</li>
+					<li><a href="#">Disney Parks</a>
+					</li>
+					<li><a href="#">Cruises</a>
+					</li>
+					<li><a href="#">Round the World</a>
+					</li>
+					<li><a href="#">First Class Flights</a>
+					</li>
 				</ul>
 			</div>
 			<!-- End of column 3-->
@@ -891,9 +928,8 @@
 						Submit<img src="resourse/images/arrow.png" alt="" />
 					</button>
 				</div>
-				<br />
-				<br /> <span class="ftitleblack">用户支持</span><br /> <span class="pnr">1-866-599-6674</span><br />
-				<span class="grey2">office@travel.com</span>
+				<br /> <br /> <span class="ftitleblack">用户支持</span><br /> <span
+					class="pnr">1-866-599-6674</span><br /> <span class="grey2">office@travel.com</span>
 			</div>
 			<!-- End of column 4-->
 
@@ -906,7 +942,8 @@
 			<a href="index.jsp">首页</a> | <a href="about.jsp">关于我们</a> | <a
 				href="#">预订</a> | <a href="newsPageUI">新闻</a> | <a href="contactUI">联系我们</a>
 			<a href="#top" class="gotop scroll"><img
-				src="resourse/images/spacer.png" alt="" /></a>
+				src="resourse/images/spacer.png" alt="" />
+			</a>
 		</div>
 	</div>
 

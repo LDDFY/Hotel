@@ -1,3 +1,9 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,46 +12,46 @@
 	<title>汉驿连锁酒店</title>
 	
     <!-- Bootstrap -->
-    <link href="dist/css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="assets/css/custom.css" rel="stylesheet" media="screen">
+    <link href="resourse/dist/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="resourse/assets/css/custom.css" rel="stylesheet" media="screen">
 
 
-	<link href="examples/carousel/carousel.css" rel="stylesheet">
+	<link href="resourse/examples/carousel/carousel.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond.min.js"></script>
+      <script src="resourse/assets/js/html5shiv.js"></script>
+      <script src="resourse/assets/js/respond.min.js"></script>
     <![endif]-->
 	
     <!-- Fonts -->	
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,400,300,300italic' rel='stylesheet' type='text/css'>	
 	<!-- Font-Awesome -->
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" media="screen" />
-    <!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="assets/css/font-awesome-ie7.css" media="screen" /><![endif]-->
+    <link rel="stylesheet" type="text/css" href="resourse/assets/css/font-awesome.css" media="screen" />
+    <!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="resourse/assets/css/font-awesome-ie7.css" media="screen" /><![endif]-->
 	
     <!-- REVOLUTION BANNER CSS SETTINGS -->
-    <link rel="stylesheet" type="text/css" href="css/fullscreen.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="resourse/css/fullscreen.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="resourse/rs-plugin/css/settings.css" media="screen" />
 	
     <!-- Picker UI-->	
-	<link rel="stylesheet" href="assets/css/jquery-ui.css" />	
+	<link rel="stylesheet" href="resourse/assets/css/jquery-ui.css" />	
 	
 	<!-- bin/jquery.slider.min.css -->
-	<link rel="stylesheet" href="plugins/jslider/css/jslider.css" type="text/css">
-	<link rel="stylesheet" href="plugins/jslider/css/jslider.round-blue.css" type="text/css">
+	<link rel="stylesheet" href="resourse/plugins/jslider/css/jslider.css" type="text/css">
+	<link rel="stylesheet" href="resourse/plugins/jslider/css/jslider.round-blue.css" type="text/css">
 	
     <!-- jQuery-->	
-    <script src="assets/js/jquery.v2.0.3.js"></script>
-	<script src="assets/js/jquery-ui.js"></script>	
+    <script src="resourse/assets/js/jquery.v2.0.3.js"></script>
+	<script src="resourse/assets/js/jquery-ui.js"></script>	
 	
 	<!-- bin/jquery.slider.min.js -->
-	<script type="text/javascript" src="plugins/jslider/js/jshashtable-2.1_src.js"></script>
-	<script type="text/javascript" src="plugins/jslider/js/jquery.numberformatter-1.2.3.js"></script>
-	<script type="text/javascript" src="plugins/jslider/js/tmpl.js"></script>
-	<script type="text/javascript" src="plugins/jslider/js/jquery.dependClass-0.1.js"></script>
-	<script type="text/javascript" src="plugins/jslider/js/draggable-0.1.js"></script>
-	<script type="text/javascript" src="plugins/jslider/js/jquery.slider.js"></script>
+	<script type="text/javascript" src="resourse/plugins/jslider/js/jshashtable-2.1_src.js"></script>
+	<script type="text/javascript" src="resourse/plugins/jslider/js/jquery.numberformatter-1.2.3.js"></script>
+	<script type="text/javascript" src="resourse/plugins/jslider/js/tmpl.js"></script>
+	<script type="text/javascript" src="resourse/plugins/jslider/js/jquery.dependClass-0.1.js"></script>
+	<script type="text/javascript" src="resourse/plugins/jslider/js/draggable-0.1.js"></script>
+	<script type="text/javascript" src="resourse/plugins/jslider/js/jquery.slider.js"></script>
 	<!-- end -->
 
   </head>
@@ -65,7 +71,7 @@
 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
 				</button>
-				<a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="Travel Agency Logo" class="logo"/></a>
+				<a href="index.html" class="navbar-brand"><img src="resourse/images/logo.png" alt="Travel Agency Logo" class="logo"/></a>
 			  </div>
 			  <div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
@@ -73,11 +79,13 @@
 				  <li><a href="list4.html">宾馆</a></li>
 				  <li><a href="newsPage.html">新闻</a></li>			  			  
 				  <li><a href="about.html">关于我们</a></li>		  			  
-				  <li class="dropdown">
-					<a data-toggle="dropdown" class="dropdown-toggle" href="#">我的信息<b class="lightcaret mt-2"></b></a>
+				  <li style="display:${user.uname==null?"":'none'}"><a href="loginUI">登录</a></li>
+				  <li class="dropdown" style="display:${user.uname==null?"none":''}">
+					<a data-toggle="dropdown" class="dropdown-toggle" href="#">操作<b class="lightcaret mt-2"></b></a>
 					<ul class="dropdown-menu">	
-					  <li><a href="#">查看个人信息</a></li>
-					  <li><a href="#">修改密码</a></li>
+					  <li><a href="#">登录名：${user.uname }</a></li>
+					  <li><a href="userUI">我的信息</a></li>
+					  <li><a href="loginOut">注销</a></li>
 					</ul>
 				  </li>		
 				</ul>
@@ -122,28 +130,28 @@
 				<div id="inner">
 					<div id="caroufredsel_wrapper2">
 						<div id="carousel">
-							<img src="images/details-slider/slide1.jpg" alt=""/>
-							<img src="images/details-slider/slide2.jpg" alt=""/>
-							<img src="images/details-slider/slide3.jpg" alt=""/>
-							<img src="images/details-slider/slide4.jpg" alt=""/>
-							<img src="images/details-slider/slide5.jpg" alt=""/>
-							<img src="images/details-slider/slide6.jpg" alt=""/>						
+							<img src="resourse/images/details-slider/slide1.jpg" alt=""/>
+							<img src="resourse/images/details-slider/slide2.jpg" alt=""/>
+							<img src="resourse/images/details-slider/slide3.jpg" alt=""/>
+							<img src="resourse/images/details-slider/slide4.jpg" alt=""/>
+							<img src="resourse/images/details-slider/slide5.jpg" alt=""/>
+							<img src="resourse/images/details-slider/slide6.jpg" alt=""/>						
 						</div>
 					</div>
 					<div id="pager-wrapper">
 						<div id="pager">
-							<img src="images/details-slider/slide1.jpg" width="120" height="68" alt=""/>
-							<img src="images/details-slider/slide2.jpg" width="120" height="68" alt=""/>
-							<img src="images/details-slider/slide3.jpg" width="120" height="68" alt=""/>
-							<img src="images/details-slider/slide4.jpg" width="120" height="68" alt=""/>
-							<img src="images/details-slider/slide5.jpg" width="120" height="68" alt=""/>
-							<img src="images/details-slider/slide6.jpg" width="120" height="68" alt=""/>						
+							<img src="resourse/images/details-slider/slide1.jpg" width="120" height="68" alt=""/>
+							<img src="resourse/images/details-slider/slide2.jpg" width="120" height="68" alt=""/>
+							<img src="resourse/images/details-slider/slide3.jpg" width="120" height="68" alt=""/>
+							<img src="resourse/images/details-slider/slide4.jpg" width="120" height="68" alt=""/>
+							<img src="resourse/images/details-slider/slide5.jpg" width="120" height="68" alt=""/>
+							<img src="resourse/images/details-slider/slide6.jpg" width="120" height="68" alt=""/>						
 						</div>
 					</div>
 				</div>
 				<div class="clearfix"></div>
-				<button id="prev_btn2" class="prev2"><img src="images/spacer.png" alt=""/></button>
-				<button id="next_btn2" class="next2"><img src="images/spacer.png" alt=""/></button>		
+				<button id="prev_btn2" class="prev2"><img src="resourse/images/spacer.png" alt=""/></button>
+				<button id="next_btn2" class="next2"><img src="resourse/images/spacer.png" alt=""/></button>		
 					
 		</div>
 		</div> <!-- /c-carousel -->
@@ -159,7 +167,7 @@
 			<div class="col-md-4 detailsright offset-0">
 				<div class="padding20">
 					<h4 class="lh1">Mabely Grand Hotel</h4>
-					<img src="images/smallrating-5.png" alt=""/>
+					<img src="resourse/images/smallrating-5.png" alt=""/>
 				</div>
 				
 				<div class="line3"></div>
@@ -180,7 +188,7 @@
 				</div>
 				
 				<div class="col-md-6 bordertype3">
-					<img src="images/user-rating-4.png" alt=""/><br/>
+					<img src="resourse/images/user-rating-4.png" alt=""/><br/>
 					18 reviews
 				</div>
 				<div class="col-md-6 bordertype3">
@@ -398,7 +406,7 @@
 										<div class="w50percent">
 											<div class="wh90percent textleft">
 												<span class="opensans size13"><b>ROOM 2</b></span><br/>
-												<div class="addroom2 block grey"><a onclick="addroom3()" class="grey cpointer">+ Add room</a> | <a onclick="removeroom2()" class="orange cpointer"><img src="images/delete.png" alt="delete"/></a></div>
+												<div class="addroom2 block grey"><a onclick="addroom3()" class="grey cpointer">+ Add room</a> | <a onclick="removeroom2()" class="orange cpointer"><img src="resourse/images/delete.png" alt="delete"/></a></div>
 											</div>
 										</div>
 
@@ -438,7 +446,7 @@
 										<div class="w50percent">
 											<div class="wh90percent textleft">
 												<span class="opensans size13"><b>ROOM 3</b></span><br/>
-												<div class="addroom3 block grey"><a onclick="addroom3()" class="grey cpointer">+ Add room</a> | <a onclick="removeroom3()" class="orange cpointer"><img src="images/delete.png" alt="delete"/></a></div>
+												<div class="addroom3 block grey"><a onclick="addroom3()" class="grey cpointer">+ Add room</a> | <a onclick="removeroom3()" class="orange cpointer"><img src="resourse/images/delete.png" alt="delete"/></a></div>
 											</div>
 										</div>
 
@@ -488,7 +496,7 @@
 						
 						<div class="padding20">
 							<div class="col-md-4 offset-0">
-								<a href="#"><img src="images/items2/item1.jpg" alt="" class="fwimg"/></a>
+								<a href="#"><img src="resourse/images/items2/item1.jpg" alt="" class="fwimg"/></a>
 							</div>
 							<div class="col-md-8 offset-0">
 								<div class="col-md-8 mediafix1">
@@ -522,7 +530,7 @@
 
 						<div class="padding20">
 							<div class="col-md-4 offset-0">
-								<a href="#"><img src="images/items2/item2.jpg" alt="" class="fwimg"/></a>
+								<a href="#"><img src="resourse/images/items2/item2.jpg" alt="" class="fwimg"/></a>
 							</div>
 							<div class="col-md-8 offset-0">
 								<div class="col-md-8">
@@ -556,7 +564,7 @@
 
 						<div class="padding20">
 							<div class="col-md-4 offset-0">
-								<a href="#"><img src="images/items2/item3.jpg" alt="" class="fwimg"/></a>
+								<a href="#"><img src="resourse/images/items2/item3.jpg" alt="" class="fwimg"/></a>
 							</div>
 							<div class="col-md-8 offset-0">
 								<div class="col-md-8">
@@ -590,7 +598,7 @@
 
 						<div class="padding20">
 							<div class="col-md-4 offset-0">
-								<a href="#"><img src="images/items2/item4.jpg" alt="" class="fwimg"/></a>
+								<a href="#"><img src="resourse/images/items2/item4.jpg" alt="" class="fwimg"/></a>
 							</div>
 							<div class="col-md-8 offset-0">
 								<div class="col-md-8">
@@ -765,7 +773,7 @@
 						<div class="hpadding20">
 							<div class="col-md-4 offset-0">
 								<span class="opensans dark size60 slim lh3 ">4.5/5</span><br/>
-								<img src="images/user-rating-4.png" alt=""/>
+								<img src="resourse/images/user-rating-4.png" alt=""/>
 							</div>
 							<div class="col-md-8 offset-0">
 								<div class="progress progress-striped">
@@ -826,12 +834,12 @@
 								<div class="padding20">
 									<div class="bordertype5">
 										<div class="circlewrap">
-											<img src="images/user-avatar.jpg" class="circleimg" alt=""/>
+											<img src="resourse/images/user-avatar.jpg" class="circleimg" alt=""/>
 											<span>4.5</span>
 										</div>
 										<span class="dark">by Sena</span><br/>
 										from London, UK<br/>
-										<img src="images/check.png" alt=""/><br/>
+										<img src="resourse/images/check.png" alt=""/><br/>
 										<span class="cyan">Recommended<br/>for Everyone</span>
 									</div>
 									
@@ -862,12 +870,12 @@
 								<div class="padding20">
 									<div class="bordertype5">
 										<div class="circlewrap">
-											<img src="images/user-avatar.jpg" class="circleimg" alt=""/>
+											<img src="resourse/images/user-avatar.jpg" class="circleimg" alt=""/>
 											<span>4.5</span>
 										</div>
 										<span class="dark">by Sena</span><br/>
 										from London, UK<br/>
-										<img src="images/check.png" alt=""/><br/>
+										<img src="resourse/images/check.png" alt=""/><br/>
 										<span class="cyan">Recommended<br/>for Everyone</span>
 									</div>
 									
@@ -898,12 +906,12 @@
 								<div class="padding20">
 									<div class="bordertype5">
 										<div class="circlewrap">
-											<img src="images/user-avatar.jpg" class="circleimg" alt=""/>
+											<img src="resourse/images/user-avatar.jpg" class="circleimg" alt=""/>
 											<span>4.5</span>
 										</div>
 										<span class="dark">by Sena</span><br/>
 										from London, UK<br/>
-										<img src="images/check.png" alt=""/><br/>
+										<img src="resourse/images/check.png" alt=""/><br/>
 										<span class="cyan">Recommended<br/>for Everyone</span>
 									</div>
 									
@@ -1054,7 +1062,7 @@
 						
 						<div class="padding20">
 							<div class="col-md-4 offset-0">
-								<a href="#"><img src="images/items2/item5.jpg" alt="" class="fwimg"/></a>
+								<a href="#"><img src="resourse/images/items2/item5.jpg" alt="" class="fwimg"/></a>
 							</div>
 							<div class="col-md-8 offset-0">
 								<div class="col-md-8 mediafix1">
@@ -1064,7 +1072,7 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="col-md-4 center bordertype4">
-									<img src="images/user-rating-4.png" alt=""/><br/>
+									<img src="resourse/images/user-rating-4.png" alt=""/><br/>
 									<span class="opensans grey size14">31 reviews</span>
 									<br/><br/><br/><br/>
 									<button class="bookbtn mt1">More</button>	
@@ -1076,7 +1084,7 @@
 
 						<div class="padding20">
 							<div class="col-md-4 offset-0">
-								<a href="#"><img src="images/items2/item6.jpg" alt="" class="fwimg"/></a>
+								<a href="#"><img src="resourse/images/items2/item6.jpg" alt="" class="fwimg"/></a>
 							</div>
 							<div class="col-md-8 offset-0">
 								<div class="col-md-8 mediafix1">
@@ -1086,7 +1094,7 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="col-md-4 center bordertype4">
-									<img src="images/user-rating-5.png" alt=""/><br/>
+									<img src="resourse/images/user-rating-5.png" alt=""/><br/>
 									<span class="opensans grey size14">23 reviews</span>
 									<br/><br/><br/><br/>
 									<button class="bookbtn mt1">More</button>	
@@ -1098,7 +1106,7 @@
 
 						<div class="padding20">
 							<div class="col-md-4 offset-0">
-								<a href="#"><img src="images/items2/item7.jpg" alt="" class="fwimg"/></a>
+								<a href="#"><img src="resourse/images/items2/item7.jpg" alt="" class="fwimg"/></a>
 							</div>
 							<div class="col-md-8 offset-0">
 								<div class="col-md-8 mediafix1">
@@ -1108,7 +1116,7 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="col-md-4 center bordertype4">
-									<img src="images/user-rating-3.png" alt=""/><br/>
+									<img src="resourse/images/user-rating-3.png" alt=""/><br/>
 									<span class="opensans grey size14">17 reviews</span>
 									<br/><br/><br/><br/>
 									<button class="bookbtn mt1">More</button>	
@@ -1120,7 +1128,7 @@
 
 						<div class="padding20">
 							<div class="col-md-4 offset-0">
-								<a href="#"><img src="images/items2/item8.jpg" alt="" class="fwimg"/></a>
+								<a href="#"><img src="resourse/images/items2/item8.jpg" alt="" class="fwimg"/></a>
 							</div>
 							<div class="col-md-8 offset-0">
 								<div class="col-md-8 mediafix1">
@@ -1130,7 +1138,7 @@
 									<div class="clearfix"></div>
 								</div>
 								<div class="col-md-4 center bordertype4">
-									<img src="images/user-rating-4.png" alt=""/><br/>
+									<img src="resourse/images/user-rating-4.png" alt=""/><br/>
 									<span class="opensans grey size14">10 reviews</span>
 									<br/><br/><br/><br/>
 									<button class="bookbtn mt1">More</button>	
@@ -1172,24 +1180,24 @@
 						<div class="clearfix"></div>
 					</div>
 					<div class="cpadding1 ">
-						<a href="#"><img src="images/smallthumb-1.jpg" class="left mr20" alt=""/></a>
+						<a href="#"><img src="resourse/images/smallthumb-1.jpg" class="left mr20" alt=""/></a>
 						<a href="#" class="dark"><b>Hotel Amaragua</b></a><br/>
 						<span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br/>
-						<img src="images/filter-rating-5.png" alt=""/>
+						<img src="resourse/images/filter-rating-5.png" alt=""/>
 					</div>
 					<div class="line5"></div>
 					<div class="cpadding1 ">
-						<a href="#"><img src="images/smallthumb-2.jpg" class="left mr20" alt=""/></a>
+						<a href="#"><img src="resourse/images/smallthumb-2.jpg" class="left mr20" alt=""/></a>
 						<a href="#" class="dark"><b>Hotel Amaragua</b></a><br/>
 						<span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br/>
-						<img src="images/filter-rating-5.png" alt=""/>
+						<img src="resourse/images/filter-rating-5.png" alt=""/>
 					</div>
 					<div class="line5"></div>			
 					<div class="cpadding1 ">
-						<a href="#"><img src="images/smallthumb-3.jpg" class="left mr20" alt=""/></a>
+						<a href="#"><img src="resourse/images/smallthumb-3.jpg" class="left mr20" alt=""/></a>
 						<a href="#" class="dark"><b>Hotel Amaragua</b></a><br/>
 						<span class="opensans green bold size14">$36-$160</span> <span class="grey">avg/night</span><br/>
-						<img src="images/filter-rating-5.png" alt=""/>
+						<img src="resourse/images/filter-rating-5.png" alt=""/>
 					</div>
 					<br/>
 				
@@ -1218,12 +1226,12 @@
 			<div class="col-md-3">
 				<span class="ftitleblack">交流</span>
 				<div class="scont">
-					<a href="#" class="social1b"><img src="images/icon-facebook.png" alt=""/></a>
-					<a href="#" class="social2b"><img src="images/icon-twitter.png" alt=""/></a>
-					<a href="#" class="social3b"><img src="images/icon-gplus.png" alt=""/></a>
-					<a href="#" class="social4b"><img src="images/icon-youtube.png" alt=""/></a>
+					<a href="#" class="social1b"><img src="resourse/images/icon-facebook.png" alt=""/></a>
+					<a href="#" class="social2b"><img src="resourse/images/icon-twitter.png" alt=""/></a>
+					<a href="#" class="social3b"><img src="resourse/images/icon-gplus.png" alt=""/></a>
+					<a href="#" class="social4b"><img src="resourse/images/icon-youtube.png" alt=""/></a>
 					<br/><br/><br/>
-					<a href="#"><img src="images/logosmal2.png" alt="" /></a><br/>
+					<a href="#"><img src="resourse/images/logosmal2.png" alt="" /></a><br/>
 					<span class="grey2">&copy; 2013  |  <a href="#">隐私权政策</a><br/>
 					All Rights Reserved </span>
 					<br/><br/>
@@ -1264,7 +1272,7 @@
 				<span class="ftitleblack">时事通讯</span>
 				<div class="relative">
 					<input type="email" class="form-control fccustom2black" id="exampleInputEmail1" placeholder="输入Email">
-					<button type="submit" class="btn btn-default btncustom">Submit<img src="images/arrow.png" alt=""/></button>
+					<button type="submit" class="btn btn-default btncustom">Submit<img src="resourse/images/arrow.png" alt=""/></button>
 				</div>
 				<br/><br/>
 				<span class="ftitleblack">用户支持</span><br/>
@@ -1285,48 +1293,48 @@
 		<a href="#">特价优惠</a> | 
 		<a href="#">博客</a> | 
 		<a href="#">联系</a>
-		<a href="#top" class="gotop scroll"><img src="images/spacer.png" alt=""/></a>
+		<a href="#top" class="gotop scroll"><img src="resourse/images/spacer.png" alt=""/></a>
 		</div>
 	</div>
 	
 	
 	<!-- Javascript -->	
-	<script src="assets/js/js-details.js"></script>
+	<script src="resourse/assets/js/js-details.js"></script>
 	
 	<!-- Googlemap -->	
-	<script src="assets/js/initialize-google-map.js"></script>
+	<script src="resourse/assets/js/initialize-google-map.js"></script>
 	
     <!-- Custom Select -->
-	<script type='text/javascript' src='assets/js/jquery.customSelect.js'></script>
+	<script type='text/javascript' src="resourse/assets/js/jquery.customSelect.js"></script>
 	
     <!-- Custom functions -->
-    <script src="assets/js/functions.js"></script>
+    <script src="resourse/assets/js/functions.js"></script>
 
     <!-- Nicescroll  -->	
-	<script src="assets/js/jquery.nicescroll.min.js"></script>
+	<script src="resourse/assets/js/jquery.nicescroll.min.js"></script>
 	
     <!-- jQuery KenBurn Slider  -->
-    <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="resourse/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 	
     <!-- CarouFredSel -->
-    <script src="assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
-    <script src="assets/js/helper-plugins/jquery.touchSwipe.min.js"></script>
+    <script src="resourse/assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script src="resourse/assets/js/helper-plugins/jquery.touchSwipe.min.js"></script>
 	
-	<script type="text/javascript" src="assets/js/helper-plugins/jquery.mousewheel.min.js"></script>
-	<script type="text/javascript" src="assets/js/helper-plugins/jquery.transit.min.js"></script>
-	<script type="text/javascript" src="assets/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+	<script type="text/javascript" src="resourse/assets/js/helper-plugins/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="resourse/assets/js/helper-plugins/jquery.transit.min.js"></script>
+	<script type="text/javascript" src="resourse/assets/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
 
     <!-- Counter -->	
-    <script src="assets/js/counter.js"></script>	
+    <script src="resourse/assets/js/counter.js"></script>	
 	
     <!-- Carousel-->	
-    <script src="assets/js/initialize-carousel-detailspage.js"></script>		
+    <script src="resourse/assets/js/initialize-carousel-detailspage.js"></script>		
 	
     <!-- Js Easing-->	
-    <script src="assets/js/jquery.easing.js"></script>
+    <script src="resourse/assets/js/jquery.easing.js"></script>
 
 	
     <!-- Bootstrap-->	
-    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="resourse/dist/js/bootstrap.min.js"></script>
   </body>
 </html>

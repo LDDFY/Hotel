@@ -75,9 +75,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  <li class="dropdown active"><a href="#">宾馆</a></li>
 				  <li><a href="newsPageUI">新闻</a></li>			  			  
 				  <li><a href="about.html">关于我们</a></li>
-				  <li style="display:${user.uname==null?"":'none'}"><a href="loginUI">登录</a></li>				  			  
-				  <li style="display:${user.uname==null?"none":''}"><a href="#">我的信息</a></li>	
-				  <li style="display:${user.uname==null?"none":''}"><a href="loginOut">注销</a></li>	
+				  <li style="display:${user.uname==null?"":'none'}"><a href="loginUI">登录</a></li>
+				  <li class="dropdown" style="display:${user.uname==null?"none":''}">
+					<a data-toggle="dropdown" class="dropdown-toggle" href="#">操作<b class="lightcaret mt-2"></b></a>
+					<ul class="dropdown-menu">	
+					  <li><a href="#">登录名：${user.uname }</a></li>
+					  <li><a href="userUI">我的信息</a></li>
+					  <li><a href="loginOut">注销</a></li>
+					</ul>
+				  </li>
 				</ul>
 			  </div>
 			  <!-- /Navigation-->			  
@@ -473,15 +479,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				
 				<div class="itemscontainer offset-1">
-
-
-				
 					<div class="col-md-4">
 						<div class="listitem">
 							<img src="resourse/images/items/item1.jpg" alt=""/>
 							<div class="liover"></div>
 							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="#"></a>
+							<a class="book-icon" href="hotelDetailsUI"></a>
 						</div>
 						<div class="itemlabel">
 							<button class="bookbtn right mt1">预订</button>						
@@ -494,7 +497,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="resourse/images/items/item2.jpg" alt=""/>
 							<div class="liover"></div>
 							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="#"></a>							
+							<a class="book-icon" href="hotelDetailsUI"></a>							
 						</div>
 						<div class="itemlabel">
 							<button class="bookbtn right mt1">Book</button>						
@@ -507,7 +510,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="resourse/images/items/item3.jpg" alt=""/>
 							<div class="liover"></div>
 							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="#"></a>							
+							<a class="book-icon" href="hotelDetailsUI"></a>							
 						</div>
 						<div class="itemlabel">
 							<button class="bookbtn right mt1">预订</button>						
@@ -524,7 +527,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="resourse/images/items/item4.jpg" alt=""/>
 							<div class="liover"></div>
 							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="#"></a>								
+							<a class="book-icon" href="hotelDetailsUI"></a>								
 						</div>
 						<div class="itemlabel">
 							<button class="bookbtn right mt1">预订</button>						
@@ -537,7 +540,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="resourse/images/items/item5.jpg" alt=""/>
 							<div class="liover"></div>
 							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="#"></a>								
+							<a class="book-icon" href="hotelDetailsUI"></a>								
 						</div>
 						<div class="itemlabel">
 							<button class="bookbtn right mt1">预订</button>						
@@ -550,7 +553,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="resourse/images/items/item6.jpg" alt=""/>
 							<div class="liover"></div>
 							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="#"></a>									
+							<a class="book-icon" href="hotelDetailsUI"></a>									
 						</div>
 						<div class="itemlabel">
 							<button class="bookbtn right mt1">预订</button>						
@@ -567,7 +570,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="resourse/images/items/item7.jpg" alt=""/>
 							<div class="liover"></div>
 							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="#"></a>									
+							<a class="book-icon" href="hotelDetailsUI"></a>									
 						</div>
 						<div class="itemlabel">
 							<button class="bookbtn right mt1">Book</button>						
@@ -580,7 +583,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="resourse/images/items/item8.jpg" alt=""/>
 							<div class="liover"></div>
 							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="#"></a>									
+							<a class="book-icon" href="hotelDetailsUI"></a>									
 						</div>
 						<div class="itemlabel">
 							<button class="bookbtn right mt1">Book</button>						
@@ -593,7 +596,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="resourse/images/items/item9.jpg" alt=""/>
 							<div class="liover"></div>
 							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="#"></a>									
+							<a class="book-icon" href="hotelDetailsUI"></a>									
 						</div>
 						<div class="itemlabel">
 							<button class="bookbtn right mt1">Book</button>						
@@ -610,7 +613,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="resourse/images/items/item10.jpg" alt=""/>
 							<div class="liover"></div>
 							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="#"></a>									
+							<a class="book-icon" href="hotelDetailsUI"></a>									
 						</div>
 						<div class="itemlabel">
 							<button class="bookbtn right mt1">Book</button>						
@@ -623,7 +626,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="resourse/images/items/item11.jpg" alt=""/>
 							<div class="liover"></div>
 							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="#"></a>									
+							<a class="book-icon" href="hotelDetailsUI"></a>									
 						</div>
 						<div class="itemlabel">
 							<button class="bookbtn right mt1">Book</button>						
@@ -636,7 +639,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<img src="resourse/images/items/item12.jpg" alt=""/>
 							<div class="liover"></div>
 							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="#"></a>									
+							<a class="book-icon" href="hotelDetailsUI"></a>									
 						</div>
 						<div class="itemlabel">
 							<button class="bookbtn right mt1">Book</button>						
