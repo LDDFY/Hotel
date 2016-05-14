@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -55,43 +56,42 @@
 
 <!-- jQuery -->
 <script src="resourse/assets/js/jquery.v2.0.3.js"></script>
-
-
 </head>
 
 <body id="top">
-
-
-
 	<!-- CONTENT -->
 	<div class="container2">
-
-
 		<div class="container2 offset-0">
-
-
 			<!-- CONTENT -->
 			<div class="col-md-12  offset-0">
-
-
-
 				<!-- LEFT MENU -->
 				<div class="dashboard-left offset-0 textcenter">
-
-					<br /> <br /> <a href="index.jsp"><img
-						src="resourse/images/dash/logo.png" alt="" /></a><br />
-					<!--  <span class="size12 grey lh5">欢迎来到管理员面板</span> -->
-					<br /> <a href="#"><img src="resourse/images/dash/avatar.jpg"
+					<br /> <br /> <a><img src="resourse/images/dash/logo.png" /></a><br />
+					<br /> <a><img src="resourse/images/dash/avatar.jpg"
 						class="dash-avatar" alt="" /></a><br /> <span class="size12 dark">管理员：${user.uname }</span><br />
-					<a href="#"><img src="resourse/images/dash/logout.png" alt="" /></a><br />
-					<br /> <br />
+					<a href="loginOut.do"><img
+						src="resourse/images/dash/logout.png" alt="" /></a><br /> <br /> <br />
 
 					<!-- Nav tabs -->
 					<ul class="nav dashboard-tabs">
 
-						<li><a href="#profile" data-toggle="tab">
+						<li><a href="#">
 								<div class="dash-ct">
-									<span class="dashboard-icon left"></span> <span class="dtxt">酒店信息管理
+									<span class="dashboard-icon left"></span> <span class="dtxt">首页
+									</span>
+								</div>
+						</a></li>
+						<c:if test="${user.level ==2}">
+							<li><a href="#profile" data-toggle="tab">
+									<div class="dash-ct">
+										<span class="posts-icon left"></span> <span class="dtxt">酒店信息管理
+										</span>
+									</div>
+							</a></li>
+						</c:if>
+						<li><a href="#room" data-toggle="tab">
+								<div class="dash-ct">
+									<span class="topics-icon left"></span> <span class="dtxt">房间信息管理
 									</span>
 								</div>
 						</a></li>
@@ -123,16 +123,16 @@
 									<span class="appearance-icon left"></span> <span class="dtxt">用户信息管理</span>
 								</div>
 						</a></li>
-
-						<li><a href="#users" data-toggle="tab">
-								<div class="dash-ct">
-									<span class="profile-icon left"></span> <span class="dtxt">管理员信息管理</span>
-								</div>
-						</a></li>
-
+						<c:if test="${user.level ==2}">
+							<li><a href="#users" data-toggle="tab">
+									<div class="dash-ct">
+										<span class="profile-icon left"></span> <span class="dtxt">管理员信息管理</span>
+									</div>
+							</a></li>
+						</c:if>
 					</ul>
 					<br /> <span class="dtxt"> <span class="size12 grey">
-							Copyright &copy; 2013.<br /> TitanicThemes.com
+							Copyright &copy; 2013.<br /> XXXXXXXXX.com
 					</span> <br /> <br /> <br />
 					</span>
 					<div class="clearfix"></div>
@@ -680,7 +680,11 @@
 							<div class="padding40">Appearance - comingsoon</div>
 						</div>
 						<!-- END OF TAB 9 -->
-
+						<!--  TAB 10 -->
+						<div class="tab-pane" id="room">
+							<div class="padding40">room - comingsoon</div>
+						</div>
+						<!-- END OF TAB 10 -->
 						<!-- TAB 11  -->
 						<div class="tab-pane" id="users">
 							<div class="padding40">Users - comingsoon</div>

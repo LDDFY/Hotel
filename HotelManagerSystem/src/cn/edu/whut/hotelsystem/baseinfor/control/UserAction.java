@@ -46,25 +46,12 @@ public class UserAction {
 		return result;
 	}
 
-	@RequestMapping("/userUI")
-	public String userUI() {
-		return "user/user";
-	}
-
-	@RequestMapping("/loginOut")
-	public String loginOut(HttpSession session) {
-		session.invalidate();
-		return "public/login";
-	}
-
 	@RequestMapping(value = "/updateInfor", method = RequestMethod.POST)
 	public @ResponseBody String updateInfor(String username,
 			String userpassword, Integer userid) {
 		String result = "修改密码失败！";
-		User user = new User();
-
-		user.setUid(userid);
-		user.setUname(username);
+		User user = userService.loadUser(userid);
+		;
 		user.setUpwd(userpassword);
 		boolean flag = userService.saveOrUpdate(user);
 		if (flag) {
@@ -73,4 +60,20 @@ public class UserAction {
 		return result;
 	}
 
+	@RequestMapping("/userUI")
+	public String userUI() {
+		return "user/user";
+	}
+
+	@RequestMapping("/backManage")
+	public String backManage() {
+		return "user/manager";
+	}
+
+	@RequestMapping("/loginOut")
+	public String loginOut(HttpSession session) {
+		session.invalidate();
+		return "public/login";
+	}
+	
 }

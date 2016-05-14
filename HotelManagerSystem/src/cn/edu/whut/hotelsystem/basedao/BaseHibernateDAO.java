@@ -191,6 +191,7 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 			getSession().saveOrUpdate(instance);
 			log.debug("attach successful");
 			getSession().flush();
+		
 			return true;
 		} catch (RuntimeException re) {
 			log.error("attach failed", re);

@@ -111,7 +111,7 @@ public class UserDAO extends BaseHibernateDAO<User> implements IUserDAO {
 	@Override
 	public boolean attachDirtyUser(User instance) {
 		// TODO Auto-generated method stub
-	
+
 		return attachDirty(instance);
 	}
 
@@ -136,4 +136,23 @@ public class UserDAO extends BaseHibernateDAO<User> implements IUserDAO {
 			return null;
 	}
 
+	public boolean saveOrUpdateUser(User u) {
+		boolean flag = false;
+		try {
+			
+			getSession().saveOrUpdate(u);
+			getSession().flush();
+			flag=true;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return flag;
+	}
+
+	@Override
+	public User loadUser(Integer uid) {
+		// TODO Auto-generated method stub
+		return (User) getSession().load(User.class,uid);
+	}
 }

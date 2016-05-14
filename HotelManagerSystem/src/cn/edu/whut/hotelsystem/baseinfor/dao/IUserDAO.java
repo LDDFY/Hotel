@@ -5,6 +5,8 @@ import cn.edu.whut.hotelsystem.baseinfor.vo.User;
 
 public interface IUserDAO {
 
+	public User loadUser(Integer uid);
+
 	public User Login(String uname, String upwd);
 
 	public boolean saveUser(User transientInstance);
@@ -43,4 +45,5 @@ public interface IUserDAO {
 
 	public List<User> findByMoney(Object money);
 
+	public boolean saveOrUpdateUser(User u);
 }

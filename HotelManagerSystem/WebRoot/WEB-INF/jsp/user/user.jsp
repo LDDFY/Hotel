@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -184,6 +185,12 @@
 							onclick="mySelectUpdate()"> <span class="newsletter-icon"></span>
 								我的信箱 </a>
 						</li>
+						<c:if test="${user.level>0}">
+						<li><a href="backManage.do" 
+							onclick="mySelectUpdate()"> <span class="settings-icon"></span>
+								后台管理 </a>
+						</li>
+						</c:if>
 					</ul>
 					<div class="clearfix"></div>
 				</div>
