@@ -234,14 +234,14 @@
 							<div class="w50percent">
 								<div class="wh90percent textleft">
 									<span class="opensans size13"><b>选择入住时间</b></span>
-									<input type="text" class="form-control mySelectCalendar" id="datepicker" placeholder="mm/dd/yyyy"/>
+									<input type="text" class="form-control mySelectCalendar" id="datepicker" name="checkInData" placeholder="mm/dd/yyyy"/>
 								</div>
 							</div>
 
 							<div class="w50percentlast">
 								<div class="wh90percent textleft right">
 									<span class="opensans size13"><b>选择退房时间</b></span>
-									<input type="text" class="form-control mySelectCalendar" id="datepicker2" placeholder="mm/dd/yyyy"/>
+									<input type="text" class="form-control mySelectCalendar" id="datepicker2" name="checkOutData" placeholder="mm/dd/yyyy"/>
 								</div>
 							</div>
 							
@@ -391,8 +391,14 @@
 			</div>
 			<div class="col-md-4">
 				<div class="shadow cstyle05">
-					<div class="fwi one"><img src="${pageContext.request.contextPath}/resourse/images/surfer.jpg" alt="" /><div class="mhover none"><span class="icon"><a href="${pageContext.request.contextPath}/resourse/list3.html"><img src="${pageContext.request.contextPath}/resourse/images/spacer.png" alt=""/></a></span></div></div>
-					<div class="ctitle">Cote d'azur<a href="${pageContext.request.contextPath}/resourse/list3.html"><img src="${pageContext.request.contextPath}/resourse/images/spacer.png" alt=""/></a>
+					<div class="fwi one"><img src="${pageContext.request.contextPath}/resourse/images/surfer.jpg" alt="" />
+					<div class="mhover none">
+						<span class="icon">
+						<a href="#"><img src="${pageContext.request.contextPath}/resourse/images/spacer.png" alt=""/></a>
+						</span>
+					</div>
+					</div>
+					<div class="ctitle">Cote d'azur<a href="#"><img src="${pageContext.request.contextPath}/resourse/images/spacer.png" alt=""/></a>
 						<span>$59.99</span>
 					</div>
 				</div>			

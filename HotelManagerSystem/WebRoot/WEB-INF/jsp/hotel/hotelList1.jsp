@@ -129,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<!-- TOP TIP -->
 				<div class="filtertip">
 					<div class="padding20">
-						<p class="size13"><span class="size18 bold counthotel">53</span> 家酒店起价为</p>
+						<p class="size13"><span class="size18 bold counthotel">${count }</span> 家酒店起价为</p>
 						<p class="size30 bold">$<span class="countprice"></span></p>
 						<p class="size13">查看这些或 <a href="#">查看全部</a></p>
 					</div>
@@ -142,21 +142,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<!-- HOTELS TAB -->
 						<div class="hotelstab2 none">
 							<span class="opensans size13">您想去哪?</span>
-							<input type="text" class="form-control" placeholder="Greece">
+							<input type="text" class="form-control" placeholder="请选择目的地" id="hcity" value="${hcity }">
 							
 							<div class="clearfix pbottom15"></div>
 							
 							<div class="w50percent">
 								<div class="wh90percent textleft">
 									<span class="opensans size13">选择到达时间</span>
-									<input type="text" class="form-control mySelectCalendar" id="datepicker" placeholder="mm/dd/yyyy"/>
+									<input type="text" class="form-control mySelectCalendar" id="datepicker" name="checkInData" placeholder="mm/dd/yyyy" value="${checkInData }"/>
 								</div>
 							</div>
 
 							<div class="w50percentlast">
 								<div class="wh90percent textleft right">
 									<span class="opensans size13">选择离开时间</span>
-									<input type="text" class="form-control mySelectCalendar" id="datepicker2" placeholder="mm/dd/yyyy"/>
+									<input type="text" class="form-control mySelectCalendar" id="datepicker2" name="checkOutData" placeholder="mm/dd/yyyy" value="${checkOutData }"/>
 								</div>
 							</div>
 							
@@ -473,11 +473,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 						<div class="col-md-4 offset-0">
 							<button class="popularbtn left">最受欢迎</button>
-							<div class="right">
-								<button class="gridbtn" onClick="window.open('list2.html','_self');">&nbsp;</button>
-								<button class="listbtn active">&nbsp;</button>
-								<button class="grid2btn" onClick="window.open('list3.html','_self');">&nbsp;</button>
-							</div>
 						</div>
 					</div>
 					<!-- End of topfilters-->
@@ -507,9 +502,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<span class="size11 grey">${hotelLists.reviews } 人浏览</span><br/><br/>
 									<span class="green size18"><b>${hotelLists.avgprice }RMB</b></span><br/>
 									<span class="size11 grey">平均每晚</span><br/><br/><br/>
-									<form action="details.html">
-									 <button class="bookbtn mt1" type="submit">预订</button>	
-									</form>			
+									<button class="bookbtn mt1" type="submit">预订</button>	
 								</div>
 								<div class="labelleft2">			
 									<b>${hotelLists.hname }</b><br/><br/><br/>
@@ -530,10 +523,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 						</div>
 					</div>
-					</c:forEach>
-
 					<div class="clearfix"></div>
 					<div class="offset-2"><hr class="featurette-divider3"></div>
+					</c:forEach>
+					
 				</div>	
 				<!-- End of offset1-->		
 

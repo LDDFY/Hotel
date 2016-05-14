@@ -109,5 +109,4 @@ public class RoomDAO extends BaseHibernateDAO<Room> implements IRoomDAO {
 		return attachClean(instance);
 	}
 
-	
 }
