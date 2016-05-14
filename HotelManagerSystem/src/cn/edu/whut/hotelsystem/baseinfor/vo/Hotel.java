@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -33,6 +35,7 @@ public class Hotel implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer hid;
+	private User user;
 	private String hname;
 	private String hemail;
 	private String htel;
@@ -58,11 +61,13 @@ public class Hotel implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Hotel(String hname, String hemail, String htel, String hprovince,
-			String hcity, String haddr, Integer grand, Float guestratings,
-			Integer reviews, String summary, String imagepath,
-			Integer browsenumber, Float avgprice, Set<Room> rooms,
-			Set<Evaluation> evaluations, Set<News> newses, Set<Olist> olists) {
+	public Hotel(User user, String hname, String hemail, String htel,
+			String hprovince, String hcity, String haddr, Integer grand,
+			Float guestratings, Integer reviews, String summary,
+			String imagepath, Integer browsenumber, Float avgprice,
+			Set<Room> rooms, Set<Evaluation> evaluations, Set<News> newses,
+			Set<Olist> olists) {
+		this.user = user;
 		this.hname = hname;
 		this.hemail = hemail;
 		this.htel = htel;
@@ -92,6 +97,16 @@ public class Hotel implements java.io.Serializable {
 
 	public void setHid(Integer hid) {
 		this.hid = hid;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "managerid")
+	public User getUser() {
+		return this.user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Column(name = "hname", length = 50)
@@ -139,7 +154,7 @@ public class Hotel implements java.io.Serializable {
 		this.hcity = hcity;
 	}
 
-	@Column(name = "haddr", length = 20)
+	@Column(name = "haddr", length = 200)
 	public String getHaddr() {
 		return this.haddr;
 	}
@@ -175,7 +190,7 @@ public class Hotel implements java.io.Serializable {
 		this.reviews = reviews;
 	}
 
-	@Column(name = "summary", length = 500)
+	@Column(name = "summary", length = 20000)
 	public String getSummary() {
 		return this.summary;
 	}
@@ -184,7 +199,7 @@ public class Hotel implements java.io.Serializable {
 		this.summary = summary;
 	}
 
-	@Column(name = "imagepath", length = 50)
+	@Column(name = "imagepath", length = 200)
 	public String getImagepath() {
 		return this.imagepath;
 	}

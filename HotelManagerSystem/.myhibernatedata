@@ -1,5 +1,5 @@
 #MyEclipse Hibernate Properties
-#Tue May 10 18:30:34 CST 2016
+#Sat May 14 19:17:58 CST 2016
 genBasicCompId=true
 sessionFactoryName=.HibernateSessionFactory
 profile=
@@ -15,7 +15,6 @@ genVersionTag=false
 sessionFactoryId=sessionFactory
 basePersistenceClass=
 genAnnotations=true
-reSettingsFile=
+reSettingsFile=/HotelManagerSystem/hibernate.reveng.xml
 configFile=/SpringMVCTest/src/applicationContext.xml
 createConfigFile=true
-baseDaoClass=cn.edu.whut.hotelsystem.basedao.BaseHibernateDAO

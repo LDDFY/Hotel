@@ -1,15 +1,13 @@
 package cn.edu.whut.hotelsystem.managesystem.ordermanage.vo;
 
-import java.sql.Time;
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-
-import static javax.persistence.GenerationType.IDENTITY;
-
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -35,14 +33,15 @@ public class Olist implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer oid;
-	private User user;
+	private User userByUid;
 	private Room room;
+	private User userByOdealid;
 	private Hotel hotel;
 	private Date indate;
 	private String inmemo;
 	private Integer innumber;
 	private Integer inday;
-	private Time outdate;
+	private Date outdate;
 	private Float ammount;
 	private String odeal;
 
@@ -53,11 +52,12 @@ public class Olist implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Olist(User user, Room room, Hotel hotel, Date indate, String inmemo,
-			Integer innumber, Integer inday, Time outdate, Float ammount,
-			String odeal) {
-		this.user = user;
+	public Olist(User userByUid, Room room, User userByOdealid, Hotel hotel,
+			Date indate, String inmemo, Integer innumber, Integer inday,
+			Date outdate, Float ammount, String odeal) {
+		this.userByUid = userByUid;
 		this.room = room;
+		this.userByOdealid = userByOdealid;
 		this.hotel = hotel;
 		this.indate = indate;
 		this.inmemo = inmemo;
@@ -82,12 +82,12 @@ public class Olist implements java.io.Serializable {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "uid")
-	public User getUser() {
-		return this.user;
+	public User getUserByUid() {
+		return this.userByUid;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserByUid(User userByUid) {
+		this.userByUid = userByUid;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -98,6 +98,16 @@ public class Olist implements java.io.Serializable {
 
 	public void setRoom(Room room) {
 		this.room = room;
+	}
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "odealid")
+	public User getUserByOdealid() {
+		return this.userByOdealid;
+	}
+
+	public void setUserByOdealid(User userByOdealid) {
+		this.userByOdealid = userByOdealid;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -147,12 +157,13 @@ public class Olist implements java.io.Serializable {
 		this.inday = inday;
 	}
 
-	@Column(name = "outdate", length = 8)
-	public Time getOutdate() {
+	@Temporal(TemporalType.DATE)
+	@Column(name = "outdate", length = 10)
+	public Date getOutdate() {
 		return this.outdate;
 	}
 
-	public void setOutdate(Time outdate) {
+	public void setOutdate(Date outdate) {
 		this.outdate = outdate;
 	}
 

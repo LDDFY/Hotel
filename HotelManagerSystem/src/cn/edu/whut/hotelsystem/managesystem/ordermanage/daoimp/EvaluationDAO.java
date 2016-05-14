@@ -11,13 +11,14 @@ import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Evaluation;
 
 @Transactional
 @Repository
-public class EvaluationDAO extends BaseHibernateDAO<Evaluation> implements IEvaluationDAO{
-	
+public class EvaluationDAO extends BaseHibernateDAO<Evaluation> implements
+		IEvaluationDAO {
+
 	public static final String UNAME = "uname";
 	public static final String CONTENT = "content";
 
+	public static final String STAR = "star";
 
-	
 	public EvaluationDAO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -29,6 +30,10 @@ public class EvaluationDAO extends BaseHibernateDAO<Evaluation> implements IEval
 
 	public List<Evaluation> findByContent(Object content) {
 		return findByProperty(CONTENT, content);
+	}
+
+	public List<Evaluation> findByStar(Object star) {
+		return findByProperty(STAR, star);
 	}
 
 	@Override
@@ -86,5 +91,4 @@ public class EvaluationDAO extends BaseHibernateDAO<Evaluation> implements IEval
 		return attachClean(instance);
 	}
 
-	
 }

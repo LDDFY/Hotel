@@ -41,6 +41,25 @@ public class Room implements java.io.Serializable {
 	private String rpattern;
 	private Short customs;
 	private String rstatus;
+	
+	private Integer total;
+	private Integer available;
+	public Integer getTotal() {
+		return total;
+	}
+
+	public void setTotal(Integer total) {
+		this.total = total;
+	}
+
+	public Integer getAvailable() {
+		return available;
+	}
+
+	public void setAvailable(Integer available) {
+		this.available = available;
+	}
+
 	private Set<Olist> olists = new HashSet<Olist>(0);
 
 	// Constructors
