@@ -14,33 +14,33 @@
 	<title>Travel Agency - HTML5 Booking template</title>
 	
     <!-- Bootstrap -->
-    <link href="resourse/dist/css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="resourse/assets/css/custom.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/resourse/dist/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/resourse/assets/css/custom.css" rel="stylesheet" media="screen">
 
     <!-- Carousel -->
-	<link href="resourse/examples/carousel/carousel.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resourse/examples/carousel/carousel.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="resourse/assets/js/html5shiv.js"></script>
-      <script src="resourse/assets/js/respond.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resourse/assets/js/html5shiv.js"></script>
+      <script src="${pageContext.request.contextPath}/resourse/assets/js/respond.min.js"></script>
     <![endif]-->
 	
     <!-- Fonts -->	
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,400,300,300italic' rel='stylesheet' type='text/css'>	
 	<!-- Font-Awesome -->
-    <link rel="stylesheet" type="text/css" href="resourse/assets/css/font-awesome.css" media="screen" />
-    <!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="resourse/assets/css/font-awesome-ie7.css" media="screen" /><![endif]-->
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resourse/assets/css/font-awesome.css" media="screen" />
+    <!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resourse/assets/css/font-awesome-ie7.css" media="screen" /><![endif]-->
 	
     <!-- REVOLUTION BANNER CSS SETTINGS -->
-    <link rel="stylesheet" type="text/css" href="resourse/css/fullscreen.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="resourse/rs-plugin/css/settings.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resourse/css/fullscreen.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resourse/rs-plugin/css/settings.css" media="screen" />
 
     <!-- Picker UI-->	
-	<link rel="stylesheet" href="resourse/assets/css/jquery-ui.css" />		
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resourse/assets/css/jquery-ui.css" />		
 	
     <!-- jQuery -->	
-    <script src="resourse/assets/js/jquery.v2.0.3.js"></script>
+    <script src="${pageContext.request.contextPath}/resourse/assets/js/jquery.v2.0.3.js"></script>
     
   </head>
   <body id="top">
@@ -58,7 +58,7 @@
 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
 				</button>
-				<a href="resourse/index.html" class="navbar-brand"><img src="resourse/images/logo.png" alt="Travel Agency Logo" class="logo"/></a>
+				<a href="${pageContext.request.contextPath}/resourse/index.html" class="navbar-brand"><img src="${pageContext.request.contextPath}/resourse/images/logo.png" alt="Travel Agency Logo" class="logo"/></a>
 			  </div>
 			  <div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
@@ -100,7 +100,7 @@
 				
 					<!-- FADE -->
 					<li data-transition="fade" data-slotamount="1" data-masterspeed="300"> 										
-						<img src="resourse/images/slider/rome.jpg" alt=""/>
+						<img src="${pageContext.request.contextPath}/resourse/images/slider/rome.jpg" alt=""/>
 						<div class="tp-caption scrolleffect sft"
 							 data-x="center"
 							 data-y="120"
@@ -111,7 +111,7 @@
 
 					<!-- FADE -->
 					<li data-transition="fade" data-slotamount="1" data-masterspeed="300"> 										
-						<img src="resourse/images/slider/paris.jpg" alt=""/>
+						<img src="${pageContext.request.contextPath}/resourse/images/slider/paris.jpg" alt=""/>
 						<div class="tp-caption scrolleffect sft"
 							 data-x="center"
 							 data-y="120"
@@ -122,7 +122,7 @@
 					
 					<!-- FADE -->
 					<li data-transition="fade" data-slotamount="1" data-masterspeed="300"> 							
-						<img src="resourse/images/slider/santorini.jpg" alt=""/>
+						<img src="${pageContext.request.contextPath}/resourse/images/slider/santorini.jpg" alt=""/>
 						<div class="tp-caption scrolleffect sft"
 							 data-x="center"
 							 data-y="120"
@@ -209,22 +209,18 @@
 		});
 		</script>
 		
-
-		
-
-
-
 	<!-- WRAP -->
 	<div class="wrap cstyle03">
 		
 		<div class="container mt-200 z-index100">		
 		  <div class="row">
 			<div class="col-md-4">
+				<form action="hotelListUI">
 				<div class="bs-example bs-example-tabs cstyle04">
 				
 					<ul class="nav nav-tabs" id="myTab">
 						<li onclick="mySelectUpdate()" class="active">
-							<a data-toggle="tab" href="resourse/#hotel"><span class="hotel"></span>宾馆</a>
+							<a data-toggle="tab" href="#hotel"><span class="hotel"></span>宾馆</a>
 						</li>
 					</ul>
 					
@@ -233,8 +229,7 @@
 						<div id="hotel"  class="tab-pane fade active in">
 
 							<span class="opensans size18">您想去哪里?</span>
-							<input type="text" class="form-control" placeholder="Greece">
-							
+							<input type="text" class="form-control" placeholder="请选择目的地" id="hcity" name="hcity"/>
 							<br/>
 							
 							<div class="w50percent">
@@ -258,7 +253,7 @@
 									<div class="wh90percent textleft">
 										<span class="opensans size13"><b>房间 1</b></span><br/>
 										
-										<div class="addroom1 block"><a href="resourse/#room2" onclick="addroom2()" class="grey">+ 添加房间</a></div>
+										<div class="addroom1 block"><a href="#room2" onclick="addroom2()" class="grey">+ 添加房间</a></div>
 									</div>
 								</div>
 
@@ -298,7 +293,7 @@
 								<div class="w50percent">
 									<div class="wh90percent textleft">
 										<span class="opensans size13"><b>房间 2</b></span><br/>
-										<div class="addroom2 block grey"><a href="#" onclick="addroom3()" class="grey">+ 添加房间</a> | <a href="#" onclick="removeroom2()" class="orange"><img src="resourse/images/delete.png" alt="delete"/></a></div>
+										<div class="addroom2 block grey"><a href="#" onclick="addroom3()" class="grey">+ 添加房间</a> | <a href="#" onclick="removeroom2()" class="orange"><img src="${pageContext.request.contextPath}/resourse/images/delete.png" alt="delete"/></a></div>
 									</div>
 								</div>
 
@@ -338,7 +333,7 @@
 								<div class="w50percent">
 									<div class="wh90percent textleft">
 										<span class="opensans size13"><b>房间 3</b></span><br/>
-										<div class="addroom3 block grey"><a href="#" onclick="addroom3()" class="grey">+ 添加房间</a> | <a href="#" onclick="removeroom3()" class="orange"><img src="resourse/images/delete.png" alt="delete"/></a></div>
+										<div class="addroom3 block grey"><a href="#" onclick="addroom3()" class="grey">+ 添加房间</a> | <a href="#" onclick="removeroom3()" class="orange"><img src="${pageContext.request.contextPath}/resourse/images/delete.png" alt="delete"/></a></div>
 									</div>
 								</div>
 
@@ -376,29 +371,29 @@
 						
 						</div>
 						<!--End of 2nd tab -->
-						
 					</div>
 					
 					<div class="searchbg">
-						<form action="list4.html">
+						
 						<button type="submit" class="btn-search">查询</button>
-						</form>
+					
 					</div>
 						
 				</div>
+				</form>
 			</div>
 			<div class="col-md-4">
 				<div class="shadow cstyle05">
-					<div class="fwi one"><img src="resourse/images/rome.jpg" alt="" /><div class="mhover none"><span class="icon"><a href="resourse/list4.html"><img src="resourse/images/spacer.png" alt=""/></a></span></div></div>
-					<div class="ctitle">Rome<a href="resourse/list4.html"><img src="resourse/images/spacer.png" alt=""/></a>
+					<div class="fwi one"><img src="${pageContext.request.contextPath}/resourse/images/rome.jpg" alt="" /><div class="mhover none"><span class="icon"><a href="${pageContext.request.contextPath}/resourse/list4.html"><img src="${pageContext.request.contextPath}/resourse/images/spacer.png" alt=""/></a></span></div></div>
+					<div class="ctitle">Rome<a href="${pageContext.request.contextPath}/resourse/list4.html"><img src="${pageContext.request.contextPath}/resourse/images/spacer.png" alt=""/></a>
 						<span>$59.99</span>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="shadow cstyle05">
-					<div class="fwi one"><img src="resourse/images/surfer.jpg" alt="" /><div class="mhover none"><span class="icon"><a href="resourse/list3.html"><img src="resourse/images/spacer.png" alt=""/></a></span></div></div>
-					<div class="ctitle">Cote d'azur<a href="resourse/list3.html"><img src="resourse/images/spacer.png" alt=""/></a>
+					<div class="fwi one"><img src="${pageContext.request.contextPath}/resourse/images/surfer.jpg" alt="" /><div class="mhover none"><span class="icon"><a href="${pageContext.request.contextPath}/resourse/list3.html"><img src="${pageContext.request.contextPath}/resourse/images/spacer.png" alt=""/></a></span></div></div>
+					<div class="ctitle">Cote d'azur<a href="${pageContext.request.contextPath}/resourse/list3.html"><img src="${pageContext.request.contextPath}/resourse/images/spacer.png" alt=""/></a>
 						<span>$59.99</span>
 					</div>
 				</div>			
@@ -411,14 +406,14 @@
 			<div class="container">		
 				<footer>
 					<div class="footer">
-						<a href="#" class="social1"><img src="resourse/images/icon-facebook.png" alt=""/></a>
-						<a href="#" class="social2"><img src="resourse/images/icon-twitter.png" alt=""/></a>
-						<a href="#" class="social3"><img src="resourse/images/icon-gplus.png" alt=""/></a>
-						<a href="#" class="social4"><img src="resourse/images/icon-youtube.png" alt=""/></a>
+						<a href="#" class="social1"><img src="${pageContext.request.contextPath}/resourse/images/icon-facebook.png" alt=""/></a>
+						<a href="#" class="social2"><img src="${pageContext.request.contextPath}/resourse/images/icon-twitter.png" alt=""/></a>
+						<a href="#" class="social3"><img src="${pageContext.request.contextPath}/resourse/images/icon-gplus.png" alt=""/></a>
+						<a href="#" class="social4"><img src="${pageContext.request.contextPath}/resourse/images/icon-youtube.png" alt=""/></a>
 						<br/><br/>
 						Copyright &copy; 2013 <a href="#">Travel Agency</a> All rights reserved. 
 						<br/><br/>
-						<a href="#top" id="gotop2" class="gotop"><img src="resourse/images/spacer.png" alt=""/></a>
+						<a href="#top" id="gotop2" class="gotop"><img src="${pageContext.request.contextPath}/resourse/images/spacer.png" alt=""/></a>
 					</div>
 				</footer>
 			</div>	
@@ -437,35 +432,35 @@
     <!-- Javascript -->
 	
     <!-- This page JS -->
-	<script src="resourse/assets/js/js-index3.js"></script>	
+	<script src="${pageContext.request.contextPath}/resourse/assets/js/js-index3.js"></script>	
 	
     <!-- Custom functions -->
-    <script src="resourse/assets/js/functions.js"></script>
+    <script src="${pageContext.request.contextPath}/resourse/assets/js/functions.js"></script>
 	
     <!-- Picker UI-->	
-	<script src="resourse/assets/js/jquery-ui.js"></script>		
+	<script src="${pageContext.request.contextPath}/resourse/assets/js/jquery-ui.js"></script>		
 	
 	<!-- Easing -->
-    <script src="resourse/assets/js/jquery.easing.js"></script>
+    <script src="${pageContext.request.contextPath}/resourse/assets/js/jquery.easing.js"></script>
 	
     <!-- jQuery KenBurn Slider  -->
-    <script type="text/javascript" src="resourse/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resourse/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 	
    <!-- Nicescroll  -->	
-	<script src="resourse/assets/js/jquery.nicescroll.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resourse/assets/js/jquery.nicescroll.min.js"></script>
 	
     <!-- CarouFredSel -->
-    <script src="resourse/assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
-    <script src="resourse/assets/js/helper-plugins/jquery.touchSwipe.min.js"></script>
-	<script type="text/javascript" src="resourse/assets/js/helper-plugins/jquery.mousewheel.min.js"></script>
-	<script type="text/javascript" src="resourse/assets/js/helper-plugins/jquery.transit.min.js"></script>
-	<script type="text/javascript" src="resourse/assets/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resourse/assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+    <script src="${pageContext.request.contextPath}/resourse/assets/js/helper-plugins/jquery.touchSwipe.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resourse/assets/js/helper-plugins/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resourse/assets/js/helper-plugins/jquery.transit.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resourse/assets/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
 	
     <!-- Custom Select -->
-	<script type="text/javascript" src="resourse/assets/js/jquery.customSelect.js"></script>	
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resourse/assets/js/jquery.customSelect.js"></script>	
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="resourse/dist/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resourse/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
 
