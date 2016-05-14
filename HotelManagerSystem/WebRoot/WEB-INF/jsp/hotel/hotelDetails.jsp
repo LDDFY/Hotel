@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  <div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
 				  <li class="dropdown active"><a href="index.html">首页</a></li>
-				  <li><a href="list4.html">宾馆</a></li>
+				  <li><a href="hotelListUI">宾馆</a></li>
 				  <li><a href="newsPage.html">新闻</a></li>			  			  
 				  <li><a href="about.html">关于我们</a></li>		  			  
 				  <li style="display:${user.uname==null?"":'none'}"><a href="loginUI">登录</a></li>
@@ -105,11 +105,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="left">
 				<ul class="bcrumbs">
 					<li>/</li>
-					<li><a href="#">Hotels</a></li>
+					<li><a href="hotelListUI">宾馆</a></li>
 					<li>/</li>
-					<li><a href="#">U.S.A.</a></li>
-					<li>/</li>					
-					<li><a href="#" class="active">New York</a></li>					
+					<li><a href="#">宾馆详情</a></li>
 				</ul>				
 			</div>
 			<a class="backbtn right" href="#"></a>
@@ -156,10 +154,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		</div> <!-- /c-carousel -->
 			
-			
-			
-			
-			
 			</div>
 			<!-- END OF SLIDER -->			
 			
@@ -189,7 +183,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				<div class="col-md-6 bordertype3">
 					<img src="resourse/images/user-rating-4.png" alt=""/><br/>
-					18 reviews
+					18 人浏览
 				</div>
 				<div class="col-md-6 bordertype3">
 					<a href="#" class="grey">+Add review</a>
@@ -198,7 +192,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				<div class="hpadding20">
 					<a href="#" class="add2fav margtop5">Add to favourite</a>
-					<a href="#" class="booknow margtop20 btnmarg">Book now</a>
+					<a href="#" class="booknow margtop20 btnmarg">现在预订</a>
 				</div>
 			</div>
 			<!-- END OF RIGHT INFO -->
@@ -212,11 +206,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="cstyle10"></div>
 		
 				<ul class="nav nav-tabs" id="myTab">
-					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#summary"><span class="summary"></span><span class="hidetext">Summary</span>&nbsp;</a></li>
-					<li onclick="mySelectUpdate()" class="active"><a data-toggle="tab" href="#roomrates"><span class="rates"></span><span class="hidetext">Room rates</span>&nbsp;</a></li>
-					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#preferences"><span class="preferences"></span><span class="hidetext">Preferences</span>&nbsp;</a></li>
-					<li onclick="loadScript()" class=""><a data-toggle="tab" href="#maps"><span class="maps"></span><span class="hidetext">Maps</span>&nbsp;</a></li>
-					<li onclick="mySelectUpdate(); trigerJslider(); trigerJslider2(); trigerJslider3(); trigerJslider4(); trigerJslider5(); trigerJslider6();" class=""><a data-toggle="tab" href="#reviews"><span class="reviews"></span><span class="hidetext">Reviews</span>&nbsp;</a></li>
+					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#summary"><span class="summary"></span><span class="hidetext">概要</span>&nbsp;</a></li>
+					<li onclick="mySelectUpdate()" class="active"><a data-toggle="tab" href="#roomrates"><span class="rates"></span><span class="hidetext">房间价格</span>&nbsp;</a></li>
+					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#preferences"><span class="preferences"></span><span class="hidetext">设施</span>&nbsp;</a></li>
+					<li onclick="loadScript()" class=""><a data-toggle="tab" href="#maps"><span class="maps"></span><span class="hidetext">地图</span>&nbsp;</a></li>
+					<li onclick="mySelectUpdate(); trigerJslider(); trigerJslider2(); trigerJslider3(); trigerJslider4(); trigerJslider5(); trigerJslider6();" class=""><a data-toggle="tab" href="#reviews"><span class="reviews"></span><span class="hidetext">评论</span>&nbsp;</a></li>
 					<li onclick="mySelectUpdate()" class=""><a data-toggle="tab" href="#thingstodo"><span class="thingstodo"></span><span class="hidetext">Things to do</span>&nbsp;</a></li>
 
 				</ul>			
@@ -230,7 +224,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						
 						<!-- Collapse 1 -->	
 						<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse1">
-						  Malaga <span class="collapsearrow"></span>
+						  马拉加 <span class="collapsearrow"></span>
 						</button>
 						
 						<div id="collapse1" class="collapse in">
@@ -260,7 +254,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						
 						<!-- Collapse 3 -->	
 						<button type="button" class="collapsebtn2 collapsed" data-toggle="collapse" data-target="#collapse3">
-						  Complimentary Wi-Fi <span class="collapsearrow"></span>
+						  免费的 Wi-Fi <span class="collapsearrow"></span>
 						</button>
 						
 						<div id="collapse3" class="collapse">
@@ -275,7 +269,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						
 						<!-- Collapse 4 -->	
 						<button type="button" class="collapsebtn2 collapsed" data-toggle="collapse" data-target="#collapse4">
-						  Internet <span class="collapsearrow"></span>
+						  互联网 <span class="collapsearrow"></span>
 						</button>
 						
 						<div id="collapse4" class="collapse">
@@ -290,7 +284,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 						<!-- Collapse 5 -->	
 						<button type="button" class="collapsebtn2 collapsed" data-toggle="collapse" data-target="#collapse5">
-						  Parking <span class="collapsearrow"></span>
+						  停车场 <span class="collapsearrow"></span>
 						</button>
 						
 						<div id="collapse5" class="collapse">
@@ -305,33 +299,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 						<!-- Collapse 6 -->	
 						<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse6">
-						  Room Amenities <span class="collapsearrow"></span>
+						  房间设施 <span class="collapsearrow"></span>
 						</button>
 						
 						<div id="collapse6" class="collapse in">
 							<div class="hpadding20">
 								<div class="col-md-4">
 									<ul class="checklist">
-										<li>Climate control</li>
-										<li>Air conditioning</li>
-										<li>Direct-dial phone</li>
-										<li>Minibar</li>
+										<li>温度控制</li>
+										<li>空调</li>
+										<li>电话</li>
+										<li>小酒吧</li>
 									</ul>
 								</div>
 								<div class="col-md-4">
 									<ul class="checklist">
-										<li>Wake-up calls</li>
-										<li>Daily housekeeping</li>
-										<li>Private bathroom</li>
-										<li>Hair dryer</li>	
+										<li>叫醒电话</li>
+										<li>日常家务</li>
+										<li>专用浴室</li>
+										<li>吹风机</li>	
 									</ul>									
 								</div>	
 								<div class="col-md-4">
 									<ul class="checklist">								
-										<li>Makeup/shaving mirror</li>
-										<li>Shower/tub combination</li>
-										<li>Satellite TV service</li>
-										<li>Electronic/magnetic keys</li>	
+										<li>化妆/剃须镜</li>
+										<li>淋浴/浴缸组合</li>
+										<li>卫星电视服务</li>
+										<li>电子/磁性钥匙</li>	
 									</ul>									
 								</div>									
 							</div>
@@ -343,18 +337,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<!-- TAB 2 -->
 					<div id="roomrates" class="tab-pane fade active in">
 					    <div class="hpadding20">
-							<p class="dark">Your travel rates</p>
+							<p class="dark">您的旅行计划</p>
 							<div class="col-md-4 offset-0">
 								<div class="w50percent">
 									<div class="wh90percent textleft">
-										<span class="opensans size13"><b>Check in</b></span>
+										<span class="opensans size13"><b>登记入住</b></span>
 										<input type="text" class="form-control mySelectCalendar" id="datepicker" placeholder="mm/dd/yyyy"/>
 									</div>
 								</div>
 
 								<div class="w50percentlast">
 									<div class="wh90percent textleft right">
-										<span class="opensans size13"><b>Check out</b></span>
+										<span class="opensans size13"><b>退房时间</b></span>
 										<input type="text" class="form-control mySelectCalendar" id="datepicker2" placeholder="mm/dd/yyyy"/>
 									</div>
 								</div>
@@ -364,7 +358,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<div class="room1" >
 										<div class="w50percent">
 											<div class="wh90percent textleft">
-												<span class="opensans size13"><b>ROOM 1</b></span><br/>
+												<span class="opensans size13"><b>房间 1</b></span><br/>
 												
 												<div class="addroom1 block"><a onclick="addroom2()" class="grey cpointer">+ Add room</a></div>
 											</div>
@@ -374,7 +368,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<div class="wh90percent textleft right ohidden">
 												<div class="w50percent">
 													<div class="wh90percent textleft left">
-														<span class="opensans size13"><b>Adult</b></span>
+														<span class="opensans size13"><b>成年人</b></span>
 														<select class="form-control mySelectBoxClass">
 														  <option>1</option>
 														  <option selected>2</option>
@@ -386,7 +380,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												</div>							
 												<div class="w50percentlast">
 													<div class="wh90percent textleft right ohidden">
-													<span class="opensans size13"><b>Child</b></span>
+													<span class="opensans size13"><b>小孩</b></span>
 														<select class="form-control mySelectBoxClass">
 														  <option>0</option>
 														  <option selected>1</option>
@@ -405,7 +399,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<div class="clearfix"></div><div class="line1"></div>
 										<div class="w50percent">
 											<div class="wh90percent textleft">
-												<span class="opensans size13"><b>ROOM 2</b></span><br/>
+												<span class="opensans size13"><b>房间 2</b></span><br/>
 												<div class="addroom2 block grey"><a onclick="addroom3()" class="grey cpointer">+ Add room</a> | <a onclick="removeroom2()" class="orange cpointer"><img src="resourse/images/delete.png" alt="delete"/></a></div>
 											</div>
 										</div>
@@ -414,7 +408,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<div class="wh90percent textleft right">
 												<div class="w50percent">
 													<div class="wh90percent textleft left">
-														<span class="opensans size13"><b>Adult</b></span>
+														<span class="opensans size13"><b>成人</b></span>
 														<select class="form-control mySelectBoxClass">
 														  <option>1</option>
 														  <option>2</option>
@@ -426,7 +420,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												</div>							
 												<div class="w50percentlast">
 													<div class="wh90percent textleft right">
-													<span class="opensans size13"><b>Child</b></span>
+													<span class="opensans size13"><b>孩子</b></span>
 														<select class="form-control mySelectBoxClass">
 														  <option selected>0</option>
 														  <option>1</option>
@@ -445,7 +439,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<div class="clearfix"></div><div class="line1"></div>
 										<div class="w50percent">
 											<div class="wh90percent textleft">
-												<span class="opensans size13"><b>ROOM 3</b></span><br/>
+												<span class="opensans size13"><b>房间 3</b></span><br/>
 												<div class="addroom3 block grey"><a onclick="addroom3()" class="grey cpointer">+ Add room</a> | <a onclick="removeroom3()" class="orange cpointer"><img src="resourse/images/delete.png" alt="delete"/></a></div>
 											</div>
 										</div>
@@ -454,7 +448,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											<div class="wh90percent textleft right">
 												<div class="w50percent">
 													<div class="wh90percent textleft left">
-														<span class="opensans size13"><b>Adult</b></span>
+														<span class="opensans size13"><b>成人</b></span>
 														<select class="form-control mySelectBoxClass">
 														  <option selected>1</option>
 														  <option>2</option>
@@ -466,7 +460,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												</div>							
 												<div class="w50percentlast">
 													<div class="wh90percent textleft right">
-													<span class="opensans size13"><b>Child</b></span>
+													<span class="opensans size13"><b>孩子</b></span>
 														<select class="form-control mySelectBoxClass">
 														  <option selected>0</option>
 														  <option>1</option>
@@ -483,14 +477,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</div>
 								
 								<div class="col-md-4 center offset-0">
-									<button class="updatebtn caps center margtop20">Update</button>
+									<button class="updatebtn caps center margtop20">更新</button>
 								</div>
 							</div>
 							<div class="clearfix"></div>
 						</div>
 						<br/>
 						
-						<p class="hpadding20 dark">Room type</p>
+						<p class="hpadding20 dark">房间种类</p>
 						
 						<div class="line2"></div>
 						
@@ -642,7 +636,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						
 						<!-- Collapse 7 -->	
 						<button type="button" class="collapsebtn2" data-toggle="collapse" data-target="#collapse7">
-						  Hotel facilities <span class="collapsearrow"></span>
+						  酒店设施 <span class="collapsearrow"></span>
 						</button>
 						
 						<div id="collapse7" class="collapse in">
@@ -662,16 +656,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<li class="icohp-hairdryer"></li>
 									</ul>
 									<ul class="hpref-text left">
-										<li>High-speed Internet</li>
-										<li>Air conditioning</li>
-										<li>Swimming pool</li>
-										<li>Childcare</li>
-										<li>Fitness equipment</li>
-										<li>Free breakfast</li>
-										<li>Free parking</li>
-										<li>Pets allowed</li>
-										<li>Spa services on site</li>
-										<li>Hair dryer</li>
+										<li>高速互联网</li>
+										<li>空调</li>
+										<li>游泳池</li>
+										<li>儿童托管</li>
+										<li>健身器材</li>
+										<li>免费早餐</li>
+										<li>免费停车场</li>
+										<li>允许携带宠物</li>
+										<li>谁料服务</li>
+										<li>吹风机</li>
 									</ul>
 								</div>
 
@@ -690,16 +684,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<li class="icohp-roomservice"></li>
 									</ul>
 									<ul class="hpref-text left">
-										<li>Courtyard garden</li>
-										<li>Grill / Barbecue</li>
-										<li>Kitchen</li>
-										<li>Bar</li>
-										<li>Living</li>
-										<li>TV</li>
-										<li>Fridge</li>
-										<li>Microwave</li>
-										<li>Washing maschine</li>
-										<li>Room service</li>
+										<li>乡村花园</li>
+										<li>烧烤</li>
+										<li>厨房</li>
+										<li>酒吧</li>
+										<li>生活区</li>
+										<li>电视</li>
+										<li>冰箱</li>
+										<li>微波炉</li>
+										<li>洗衣机</li>
+										<li>客房服务</li>
 									</ul>		
 								</div>		
 								<div class="col-md-4 offset-0">	

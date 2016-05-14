@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,52 +10,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
   	<!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>汉驿连锁酒店</title>
+	<title>Travel Agency - HTML5 Booking template</title>
 	
     <!-- Bootstrap -->
-    <link href="resourse/dist/css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="resourse/assets/css/custom.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/resourse/dist/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="${pageContext.request.contextPath}/resourse/assets/css/custom.css" rel="stylesheet" media="screen">
 
-	<link href="resourse/examples/carousel/carousel.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resourse/examples/carousel/carousel.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond.min.js"></script>
+      <script src="${pageContext.request.contextPath}/resourse/assets/js/html5shiv.js"></script>
+      <script src="${pageContext.request.contextPath}/resourse/assets/js/respond.min.js"></script>
     <![endif]-->
 	
     <!-- Fonts -->	
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,400,300,300italic' rel='stylesheet' type='text/css'>	
 	<!-- Font-Awesome -->
-    <link rel="stylesheet" type="text/css" href="resourse/assets/css/font-awesome.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resourse/assets/css/font-awesome.css" media="screen" />
     <!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="assets/css/font-awesome-ie7.css" media="screen" /><![endif]-->
 	
     <!-- REVOLUTION BANNER CSS SETTINGS -->
-    <link rel="stylesheet" type="text/css" href="resourse/css/fullscreen.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="resourse/rs-plugin/css/settings.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resourse/css/fullscreen.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resourse/rs-plugin/css/settings.css" media="screen" />
 
     <!-- Picker -->	
-	<link rel="stylesheet" href="resourse/assets/css/jquery-ui.css" />	
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resourse/assets/css/jquery-ui.css" />	
+	
 	
 	<!-- bin/jquery.slider.min.css -->
-	<link rel="stylesheet" href="resourse/plugins/jslider/css/jslider.css" type="text/css">
-	<link rel="stylesheet" href="resourse/plugins/jslider/css/jslider.round.css" type="text/css">	
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resourse/plugins/jslider/css/jslider.css" type="text/css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resourse/plugins/jslider/css/jslider.round.css" type="text/css">	
+	
+
 	
     <!-- jQuery -->	
-    <script src="resourse/assets/js/jquery.v2.0.3.js"></script>
+    <script src="${pageContext.request.contextPath}/resourse/assets/js/jquery.v2.0.3.js"></script>
 	
 	<!-- bin/jquery.slider.min.js -->
-	<script type="text/javascript" src="resourse/plugins/jslider/js/jshashtable-2.1_src.js"></script>
-	<script type="text/javascript" src="resourse/plugins/jslider/js/jquery.numberformatter-1.2.3.js"></script>
-	<script type="text/javascript" src="resourse/plugins/jslider/js/tmpl.js"></script>
-	<script type="text/javascript" src="resourse/plugins/jslider/js/jquery.dependClass-0.1.js"></script>
-	<script type="text/javascript" src="resourse/plugins/jslider/js/draggable-0.1.js"></script>
-	<script type="text/javascript" src="resourse/plugins/jslider/js/jquery.slider.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resourse/plugins/jslider/js/jshashtable-2.1_src.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resourse/plugins/jslider/js/jquery.numberformatter-1.2.3.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resourse/plugins/jslider/js/tmpl.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resourse/plugins/jslider/js/jquery.dependClass-0.1.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resourse/plugins/jslider/js/draggable-0.1.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resourse/plugins/jslider/js/jquery.slider.js"></script>
 	<!-- end -->
+	
+	
   </head>
   <body id="top" class="thebg" >
     
-	<!-- Top wrapper -->
+	
+	
 	<div class="navbar-wrapper2 navbar-fixed-top">
       <div class="container">
 		<div class="navbar mtnav">
@@ -67,14 +74,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  <span class="icon-bar"></span>
 				  <span class="icon-bar"></span>
 				</button>
-				<a href="index.html" class="navbar-brand"><img src="resourse/images/logo.png" alt="Travel Agency Logo" class="logo"/></a>
+				<a href="aboutUI" class="navbar-brand"><img src="${pageContext.request.contextPath}/resourse/images/logo.png" alt="Travel Agency Logo" class="logo"/></a>
 			  </div>
 			  <div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
 				  <li><a href="index.jsp">首页</a></li>
 				  <li class="dropdown active"><a href="#">宾馆</a></li>
 				  <li><a href="newsPageUI">新闻</a></li>			  			  
-				  <li><a href="about.html">关于我们</a></li>
+				  <li><a href="aboutUI">关于我们</a></li>			  			  
 				  <li style="display:${user.uname==null?"":'none'}"><a href="loginUI">登录</a></li>
 				  <li class="dropdown" style="display:${user.uname==null?"none":''}">
 					<a data-toggle="dropdown" class="dropdown-toggle" href="#">操作<b class="lightcaret mt-2"></b></a>
@@ -83,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  <li><a href="userUI">我的信息</a></li>
 					  <li><a href="loginOut">注销</a></li>
 					</ul>
-				  </li>
+				  </li>		
 				</ul>
 			  </div>
 			  <!-- /Navigation-->			  
@@ -92,9 +99,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
       </div>
     </div>
-	<!-- / Top wrapper -->
 	
-	<!-- Breadcrumbs -->
+	
+	
+	
 	<div class="container breadcrub">
 	    <div>
 			<a class="homebtn left" href="#"></a>
@@ -109,10 +117,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="clearfix"></div>
 		<div class="brlines"></div>
 	</div>	
-	<!-- / Breadcrumbs -->
 
 	<!-- CONTENT -->
-	<div class="container">
+	<div class="container">	
 		<div class="container pagecontainer offset-0">	
 
 			<!-- FILTERS -->
@@ -130,8 +137,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 	
 				<div class="bookfilters hpadding20">
-						
-						
 						<div class="clearfix"></div><br/>
 						
 						<!-- HOTELS TAB -->
@@ -202,7 +207,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<div class="w50percent">
 									<div class="wh90percent textleft">
 										<span class="opensans size13"><b>房间 2</b></span><br/>
-										<div class="addroom2 block grey"><a onclick="addroom3()" class="grey cpointer">+ 添加房间</a> | <a onclick="removeroom2()" class="orange cpointer"><img src="resourse/images/delete.png" alt="delete"/></a></div>
+										<div class="addroom2 block grey"><a onclick="addroom3()" class="grey cpointer">+ 添加房间</a> | <a onclick="removeroom2()" class="orange cpointer"><img src="${pageContext.request.contextPath}/resourse/images/delete.png" alt="delete"/></a></div>
 									</div>
 								</div>
 
@@ -242,7 +247,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<div class="w50percent">
 									<div class="wh90percent textleft">
 										<span class="opensans size13"><b>房间 3</b></span><br/>
-										<div class="addroom3 block grey"><a onclick="addroom3()" class="grey cpointer">+ 添加房间</a> | <a onclick="removeroom3()" class="orange cpointer"><img src="resourse/images/delete.png" alt="delete"/></a></div>
+										<div class="addroom3 block grey"><a onclick="addroom3()" class="grey cpointer">+ 添加房间</a> | <a onclick="removeroom3()" class="orange cpointer"><img src="${pageContext.request.contextPath}/resourse/images/delete.png" alt="delete"/></a></div>
 									</div>
 								</div>
 
@@ -297,27 +302,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="hpadding20">
 						<div class="checkbox">
 							<label>
-							  <input type="checkbox"><img src="resourse/images/filter-rating-5.png" class="imgpos1" alt=""/> 5 星
+							  <input type="checkbox"><img src="${pageContext.request.contextPath}/resourse/images/filter-rating-5.png" class="imgpos1" alt=""/> 5 星
 							</label>
 						</div>
 						<div class="checkbox">
 							<label>
-							  <input type="checkbox"><img src="resourse/images/filter-rating-4.png" class="imgpos1" alt=""/> 4 星
+							  <input type="checkbox"><img src="${pageContext.request.contextPath}/resourse/images/filter-rating-4.png" class="imgpos1" alt=""/> 4 星
 							</label>
 						</div>
 						<div class="checkbox">
 							<label>
-							  <input type="checkbox"><img src="resourse/images/filter-rating-3.png" class="imgpos1" alt=""/> 3 星
+							  <input type="checkbox"><img src="${pageContext.request.contextPath}/resourse/images/filter-rating-3.png" class="imgpos1" alt=""/> 3 星
 							</label>
 						</div>
 						<div class="checkbox">
 							<label>
-							  <input type="checkbox"><img src="resourse/images/filter-rating-2.png" class="imgpos1" alt=""/> 2 星
+							  <input type="checkbox"><img src="${pageContext.request.contextPath}/resourse/images/filter-rating-2.png" class="imgpos1" alt=""/> 2 星
 							</label>
 						</div>
 						<div class="checkbox">
 							<label>
-							  <input type="checkbox"><img src="resourse/images/filter-rating-1.png" class="imgpos1" alt=""/> 1 星
+							  <input type="checkbox"><img src="${pageContext.request.contextPath}/resourse/images/filter-rating-1.png" class="imgpos1" alt=""/> 1 星
 							</label>
 						</div>	
 					</div>
@@ -385,6 +390,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>	
 						<div class="checkbox">
 							<label>
+							  <input type="checkbox">Free parking (11)
+							</label>
+						</div>	
+						<div class="checkbox">
+							<label>
 							  <input type="checkbox">免费停车场 (48)
 							</label>
 						</div>	
@@ -418,7 +428,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 			</div>
 			<!-- END OF FILTERS -->
-			
+
 			<!-- LIST CONTENT-->
 			<div class="rightcontent col-md-9 offset-0">
 			
@@ -463,11 +473,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 						<div class="col-md-4 offset-0">
 							<button class="popularbtn left">最受欢迎</button>
-							<!-- <div class="right">
-								<button class="gridbtn active">&nbsp;</button>
-								<button class="listbtn" onClick="window.open('list4.html','_self');">&nbsp;</button>
-								<button class="grid2btn" onClick="window.open('hotel/hotelList2.jsp','_self');">&nbsp;</button>
-							</div> -->
+							<div class="right">
+								<button class="gridbtn" onClick="window.open('list2.html','_self');">&nbsp;</button>
+								<button class="listbtn active">&nbsp;</button>
+								<button class="grid2btn" onClick="window.open('list3.html','_self');">&nbsp;</button>
+							</div>
 						</div>
 					</div>
 					<!-- End of topfilters-->
@@ -477,180 +487,53 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<br/><br/>
 				<div class="clearfix"></div>
 				
-				
+
 				<div class="itemscontainer offset-1">
-					<div class="col-md-4">
-						<div class="listitem">
-							<img src="resourse/images/items/item1.jpg" alt=""/>
-							<div class="liover"></div>
-							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="hotelDetailsUI"></a>
-						</div>
-						<div class="itemlabel">
-							<button class="bookbtn right mt1">预订</button>						
-							<b>郑州御玺国际酒店</b><br/>
-							<p class="lightgrey"><span class="green size14"><b>36.0RMB0</b></span> 平均每晚</p>
+					<c:forEach var="hotelLists" items="${hotelLists }">
+						<div class="offset-2">
+							<div class="col-md-4 offset-0">
+								<div class="listitem2">
+									<a href="${hotelLists.imagepath}" data-footer="A custom footer text" data-title="A random title" data-gallery="multiimages" data-toggle="lightbox"><img src="${hotelLists.imagepath}" alt=""/></a>
+									<div class="liover"></div>
+									<a class="fav-icon" href="#"></a>
+									<a class="book-icon" href="hotelDetailsUI?hid=${hotelLists.hid }"></a>
+								</div>
+							</div>
+							<div class="col-md-8 offset-0">
+							<div class="itemlabel3">
+								<div class="labelright">
+									<img src="${pageContext.request.contextPath}/resourse/images/filter-rating-5.png" width="60" alt=""/><br/><br/><br/>
+									<img src="${pageContext.request.contextPath}/resourse/images/user-rating-5.png" width="60" alt=""/><br/>
+									<span class="size11 grey">${hotelLists.reviews } 人浏览</span><br/><br/>
+									<span class="green size18"><b>${hotelLists.avgprice }RMB</b></span><br/>
+									<span class="size11 grey">平均每晚</span><br/><br/><br/>
+									<form action="details.html">
+									 <button class="bookbtn mt1" type="submit">预订</button>	
+									</form>			
+								</div>
+								<div class="labelleft2">			
+									<b>${hotelLists.hname }</b><br/><br/><br/>
+									<p class="grey">${hotelLists.summary }</p><br/>
+									<ul class="hotelpreferences">
+										<li class="icohp-internet"></li>
+										<li class="icohp-air"></li>
+										<li class="icohp-pool"></li>
+										<li class="icohp-childcare"></li>
+										<li class="icohp-fitness"></li>
+										<li class="icohp-breakfast"></li>
+										<li class="icohp-parking"></li>
+										<li class="icohp-pets"></li>
+										<li class="icohp-spa"></li>
+									</ul>
+									
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="col-md-4">
-						<div class="listitem">
-							<img src="resourse/images/items/item2.jpg" alt=""/>
-							<div class="liover"></div>
-							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="hotelDetailsUI"></a>							
-						</div>
-						<div class="itemlabel">
-							<button class="bookbtn right mt1">Book</button>						
-							<b>河南永和铂爵国际酒店</b><br/>
-							<p class="lightgrey"><span class="green size14"><b>37.00RMB</b></span> 平均每晚</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="listitem">
-							<img src="resourse/images/items/item3.jpg" alt=""/>
-							<div class="liover"></div>
-							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="hotelDetailsUI"></a>							
-						</div>
-						<div class="itemlabel">
-							<button class="bookbtn right mt1">预订</button>						
-							<b>Mabely Grand Hotel</b><br/>
-							<p class="lightgrey"><span class="green size14"><b>37.50RMB</b></span> 平均每晚</p>
-						</div>					
-					</div>
+					</c:forEach>
 
 					<div class="clearfix"></div>
 					<div class="offset-2"><hr class="featurette-divider3"></div>
-					
-					<div class="col-md-4">
-						<div class="listitem">
-							<img src="resourse/images/items/item4.jpg" alt=""/>
-							<div class="liover"></div>
-							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="hotelDetailsUI"></a>								
-						</div>
-						<div class="itemlabel">
-							<button class="bookbtn right mt1">预订</button>						
-							<b>郑州南北公馆(会展中心店)</b><br/>
-							<p class="lightgrey"><span class="green size14"><b>RMB41.00</b></span> 平均每晚</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="listitem">
-							<img src="resourse/images/items/item5.jpg" alt=""/>
-							<div class="liover"></div>
-							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="hotelDetailsUI"></a>								
-						</div>
-						<div class="itemlabel">
-							<button class="bookbtn right mt1">预订</button>						
-							<b>郑州新华建国饭店</b><br/>
-							<p class="lightgrey"><span class="green size14"><b>45.00RMB</b></span> 平均每晚</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="listitem">
-							<img src="resourse/images/items/item6.jpg" alt=""/>
-							<div class="liover"></div>
-							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="hotelDetailsUI"></a>									
-						</div>
-						<div class="itemlabel">
-							<button class="bookbtn right mt1">预订</button>						
-							<b>Mabely Grand Hotel</b><br/>
-							<p class="lightgrey"><span class="green size14"><b>RMB45.50</b></span> 平均每晚</p>
-						</div>					
-					</div>		
-
-					<div class="clearfix"></div>
-					<div class="offset-2"><hr class="featurette-divider3"></div>
-					
-					<div class="col-md-4">
-						<div class="listitem">
-							<img src="resourse/images/items/item7.jpg" alt=""/>
-							<div class="liover"></div>
-							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="hotelDetailsUI"></a>									
-						</div>
-						<div class="itemlabel">
-							<button class="bookbtn right mt1">Book</button>						
-							<b>Mabely Grand Hotel</b><br/>
-							<p class="lightgrey"><span class="green size14"><b>$45.90</b></span> avg/night</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="listitem">
-							<img src="resourse/images/items/item8.jpg" alt=""/>
-							<div class="liover"></div>
-							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="hotelDetailsUI"></a>									
-						</div>
-						<div class="itemlabel">
-							<button class="bookbtn right mt1">Book</button>						
-							<b>Mabely Grand Hotel</b><br/>
-							<p class="lightgrey"><span class="green size14"><b>$50.00</b></span> avg/night</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="listitem">
-							<img src="resourse/images/items/item9.jpg" alt=""/>
-							<div class="liover"></div>
-							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="hotelDetailsUI"></a>									
-						</div>
-						<div class="itemlabel">
-							<button class="bookbtn right mt1">Book</button>						
-							<b>Mabely Grand Hotel</b><br/>
-							<p class="lightgrey"><span class="green size14"><b>$55.00</b></span> avg/night</p>
-						</div>					
-					</div>
-					
-					<div class="clearfix"></div>
-					<div class="offset-2"><hr class="featurette-divider3"></div>
-					
-					<div class="col-md-4">
-						<div class="listitem">
-							<img src="resourse/images/items/item10.jpg" alt=""/>
-							<div class="liover"></div>
-							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="hotelDetailsUI"></a>									
-						</div>
-						<div class="itemlabel">
-							<button class="bookbtn right mt1">Book</button>						
-							<b>Mabely Grand Hotel</b><br/>
-							<p class="lightgrey"><span class="green size14"><b>$55.00</b></span> avg/night</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="listitem">
-							<img src="resourse/images/items/item11.jpg" alt=""/>
-							<div class="liover"></div>
-							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="hotelDetailsUI"></a>									
-						</div>
-						<div class="itemlabel">
-							<button class="bookbtn right mt1">Book</button>						
-							<b>Mabely Grand Hotel</b><br/>
-							<p class="lightgrey"><span class="green size14"><b>$59.00</b></span> avg/night</p>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="listitem">
-							<img src="resourse/images/items/item12.jpg" alt=""/>
-							<div class="liover"></div>
-							<a class="fav-icon" href="#"></a>
-							<a class="book-icon" href="hotelDetailsUI"></a>									
-						</div>
-						<div class="itemlabel">
-							<button class="bookbtn right mt1">Book</button>						
-							<b>Mabely Grand Hotel</b><br/>
-							<p class="lightgrey"><span class="green size14"><b>$61.00</b></span> avg/night</p>
-						</div>					
-					</div>
-
-					<div class="clearfix"></div>
-					<div class="offset-2"><hr class="featurette-divider3"></div>
-
 				</div>	
 				<!-- End of offset1-->		
 
@@ -679,7 +562,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<!-- END OF CONTENT -->
 	
-
 	
 	<!-- FOOTER -->
 	<div class="footerbgblack">
@@ -688,12 +570,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="col-md-3">
 				<span class="ftitleblack">交流</span>
 				<div class="scont">
-					<a href="#" class="social1b"><img src="resourse/images/icon-facebook.png" alt=""/></a>
-					<a href="#" class="social2b"><img src="resourse/images/icon-twitter.png" alt=""/></a>
-					<a href="#" class="social3b"><img src="resourse/images/icon-gplus.png" alt=""/></a>
-					<a href="#" class="social4b"><img src="resourse/images/icon-youtube.png" alt=""/></a>
+					<a href="#" class="social1b"><img src="${pageContext.request.contextPath}/resourse/images/icon-facebook.png" alt=""/></a>
+					<a href="#" class="social2b"><img src="${pageContext.request.contextPath}/resourse/images/icon-twitter.png" alt=""/></a>
+					<a href="#" class="social3b"><img src="${pageContext.request.contextPath}/resourse/images/icon-gplus.png" alt=""/></a>
+					<a href="#" class="social4b"><img src="${pageContext.request.contextPath}/resourse/images/icon-youtube.png" alt=""/></a>
 					<br/><br/><br/>
-					<a href="#"><img src="resourse/images/logosmal2.png" alt="" /></a><br/>
+					<a href="#"><img src="${pageContext.request.contextPath}/resourse/images/logosmal2.png" alt="" /></a><br/>
 					<span class="grey2">&copy; 2013  |  <a href="#">隐私权政策</a><br/>
 					All Rights Reserved </span>
 					<br/><br/>
@@ -734,7 +616,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<span class="ftitleblack">时事通讯</span>
 				<div class="relative">
 					<input type="email" class="form-control fccustom2black" id="exampleInputEmail1" placeholder="输入Email">
-					<button type="submit" class="btn btn-default btncustom">Submit<img src="resourse/images/arrow.png" alt=""/></button>
+					<button type="submit" class="btn btn-default btncustom">Submit<img src="${pageContext.request.contextPath}/resourse/images/arrow.png" alt=""/></button>
 				</div>
 				<br/><br/>
 				<span class="ftitleblack">用户支持</span><br/>
@@ -755,36 +637,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<a href="#">特价优惠</a> | 
 		<a href="#">博客</a> | 
 		<a href="#">联系</a>
-		<a href="#top" class="gotop scroll"><img src="resourse/images/spacer.png" alt=""/></a>
+		<a href="#top" class="gotop scroll"><img src="${pageContext.request.contextPath}/resourse/images/spacer.png" alt=""/></a>
 		</div>
 	</div>
 	
 
-    <!-- Counter -->	
-    <script src="resourse/assets/js/js-list2.js"></script>	
 
+
+    <!-- Javascript -->	
+    <script src="${pageContext.request.contextPath}/resourse/assets/js/js-list4.js"></script>	
+	
     <!-- Custom Select -->
-	<script type="text/javascript" src="resourse/assets/js/jquery.customSelect.js"></script>
+	<script type='text/javascript' src="${pageContext.request.contextPath}/resourse/assets/js/jquery.customSelect.js"></script>
+	
+    <!-- Custom Select -->
+	<script type='text/javascript' src="${pageContext.request.contextPath}/resourse/js/lightbox.js"></script>	
 	
     <!-- JS Ease -->	
-    <script src="resourse/assets/js/jquery.easing.js"></script>
+    <script src="${pageContext.request.contextPath}/resourse/assets/js/jquery.easing.js"></script>
 	
     <!-- Custom functions -->
-    <script src="resourse/assets/js/functions.js"></script>
+    <script src="${pageContext.request.contextPath}/resourse/assets/js/functions.js"></script>
 	
     <!-- jQuery KenBurn Slider  -->
-    <script type="text/javascript" src="resourse/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resourse/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
     <!-- Counter -->	
-    <script src="resourse/assets/js/counter.js"></script>	
+    <script src="${pageContext.request.contextPath}/resourse/assets/js/counter.js"></script>	
 	
     <!-- Nicescroll  -->	
-	<script src="resourse/assets/js/jquery.nicescroll.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resourse/assets/js/jquery.nicescroll.min.js"></script>
 	
     <!-- Picker -->	
-	<script src="resourse/assets/js/jquery-ui.js"></script>
+	<script src="${pageContext.request.contextPath}/resourse/assets/js/jquery-ui.js"></script>
 	
     <!-- Bootstrap -->	
-    <script src="resourse/dist/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resourse/dist/js/bootstrap.min.js"></script>
   </body>
 </html>
