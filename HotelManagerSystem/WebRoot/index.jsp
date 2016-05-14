@@ -239,11 +239,11 @@
 									<span class="opensans size18">您想去哪里?</span>
 									<div>
 										<input type="text" class="form-control" value="" size="15"
-											id="homecity_name" name="homecity_name" mod="address|notice"
+											id="hcity" name="hcity" mod="address|notice"
 											mod_address_source="hotel"
 											mod_address_suggest="@Beijing|北京|53@Shanghai|上海|321@Shenzhen|深圳|91@Guangzhou|广州|80@Qingdao|青岛|292@Chengdu|成都|324@Hangzhou|杭州|383@Wuhan|武汉|192@Tianjin|天津|343@Dalian|大连|248@Xiamen|厦门|61@Chongqing|重庆|394@"
 											mod_address_reference="cityid" mod_notice_tip="请输入地址" /> <input
-											id="hcity" name="hcity" type="hidden" value="{$hcity}" />
+											id="hcity" name="hcity" type="hidden" />
 
 									</div>
 									<div id="jsContainer" class="jsContainer" style="height:0">
@@ -256,7 +256,7 @@
 										<div class="wh90percent textleft">
 											<span class="opensans size13"><b>选择入住时间</b></span> <input
 												type="text" class="form-control mySelectCalendar"
-												id="datepicker" placeholder="mm/dd/yyyy" />
+												id="datepicker" name="checkInData" placeholder="mm/dd/yyyy" />
 										</div>
 									</div>
 
@@ -264,7 +264,7 @@
 										<div class="wh90percent textleft right">
 											<span class="opensans size13"><b>选择退房时间</b></span> <input
 												type="text" class="form-control mySelectCalendar"
-												id="datepicker2" placeholder="mm/dd/yyyy" />
+												id="datepicker2" name="checkOutData" placeholder="mm/dd/yyyy" />
 										</div>
 
 									</div>
