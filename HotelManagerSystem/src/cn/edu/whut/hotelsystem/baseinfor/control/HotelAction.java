@@ -28,8 +28,8 @@ public class HotelAction {
 	@RequestMapping("/hotelListUI")
 	public String hotelListUI(Model model, String hcity, String checkInData,
 			String checkOutData) {
-		hcity=hcity.substring(0, hcity.length()-1);
-		System.out.println(hcity);
+		if(hcity!=null)
+			hcity=hcity.substring(0, hcity.length()-1);
 		List<Hotel> hotelLists = hotelService.findByHcity(hcity);
 		model.addAttribute("hotelLists", hotelLists);
 		model.addAttribute("count", hotelLists.size());
