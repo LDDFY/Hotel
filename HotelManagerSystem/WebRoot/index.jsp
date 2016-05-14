@@ -95,6 +95,7 @@
 								<ul class="dropdown-menu">
 									<li><a href="#">登录名：${user.uname }</a></li>
 									<li><a href="userUI">我的信息</a></li>
+									<li><a href="paymentUI">付款</a></li>
 									<li><a href="loginOut">注销</a></li>
 								</ul>
 							</li>
