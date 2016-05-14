@@ -27,10 +27,6 @@ public class News implements java.io.Serializable {
 
 	// Fields
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private Integer newsid;
 	private Hotel hotel;
 	private String title;
@@ -38,6 +34,7 @@ public class News implements java.io.Serializable {
 	private String author;
 	private Date releasetime;
 	private String keyword;
+	private String imgpath;
 
 	// Constructors
 
@@ -47,13 +44,14 @@ public class News implements java.io.Serializable {
 
 	/** full constructor */
 	public News(Hotel hotel, String title, String content, String author,
-			Date releasetime, String keyword) {
+			Date releasetime, String keyword, String imgpath) {
 		this.hotel = hotel;
 		this.title = title;
 		this.content = content;
 		this.author = author;
 		this.releasetime = releasetime;
 		this.keyword = keyword;
+		this.imgpath = imgpath;
 	}
 
 	// Property accessors
@@ -122,6 +120,15 @@ public class News implements java.io.Serializable {
 
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
+	}
+
+	@Column(name = "imgpath", length = 200)
+	public String getImgpath() {
+		return this.imgpath;
+	}
+
+	public void setImgpath(String imgpath) {
+		this.imgpath = imgpath;
 	}
 
 }

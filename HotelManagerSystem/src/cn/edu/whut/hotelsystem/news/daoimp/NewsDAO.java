@@ -1,6 +1,5 @@
 package cn.edu.whut.hotelsystem.news.daoimp;
 
-
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -12,14 +11,13 @@ import cn.edu.whut.hotelsystem.news.vo.News;
 
 @Transactional
 @Repository
-public class NewsDAO extends BaseHibernateDAO<News> implements INewsDAO{
+public class NewsDAO extends BaseHibernateDAO<News> implements INewsDAO {
 
 	public static final String TITLE = "title";
 	public static final String CONTENT = "content";
 	public static final String AUTHOR = "author";
 	public static final String KEYWORD = "keyword";
-
-	
+	public static final String IMGPATH = "imgpath";
 
 	public NewsDAO() {
 		super();
@@ -28,6 +26,10 @@ public class NewsDAO extends BaseHibernateDAO<News> implements INewsDAO{
 
 	public List<News> findByTitle(Object title) {
 		return findByProperty(TITLE, title);
+	}
+
+	public List<News> findByImgpath(Object imgpath) {
+		return findByProperty(IMGPATH, imgpath);
 	}
 
 	public List<News> findByContent(Object content) {

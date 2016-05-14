@@ -1,6 +1,6 @@
 package cn.edu.whut.hotelsystem.managesystem.ordermanage.vo;
 
-import java.sql.Time;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import cn.edu.whut.hotelsystem.baseinfor.vo.Hotel;
 import cn.edu.whut.hotelsystem.baseinfor.vo.User;
@@ -35,7 +37,8 @@ public class Evaluation implements java.io.Serializable {
 	private Hotel hotel;
 	private String uname;
 	private String content;
-	private Time evaluationtime;
+	private Date evaluationtime;
+	private Integer star;
 
 	// Constructors
 
@@ -50,12 +53,13 @@ public class Evaluation implements java.io.Serializable {
 
 	/** full constructor */
 	public Evaluation(User user, Hotel hotel, String uname, String content,
-			Time evaluationtime) {
+			Date evaluationtime, Integer star) {
 		this.user = user;
 		this.hotel = hotel;
 		this.uname = uname;
 		this.content = content;
 		this.evaluationtime = evaluationtime;
+		this.star = star;
 	}
 
 	// Property accessors
@@ -108,13 +112,23 @@ public class Evaluation implements java.io.Serializable {
 		this.content = content;
 	}
 
-	@Column(name = "evaluationtime", length = 8)
-	public Time getEvaluationtime() {
+	@Temporal(TemporalType.DATE)
+	@Column(name = "evaluationtime", length = 10)
+	public Date getEvaluationtime() {
 		return this.evaluationtime;
 	}
 
-	public void setEvaluationtime(Time evaluationtime) {
+	public void setEvaluationtime(Date evaluationtime) {
 		this.evaluationtime = evaluationtime;
+	}
+
+	@Column(name = "star")
+	public Integer getStar() {
+		return this.star;
+	}
+
+	public void setStar(Integer star) {
+		this.star = star;
 	}
 
 }
