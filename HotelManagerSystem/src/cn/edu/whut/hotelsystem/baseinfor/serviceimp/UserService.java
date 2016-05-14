@@ -20,7 +20,9 @@ public class UserService implements IUserService {
 	@Override
 	public boolean saveOrUpdate(User user) {
 		// TODO Auto-generated method stub
-		return userDAO.attachDirtyUser(user);
+		User u = userDAO.mergeUser(user);
+		System.out.println(u.toString());
+		return true;
 	}
 
 }

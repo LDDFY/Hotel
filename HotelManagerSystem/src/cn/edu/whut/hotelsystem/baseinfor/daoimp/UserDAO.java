@@ -112,8 +112,7 @@ public class UserDAO extends BaseHibernateDAO<User> implements IUserDAO {
 	public boolean attachDirtyUser(User instance) {
 		// TODO Auto-generated method stub
 	
-		User user = mergeUser(instance);
-		return true;
+		return attachDirty(instance);
 	}
 
 	@Override

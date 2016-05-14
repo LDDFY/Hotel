@@ -183,4 +183,13 @@ public class User implements java.io.Serializable {
 		this.evaluations = evaluations;
 	}
 
+	@Override
+	public String toString() {
+		return "User [uid=" + uid + ", uname=" + uname + ", upwd=" + upwd
+				+ ", realname=" + realname + ", ugender=" + ugender
+				+ ", idnumber=" + idnumber + ", utel=" + utel + ", uemail="
+				+ uemail + ", level=" + level + ", money=" + money
+				+ ", olists=" + olists + ", evaluations=" + evaluations + "]";
+	}
+
 }
