@@ -8,12 +8,14 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.edu.whut.hotelsystem.basedao.BaseHibernateDAO;
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.dao.IEvaluationDAO;
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Evaluation;
+import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Olist;
+
 
 @Transactional
 @Repository
 public class EvaluationDAO extends BaseHibernateDAO<Evaluation> implements
 		IEvaluationDAO {
-
+	
 	public static final String UNAME = "uname";
 	public static final String CONTENT = "content";
 
@@ -89,6 +91,24 @@ public class EvaluationDAO extends BaseHibernateDAO<Evaluation> implements
 	public boolean attachCleanEvaluation(Evaluation instance) {
 		// TODO Auto-generated method stub
 		return attachClean(instance);
+	}
+
+	public double getCustomersApplauseRate(Integer hid) {
+		Double d=(Double) getSession().createQuery(//
+				"SELECT AVG(e.star) FROM Evaluation e WHERE e.hotel.hid=?")
+				.setParameter(0, hid)
+				.uniqueResult();
+		if(d==null)
+			return 0;
+		return d;
+	}
+
+	public double getApplause(Integer hid) {
+		int z=(Integer) getSession().createSQLQuery("SELECT * FROM olist o WHERE o.hid = '"+hid+"'").list().size();
+		if(z==0)
+			return z;
+		int d=(Integer) getSession().createSQLQuery("SELECT * FROM evaluation e  WHERE e.hid = '"+hid+"'").list().size();
+		return d*1.0/z;
 	}
 
 }

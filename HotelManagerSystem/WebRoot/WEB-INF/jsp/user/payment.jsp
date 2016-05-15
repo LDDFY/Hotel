@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Travel Agency - HTML5 Booking template</title>
+	<title>汉驿连锁酒店</title>
 	
     <!-- Bootstrap -->
     <link href="${pageContext.request.contextPath}/resourse/dist/css/bootstrap.css" rel="stylesheet" media="screen">
@@ -59,10 +59,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  </div>
 			  <div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-				  <li><a href="index.html">首页</a></li>
-				  <li><a href="list4.html">宾馆</a></li>
-				  <li><a href="newsPage.html">新闻</a></li>			  			  
-				  <li><a href="about.html">关于我们</a></li>				  			  
+				  <li><a href="index.jsp">首页</a></li>
+				  <li><a href="hotelUI">宾馆</a></li>
+				  <li><a href="newsPageUIl">新闻</a></li>			  			  
+				  <li><a href="aboutUI">关于我们</a></li>				  			  
 				  <li style="display:${user.uname==null?"":'none'}"><a href="loginUI">登录</a></li>
 				  <li class="dropdown" style="display:${user.uname==null?"none":''}">
 					<a data-toggle="dropdown" class="dropdown-toggle" href="#">操作<b class="lightcaret mt-2"></b></a>
@@ -365,7 +365,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="line3"></div>
 					<div class="padding30">					
 						<span class="left size14 dark">共计:</span>
-						<span class="right lred2 bold size18">$192.15</span>
+						<span class="right lred2 bold size18">192.15RMB</span>
 						<div class="clearfix"></div>
 					</div>
 

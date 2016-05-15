@@ -30,4 +30,10 @@ public class UserService implements IUserService {
 		return userDAO.loadUser(userid);
 	}
 
+	@Override
+	public User findUserById(Integer uid) {
+		// TODO Auto-generated method stub
+		return userDAO.findUserById(uid);
+	}
+
 }

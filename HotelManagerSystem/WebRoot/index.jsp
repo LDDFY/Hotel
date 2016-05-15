@@ -11,7 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Travel Agency - HTML5 Booking template</title>
+<title>汉驿连锁酒店</title>
 
 <!-- Bootstrap -->
 <link
@@ -94,7 +94,7 @@
 									class="lightcaret mt-2"></b></a>
 								<ul class="dropdown-menu">
 									<li><a href="#">登录名：${user.uname }</a></li>
-									<li><a href="userUI">我的信息</a></li>
+									<li><a href="userUI?uid=${user.uid }">我的信息</a></li>
 									<li><a href="paymentUI">付款</a></li>
 									<li><a href="loginOut">注销</a></li>
 								</ul>
@@ -243,8 +243,8 @@
 											id="hcity" name="hcity" mod="address|notice"
 											mod_address_source="hotel"
 											mod_address_suggest="@Beijing|北京|53@Shanghai|上海|321@Shenzhen|深圳|91@Guangzhou|广州|80@Qingdao|青岛|292@Chengdu|成都|324@Hangzhou|杭州|383@Wuhan|武汉|192@Tianjin|天津|343@Dalian|大连|248@Xiamen|厦门|61@Chongqing|重庆|394@"
-											mod_address_reference="cityid" mod_notice_tip="请输入地址" /> <input
-											id="hcity" name="hcity" type="hidden" />
+											mod_address_reference="cityid" mod_notice_tip="请输入地址" /> 
+											<input id="hcity" name="hcity" type="hidden" />
 
 									</div>
 									<div id="jsContainer" class="jsContainer" style="height:0">
@@ -253,11 +253,12 @@
 										<div id="tuna_jmpinfo"
 											style="visibility:hidden;position:absolute;z-index:120;"></div>
 									</div>
+									<br/>
 									<div class="w50percent">
 										<div class="wh90percent textleft">
 											<span class="opensans size13"><b>选择入住时间</b></span> <input
 												type="text" class="form-control mySelectCalendar"
-												id="datepicker" name="checkInData" placeholder="mm/dd/yyyy" />
+												id="datepicker" name="checkInData" placeholder="入住时间" />
 										</div>
 									</div>
 
@@ -265,148 +266,13 @@
 										<div class="wh90percent textleft right">
 											<span class="opensans size13"><b>选择退房时间</b></span> <input
 												type="text" class="form-control mySelectCalendar"
-												id="datepicker2" name="checkOutData" placeholder="mm/dd/yyyy" />
-										</div>
-
-									</div>
-
-									<div class="clearfix"></div>
-
-									<div class="room1 margtop15">
-										<div class="w50percent">
-											<div class="wh90percent textleft">
-												<span class="opensans size13"><b>房间 1</b></span><br />
-
-												<div class="addroom1 block">
-													<a href="#room2" onclick="addroom2()" class="grey">+
-														添加房间</a>
-												</div>
-											</div>
-										</div>
-
-										<div class="w50percentlast">
-											<div class="wh90percent textleft right">
-												<div class="w50percent">
-													<div class="wh90percent textleft left">
-														<span class="opensans size13"><b>成年人</b></span> <select
-															class="form-control mySelectBoxClass">
-															<option>1</option>
-															<option selected>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</div>
-												</div>
-												<div class="w50percentlast">
-													<div class="wh90percent textleft right">
-														<span class="opensans size13"><b>孩子</b></span> <select
-															class="form-control mySelectBoxClass">
-															<option>0</option>
-															<option selected>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</div>
-												</div>
-											</div>
+												id="datepicker2" name="checkOutData" placeholder="退房时间" />
 										</div>
 									</div>
-
-									<div class="room2 none">
-										<div class="clearfix"></div>
-										<div class="line1"></div>
-										<div class="w50percent">
-											<div class="wh90percent textleft">
-												<span class="opensans size13"><b>房间 2</b></span><br />
-												<div class="addroom2 block grey">
-													<a href="#" onclick="addroom3()" class="grey">+ 添加房间</a> |
-													<a href="#" onclick="removeroom2()" class="orange"><img
-														src="${pageContext.request.contextPath}/resourse/images/delete.png"
-														alt="delete" /></a>
-												</div>
-											</div>
-										</div>
-
-										<div class="w50percentlast">
-											<div class="wh90percent textleft right">
-												<div class="w50percent">
-													<div class="wh90percent textleft left">
-														<span class="opensans size13"><b>成年人</b></span> <select
-															class="form-control mySelectBoxClass">
-															<option>1</option>
-															<option>2</option>
-															<option selected>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</div>
-												</div>
-												<div class="w50percentlast">
-													<div class="wh90percent textleft right">
-														<span class="opensans size13"><b>孩子</b></span> <select
-															class="form-control mySelectBoxClass">
-															<option selected>0</option>
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</div>
-												</div>
-											</div>
-										</div>
+									<span class="opensans size13"><b>关键词</b></span>
+									<div>
+										<input type="text" class="form-control" id="keyWords" name="keyWords" size="15" placeholder="如位置\酒店名称"/>
 									</div>
-
-									<div class="room3 none">
-										<div class="clearfix"></div>
-										<div class="line1"></div>
-										<div class="w50percent">
-											<div class="wh90percent textleft">
-												<span class="opensans size13"><b>房间 3</b></span><br />
-												<div class="addroom3 block grey">
-													<a href="#" onclick="addroom3()" class="grey">+ 添加房间</a> |
-													<a href="#" onclick="removeroom3()" class="orange"><img
-														src="${pageContext.request.contextPath}/resourse/images/delete.png"
-														alt="delete" /></a>
-												</div>
-											</div>
-										</div>
-
-										<div class="w50percentlast">
-											<div class="wh90percent textleft right">
-												<div class="w50percent">
-													<div class="wh90percent textleft left">
-														<span class="opensans size13"><b>成年人</b></span> <select
-															class="form-control mySelectBoxClass">
-															<option selected>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</div>
-												</div>
-												<div class="w50percentlast">
-													<div class="wh90percent textleft right">
-														<span class="opensans size13"><b>孩子</b></span> <select
-															class="form-control mySelectBoxClass">
-															<option selected>0</option>
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
 
 								</div>
 								<!--End of 2nd tab -->

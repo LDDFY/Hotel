@@ -9,4 +9,6 @@ public interface IUserService {
 	public boolean saveOrUpdate(User user);
 
 	public User loadUser(Integer userid);
+
+	public User findUserById(Integer uid);
 }

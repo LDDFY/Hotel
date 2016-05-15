@@ -32,5 +32,9 @@ public interface IEvaluationDAO {
 
 	public List<Evaluation> findByContent(Object content);
 
+	public double getCustomersApplauseRate(Integer hid);
+
+	public double getApplause(Integer hid);
+
 	
 }
