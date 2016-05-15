@@ -162,7 +162,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<!-- RIGHT INFO -->
 			<div class="col-md-4 detailsright offset-0">
 				<div class="padding20">
-					<h4 class="lh1">Mabely Grand Hotel</h4>
+					<h4 class="lh1">${hotel.hname }</h4>
 					<img src="resourse/images/smallrating-5.png" alt=""/>
 				</div>
 				
@@ -185,7 +185,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				<div class="col-md-6 bordertype3">
 					<img src="resourse/images/user-rating-4.png" alt=""/><br/>
-					18 人浏览
+					${hotel.reviews } 人浏览
 				</div>
 				<div class="col-md-6 bordertype3">
 					<a href="#" class="grey">+Add review</a>
@@ -193,8 +193,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="clearfix"></div><br/>
 				
 				<div class="hpadding20">
-					<a href="#" class="add2fav margtop5">Add to favourite</a>
-					<a href="#" class="booknow margtop20 btnmarg">现在预订</a>
+					<a href="#" class="add2fav margtop5">添加到收藏夹</a>
+					<a href="#roomrates" class="booknow margtop20 btnmarg">现在预订</a>
 				</div>
 			</div>
 			<!-- END OF RIGHT INFO -->
@@ -338,7 +338,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 					<!-- TAB 2 -->
 					<div id="roomrates" class="tab-pane fade active in">
-					    <div class="hpadding20">
+					    <!-- <div class="hpadding20">
 							<p class="dark">您的旅行计划</p>
 							<div class="col-md-4 offset-0">
 								<div class="w50percent">
@@ -484,7 +484,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="clearfix"></div>
 						</div>
-						<br/>
+						<br/> -->
 						
 						<p class="hpadding20 dark">房间种类</p>
 						<c:forEach var="roomLists" items="${roomLists }">
@@ -517,7 +517,91 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<span class="opensans green size24">${roomLists.rprice }RMB</span><br/>
 									<span class="opensans lightgrey size12">平均每晚</span><br/><br/>
 									<span class="lred bold">待定</span><br/><br/>
-									<button class="bookbtn mt1">预订</button>	
+									<button data-toggle="modal" data-target="#myModal" class="bookbtn mt1">预订</button>	
+									<!-- 弹出框开始 -->
+									<div class="modal" id="myModal">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal">
+													<span aria-hidden="true">×</span>
+													</button>
+													<h4 class="modal-title">预订信息</h4>
+												</div>
+												<div class="modal-body">
+													<form class="form-horizontal" role="form">
+												   <div class="form-group">
+													  <label for="hname" class="col-sm-3 control-label">酒店名称：</label>
+													  <div class="col-sm-9">
+														 <input type="text" class="form-control" id="hname" name="hname"
+															value="${hotel.hname }" readonly="readonly">
+													  </div>
+												   </div>
+												   <div class="form-group">
+													  <label for="hname" class="col-sm-3 control-label">房间类型：</label>
+													  <div class="col-sm-9">
+														 <input type="text" class="form-control" id="hname" name="hname"
+															value="${roomLists.rpattern }" readonly="readonly">
+													  </div>
+												   </div>
+												   <div class="form-group">
+													  <label for="hname" class="col-sm-3 control-label">房间种类：</label>
+													  <div class="col-sm-9">
+														 <input type="text" class="form-control" id="hname" name="hname"
+															value="${roomLists.rtype }" readonly="readonly">
+													  </div>
+												   </div>
+												   <div class="form-group">
+													  <label for="hname" class="col-sm-3 control-label">房间价格：</label>
+													  <div class="col-sm-9">
+														 <input type="text" class="form-control" id="hname" name="hname"
+															value="${roomLists.rprice }&nbsp;&nbsp;RMB/晚" readonly="readonly">
+													  </div>
+												   </div>
+												   <div class="form-group">
+													  <label for="lastname" class="col-sm-3 control-label">入住时间：</label>
+													  <div class="col-sm-9">
+														 <input type="text" class="form-control" id="lastname" 
+															placeholder="请输入姓">
+													  </div>
+												   </div>
+												   <div class="form-group">
+													  <label for="lastname" class="col-sm-3 control-label">退房时间：</label>
+													  <div class="col-sm-9">
+														 <input type="text" class="form-control" id="lastname" 
+															placeholder="请输入姓">
+													  </div>
+												   </div>
+												   <div class="form-group">
+													  <label for="lastname" class="col-sm-3 control-label">房间数目：</label>
+													  <div class="col-sm-9">
+														 <input type="text" class="form-control" id="lastname" 
+															placeholder="请输入姓">
+													  </div>
+												   </div>
+												   <div class="form-group">
+													  <label for="hname" class="col-sm-3 control-label">总金额：</label>
+													  <div class="col-sm-9">
+														 <input type="text" class="form-control" id="hname" name="hname"
+															value="${roomLists.rprice }" readonly="readonly">
+													  </div>
+												   </div>
+												</form>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default" 
+													   data-dismiss="modal">关闭
+													</button>
+													<button type="button" class="btn btn-primary">
+													   提交
+													</button>
+												 </div>
+											</div>
+										</div>
+									</div>
+									<!-- 弹出框结束 -->
+									
+								
 								</div>										
 							</div>
 							<div class="clearfix"></div>

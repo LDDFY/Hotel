@@ -357,117 +357,26 @@
 								</div>
 								<div class="line4"></div>
 								<br />
-
+								<c:forEach var="userBookingsLists" items="${userBookingsLists }">
 								<div class="col-md-4 offset-0">
-									<a href="#"><img alt="" class="left mr20"
-										src="resourse/images/smallthumb-1.jpg">
-									</a> <a class="dark" href="#"><b>Hotel Dany</b>
-									</a> / <span class="dark size12">Greece - Zakynthos</span><br>
-									<span class="opensans green bold size14">36RMB-160RMB</span> <span
-										class="grey">平均每晚</span><br> <img alt=""
-										src="resourse/images/filter-rating-5.png"><br />
+									<a href="#"><img alt="" class="left mr20" src="resourse/images/smallthumb-1.jpg">
+									</a> <a class="dark" href="#"><b>${userBookingsLists.hotel.hname }</b>
+									</a> / <span class="dark size12">${userBookingsLists.hotel.hcity }</span><br>
+									<span class="opensans green bold size14">${userBookingsLists.hotel.avgprice }RMB</span> <span
+										class="grey">平均每晚</span><br> 
+									<span class="opensans green bold size14">${userBookingsLists.hotel.grand }星</span><br />
 								</div>
 								<div class="col-md-7">
-									<span class="grey">Lorem ipsum dolor sit amet,
-										consectetur adipiscing elit. Nam faucibus, quam vel interdum
-										lacinia, lacus justo rutrum lorem, in fermentum ligula est a
-										diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
+									<span class="grey">${userBookingsLists.hotel.summary }</span>
 								</div>
 								<div class="col-md-1 offset-0">
 									<button onclick="errorMessage()" type="submit"
-										class="btn-search5 right">More</button>
+										class="btn-search5 right">更多</button>
 								</div>
 								<div class="clearfix"></div>
 								<div class="line4"></div>
+								</c:forEach>
 
-								<div class="col-md-4 offset-0">
-									<a href="#"><img alt="" class="left mr20"
-										src="resourse/images/smallthumb-2.jpg">
-									</a> <a class="dark" href="#"><b>Hotel Dany</b>
-									</a> / <span class="dark size12">Greece - Zakynthos</span><br>
-									<span class="opensans green bold size14">$36-$160</span> <span
-										class="grey">avg/night</span><br> <img alt=""
-										src="resourse/images/filter-rating-5.png"><br />
-								</div>
-								<div class="col-md-7">
-									<span class="grey">Lorem ipsum dolor sit amet,
-										consectetur adipiscing elit. Nam faucibus, quam vel interdum
-										lacinia, lacus justo rutrum lorem, in fermentum ligula est a
-										diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
-								</div>
-								<div class="col-md-1 offset-0">
-									<button onclick="errorMessage()" type="submit"
-										class="btn-search5 right">More</button>
-								</div>
-								<div class="clearfix"></div>
-								<div class="line4"></div>
-
-								<div class="col-md-4 offset-0">
-									<a href="#"><img alt="" class="left mr20"
-										src="resourse/images/smallthumb-3.jpg">
-									</a> <a class="dark" href="#"><b>Hotel Dany</b>
-									</a> / <span class="dark size12">Greece - Zakynthos</span><br>
-									<span class="opensans green bold size14">$36-$160</span> <span
-										class="grey">avg/night</span><br> <img alt=""
-										src="resourse/images/filter-rating-5.png"><br />
-								</div>
-								<div class="col-md-7">
-									<span class="grey">Lorem ipsum dolor sit amet,
-										consectetur adipiscing elit. Nam faucibus, quam vel interdum
-										lacinia, lacus justo rutrum lorem, in fermentum ligula est a
-										diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
-								</div>
-								<div class="col-md-1 offset-0">
-									<button onclick="errorMessage()" type="submit"
-										class="btn-search5 right">More</button>
-								</div>
-								<div class="clearfix"></div>
-								<div class="line4"></div>
-
-								<div class="col-md-4 offset-0">
-									<a href="#"><img alt="" class="left mr20"
-										src="resourse/images/smallthumb-1.jpg">
-									</a> <a class="dark" href="#"><b>Hotel Dany</b>
-									</a> / <span class="dark size12">Greece - Zakynthos</span><br>
-									<span class="opensans green bold size14">$36-$160</span> <span
-										class="grey">avg/night</span><br> <img alt=""
-										src="resourse/images/filter-rating-5.png"><br />
-								</div>
-								<div class="col-md-7">
-									<span class="grey">Lorem ipsum dolor sit amet,
-										consectetur adipiscing elit. Nam faucibus, quam vel interdum
-										lacinia, lacus justo rutrum lorem, in fermentum ligula est a
-										diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
-								</div>
-								<div class="col-md-1 offset-0">
-									<button onclick="errorMessage()" type="submit"
-										class="btn-search5 right">More</button>
-								</div>
-								<div class="clearfix"></div>
-								<div class="line4"></div>
-
-								<div class="col-md-4 offset-0">
-									<a href="#"><img alt="" class="left mr20"
-										src="resourse/images/smallthumb-2.jpg">
-									</a> <a class="dark" href="#"><b>Hotel Dany</b>
-									</a> / <span class="dark size12">Greece - Zakynthos</span><br>
-									<span class="opensans green bold size14">$36-$160</span> <span
-										class="grey">avg/night</span><br> <img alt=""
-										src="resourse/images/filter-rating-5.png"><br />
-								</div>
-								<div class="col-md-7">
-									<span class="grey">Lorem ipsum dolor sit amet,
-										consectetur adipiscing elit. Nam faucibus, quam vel interdum
-										lacinia, lacus justo rutrum lorem, in fermentum ligula est a
-										diam. Nam aliquet arcu est, a malesuada odio laoreet non.</span>
-								</div>
-								<div class="col-md-1 offset-0">
-									<button onclick="errorMessage()" type="submit"
-										class="btn-search5 right">More</button>
-								</div>
-								<div class="clearfix"></div>
-
-								<div class="line4"></div>
 								<ul class="pagination right paddingbtm20">
 									<li class="disabled"><a href="#">«</a>
 									</li>

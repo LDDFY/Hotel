@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import cn.edu.whut.hotelsystem.baseinfor.dao.IRoomDAO;
 import cn.edu.whut.hotelsystem.baseinfor.service.IRoomService;
-import cn.edu.whut.hotelsystem.baseinfor.vo.Hotel;
 import cn.edu.whut.hotelsystem.baseinfor.vo.Room;
 
 @Service

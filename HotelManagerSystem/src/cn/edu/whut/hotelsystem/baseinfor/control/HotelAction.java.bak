@@ -53,7 +53,18 @@ public class HotelAction {
 
 	@RequestMapping("/hotelDetailsUI")
 	public String hotelDetailsUI(Model model, HttpSession session,
+<<<<<<< HEAD
+			HttpServletRequest request, HttpServletResponse response,
+			Integer hid) {
 
+		Hotel hotel = hotelService.findHotelById(hid);
+		List<Room> roomLists = new ArrayList<Room>(0);
+
+		Iterator<Room> room = hotel.getRooms().iterator();
+		while (room.hasNext()) {
+
+			roomLists.add(room.next());
+=======
 			HttpServletRequest request, HttpServletResponse response,Integer hid) {
 		
 		Hotel hotel=hotelService.findHotelById(hid);
@@ -62,6 +73,7 @@ public class HotelAction {
 		Iterator<Room> room=hotel.getRooms().iterator();
 		while(room.hasNext()){
 				roomLists.add(room.next());
+>>>>>>> 0748ac4b6c591e5693da0fb16f84ae312ea4c7e6
 		}
 
 		System.out.println(hid);
