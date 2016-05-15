@@ -41,8 +41,9 @@ public class HotelAction {
 
 	public String hotelListUI(Model model, String hcity, String checkInData,
 			String checkOutData,String keyWords) {
-		if(hcity!=null)
-			hcity=hcity.substring(0, hcity.length()-1);
+		String[] city = hcity.split(",");
+		hcity=city[0];
+		System.out.println(hcity);
 		List<Hotel> hotelLists = hotelService.findByHcity(hcity);
 		model.addAttribute("hotelLists", hotelLists);
 		model.addAttribute("count", hotelLists.size());

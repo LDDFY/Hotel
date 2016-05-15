@@ -130,7 +130,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<!-- TOP TIP -->
 				<div class="filtertip">
 					<div class="padding20">
-						<p class="size13"><span class="size18 bold counthotel">${count }</span> 家酒店起价为</p>
+						<p class="size13"><span class="size18 bold counthotel"></span> ${count }家酒店起价为</p>
 						<p class="size30 bold">$<span class="countprice"></span></p>
 						<p class="size13">查看这些或 <a href="#">查看全部</a></p>
 					</div>
@@ -139,11 +139,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 				<div class="bookfilters hpadding20">
 						<div class="clearfix"></div><br/>
-						
+						<form action="hotelListUI">
 						<!-- HOTELS TAB -->
 						<div class="hotelstab2 none">
 							<span class="opensans size13">您想去哪?</span>
-							<input type="text" class="form-control" placeholder="请选择目的地" id="hcity" value="${hcity }">
+							<input type="text" class="form-control" placeholder="请选择目的地" name="hcity" id="hcity" value="${hcity }">
 							
 							<div class="clearfix pbottom15"></div>
 							
@@ -171,6 +171,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="clearfix"></div>
 							<button type="submit" class="btn-search3">查找</button>
 						</div>
+						</form>
 						<!-- END OF HOTELS TAB -->
 					</div>
 						
