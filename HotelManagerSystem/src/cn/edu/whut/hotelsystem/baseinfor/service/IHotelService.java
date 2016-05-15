@@ -8,7 +8,8 @@ public interface IHotelService {
 
 	public List<Hotel> findByHcity(String hcity);
 	
-	public Hotel findHotelById(Integer hid);
+	public Hotel findHotelById(Integer id);
+	
 	public List<Hotel> findAllHotel();
 
 	public boolean addHotel(Hotel hotel);
@@ -20,4 +21,6 @@ public interface IHotelService {
 	public Hotel mergeHotel(Hotel hotel);
 
 	public boolean attachHocal(Hotel hotel);
+
+	public List<Hotel> findHotelByLevel(Integer level,Integer uid);
 }

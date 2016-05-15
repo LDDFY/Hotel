@@ -50,43 +50,127 @@
 	});
 	function fresh() {
 		$.ajax({
-					type : "GET",
-					url : "findAllHotel.do",
+			type : "GET",
+			url : "findAllHotel.do",
 
-					success : function(data) {
-						var strHtml = "";
-						var strtitle = "<tr>";
-						var strtitleed = "</tr>";
-						var strtd = "<td>";
-						var strtded = "</td>";
-						var a = "<a href='hotelInfor.do?hid=";
-								var a1="'>详情</a><a href='modifyHotel.do?hid=";
-										var a2="'>修改</a><a href='deleteHotel.do?hid=";
-												var a3="'>删除</a>";
-						for (var i = 0; i < data.length; i++) {
+			success : function(data) {
+				var strHtml = "";
+				var strtitle = "<tr>";
+				var strtitleed = "</tr>";
+				var strtd = "<td>";
+				var strtded = "</td>";
+				var a = "<a href='hotelInfor.do?hid=";
+				var a1 = "'>详情</a><a href='modifyHotel.do?hid=";
+				var a2 = "'>修改</a><a href='deleteHotel.do?hid=";
+				var a3 = "'>删除</a>";
+				for (var i = 0; i < data.length; i++) {
 
-							$("#menuList tr:not(:first)").remove();
-							strHtml += strtitle + strtd + data[i].hid + strtded
-									+ strtd + data[i].hname + strtded + strtd
-									+ data[i].hcity + strtded + strtd
-									+ data[i].haddr + strtded + strtd
-									+ data[i].htel + strtded + strtd
-									+ data[i].hemail + strtded + strtd + a+data[i].hid+a1+data[i].hid+a2+data[i].hid+a3
-									+ strtded + strtitleed;
-							$("#menuList").append(strHtml);
-						}
-					},
-					error : function() {
-						alert("刷新失败！");
-					}
+					$("#menuList tr:not(:first)").remove();
+					strHtml += strtitle + strtd + data[i].hid + strtded + strtd
+							+ data[i].hname + strtded + strtd + data[i].hcity
+							+ strtded + strtd + data[i].haddr + strtded + strtd
+							+ data[i].htel + strtded + strtd + data[i].hemail
+							+ strtded + strtd + a + data[i].hid + a1
+							+ data[i].hid + a2 + data[i].hid + a3 + strtded
+							+ strtitleed;
+					$("#menuList").append(strHtml);
+				}
+			},
+			error : function() {
+				alert("刷新失败！");
+			}
 
-				});
+		});
+	}
+
+	function freshRoom() {
+
+		var role = document.getElementById('HotelID').value;
+
+		$.ajax({
+			type : "GET",
+			url : "findRoomByHid.do",
+			data : {
+				"hid" : role
+			},
+			success : function(data) {
+				var strHtml = "";
+				var strtitle = "<tr>";
+				var strtitleed = "</tr>";
+				var strtd = "<td>";
+				var strtded = "</td>";
+				var a = "<a href='roomInfor.do?rid=";
+				var a1 = "'>详情</a><a href='modifyroom.do?rid=";
+				var a2 = "'>修改</a><a href='deleteroom.do?rid=";
+				var a3 = "'>删除</a>";
+
+				for (var i = 0; i < data.length; i++) {
+
+					$("#RoomList tr:not(:first)").remove();
+					strHtml += strtitle + strtd + data[i].rid
+
+					+ strtded + strtd + data[i].rtype
+
+					+ strtded + strtd + data[i].rarea
+
+					+ strtded + strtd + data[i].rprice
+
+					+ strtded + strtd + data[i].rpattern
+
+					+ strtded + strtd + data[i].customs
+
+					+ strtded + strtd + data[i].total
+
+					+ strtded + strtd + a + data[i].roomid + a1
+							+ data[i].roomid + a2 + data[i].roomid + a3
+
+							+ strtded + strtitleed;
+
+					$("#RoomList").append(strHtml);
+				}
+			},
+			error : function() {
+				alert("刷新失败！");
+			}
+
+		});
+	}
+
+	function freshHotelRole() {
+		
+		var level = document.getElementById("level").value;
+		var uid = document.getElementById("uID").value;
+		
+		$($.ajax({
+			type : "GET",
+
+			url : "findHotelBylevel.do",
+			data : {
+				"level" : level,
+				"uid" : uid,
+			},
+			success : function(Datas) {
+				$("#HotelID").empty();
+				for (var i = 0; i < Datas.length; i++) {
+					$("#HotelID").append(
+							"<option value='"+Datas[i].hid+"'>"
+									+ Datas[i].hname + "</option>");
+				}
+
+			},
+			error : function() {
+				alert("酒店信息更新失败！");
+			}
+		}));
 	}
 </script>
 
 </head>
 
 <body id="top">
+	<input id="uID" name="uID" value="${user.uid }"/>
+		<input id="level" name="level" value="${user.level }"
+		hidden="hidden" />
 	<!-- CONTENT -->
 	<div class="container2">
 		<div class="container2 offset-0">
@@ -120,7 +204,8 @@
 
 							</a></li>
 						</c:if>
-						<li><a href="#room" data-toggle="tab">
+						<li><a href="#room" data-toggle="tab"
+							onclick="javascript:freshHotelRole()">
 								<div class="dash-ct">
 									<span class="topics-icon left"></span> <span class="dtxt">房间信息管理
 									</span>
@@ -284,9 +369,7 @@
 								</table>
 
 							</div>
-							<%-- <div class="clearfix"></div>
-							<div style="size: 100px; 10px;"><%@include file="../page.jsp"%></div>												
-							<div class="clearfix"></div> --%>
+
 						</div>
 						<!-- End of Tab 1 -->
 
@@ -322,7 +405,136 @@
 						<!-- END OF TAB 6 -->
 						<!--  TAB 7 -->
 						<div class="tab-pane" id="room">
-							<div class="padding40">room - comingsoon</div>
+							<div class="padding40">
+								<!--房间信息管理  -->
+
+								<span class="lato size12 grey">Welcome:&nbsp; <a
+									class="orange">${user.uname }</a></span>
+								<div class="line2"></div>
+								<div class="clearfix"></div>
+
+								<div>
+
+
+									<div style="float: left; padding-right: 3px;">
+
+										<select id="HotelID" name="HotelID"
+											style="width: 60px;height: 30px;">
+
+										</select>
+									</div>
+
+
+									<div style="float: left;">
+
+										<a class="btn btn-primary btn-sm"
+											onclick="javascript:freshRoom()">刷新列表</a>
+										<button class="btn btn-primary btn-sm" data-target="#myModal1"
+											data-toggle="modal">添加房间信息</button>
+									</div>
+
+								</div>
+
+								<c:if test="${not empty result }">
+									<div class="alert alert-warning fade in margtop20">
+										<button aria-hidden="true" data-dismiss="alert" class="close"
+											type="button">×</button>
+										<strong>提示!</strong>${result1}
+									</div>
+								</c:if>
+								<div class="modal  fade" id="myModal1" tabindex="-1"
+									role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal"
+													aria-hidden="true">&times;</button>
+												<h5 class="modal-title" id="myModalLabel">添加房间信息</h5>
+
+											</div>
+
+											<div class="modal-body">
+
+												<form action="addHotel" method="post">
+													<table class="table table-bordered">
+														<tbody>
+
+															<tr>
+																<td align="right">名称:</td>
+																<td align="left"><input name="hname" type="text"
+																	id="hname" class="span1-1" /> *</td>
+																<td align="right">省份:</td>
+																<td align="left" colspan="3"><input
+																	name="hprovince" type="text" id="hprovince"
+																	class="span1-1" />*</td>
+															</tr>
+															<tr>
+																<td align="right">城市</td>
+																<td align="left"><input name="hcity" type="text"
+																	id="hcity" class="span1-1" />*</td>
+																<td align="right">地址:</td>
+																<td align="left" colspan="3"><input name="haddr"
+																	type="text" id="haddr" class="span1-1" />*</td>
+															</tr>
+															<tr>
+																<td align="right">电话:</td>
+																<td align="left"><input name="hetl" type="text"
+																	id="hetl" class="span1-1" />*</td>
+																<td align="right">email:</td>
+																<td colspan="3" align="left"><input name="hemail"
+																	type="text" id="hemail" class="span1-1" /></td>
+															</tr>
+
+															<tr>
+																<td align="right">星级:</td>
+																<td align="left"><input name="grand" type="text"
+																	id="grand" class="span1-1" />*</td>
+																<td align="right">环境:</td>
+																<td colspan="3" align="left"><input name="summary"
+																	type="text" id="summary" class="span1-1" /></td>
+															</tr>
+
+														</tbody>
+													</table>
+											</div>
+
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">关闭</button>
+												<button type="submit" class="btn btn-primary">提交更改</button>
+											</div>
+											</form>
+										</div>
+										<!-- /.modal-content -->
+									</div>
+									<!-- /.modal -->
+								</div>
+
+
+
+								<div class="col-md-15">
+									<table id="RoomList" name="RoomList"
+										class="table table-striped">
+										<caption>房间信息列表</caption>
+										<thead>
+											<tr>
+												<th>房间号</th>
+												<th>房间类型</th>
+												<th>大小</th>
+												<th>价格</th>
+												<th>格局</th>
+												<th>可住人数</th>
+												<th>总数</th>
+												<th>操作</th>
+											</tr>
+										</thead>
+										<tbody>
+										</tbody>
+									</table>
+								</div>
+
+
+							</div>
 						</div>
 						<!-- END OF TAB 7 -->
 						<!-- TAB 8  -->

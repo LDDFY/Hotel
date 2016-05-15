@@ -1,5 +1,7 @@
 package cn.edu.whut.hotelsystem.baseinfor.vo;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -8,9 +10,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-
-import static javax.persistence.GenerationType.IDENTITY;
-
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -28,15 +27,11 @@ import cn.edu.whut.hotelsystem.news.vo.News;
  */
 @Entity
 @Table(name = "hotel", catalog = "hotel")
-@JsonIgnoreProperties(value={"rooms","evaluations","newses","olists"})  
+@JsonIgnoreProperties(value={"rooms","evaluations","olists","user","newses"})
 public class Hotel implements java.io.Serializable {
 
 	// Fields
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private Integer hid;
 	private User user;
 	private String hname;
@@ -263,17 +258,6 @@ public class Hotel implements java.io.Serializable {
 
 	public void setOlists(Set<Olist> olists) {
 		this.olists = olists;
-	}
-
-	@Override
-	public String toString() {
-		return "Hotel [hid=" + hid + ", user=" + user + ", hname=" + hname
-				+ ", hemail=" + hemail + ", htel=" + htel + ", hprovince="
-				+ hprovince + ", hcity=" + hcity + ", haddr=" + haddr
-				+ ", grand=" + grand + ", guestratings=" + guestratings
-				+ ", reviews=" + reviews + ", summary=" + summary
-				+ ", imagepath=" + imagepath + ", browsenumber=" + browsenumber
-				+ ", avgprice=" + avgprice + "]";
 	}
 
 }

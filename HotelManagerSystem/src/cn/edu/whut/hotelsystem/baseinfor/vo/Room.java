@@ -17,6 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Olist;
 
 /**
@@ -24,6 +26,7 @@ import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Olist;
  */
 @Entity
 @Table(name = "room", catalog = "hotel")
+@JsonIgnoreProperties(value={"olists","hotel"})  
 public class Room implements java.io.Serializable {
 
 	// Fields

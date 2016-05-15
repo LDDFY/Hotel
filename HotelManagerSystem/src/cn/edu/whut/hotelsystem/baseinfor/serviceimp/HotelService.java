@@ -61,4 +61,18 @@ public class HotelService implements IHotelService {
 		return hotelDAO.attachDirtyHotel(hotel);
 	}
 
+	@Override
+	public List<Hotel> findHotelByLevel(Integer uid,Integer level) {
+		// TODO Auto-generated method stub
+		String Hql="FROM Hotel";
+		if( level==1)
+		{
+			Hql="FROM Hotel u WHERE u.user.uid="+uid;
+		}
+		System.out.println(Hql);
+		return hotelDAO.queryHotel(Hql);
+	
+	}
+
+	
 }

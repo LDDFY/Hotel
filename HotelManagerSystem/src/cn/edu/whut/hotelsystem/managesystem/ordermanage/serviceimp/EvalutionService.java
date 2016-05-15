@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.dao.IEvaluationDAO;
-import cn.edu.whut.hotelsystem.managesystem.ordermanage.daoimp.EvaluationDAO;
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.service.IEvalutionService;
 
 @Service

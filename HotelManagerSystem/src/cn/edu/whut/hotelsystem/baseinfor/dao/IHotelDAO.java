@@ -5,6 +5,7 @@ import java.util.List;
 import cn.edu.whut.hotelsystem.baseinfor.vo.Hotel;
 
 public interface IHotelDAO {
+	public List<Hotel> queryHotel(String Hql);
 
 	public Hotel loadHotel(Integer hid);
 

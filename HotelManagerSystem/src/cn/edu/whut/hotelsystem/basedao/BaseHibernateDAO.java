@@ -220,15 +220,27 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 		}
 	}
 
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> querySQL(String sql) {
 		// TODO Auto-generated method stub
+		System.out.println(sql + "------------");
 		Query sqlquery = getSession().createSQLQuery(sql);
 
 		return sqlquery.list();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<T> queryHQL(String hql) {
+		log.debug("finding all " + clazz.getSimpleName() + " instances");
+		try {
+			
+			Query queryObject = getSession().createQuery(hql);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
 
 }

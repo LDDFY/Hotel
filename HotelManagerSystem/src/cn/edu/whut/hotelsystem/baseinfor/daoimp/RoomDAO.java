@@ -8,10 +8,11 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.edu.whut.hotelsystem.basedao.BaseHibernateDAO;
 import cn.edu.whut.hotelsystem.baseinfor.dao.IRoomDAO;
 import cn.edu.whut.hotelsystem.baseinfor.vo.Room;
+
 @Transactional
 @Repository
 public class RoomDAO extends BaseHibernateDAO<Room> implements IRoomDAO {
-	
+
 	public static final String RID = "rid";
 	public static final String RTYPE = "rtype";
 	public static final String RAREA = "rarea";
@@ -19,8 +20,6 @@ public class RoomDAO extends BaseHibernateDAO<Room> implements IRoomDAO {
 	public static final String RPATTERN = "rpattern";
 	public static final String CUSTOMS = "customs";
 	public static final String RSTATUS = "rstatus";
-
-
 
 	public RoomDAO() {
 		super();
@@ -109,4 +108,13 @@ public class RoomDAO extends BaseHibernateDAO<Room> implements IRoomDAO {
 		return attachClean(instance);
 	}
 
+	public List<Room> queryRoomSQL(String sql) {
+
+		return querySQL(sql);
+	}
+
+	public List<Room> queryRoomHQL(String sql) {
+
+		return queryHQL(sql);
+	}
 }

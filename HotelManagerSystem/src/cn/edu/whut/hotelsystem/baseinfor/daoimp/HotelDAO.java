@@ -144,5 +144,8 @@ public class HotelDAO extends BaseHibernateDAO<Hotel> implements IHotelDAO {
 
 		return (Hotel) getSession().load(Hotel.class, hid);
 	}
+	public List<Hotel> queryHotel(String Hql) {
 
+		return queryHQL(Hql);
+	}
 }

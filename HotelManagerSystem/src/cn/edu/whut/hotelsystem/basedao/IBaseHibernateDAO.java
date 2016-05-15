@@ -8,6 +8,8 @@ public interface IBaseHibernateDAO<T> {
 	// 获取Session()
 	public Session getSession();
 
+	public List<T> queryHQL(String hql);
+
 	// 执行sql语句
 	public List<T> querySQL(String hql);
 

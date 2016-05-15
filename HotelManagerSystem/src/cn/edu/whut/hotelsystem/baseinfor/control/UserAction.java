@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.edu.whut.hotelsystem.baseinfor.service.IUserService;
-import cn.edu.whut.hotelsystem.baseinfor.vo.Room;
 import cn.edu.whut.hotelsystem.baseinfor.vo.User;
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Olist;
 
