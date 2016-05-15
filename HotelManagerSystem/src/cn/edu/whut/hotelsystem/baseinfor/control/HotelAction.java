@@ -13,11 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 
 import cn.edu.whut.hotelsystem.baseinfor.service.IHotelService;
-import cn.edu.whut.hotelsystem.baseinfor.service.IRoomService;
+
 import cn.edu.whut.hotelsystem.baseinfor.vo.Hotel;
 import cn.edu.whut.hotelsystem.baseinfor.vo.Room;
 
