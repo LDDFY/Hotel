@@ -52,4 +52,5 @@ public interface IBaseHibernateDAO<T> {
 	// 将传入对象置为透明状态
 	public boolean attachClean(T instance);
 
+	public List<T> Page(String sql, Integer begin, Integer end);
 }

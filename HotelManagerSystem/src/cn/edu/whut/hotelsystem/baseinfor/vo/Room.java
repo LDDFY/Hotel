@@ -41,25 +41,8 @@ public class Room implements java.io.Serializable {
 	private String rpattern;
 	private Short customs;
 	private String rstatus;
-	
 	private Integer total;
 	private Integer available;
-	public Integer getTotal() {
-		return total;
-	}
-
-	public void setTotal(Integer total) {
-		this.total = total;
-	}
-
-	public Integer getAvailable() {
-		return available;
-	}
-
-	public void setAvailable(Integer available) {
-		this.available = available;
-	}
-
 	private Set<Olist> olists = new HashSet<Olist>(0);
 
 	// Constructors
@@ -71,7 +54,7 @@ public class Room implements java.io.Serializable {
 	/** full constructor */
 	public Room(Hotel hotel, String rid, String rtype, Integer rarea,
 			Float rprice, String rpattern, Short customs, String rstatus,
-			Set<Olist> olists) {
+			Integer total, Integer available, Set<Olist> olists) {
 		this.hotel = hotel;
 		this.rid = rid;
 		this.rtype = rtype;
@@ -80,6 +63,8 @@ public class Room implements java.io.Serializable {
 		this.rpattern = rpattern;
 		this.customs = customs;
 		this.rstatus = rstatus;
+		this.total = total;
+		this.available = available;
 		this.olists = olists;
 	}
 
@@ -166,6 +151,24 @@ public class Room implements java.io.Serializable {
 
 	public void setRstatus(String rstatus) {
 		this.rstatus = rstatus;
+	}
+
+	@Column(name = "total")
+	public Integer getTotal() {
+		return this.total;
+	}
+
+	public void setTotal(Integer total) {
+		this.total = total;
+	}
+
+	@Column(name = "available")
+	public Integer getAvailable() {
+		return this.available;
+	}
+
+	public void setAvailable(Integer available) {
+		this.available = available;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "room")

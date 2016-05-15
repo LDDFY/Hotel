@@ -24,4 +24,41 @@ public class HotelService implements IHotelService {
 		return hotelDAO.findHotelById(hid);
 	}
 
+	@Override
+	public List<Hotel> findAllHotel() {
+		// TODO Auto-generated method stub
+		return hotelDAO.findAllHotel();
+	}
+
+	@Override
+	public boolean addHotel(Hotel hotel) {
+		// TODO Auto-generated method stub
+		return hotelDAO.saveHotel(hotel);
+	}
+
+	@Override
+	public boolean deleteHotel(Integer hid) {
+		// TODO Auto-generated method stub
+		Hotel h = hotelDAO.findHotelById(hid);
+		return hotelDAO.deleteHotel(h);
+	}
+
+	@Override
+	public Hotel loadHotel(Integer hid) {
+		// TODO Auto-generated method stub
+		return hotelDAO.loadHotel(hid);
+	}
+
+	@Override
+	public Hotel mergeHotel(Hotel hotel) {
+		// TODO Auto-generated method stub
+		return hotelDAO.mergeHotel(hotel);
+	}
+
+	@Override
+	public boolean attachHocal(Hotel hotel) {
+		// TODO Auto-generated method stub
+		return hotelDAO.attachDirtyHotel(hotel);
+	}
+
 }

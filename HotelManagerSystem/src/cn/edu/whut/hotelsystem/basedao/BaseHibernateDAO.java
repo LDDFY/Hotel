@@ -53,6 +53,14 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 		return queryObject.list();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<T> Page(String sql, Integer begin, Integer end) {
+		Query queryObject = getSession().createQuery(sql);
+		queryObject.setFirstResult(begin);
+		queryObject.setMaxResults(end);
+		return queryObject.list();
+	}
+
 	@Override
 	public boolean save(T transientInstance) {
 		// 保存实体
@@ -212,6 +220,7 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 		}
 	}
 
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> querySQL(String sql) {
@@ -220,5 +229,6 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 
 		return sqlquery.list();
 	}
+
 
 }

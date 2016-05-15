@@ -11,8 +11,8 @@ import cn.edu.whut.hotelsystem.baseinfor.vo.Hotel;
 
 @Transactional
 @Repository
-public class HotelDAO  extends BaseHibernateDAO<Hotel> implements IHotelDAO{
-	
+public class HotelDAO extends BaseHibernateDAO<Hotel> implements IHotelDAO {
+
 	// property constants
 	public static final String HNAME = "hname";
 	public static final String HEMAIL = "hemail";
@@ -27,8 +27,6 @@ public class HotelDAO  extends BaseHibernateDAO<Hotel> implements IHotelDAO{
 	public static final String IMAGEPATH = "imagepath";
 	public static final String BROWSENUMBER = "browsenumber";
 	public static final String AVGPRICE = "avgprice";
-
-	
 
 	public HotelDAO() {
 		super();
@@ -120,6 +118,7 @@ public class HotelDAO  extends BaseHibernateDAO<Hotel> implements IHotelDAO{
 	@Override
 	public List<Hotel> findAllHotel() {
 		// TODO Auto-generated method stub
+
 		return findAll();
 	}
 
@@ -141,7 +140,9 @@ public class HotelDAO  extends BaseHibernateDAO<Hotel> implements IHotelDAO{
 		return attachClean(instance);
 	}
 
-	
+	public Hotel loadHotel(Integer hid) {
 
-	
+		return (Hotel) getSession().load(Hotel.class, hid);
+	}
+
 }

@@ -17,6 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Evaluation;
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Olist;
 import cn.edu.whut.hotelsystem.news.vo.News;
@@ -26,6 +28,7 @@ import cn.edu.whut.hotelsystem.news.vo.News;
  */
 @Entity
 @Table(name = "hotel", catalog = "hotel")
+@JsonIgnoreProperties(value={"rooms","evaluations","newses","olists"})  
 public class Hotel implements java.io.Serializable {
 
 	// Fields
@@ -260,6 +263,17 @@ public class Hotel implements java.io.Serializable {
 
 	public void setOlists(Set<Olist> olists) {
 		this.olists = olists;
+	}
+
+	@Override
+	public String toString() {
+		return "Hotel [hid=" + hid + ", user=" + user + ", hname=" + hname
+				+ ", hemail=" + hemail + ", htel=" + htel + ", hprovince="
+				+ hprovince + ", hcity=" + hcity + ", haddr=" + haddr
+				+ ", grand=" + grand + ", guestratings=" + guestratings
+				+ ", reviews=" + reviews + ", summary=" + summary
+				+ ", imagepath=" + imagepath + ", browsenumber=" + browsenumber
+				+ ", avgprice=" + avgprice + "]";
 	}
 
 }
