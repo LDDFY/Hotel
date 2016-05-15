@@ -162,7 +162,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<!-- RIGHT INFO -->
 			<div class="col-md-4 detailsright offset-0">
 				<div class="padding20">
-					<h4 class="lh1">Mabely Grand Hotel</h4>
+					<h4 class="lh1">${hotel.hname }</h4>
 					<img src="resourse/images/smallrating-5.png" alt=""/>
 				</div>
 				
@@ -185,7 +185,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				<div class="col-md-6 bordertype3">
 					<img src="resourse/images/user-rating-4.png" alt=""/><br/>
-					18 人浏览
+					${hotel.reviews } 人浏览
 				</div>
 				<div class="col-md-6 bordertype3">
 					<a href="#" class="grey">+Add review</a>
@@ -193,7 +193,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="clearfix"></div><br/>
 				
 				<div class="hpadding20">
-					<a href="#" class="add2fav margtop5">Add to favourite</a>
+					<a href="#" class="add2fav margtop5">添加到收藏夹</a>
 					<a href="#" class="booknow margtop20 btnmarg">现在预订</a>
 				</div>
 			</div>

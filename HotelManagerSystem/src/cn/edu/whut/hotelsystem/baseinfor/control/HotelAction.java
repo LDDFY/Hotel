@@ -31,7 +31,7 @@ public class HotelAction {
 
 	@RequestMapping("/hotelListUI")
 	public String hotelListUI(Model model, String hcity, String checkInData,
-			String checkOutData) {
+			String checkOutData,String keyWords) {
 		if(hcity!=null)
 			hcity=hcity.substring(0, hcity.length()-1);
 		List<Hotel> hotelLists = hotelService.findByHcity(hcity);
@@ -40,6 +40,7 @@ public class HotelAction {
 		model.addAttribute("hcity", hcity);
 		model.addAttribute("checkInData", checkInData);
 		model.addAttribute("checkOutData", checkOutData);
+		model.addAttribute("keyWords", keyWords);
 		return "hotel/hotelList1";
 	}
 
@@ -57,16 +58,6 @@ public class HotelAction {
 		
 		Iterator<Room> room=hotel.getRooms().iterator();
 		while(room.hasNext()){
-			/*for(j=0;j<roomLists.size();)
-			{
-				roomLists.get(j).getRpattern();
-				if(!(room.next().getRpattern().equals(roomLists.get(j).getRpattern())))
-				{
-					roomLists.add(room.next());
-					j++;
-				}
-			}
-			if(j==0)*/
 				roomLists.add(room.next());
 		}
 		System.out.println(hid);

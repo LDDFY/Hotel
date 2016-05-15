@@ -149,139 +149,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							
 							<div class="w50percent">
 								<div class="wh90percent textleft">
-									<span class="opensans size13">选择到达时间</span>
-									<input type="text" class="form-control mySelectCalendar" id="datepicker" name="checkInData" placeholder="mm/dd/yyyy" value="${checkInData }"/>
+									<span class="opensans size13">选择入住时间</span>
+									<input type="text" class="form-control mySelectCalendar" id="datepicker" name="checkInData" placeholder="入住时间" value="${checkInData }"/>
 								</div>
 							</div>
 
 							<div class="w50percentlast">
 								<div class="wh90percent textleft right">
-									<span class="opensans size13">选择离开时间</span>
-									<input type="text" class="form-control mySelectCalendar" id="datepicker2" name="checkOutData" placeholder="mm/dd/yyyy" value="${checkOutData }"/>
+									<span class="opensans size13">选择退房时间</span>
+									<input type="text" class="form-control mySelectCalendar" id="datepicker2" name="checkOutData" placeholder="退房时间" value="${checkOutData }"/>
 								</div>
 							</div>
 							
 							<div class="clearfix pbottom15"></div>
 							
-							<div class="room1" >
-								<div class="w50percent">
-									<div class="wh90percent textleft">
-										<span class="opensans size13"><b>房间 1</b></span><br/>
-										
-										<div class="addroom1 block"><a onclick="addroom2()" class="grey cpointer">+ 添加房间</a></div>
-									</div>
-								</div>
-
-								<div class="w50percentlast">	
-									<div class="wh90percent textleft right ohidden">
-										<div class="w50percent">
-											<div class="wh90percent textleft left">
-												<span class="opensans size13">成年人</span>
-												<select class="form-control mySelectBoxClass">
-												  <option>1</option>
-												  <option selected>2</option>
-												  <option>3</option>
-												  <option>4</option>
-												  <option>5</option>
-												</select>
-											</div>
-										</div>							
-										<div class="w50percentlast">
-											<div class="wh90percent textleft right ohidden">
-											<span class="opensans size13">小孩</span>
-												<select class="form-control mySelectBoxClass">
-												  <option selected>0</option>
-												  <option>1</option>
-												  <option>2</option>
-												  <option>3</option>
-												  <option>4</option>
-												  <option>5</option>
-												</select>
-											</div>
-										</div>
-									</div>
-								</div>
+							<span class="opensans size13"><b>关键词</b></span>
+							<div>
+								<input type="text" class="form-control" id="keyWords" name="keyWords" size="15" placeholder="如位置\酒店名称" value="${keyWords }"/>
 							</div>
 							
-							<div class="room2 none">
-								<div class="clearfix"></div><div class="line1"></div>
-								<div class="w50percent">
-									<div class="wh90percent textleft">
-										<span class="opensans size13"><b>房间 2</b></span><br/>
-										<div class="addroom2 block grey"><a onclick="addroom3()" class="grey cpointer">+ 添加房间</a> | <a onclick="removeroom2()" class="orange cpointer"><img src="${pageContext.request.contextPath}/resourse/images/delete.png" alt="delete"/></a></div>
-									</div>
-								</div>
-
-								<div class="w50percentlast">	
-									<div class="wh90percent textleft right">
-										<div class="w50percent">
-											<div class="wh90percent textleft left">
-												<span class="opensans size13">成年人</span>
-												<select class="form-control mySelectBoxClass">
-												  <option>1</option>
-												  <option>2</option>
-												  <option selected>3</option>
-												  <option>4</option>
-												  <option>5</option>
-												</select>
-											</div>
-										</div>							
-										<div class="w50percentlast">
-											<div class="wh90percent textleft right">
-											<span class="opensans size13">小孩</span>
-												<select class="form-control mySelectBoxClass">
-												  <option selected>0</option>
-												  <option>1</option>
-												  <option>2</option>
-												  <option>3</option>
-												  <option>4</option>
-												  <option>5</option>
-												</select>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>		
-
-							<div class="room3 none">
-								<div class="clearfix"></div><div class="line1"></div>
-								<div class="w50percent">
-									<div class="wh90percent textleft">
-										<span class="opensans size13"><b>房间 3</b></span><br/>
-										<div class="addroom3 block grey"><a onclick="addroom3()" class="grey cpointer">+ 添加房间</a> | <a onclick="removeroom3()" class="orange cpointer"><img src="${pageContext.request.contextPath}/resourse/images/delete.png" alt="delete"/></a></div>
-									</div>
-								</div>
-
-								<div class="w50percentlast">	
-									<div class="wh90percent textleft right">
-										<div class="w50percent">
-											<div class="wh90percent textleft left">
-												<span class="opensans size13">成年人</span>
-												<select class="form-control mySelectBoxClass">
-												  <option selected>1</option>
-												  <option>2</option>
-												  <option>3</option>
-												  <option>4</option>
-												  <option>5</option>
-												</select>
-											</div>
-										</div>							
-										<div class="w50percentlast">
-											<div class="wh90percent textleft right">
-											<span class="opensans size13">小孩</span>
-												<select class="form-control mySelectBoxClass">
-												  <option selected>0</option>
-												  <option>1</option>
-												  <option>2</option>
-												  <option>3</option>
-												  <option>4</option>
-												  <option>5</option>
-												</select>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div><div class="clearfix"></div>
+							<div class="clearfix"></div>
 							<button type="submit" class="btn-search3">查找</button>
 						</div>
 						<!-- END OF HOTELS TAB -->
@@ -483,7 +370,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<br/><br/>
 				<div class="clearfix"></div>
 				
-
+				
 				<div class="itemscontainer offset-1">
 					<c:forEach var="hotelLists" items="${hotelLists }">
 						<div class="offset-2">
@@ -497,14 +384,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="col-md-8 offset-0">
 							<div class="itemlabel3">
+								
 								<div class="labelright">
 									<img src="${pageContext.request.contextPath}/resourse/images/filter-rating-5.png" width="60" alt=""/><br/><br/><br/>
 									<img src="${pageContext.request.contextPath}/resourse/images/user-rating-5.png" width="60" alt=""/><br/>
 									<span class="size11 grey">${hotelLists.reviews } 人浏览</span><br/><br/>
 									<span class="green size18"><b>${hotelLists.avgprice }RMB</b></span><br/>
 									<span class="size11 grey">平均每晚</span><br/><br/><br/>
-									<button class="bookbtn mt1" type="submit">预订</button>	
+									<a href="hotelDetailsUI?hid=${hotelLists.hid }"><button class="bookbtn mt1">预订</button></a>
 								</div>
+								
 								<div class="labelleft2">			
 									<b>${hotelLists.hname }</b><br/><br/>
 									<p class="grey">${hotelLists.summary }</p><br/>
@@ -529,6 +418,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</c:forEach>
 					
 				</div>	
+				
 				<!-- End of offset1-->		
 
 				<div class="hpadding20">
