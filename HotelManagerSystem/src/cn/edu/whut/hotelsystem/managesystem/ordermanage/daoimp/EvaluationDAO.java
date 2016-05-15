@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.edu.whut.hotelsystem.basedao.BaseHibernateDAO;
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.dao.IEvaluationDAO;
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Evaluation;
-import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Olist;
 
 
 @Transactional

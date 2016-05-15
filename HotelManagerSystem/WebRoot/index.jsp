@@ -244,18 +244,8 @@
 											id="hcity" name="hcity" mod="address|notice"
 											mod_address_source="hotel"
 											mod_address_suggest="@Beijing|北京|53@Shanghai|上海|321@Shenzhen|深圳|91@Guangzhou|广州|80@Qingdao|青岛|292@Chengdu|成都|324@Hangzhou|杭州|383@Wuhan|武汉|192@Tianjin|天津|343@Dalian|大连|248@Xiamen|厦门|61@Chongqing|重庆|394@"
-<<<<<<< HEAD
-											mod_address_reference="cityid" mod_notice_tip="请输入地址" /> <input
-<<<<<<< HEAD
-											id="cityid" name="cityid" type="hidden" value="{$cityid}" />
-=======
-											id="hcity" name="hcity" type="hidden" />
-=======
 											mod_address_reference="cityid" mod_notice_tip="请输入地址" /> 
 											<input id="hcity" name="hcity" type="hidden" />
->>>>>>> edbb7470eab815e7803f856ef26a867c6dfff4ce
-
->>>>>>> 3111346f27487150d0d578761fe7f8a643054ec8
 									</div>
 									<div id="jsContainer" class="jsContainer" style="height:0">
 										<div id="tuna_alert"
@@ -276,31 +266,19 @@
 										<div class="wh90percent textleft right">
 											<span class="opensans size13"><b>选择退房时间</b></span> <input
 												type="text" class="form-control mySelectCalendar"
-<<<<<<< HEAD
-												id="datepicker2" name="checkOutData" placeholder="mm/dd/yyyy" />
-										</div>
-<<<<<<< HEAD
-										<br>
-										<br>
-										<br>
-										<br>
-										<button type="submit" class="btn-search">查询</button>
-=======
-
->>>>>>> 3111346f27487150d0d578761fe7f8a643054ec8
-									</div>
-=======
 												id="datepicker2" name="checkOutData" placeholder="退房时间" />
 										</div>
 									</div>
-									<span class="opensans size13"><b>关键词</b></span>
 									<div>
+										<span class="opensans size13"><b>关键词</b></span>
+									
 										<input type="text" class="form-control" id="keyWords" name="keyWords" size="15" placeholder="如位置\酒店名称"/>
 									</div>
-
->>>>>>> edbb7470eab815e7803f856ef26a867c6dfff4ce
-								</div>
+								</div>	
 							</div>
+									<div class="searchbg">
+										<button type="submit" class="btn-search">查询</button>
+									</div>
 						</div>
 					</form>
 				</div>
@@ -436,4 +414,6 @@
 		src="${pageContext.request.contextPath}/resourse/js/address.js"></script>
 </body>
 </html>
+
+
 
