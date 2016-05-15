@@ -1,5 +1,9 @@
 package cn.edu.whut.hotelsystem.baseinfor.control;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -12,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.edu.whut.hotelsystem.baseinfor.service.IUserService;
+import cn.edu.whut.hotelsystem.baseinfor.vo.Room;
 import cn.edu.whut.hotelsystem.baseinfor.vo.User;
+import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Olist;
 
 @Controller
 public class UserAction {
@@ -60,7 +66,17 @@ public class UserAction {
 	}
 
 	@RequestMapping("/userUI")
-	public String userUI() {
+	public String userUI(Model model, HttpSession session,
+			HttpServletRequest request, HttpServletResponse response,
+			Integer uid) {
+		User user=userService.findUserById(uid);
+		List<Olist> userOlistLists=new ArrayList<Olist>();
+		
+		Iterator<Olist> olist=user.getOlistsForUid().iterator();
+		while(olist.hasNext()){
+			userOlistLists.add(olist.next());
+		}
+		model.addAttribute("userOlistLists", userOlistLists);
 		return "user/user";
 	}
 

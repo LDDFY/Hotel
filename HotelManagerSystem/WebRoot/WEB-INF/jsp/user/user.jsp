@@ -260,7 +260,7 @@
 								</table>
 
 
-								<br /> <input type="text" style="display:none;"
+								<br /> <input type="text" style="display:none;" id="uid"
 									class="form-control" value="${user.uid }" rel="popover"
 									id="uid"> 姓名*: <input type="text" class="form-control"
 									value="${user.realname }" rel="popover" id="relname"
@@ -723,78 +723,26 @@
 								<div class="line4"></div>
 
 								<br />
+								<div class="col-md-3 bold" size="10">入住时间</div>
+								<div class="col-md-3 bold">退房时间</div>
+								<div class="col-md-3 bold">酒店名称</div>
+								<div class="col-md-3 bold">花费</div>
+								<!-- <div class="col-md-3 bold textright">操作</div> -->
 
-								<div class="col-md-3 bold">日期</div>
-								<div class="col-md-3 bold">目的地</div>
-								<div class="col-md-3 bold">Service</div>
-								<div class="col-md-3 bold textright">Action</div>
-								<div class="clearfix"></div>
-								<div class="line4"></div>
-
-								<div class="col-md-3">01.05.09</div>
-								<div class="col-md-3">Grece - Zakynthos</div>
-								<div class="col-md-3">Hotel</div>
-								<div class="col-md-3 textright">
-									<button type="submit" class="btn-search5">
-										<span class="glyphicon glyphicon-plus"></span>
-									</button>
-								</div>
-								<div class="clearfix"></div>
-
-								<div class="line4"></div>
-								<div class="col-md-3">17.07.10</div>
-								<div class="col-md-3">Spain - Malaga</div>
-								<div class="col-md-3">Flight Tickets</div>
-								<div class="col-md-3 textright">
-									<button type="submit" class="btn-search5">
-										<span class="glyphicon glyphicon-plus"></span>
-									</button>
-								</div>
-								<div class="clearfix"></div>
-
-								<div class="line4"></div>
-								<div class="col-md-3">01.05.09</div>
-								<div class="col-md-3">Bulgary - Sunny Beach</div>
-								<div class="col-md-3">Flight Tickets</div>
-								<div class="col-md-3 textright">
-									<button type="submit" class="btn-search5">
-										<span class="glyphicon glyphicon-plus"></span>
-									</button>
-								</div>
-								<div class="clearfix"></div>
-
-								<div class="line4"></div>
-								<div class="col-md-3">01.05.09</div>
-								<div class="col-md-3">France - Paris</div>
-								<div class="col-md-3">Rent a car</div>
-								<div class="col-md-3 textright">
-									<button type="submit" class="btn-search5">
-										<span class="glyphicon glyphicon-plus"></span>
-									</button>
-								</div>
-								<div class="clearfix"></div>
-
-								<div class="line4"></div>
-								<div class="col-md-3">15.03.11</div>
-								<div class="col-md-3">U.A.E. - Dubai</div>
-								<div class="col-md-3">Car + Hotel + Flight</div>
-								<div class="col-md-3 textright">
-									<button type="submit" class="btn-search5">
-										<span class="glyphicon glyphicon-plus"></span>
-									</button>
-								</div>
-								<div class="clearfix"></div>
-
-								<div class="line4"></div>
-								<div class="col-md-3">15.06.12</div>
-								<div class="col-md-3">Grand Britain - London</div>
-								<div class="col-md-3">Car + Hotel + Flight</div>
-								<div class="col-md-3 textright">
-									<button type="submit" class="btn-search5">
-										<span class="glyphicon glyphicon-plus"></span>
-									</button>
-								</div>
-								<div class="clearfix"></div>
+								<c:forEach var="userOlistLists" items="${userOlistLists }">
+									<div class="clearfix"></div>
+									<div class="line4"></div>
+									
+									<div class="col-md-3">${userOlistLists.indate }</div>
+									<div class="col-md-3">${userOlistLists.outdate }</div>
+									<div class="col-md-3">${userOlistLists.hotel.hname}</div>
+									<div class="col-md-3">${userOlistLists.ammount}</div>
+									<!-- <div class="col-md-3 textright">
+										<button type="submit" class="btn-search5">
+											<span class="glyphicon glyphicon-plus"></span>
+										</button>
+									</div> -->
+								</c:forEach>
 
 							</div>
 						</div>
@@ -823,46 +771,29 @@
 						<!-- TAB 7 -->
 						<div class="tab-pane" id="newsletter">
 							<div class="padding40">
-
 								<span class="dark size18">我的邮箱</span>
 								<div class="line4"></div>
-
 								<div class="checkbox dark">
 									<label> <input type="checkbox" checked>
 										选中单选框以获得每月系统邮件 </label>
 								</div>
-
 								<br />
 								<button type="submit" class="btn-search5">保存修改</button>
-
 							</div>
 						</div>
 						<!-- END OF TAB 7 -->
-
-
-
-
+						
 					</div>
 					<!-- End of Tab panes from left menu -->
-
 				</div>
 				<!-- END OF RIGHT CPNTENT -->
-
 				<div class="clearfix"></div>
 				<br /> <br />
 			</div>
 			<!-- END CONTENT -->
-
-
-
 		</div>
-
-
 	</div>
 	<!-- END OF CONTENT -->
-
-
-
 
 	<!-- FOOTER -->
 

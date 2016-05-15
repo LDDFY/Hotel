@@ -117,7 +117,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a data-toggle="dropdown" class="dropdown-toggle" href="#">操作<b class="lightcaret mt-2"></b></a>
 								<ul class="dropdown-menu">	
 								  <li><a href="#">登录名：${user.uname }</a></li>
-								  <li><a href="userUI">我的信息</a></li>
+								  <li><a href="userUI?uid=${user.uid }">我的信息</a></li>
 								  <li><a href="paymentUI">付款</a></li>
 								  <li><a href="loginOut">注销</a></li>
 								</ul>

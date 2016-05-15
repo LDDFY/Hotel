@@ -11,7 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Travel Agency - HTML5 Booking template</title>
+<title>汉驿连锁酒店</title>
 
 <!-- Bootstrap -->
 <link
@@ -94,7 +94,7 @@
 									class="lightcaret mt-2"></b></a>
 								<ul class="dropdown-menu">
 									<li><a href="#">登录名：${user.uname }</a></li>
-									<li><a href="userUI">我的信息</a></li>
+									<li><a href="userUI?uid=${user.uid }">我的信息</a></li>
 									<li><a href="paymentUI">付款</a></li>
 									<li><a href="loginOut">注销</a></li>
 								</ul>
@@ -244,11 +244,16 @@
 											id="hcity" name="hcity" mod="address|notice"
 											mod_address_source="hotel"
 											mod_address_suggest="@Beijing|北京|53@Shanghai|上海|321@Shenzhen|深圳|91@Guangzhou|广州|80@Qingdao|青岛|292@Chengdu|成都|324@Hangzhou|杭州|383@Wuhan|武汉|192@Tianjin|天津|343@Dalian|大连|248@Xiamen|厦门|61@Chongqing|重庆|394@"
+<<<<<<< HEAD
 											mod_address_reference="cityid" mod_notice_tip="请输入地址" /> <input
 <<<<<<< HEAD
 											id="cityid" name="cityid" type="hidden" value="{$cityid}" />
 =======
 											id="hcity" name="hcity" type="hidden" />
+=======
+											mod_address_reference="cityid" mod_notice_tip="请输入地址" /> 
+											<input id="hcity" name="hcity" type="hidden" />
+>>>>>>> edbb7470eab815e7803f856ef26a867c6dfff4ce
 
 >>>>>>> 3111346f27487150d0d578761fe7f8a643054ec8
 									</div>
@@ -258,11 +263,12 @@
 										<div id="tuna_jmpinfo"
 											style="visibility:hidden;position:absolute;z-index:120;"></div>
 									</div>
+									<br/>
 									<div class="w50percent">
 										<div class="wh90percent textleft">
 											<span class="opensans size13"><b>选择入住时间</b></span> <input
 												type="text" class="form-control mySelectCalendar"
-												id="datepicker" name="checkInData" placeholder="mm/dd/yyyy" />
+												id="datepicker" name="checkInData" placeholder="入住时间" />
 										</div>
 									</div>
 
@@ -270,6 +276,7 @@
 										<div class="wh90percent textleft right">
 											<span class="opensans size13"><b>选择退房时间</b></span> <input
 												type="text" class="form-control mySelectCalendar"
+<<<<<<< HEAD
 												id="datepicker2" name="checkOutData" placeholder="mm/dd/yyyy" />
 										</div>
 <<<<<<< HEAD
@@ -282,6 +289,16 @@
 
 >>>>>>> 3111346f27487150d0d578761fe7f8a643054ec8
 									</div>
+=======
+												id="datepicker2" name="checkOutData" placeholder="退房时间" />
+										</div>
+									</div>
+									<span class="opensans size13"><b>关键词</b></span>
+									<div>
+										<input type="text" class="form-control" id="keyWords" name="keyWords" size="15" placeholder="如位置\酒店名称"/>
+									</div>
+
+>>>>>>> edbb7470eab815e7803f856ef26a867c6dfff4ce
 								</div>
 							</div>
 						</div>
