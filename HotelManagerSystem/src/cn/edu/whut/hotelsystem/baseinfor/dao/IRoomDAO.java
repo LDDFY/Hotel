@@ -21,14 +21,15 @@ public interface IRoomDAO {
 	public List<Room> findRoomByProperty(String propertyName, Object value);
 	
 	public List<Room> findAllRoom();
+	
 	public Room mergeRoom(Room detachedInstance);
 
 	public boolean attachDirtyRoom(Room instance);
 
 	public boolean attachCleanRoom(Room instance);
 	
-	
 	public List<Room> findByRid(Object rid);
+	
 	public List<Room> findByRtype(Object rtype);
 
 	public List<Room> findByRarea(Object rarea) ;
@@ -41,5 +42,4 @@ public interface IRoomDAO {
 
 	public List<Room> findByRstatus(Object rstatus);
 
-	
 }

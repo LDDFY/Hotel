@@ -220,4 +220,15 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 		}
 	}
 
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> querySQL(String sql) {
+		// TODO Auto-generated method stub
+		Query sqlquery = getSession().createSQLQuery(sql);
+
+		return sqlquery.list();
+	}
+
+
 }

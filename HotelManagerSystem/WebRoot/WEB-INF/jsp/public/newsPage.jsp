@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -16,14 +17,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 <!-- Bootstrap -->
-<link href="resourse/dist/css/bootstrap.css" rel="stylesheet" media="screen">
-<link href="resourse/assets/css/custom.css" rel="stylesheet" media="screen">
+<link href="${pageContext.request.contextPath}/resourse/dist/css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="${pageContext.request.contextPath}/resourse/assets/css/custom.css" rel="stylesheet" media="screen">
 
 <!-- Updates -->
-<link href="resourse/updates/update1/css/style01.css" rel="stylesheet" media="screen">
+<link href="${pageContext.request.contextPath}/resourse/updates/update1/css/style01.css" rel="stylesheet" media="screen">
 
 <!-- Carousel -->
-<link href="resourse/css/carousel.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resourse/css/carousel.css" rel="stylesheet">
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
       <script src="assets/js/html5shiv.js"></script>
@@ -39,25 +40,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	rel='stylesheet' type='text/css'>
 <!-- Font-Awesome -->
 <link rel="stylesheet" type="text/css"
-	href="resourse/assets/css/font-awesome.css" media="screen" />
+	href="${pageContext.request.contextPath}/resourse/assets/css/font-awesome.css" media="screen" />
 <!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="assets/css/font-awesome-ie7.css" media="screen" /><![endif]-->
 
 <!-- REVOLUTION BANNER CSS SETTINGS -->
 <link rel="stylesheet" type="text/css"
-	href="resourse/css/fullscreen.css" media="screen" />
+	href="${pageContext.request.contextPath}/resourse/css/fullscreen.css" media="screen" />
 <link rel="stylesheet" type="text/css"
-	href="resourse/rs-plugin/css/settings.css" media="screen" />
+	href="${pageContext.request.contextPath}/resourse/rs-plugin/css/settings.css" media="screen" />
 
 <!-- Picker UI-->
-<link rel="stylesheet" href="resourse/assets/css/jquery-ui.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resourse/assets/css/jquery-ui.css" />
 
 <!-- jQuery -->
-<script src="resourse/assets/js/jquery.v2.0.3.js"></script>
+<script src="${pageContext.request.contextPath}/resourse/assets/js/jquery.v2.0.3.js"></script>
 
 
 <!-- Masonry -->
-<link href="resourse/updates/update1/css/masonry.css" rel="stylesheet">
-<script src="resourse/updates/update1/js/masonry.pkgd.js"></script>
+<link href="${pageContext.request.contextPath}/resourse/updates/update1/css/masonry.css" rel="stylesheet">
+<script src="${pageContext.request.contextPath}/resourse/updates/update1/js/masonry.pkgd.js"></script>
 <script>
 	// http://masonry.desandro.com/masonry.pkgd.js added as external resource
 
@@ -102,14 +103,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								class="icon-bar"></span>
 						</button>
 						<a href="index.html" class="navbar-brand"><img
-							src="resourse/updates/update1/img/logo.png"
+							src="${pageContext.request.contextPath}/resourse/updates/update1/img/logo.png"
 							alt="Travel Agency Logo" class="logo2" /></a>
 					</div>
 					<div class="navbar-collapse collapse">
 						<ul class="nav nav2 navlight navbar-nav navbar-right">
 							<li><a href="index.jsp">首页</a></li>
 							  <li><a href="hotelListUI">宾馆</a></li>
-							  <li><a href="newsPageUI">新闻</a></li>			  			  
+							  <li class="dropdown active"><a href="newsPageUI">新闻</a></li>			  			  
 							  <li><a href="aboutUI">关于我们</a></li>				  			  
 							  <li style="display:${user.uname==null?"":'none'}"><a href="loginUI">登录</a></li>
 							  <li class="dropdown" style="display:${user.uname==null?"none":''}">
@@ -117,6 +118,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<ul class="dropdown-menu">	
 								  <li><a href="#">登录名：${user.uname }</a></li>
 								  <li><a href="userUI">我的信息</a></li>
+								  <li><a href="paymentUI">付款</a></li>
 								  <li><a href="loginOut">注销</a></li>
 								</ul>
 							  </li>	
@@ -163,7 +165,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<!-- FADE -->
 				<li data-transition="fade" data-slotamount="1"
 					data-masterspeed="300"><img
-					src="resourse/updates/update1/img/slider/slide4.jpg" alt="" />
+					src="${pageContext.request.contextPath}/resourse/updates/update1/img/slider/slide4.jpg" alt="" />
 					<div class="tp-caption scrolleffect sft" data-x="center"
 						data-y="120" data-speed="1000" data-start="800"
 						data-easing="easeOutExpo"></div></li>
@@ -171,7 +173,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<!-- FADE -->
 				<li data-transition="fade" data-slotamount="1"
 					data-masterspeed="300"><img
-					src="resourse/updates/update1/img/slider/slide2.jpg" alt="" />
+					src="${pageContext.request.contextPath}/resourse/updates/update1/img/slider/slide2.jpg" alt="" />
 					<div class="tp-caption scrolleffect sft" data-x="center"
 						data-y="120" data-speed="1000" data-start="800"
 						data-easing="easeOutExpo"></div></li>
@@ -179,7 +181,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<!-- FADE -->
 				<li data-transition="fade" data-slotamount="1"
 					data-masterspeed="300"><img
-					src="resourse/updates/update1/img/slider/slide3.jpg" alt="" />
+					src="${pageContext.request.contextPath}/resourse/updates/update1/img/slider/slide3.jpg" alt="" />
 					<div class="tp-caption scrolleffect sft" data-x="center"
 						data-y="120" data-speed="1000" data-start="800"
 						data-easing="easeOutExpo"></div></li>
@@ -187,12 +189,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<!-- FADE -->
 				<li data-transition="fade" data-slotamount="1"
 					data-masterspeed="300"><img
-					src="resourse/updates/update1/img/slider/slide4.jpg" alt="" />
+					src="${pageContext.request.contextPath}/resourse/updates/update1/img/slider/slide4.jpg" alt="" />
 					<div class="tp-caption scrolleffect sft" data-x="center"
 						data-y="120" data-speed="1000" data-start="800"
 						data-easing="easeOutExpo"></div></li>
-
-
 
 			</ul>
 			<div class="tp-bannertimer none"></div>
@@ -271,42 +271,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		});
 		</script>
 
-
-
-
-
-
 	<!-- WRAP -->
 	<div class="wrap cst03 bgfix ">
-		<div class="container lnews">Latest news</div>
+		<div class="container lnews">最新新闻</div>
 		<div class="masonry">
-			<div class="item wt2 ht2">
-				<div class="msbox2">
-					<a href="#"><img src="resourse/updates/update1/img/pic01.jpg"
-						class="fhimg2 left" alt=""></a>
-				</div>
-			</div>
+			<%-- <c:forEach var="newsLists" items="${newsLists }">
+						<div class="offset-2">
+							<div class="col-md-4 offset-0">
+								<div class="listitem2">
+									<a href="${newsLists.imgpath}" data-footer="A custom footer text" data-title="A random title" data-gallery="multiimages" data-toggle="lightbox"><img src="${newsLists.imgpath}" alt=""/></a>
+									<div class="liover"></div>
+									<a class="fav-icon" href="#"></a>
+									<a class="book-icon" href="hotelDetailsUI?hid=${newsLists.newsid }"></a>
+								</div>
+							</div>
+							<div class="col-md-8 offset-0">
+							<div class="itemlabel3">
+								<div class="labelright">
+									<span class="size11 grey">${newsLists.author }</span><br/><br/>
+									<span class="size11 grey">${newsLists.releasetime }</span><br/><br/>
+									<span class="green size18"><b>${newsLists.keyword }</b></span><br/>
+								</div>
+								<div class="labelleft2">			
+									<b>${newsLists.title }</b><br/><br/><br/>
+									<p class="grey">${newsLists.content }</p><br/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<div class="offset-2"><hr class="featurette-divider3"></div>
+					</c:forEach> --%>
+			<c:forEach var="newsLists" items="${newsLists }">
 			<div class="item ht2">
 				<div class="msbox2">
-					<a href="#"><img src="resourse/updates/update1/img/pic02.jpg"
-						class="fhimg" alt=""></a>
+					<%-- <a href="#"><img src="${newsLists.imgpath}"
+						class="fhimg" alt=""></a> --%>
 					<p class="msctext padding20">
-						<span class="newstitle"><a href="#">The Experts in
-								African Safari Travel</a></span><br /> <br /> Sed auctor erat sit amet
-						lorem venenatis, in feugiat nisl fermentum. Nam luctus adipiscing
-						dapibus. Nunc leo felis, ornare non commodo a, elementum a risus.
+						<span class="newstitle"><a href="#">${newsLists.title }</a></span>
+						<br /> <br /> ${newsLists.content }
 					</p>
 				</div>
 			</div>
-			<div class="item ">
+			</c:forEach>
+			<%-- <div class="item ">
 				<div class="msbox">
-					<a href="#"><img src="resourse/updates/update1/img/pic03.jpg"
+					<a href="#"><img src="${pageContext.request.contextPath}/resourse/updates/update1/img/pic03.jpg"
 						class="fhimg" alt=""></a>
 				</div>
 			</div>
 			<div class="item ht2">
 				<div class="msbox2">
-					<a href="#"><img src="resourse/updates/update1/img/pic04.jpg"
+					<a href="#"><img src="${pageContext.request.contextPath}/resourse/updates/update1/img/pic04.jpg"
 						class="fhimg" alt=""></a>
 					<p class="msctext padding20">
 						<span class="newstitle"><a href="#">Velassaru Beach
@@ -332,17 +348,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						a.
 					</div>
 					<div class="w50percentlast right">
-						<a href="#"><img src="resourse/updates/update1/img/pic06.jpg"
+						<a href="#"><img src="${pageContext.request.contextPath}/resourse/updates/update1/img/pic06.jpg"
 							class="fwimg " alt=""></a>
 					</div>
 				</div>
 			</div>
 			<div class="item">
 				<div class="msbox">
-					<a href="#"><img src="resourse/updates/update1/img/pic05.jpg"
+					<a href="#"><img src="${pageContext.request.contextPath}/resourse/updates/update1/img/pic05.jpg"
 						class="fhimg" alt=""></a>
 				</div>
-			</div>
+			</div> --%>
 
 		</div>
 
@@ -364,15 +380,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<footer>
 					<div class="footer">
 						<a href="#" class="social1"><img
-							src="resourse/images/icon-facebook.png" alt="" /></a> <a href="#"
-							class="social2"><img src="resourse/images/icon-twitter.png"
+							src="${pageContext.request.contextPath}/resourse/images/icon-facebook.png" alt="" /></a> <a href="#"
+							class="social2"><img src="${pageContext.request.contextPath}/resourse/images/icon-twitter.png"
 							alt="" /></a> <a href="#" class="social3"><img
-							src="resourse/images/icon-gplus.png" alt="" /></a> <a href="#"
-							class="social4"><img src="resourse/images/icon-youtube.png"
+							src="${pageContext.request.contextPath}/resourse/images/icon-gplus.png" alt="" /></a> <a href="#"
+							class="social4"><img src="${pageContext.request.contextPath}/resourse/images/icon-youtube.png"
 							alt="" /></a> <br /> <br /> Copyright &copy; 2013 <a href="#">隐私协议</a>
 						All rights reserved. <a href="http://titanicthemes.com">TitanicThemes.com</a>
 						<br /> <br /> <a href="#top" id="gotop2" class="gotop"><img
-							src="resourse/images/spacer.png" alt="" /></a>
+							src="${pageContext.request.contextPath}/resourse/images/spacer.png" alt="" /></a>
 					</div>
 				</footer>
 			</div>
@@ -391,40 +407,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- Javascript -->
 
 	<!-- This page JS -->
-	<script src="resourse/updates/update1/js/js-new-homepage.js"></script>
+	<script src="${pageContext.request.contextPath}/resourse/updates/update1/js/js-new-homepage.js"></script>
 
 	<!-- Custom functions -->
-	<script src="resourse/assets/js/functions.js"></script>
+	<script src="${pageContext.request.contextPath}/resourse/assets/js/functions.js"></script>
 
 	<!-- Picker UI-->
-	<script src="resourse/assets/js/jquery-ui.js"></script>
+	<script src="${pageContext.request.contextPath}/resourse/assets/js/jquery-ui.js"></script>
 
 	<!-- Easing -->
-	<script src="resourse/assets/js/jquery.easing.js"></script>
+	<script src="${pageContext.request.contextPath}/resourse/assets/js/jquery.easing.js"></script>
 
 	<!-- jQuery KenBurn Slider  -->
 	<script type="text/javascript"
-		src="resourse/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+		src="${pageContext.request.contextPath}/resourse/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
 	<!-- Nicescroll  -->
-	<script src="resourse/assets/js/jquery.nicescroll.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resourse/assets/js/jquery.nicescroll.min.js"></script>
 
 	<!-- CarouFredSel -->
-	<script src="resourse/assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+	<script src="${pageContext.request.contextPath}/resourse/assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
 	<script
-		src="resourse/assets/js/helper-plugins/jquery.touchSwipe.min.js"></script>
+		src="${pageContext.request.contextPath}/resourse/assets/js/helper-plugins/jquery.touchSwipe.min.js"></script>
 	<script type="text/javascript"
-		src="resourse/assets/js/helper-plugins/jquery.mousewheel.min.js"></script>
+		src="${pageContext.request.contextPath}/resourse/assets/js/helper-plugins/jquery.mousewheel.min.js"></script>
 	<script type="text/javascript"
-		src="resourse/assets/js/helper-plugins/jquery.transit.min.js"></script>
+		src="${pageContext.request.contextPath}/resourse/assets/js/helper-plugins/jquery.transit.min.js"></script>
 	<script type="text/javascript"
-		src="resourse/assets/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+		src="${pageContext.request.contextPath}/resourse/assets/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
 
 	<!-- Custom Select -->
 	<script type='text/javascript'
 		src='resourse/assets/js/jquery.customSelect.js'></script>
 
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="resourse/dist/js/bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resourse/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

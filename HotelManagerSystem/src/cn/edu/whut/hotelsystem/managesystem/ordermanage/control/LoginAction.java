@@ -23,4 +23,9 @@ public class LoginAction {
 		return "public/login";
 	}
 	
+	@RequestMapping("/paymentUI")
+	public String paymentUI(){
+		return "user/payment";
+	}
+	
 }

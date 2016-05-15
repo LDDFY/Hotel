@@ -95,6 +95,7 @@
 								<ul class="dropdown-menu">
 									<li><a href="#">登录名：${user.uname }</a></li>
 									<li><a href="userUI">我的信息</a></li>
+									<li><a href="paymentUI">付款</a></li>
 									<li><a href="loginOut">注销</a></li>
 								</ul>
 							</li>
@@ -222,6 +223,7 @@
 	<!-- WRAP -->
 	<div class="wrap cstyle03">
 
+
 		<div class="container mt-200 z-index100">
 			<div class="row">
 				<div class="col-md-4">
@@ -239,11 +241,16 @@
 
 									<div>
 										<input type="text" class="form-control" value="" size="15"
-											id="homecity_name" name="homecity_name" mod="address|notice"
+											id="hcity" name="hcity" mod="address|notice"
 											mod_address_source="hotel"
 											mod_address_suggest="@Beijing|北京|53@Shanghai|上海|321@Shenzhen|深圳|91@Guangzhou|广州|80@Qingdao|青岛|292@Chengdu|成都|324@Hangzhou|杭州|383@Wuhan|武汉|192@Tianjin|天津|343@Dalian|大连|248@Xiamen|厦门|61@Chongqing|重庆|394@"
 											mod_address_reference="cityid" mod_notice_tip="请输入地址" /> <input
+<<<<<<< HEAD
 											id="cityid" name="cityid" type="hidden" value="{$cityid}" />
+=======
+											id="hcity" name="hcity" type="hidden" />
+
+>>>>>>> 3111346f27487150d0d578761fe7f8a643054ec8
 									</div>
 									<div id="jsContainer" class="jsContainer" style="height:0">
 										<div id="tuna_alert"
@@ -255,7 +262,7 @@
 										<div class="wh90percent textleft">
 											<span class="opensans size13"><b>选择入住时间</b></span> <input
 												type="text" class="form-control mySelectCalendar"
-												id="datepicker" placeholder="mm/dd/yyyy" />
+												id="datepicker" name="checkInData" placeholder="mm/dd/yyyy" />
 										</div>
 									</div>
 
@@ -263,13 +270,17 @@
 										<div class="wh90percent textleft right">
 											<span class="opensans size13"><b>选择退房时间</b></span> <input
 												type="text" class="form-control mySelectCalendar"
-												id="datepicker2" placeholder="mm/dd/yyyy" />
+												id="datepicker2" name="checkOutData" placeholder="mm/dd/yyyy" />
 										</div>
+<<<<<<< HEAD
 										<br>
 										<br>
 										<br>
 										<br>
 										<button type="submit" class="btn-search">查询</button>
+=======
+
+>>>>>>> 3111346f27487150d0d578761fe7f8a643054ec8
 									</div>
 								</div>
 							</div>
@@ -297,6 +308,7 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="col-md-4">
 					<div class="shadow cstyle05">
 						<div class="fwi one">

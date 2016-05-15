@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -75,16 +76,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			  </div>
 			  <div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
-				  <li class="dropdown active"><a href="index.html">首页</a></li>
-				  <li><a href="hotelListUI">宾馆</a></li>
-				  <li><a href="newsPage.html">新闻</a></li>			  			  
-				  <li><a href="about.html">关于我们</a></li>		  			  
+				  <li><a href="index.jsp">首页</a></li>
+				  <li class="dropdown active"><a href="hotelListUI">宾馆</a></li>
+				  <li><a href="newsPageUI">新闻</a></li>			  			  
+				  <li><a href="aboutUI">关于我们</a></li>		  			  
 				  <li style="display:${user.uname==null?"":'none'}"><a href="loginUI">登录</a></li>
 				  <li class="dropdown" style="display:${user.uname==null?"none":''}">
 					<a data-toggle="dropdown" class="dropdown-toggle" href="#">操作<b class="lightcaret mt-2"></b></a>
 					<ul class="dropdown-menu">	
 					  <li><a href="#">登录名：${user.uname }</a></li>
 					  <li><a href="userUI">我的信息</a></li>
+					  <li><a href="paymentUI">付款</a></li>
 					  <li><a href="loginOut">注销</a></li>
 					</ul>
 				  </li>		
@@ -485,7 +487,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<br/>
 						
 						<p class="hpadding20 dark">房间种类</p>
-						
+						<c:forEach var="roomLists" items="${roomLists }">
 						<div class="line2"></div>
 						
 						<div class="padding20">
@@ -494,8 +496,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="col-md-8 offset-0">
 								<div class="col-md-8 mediafix1">
-									<h4 class="opensans dark bold margtop1 lh1">Standard Double room</h4>
-									Max Occupancy: 2 adults
+									<h4 class="opensans dark bold margtop1 lh1">${roomLists.rpattern }</h4>
+									类型: ${roomLists.rtype } 
 									<ul class="hotelpreferences margtop10">
 										<li class="icohp-internet"></li>
 										<li class="icohp-air"></li>
@@ -512,118 +514,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</ul>									
 								</div>
 								<div class="col-md-4 center bordertype4">
-									<span class="opensans green size24">$49.51</span><br/>
-									<span class="opensans lightgrey size12">avg/night</span><br/><br/>
-									<span class="lred bold">3 left</span><br/><br/>
-									<button class="bookbtn mt1">Book</button>	
+									<span class="opensans green size24">${roomLists.rprice }RMB</span><br/>
+									<span class="opensans lightgrey size12">平均每晚</span><br/><br/>
+									<span class="lred bold">待定</span><br/><br/>
+									<button class="bookbtn mt1">预订</button>	
 								</div>										
 							</div>
 							<div class="clearfix"></div>
 						</div>
 						<div class="line2"></div>		
-
-						<div class="padding20">
-							<div class="col-md-4 offset-0">
-								<a href="#"><img src="resourse/images/items2/item2.jpg" alt="" class="fwimg"/></a>
-							</div>
-							<div class="col-md-8 offset-0">
-								<div class="col-md-8">
-									<h4 class="opensans dark bold margtop1 lh1">Double Room with Town View</h4>
-									Max Occupancy: 3 adults
-									<ul class="hotelpreferences margtop10">
-										<li class="icohp-hairdryer"></li>
-										<li class="icohp-garden"></li>
-										<li class="icohp-grill"></li>
-										<li class="icohp-kitchen"></li>
-										<li class="icohp-bar"></li>
-										<li class="icohp-living"></li>
-										<li class="icohp-tv"></li>
-									</ul>
-									<div class="clearfix"></div>
-									<ul class="checklist2 margtop10">
-										<li>FREE Cancellation</li>
-										<li>Pay at hotel or pay today </li>
-									</ul>									
-								</div>
-								<div class="col-md-4 center bordertype4">
-									<span class="opensans green size24">$105.78</span><br/>
-									<span class="opensans lightgrey size12">avg/night</span><br/><br/>
-									<span class="">9 available</span><br/><br/>
-									<button class="bookbtn mt1">Book</button>	
-								</div>										
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="line2"></div>	
-
-						<div class="padding20">
-							<div class="col-md-4 offset-0">
-								<a href="#"><img src="resourse/images/items2/item3.jpg" alt="" class="fwimg"/></a>
-							</div>
-							<div class="col-md-8 offset-0">
-								<div class="col-md-8">
-									<h4 class="opensans dark bold margtop1 lh1">Family Suite</h4>
-									Max Occupancy: 4 adults
-									<ul class="hotelpreferences margtop10">
-										<li class="icohp-fridge"></li>
-										<li class="icohp-microwave"></li>
-										<li class="icohp-washing"></li>
-										<li class="icohp-roomservice"></li>
-										<li class="icohp-safe"></li>
-										<li class="icohp-playground"></li>
-										<li class="icohp-conferenceroom"></li>
-									</ul>
-									<div class="clearfix"></div>
-									<ul class="checklist2 margtop10">
-										<li>FREE Cancellation</li>
-										<li>Pay at hotel or pay today </li>
-									</ul>									
-								</div>
-								<div class="col-md-4 center bordertype4">
-									<span class="opensans green size24">$186.18</span><br/>
-									<span class="opensans lightgrey size12">avg/night</span><br/><br/>
-									<span class="red bold">booked</span><br/><br/>
-									<button class="bookbtn mt1 cunvailable">Book</button>	
-								</div>										
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="line2"></div>	
-
-						<div class="padding20">
-							<div class="col-md-4 offset-0">
-								<a href="#"><img src="resourse/images/items2/item4.jpg" alt="" class="fwimg"/></a>
-							</div>
-							<div class="col-md-8 offset-0">
-								<div class="col-md-8">
-									<h4 class="opensans dark bold margtop1 lh1">Superior, Sea View</h4>
-									Max Occupancy: 3 adults
-									<ul class="hotelpreferences margtop10">
-										<li class="icohp-internet"></li>
-										<li class="icohp-air"></li>
-										<li class="icohp-pool"></li>
-										<li class="icohp-childcare"></li>
-										<li class="icohp-fitness"></li>
-										<li class="icohp-breakfast"></li>
-										<li class="icohp-parking"></li>
-									</ul>
-									<div class="clearfix"></div>
-									<ul class="checklist2 margtop10">
-										<li>FREE Cancellation</li>
-										<li>Pay at hotel or pay today </li>
-									</ul>									
-								</div>
-								<div class="col-md-4 center bordertype4">
-									<span class="opensans green size24">$211.57</span><br/>
-									<span class="opensans lightgrey size12">avg/night</span><br/><br/>
-									<span class="">12 available</span><br/><br/>
-									<button class="bookbtn mt1">Book</button>	
-								</div>										
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="line2"></div>							
-						
+						</c:forEach>
 					</div>
 					
 					<!-- TAB 3 -->					

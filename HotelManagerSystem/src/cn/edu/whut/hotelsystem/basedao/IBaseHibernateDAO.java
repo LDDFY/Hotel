@@ -8,6 +8,9 @@ public interface IBaseHibernateDAO<T> {
 	// 获取Session()
 	public Session getSession();
 
+	// 执行sql语句
+	public List<T> querySQL(String hql);
+
 	// 获取总记录数
 	public Integer tootleCounts();
 
