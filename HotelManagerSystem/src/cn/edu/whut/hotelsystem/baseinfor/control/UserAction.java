@@ -51,7 +51,6 @@ public class UserAction {
 			String userpassword, Integer userid) {
 		String result = "修改密码失败！";
 		User user = userService.loadUser(userid);
-		;
 		user.setUpwd(userpassword);
 		boolean flag = userService.saveOrUpdate(user);
 		if (flag) {

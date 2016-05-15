@@ -20,7 +20,6 @@ public interface IBaseHibernateDAO<T> {
 	// 删除实体
 	public boolean delete(T persistentInstance);
 
-	
 	// 按id查找实体
 	public T findById(Object id);
 
@@ -50,4 +49,5 @@ public interface IBaseHibernateDAO<T> {
 	// 将传入对象置为透明状态
 	public boolean attachClean(T instance);
 
+	public List<T> Page(String sql, Integer begin, Integer end);
 }

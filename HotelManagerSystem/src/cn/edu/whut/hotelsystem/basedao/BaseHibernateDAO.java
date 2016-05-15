@@ -42,13 +42,20 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 		return findAll().size();
 	}
 
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> findByPageIndex(Integer begin, Integer end) {
 		// 按页数查询
 		String queryString = "FROM " + clazz.getSimpleName();
 		Query queryObject = getSession().createQuery(queryString);
+		queryObject.setFirstResult(begin);
+		queryObject.setMaxResults(end);
+		return queryObject.list();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<T> Page(String sql, Integer begin, Integer end) {
+		Query queryObject = getSession().createQuery(sql);
 		queryObject.setFirstResult(begin);
 		queryObject.setMaxResults(end);
 		return queryObject.list();
@@ -85,11 +92,10 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 		}
 	}
 
-	
 	@Override
 	public T findById(Object id) {
 		// TODO Auto-generated method stub
-		
+
 		log.debug("getting " + clazz.getSimpleName() + " instance with id: "
 				+ id);
 		try {
@@ -120,7 +126,6 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 			throw re;
 		}
 	}
-
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -191,11 +196,11 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 			getSession().saveOrUpdate(instance);
 			log.debug("attach successful");
 			getSession().flush();
-		
+
 			return true;
 		} catch (RuntimeException re) {
 			log.error("attach failed", re);
-			
+
 			throw re;
 		}
 
@@ -214,7 +219,5 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 			throw re;
 		}
 	}
-
-	
 
 }

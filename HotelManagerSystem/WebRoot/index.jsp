@@ -225,7 +225,7 @@
 		<div class="container mt-200 z-index100">
 			<div class="row">
 				<div class="col-md-4">
-					<form action="hotelListUI">
+					<form action="hotelListUI" method="post">
 						<div class="bs-example bs-example-tabs cstyle04">
 
 							<ul class="nav nav-tabs" id="myTab">
@@ -236,14 +236,14 @@
 							<div class="tab-content" id="myTabContent">
 								<div id="hotel" class="tab-pane fade active in">
 									<span class="opensans size18">您想去哪里?</span>
+
 									<div>
 										<input type="text" class="form-control" value="" size="15"
 											id="homecity_name" name="homecity_name" mod="address|notice"
 											mod_address_source="hotel"
 											mod_address_suggest="@Beijing|北京|53@Shanghai|上海|321@Shenzhen|深圳|91@Guangzhou|广州|80@Qingdao|青岛|292@Chengdu|成都|324@Hangzhou|杭州|383@Wuhan|武汉|192@Tianjin|天津|343@Dalian|大连|248@Xiamen|厦门|61@Chongqing|重庆|394@"
 											mod_address_reference="cityid" mod_notice_tip="请输入地址" /> <input
-											id="hcity" name="hcity" type="hidden" value="{$hcity}" />
-
+											id="cityid" name="cityid" type="hidden" value="{$cityid}" />
 									</div>
 									<div id="jsContainer" class="jsContainer" style="height:0">
 										<div id="tuna_alert"
@@ -265,156 +265,14 @@
 												type="text" class="form-control mySelectCalendar"
 												id="datepicker2" placeholder="mm/dd/yyyy" />
 										</div>
+										<br>
+										<br>
+										<br>
+										<br>
+										<button type="submit" class="btn-search">查询</button>
 									</div>
-
-									<div class="clearfix"></div>
-
-									<div class="room1 margtop15">
-										<div class="w50percent">
-											<div class="wh90percent textleft">
-												<span class="opensans size13"><b>房间 1</b></span><br />
-
-												<div class="addroom1 block">
-													<a href="#room2" onclick="addroom2()" class="grey">+
-														添加房间</a>
-												</div>
-											</div>
-										</div>
-
-										<div class="w50percentlast">
-											<div class="wh90percent textleft right">
-												<div class="w50percent">
-													<div class="wh90percent textleft left">
-														<span class="opensans size13"><b>成年人</b></span> <select
-															class="form-control mySelectBoxClass">
-															<option>1</option>
-															<option selected>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</div>
-												</div>
-												<div class="w50percentlast">
-													<div class="wh90percent textleft right">
-														<span class="opensans size13"><b>孩子</b></span> <select
-															class="form-control mySelectBoxClass">
-															<option>0</option>
-															<option selected>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="room2 none">
-										<div class="clearfix"></div>
-										<div class="line1"></div>
-										<div class="w50percent">
-											<div class="wh90percent textleft">
-												<span class="opensans size13"><b>房间 2</b></span><br />
-												<div class="addroom2 block grey">
-													<a href="#" onclick="addroom3()" class="grey">+ 添加房间</a> |
-													<a href="#" onclick="removeroom2()" class="orange"><img
-														src="${pageContext.request.contextPath}/resourse/images/delete.png"
-														alt="delete" /></a>
-												</div>
-											</div>
-										</div>
-
-										<div class="w50percentlast">
-											<div class="wh90percent textleft right">
-												<div class="w50percent">
-													<div class="wh90percent textleft left">
-														<span class="opensans size13"><b>成年人</b></span> <select
-															class="form-control mySelectBoxClass">
-															<option>1</option>
-															<option>2</option>
-															<option selected>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</div>
-												</div>
-												<div class="w50percentlast">
-													<div class="wh90percent textleft right">
-														<span class="opensans size13"><b>孩子</b></span> <select
-															class="form-control mySelectBoxClass">
-															<option selected>0</option>
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="room3 none">
-										<div class="clearfix"></div>
-										<div class="line1"></div>
-										<div class="w50percent">
-											<div class="wh90percent textleft">
-												<span class="opensans size13"><b>房间 3</b></span><br />
-												<div class="addroom3 block grey">
-													<a href="#" onclick="addroom3()" class="grey">+ 添加房间</a> |
-													<a href="#" onclick="removeroom3()" class="orange"><img
-														src="${pageContext.request.contextPath}/resourse/images/delete.png"
-														alt="delete" /></a>
-												</div>
-											</div>
-										</div>
-
-										<div class="w50percentlast">
-											<div class="wh90percent textleft right">
-												<div class="w50percent">
-													<div class="wh90percent textleft left">
-														<span class="opensans size13"><b>成年人</b></span> <select
-															class="form-control mySelectBoxClass">
-															<option selected>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</div>
-												</div>
-												<div class="w50percentlast">
-													<div class="wh90percent textleft right">
-														<span class="opensans size13"><b>孩子</b></span> <select
-															class="form-control mySelectBoxClass">
-															<option selected>0</option>
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-														</select>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
-
 								</div>
-								<!--End of 2nd tab -->
 							</div>
-
-							<div class="searchbg">
-
-								<button type="submit" class="btn-search">查询</button>
-
-							</div>
-
 						</div>
 					</form>
 				</div>
