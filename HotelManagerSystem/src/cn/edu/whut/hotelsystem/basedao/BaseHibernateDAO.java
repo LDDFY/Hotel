@@ -33,6 +33,7 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 	@Override
 	public Session getSession() {
 		// 获取当前session
+				
 		return sessionFactory.getCurrentSession();
 	}
 

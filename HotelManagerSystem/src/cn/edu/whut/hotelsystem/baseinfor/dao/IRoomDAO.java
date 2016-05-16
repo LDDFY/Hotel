@@ -5,9 +5,12 @@ import java.util.List;
 import cn.edu.whut.hotelsystem.baseinfor.vo.Room;
 
 public interface IRoomDAO {
+	public void callUpdateRoom();
 
 	public List<Room> queryRoomSQL(String sql);
+
 	public List<Room> queryRoomHQL(String sql);
+
 	public boolean saveRoom(Room transientInstance);
 
 	public boolean deleteRoom(Room persistentInstance);

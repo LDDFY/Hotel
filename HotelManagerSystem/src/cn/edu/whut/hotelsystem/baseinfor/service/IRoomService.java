@@ -9,5 +9,13 @@ public interface IRoomService {
 	public List<Room> findRoomByExample(Room room);
 
 	public List<Room> findRoomByHid(Integer r);
-	
+
+	public Room findRoomByid(Integer rid);
+
+	public boolean saveRoom(Room r);
+
+	public void callUpdateRoom();
+
+	public boolean deleteRoombyId(Integer rid);
+
 }

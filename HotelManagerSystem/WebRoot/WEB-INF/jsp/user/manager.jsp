@@ -43,6 +43,7 @@
 
 <!-- jQuery -->
 <script src="resourse/assets/js/jquery.v2.0.3.js"></script>
+<script src="resourse/js/jquery.form.js"></script>
 <script type="text/javascript">
 	$(function() {
 		fresh();
@@ -100,9 +101,9 @@
 				var strtd = "<td>";
 				var strtded = "</td>";
 				var a = "<a href='roomInfor.do?rid=";
-				var a1 = "'>详情</a><a href='modifyroom.do?rid=";
-				var a2 = "'>修改</a><a href='deleteroom.do?rid=";
-				var a3 = "'>删除</a>";
+				var a1 = "'>详情</a><a href='modifyRoom.do?rid=";
+				var a2 = "'>修改</a><a href='javascript:deleteRoom(";
+				var a3 = ")'>删除</a>";
 
 				for (var i = 0; i < data.length; i++) {
 
@@ -137,10 +138,10 @@
 	}
 
 	function freshHotelRole() {
-		
+
 		var level = document.getElementById("level").value;
 		var uid = document.getElementById("uID").value;
-		
+
 		$($.ajax({
 			type : "GET",
 
@@ -163,14 +164,54 @@
 			}
 		}));
 	}
+
+	function addRoom() {
+		$('#myModal1').modal('hide')
+		$("#hid").val($("#HotelID").val());
+		$.ajax({
+			cache : true,
+			type : "POST",
+			url : "addRoom.do",
+			data : $('#roomInfor').serialize(),// 你的formid
+			async : false,
+			error : function(request) {
+				alert("添加房间信息失败！");
+
+			},
+			success : function(data) {
+				freshRoom();
+				alert("添加房间信息成功！");
+
+			}
+		});
+	}
+	function deleteRoom(rid) {
+		$.ajax({
+			cache : true,
+			type : "POST",
+			url : "deleteRoom.do",
+			data : {
+				"rid" : rid
+			},// 你的formid
+			async : false,
+			error : function(request) {
+
+				alert("删除房间信息失败！");
+			},
+			success : function(data) {
+				freshRoom();
+				alert("删除房间信息成功！");
+
+			}
+		});
+	}
 </script>
 
 </head>
 
 <body id="top">
-	<input id="uID" name="uID" value="${user.uid }"/>
-		<input id="level" name="level" value="${user.level }"
-		hidden="hidden" />
+	<input id="uID" name="uID" value="${user.uid }" />
+	<input id="level" name="level" value="${user.level }" hidden="hidden" />
 	<!-- CONTENT -->
 	<div class="container2">
 		<div class="container2 offset-0">
@@ -435,13 +476,7 @@
 
 								</div>
 
-								<c:if test="${not empty result }">
-									<div class="alert alert-warning fade in margtop20">
-										<button aria-hidden="true" data-dismiss="alert" class="close"
-											type="button">×</button>
-										<strong>提示!</strong>${result1}
-									</div>
-								</c:if>
+
 								<div class="modal  fade" id="myModal1" tabindex="-1"
 									role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 									<div class="modal-dialog">
@@ -455,45 +490,45 @@
 
 											<div class="modal-body">
 
-												<form action="addHotel" method="post">
+												<form action="javascript:addRoom()" method="post"
+													name="roomInfor" id="roomInfor">
 													<table class="table table-bordered">
-														<tbody>
 
-															<tr>
-																<td align="right">名称:</td>
-																<td align="left"><input name="hname" type="text"
-																	id="hname" class="span1-1" /> *</td>
-																<td align="right">省份:</td>
-																<td align="left" colspan="3"><input
-																	name="hprovince" type="text" id="hprovince"
-																	class="span1-1" />*</td>
-															</tr>
-															<tr>
-																<td align="right">城市</td>
-																<td align="left"><input name="hcity" type="text"
-																	id="hcity" class="span1-1" />*</td>
-																<td align="right">地址:</td>
-																<td align="left" colspan="3"><input name="haddr"
-																	type="text" id="haddr" class="span1-1" />*</td>
-															</tr>
-															<tr>
-																<td align="right">电话:</td>
-																<td align="left"><input name="hetl" type="text"
-																	id="hetl" class="span1-1" />*</td>
-																<td align="right">email:</td>
-																<td colspan="3" align="left"><input name="hemail"
-																	type="text" id="hemail" class="span1-1" /></td>
-															</tr>
+														<tr>
 
-															<tr>
-																<td align="right">星级:</td>
-																<td align="left"><input name="grand" type="text"
-																	id="grand" class="span1-1" />*</td>
-																<td align="right">环境:</td>
-																<td colspan="3" align="left"><input name="summary"
-																	type="text" id="summary" class="span1-1" /></td>
-															</tr>
+															<td align="right">房间号:</td>
+															<td align="left"><input name="rid" type="text"
+																id="rid" class="span1-1" /> *</td>
+															<td align="right">房间类型:</td>
+															<td align="left" colspan="3"><input name="rtype"
+																type="text" id="rtype" class="span1-1" />*</td>
+														</tr>
+														<tr>
+															<td align="right">房间大小</td>
+															<td align="left"><input name="rarea" type="text"
+																id="rarea" class="span1-1" />*</td>
+															<td align="right">价格:</td>
+															<td align="left" colspan="3"><input name="rprice"
+																type="text" id="rprice" class="span1-1" />*</td>
+														</tr>
+														<tr>
+															<td align="right">房间格局:</td>
+															<td align="left"><input name="rpattern" type="text"
+																id="rpattern" class="span1-1" />*</td>
+															<td align="right">可住人数:</td>
+															<td colspan="3" align="left"><input name="customs"
+																type="text" id="customs" class="span1-1" /></td>
+														</tr>
+														<tr>
+															<td align="right">是否可住:</td>
+															<td align="left"><select name="rstatus">
+																	<option value="1">可住</option>
+																	<option value="0">不可住</option>
 
+															</select></td>
+
+														</tr>
+														<input name="hid" type="text" id="hid" hidden="hidden" />
 														</tbody>
 													</table>
 											</div>

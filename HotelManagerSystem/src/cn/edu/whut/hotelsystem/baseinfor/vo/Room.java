@@ -183,4 +183,12 @@ public class Room implements java.io.Serializable {
 		this.olists = olists;
 	}
 
+	@Override
+	public String toString() {
+		return "Room [roomid=" + roomid + ", rid=" + rid + ", rtype=" + rtype
+				+ ", rarea=" + rarea + ", rprice=" + rprice + ", rpattern="
+				+ rpattern + ", customs=" + customs + ", rstatus=" + rstatus
+				+ ", total=" + total + ", available=" + available + "]";
+	}
+
 }

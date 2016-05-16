@@ -22,9 +22,31 @@ public class RoomService implements IRoomService {
 	@Override
 	public List<Room> findRoomByHid(Integer r) {
 		// TODO Auto-generated method stub
-		String sql = "FROM Room r WHERE r.hotel.hid=" +r; 
-				
+		String sql = "FROM Room r WHERE r.hotel.hid=" + r;
+
 		return roomDAO.queryRoomHQL(sql);
 	}
 
+	@Override
+	public Room findRoomByid(Integer rid) {
+		// TODO Auto-generated method stub
+		return roomDAO.findRoomById(rid);
+	}
+
+	@Override
+	public boolean saveRoom(Room r) {
+		// TODO Auto-generated method stub
+		return roomDAO.saveRoom(r);
+	}
+
+	public void callUpdateRoom() {
+		roomDAO.callUpdateRoom();
+	}
+
+	public boolean deleteRoombyId(Integer rid) {
+		// TODO Auto-generated method stub
+		Room r=roomDAO.findRoomById(rid);
+		return roomDAO.deleteRoom(r);
+	}
+	
 }

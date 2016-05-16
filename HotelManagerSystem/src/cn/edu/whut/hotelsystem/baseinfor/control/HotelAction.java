@@ -81,7 +81,7 @@ public class HotelAction {
 			HttpSession session, HttpServletRequest request,
 			HttpServletResponse response,@RequestParam Integer level,@RequestParam Integer uid) {
 		// 根据权限获取hotel
-		System.out.println("+++++++++++++++++"+level);
+		
 		List<Hotel> hotelList = hotelService.findHotelByLevel(uid,level);
 	
 		return hotelList;
