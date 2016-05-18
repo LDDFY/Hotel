@@ -100,5 +100,8 @@ public class OlistDAO extends BaseHibernateDAO<Olist> implements  IOlistDAO{
 		return attachClean(instance);
 	}
 
-	
+	public List<Olist> queryHQL(String hql){
+			
+		return queryHQL(hql);
+	}
 }

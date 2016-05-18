@@ -35,16 +35,17 @@ public class RoomAction {
 			HttpServletResponse response, Integer rid) {
 		Room room = roomService.findRoomByid(rid);
 		model.addAttribute("room", room);
-		return "user/roomdetails";
+		return "room/roomdetails";
 	}
 
 	@RequestMapping("/addRoom")
 	public @ResponseBody String addRoom(HttpServletRequest request, Room r) {
 		String result = "增加房间信息失败！";
+		System.out.println(request.getParameter("hid"));
 		Integer hid = Integer.parseInt(request.getParameter("hid"));
 		Hotel h = HotelService.loadHotel(hid);
 		r.setHotel(h);
-	
+
 		boolean flag = roomService.saveRoom(r);
 		if (flag) {
 			result = "增加房间信息成功！";
@@ -53,9 +54,11 @@ public class RoomAction {
 
 		return result;
 	}
+
 	@RequestMapping("/deleteRoom")
-	public @ResponseBody String deleteRoom(HttpServletRequest request, Integer rid){
-		
+	public @ResponseBody String deleteRoom(HttpServletRequest request,
+			Integer rid) {
+
 		String result = "删除房间信息失败！";
 		boolean flag = roomService.deleteRoombyId(rid);
 		if (flag) {
@@ -63,5 +66,20 @@ public class RoomAction {
 			roomService.callUpdateRoom();
 		}
 		return result;
+	}
+
+	@RequestMapping("/RoomManager")
+	public String RoomManager() {
+		return "room/RoomManager";
+	}
+	
+	@RequestMapping("/modifyRoom")
+	public String modifyHotel(Model model, HttpServletRequest request,
+			HttpServletResponse response, Integer rid) {
+
+		Room room = roomService.findRoomByid(rid);
+		model.addAttribute("room", room);
+
+		return "room/modifyRoom";
 	}
 }

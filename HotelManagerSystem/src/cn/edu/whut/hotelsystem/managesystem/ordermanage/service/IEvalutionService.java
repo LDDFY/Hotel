@@ -6,4 +6,6 @@ public interface IEvalutionService {
 
 	public double getApplause(Integer hid);
 
+	public boolean deleteEvaluation(Integer eid);
+
 }

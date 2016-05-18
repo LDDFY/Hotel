@@ -18,4 +18,6 @@ public interface IRoomService {
 
 	public boolean deleteRoombyId(Integer rid);
 
+	public Room findRoomById(String rid);
+
 }

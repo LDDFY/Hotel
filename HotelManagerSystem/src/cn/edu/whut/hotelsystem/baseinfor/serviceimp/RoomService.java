@@ -48,5 +48,12 @@ public class RoomService implements IRoomService {
 		Room r=roomDAO.findRoomById(rid);
 		return roomDAO.deleteRoom(r);
 	}
+
+	@Override
+	public Room findRoomById(String rid) {
+		// TODO Auto-generated method stub
+		List<Room> roomList=roomDAO.findByRid(rid);
+		return roomDAO.findRoomById(roomList.get(0).getRoomid());
+	}
 	
 }

@@ -123,7 +123,7 @@ public class HotelAction {
 		}
 
 		model.addAttribute("result", result);
-		return "user/manager";
+		return "hotel/HotelManager";
 	}
 
 	@RequestMapping("/deleteHotel")
@@ -137,7 +137,7 @@ public class HotelAction {
 		}
 
 		model.addAttribute("result", result);
-		return "user/manager";
+		return "hotel/HotelManager";
 
 	}
 
@@ -147,7 +147,7 @@ public class HotelAction {
 
 		Hotel hotel = hotelService.findHotelById(hid);
 		model.addAttribute("hotel", hotel);
-		return "user/details";
+		return "hotel/details";
 	}
 
 	@RequestMapping("/modifyHotel")
@@ -157,7 +157,7 @@ public class HotelAction {
 		Hotel hotel = hotelService.findHotelById(hid);
 		model.addAttribute("hotel", hotel);
 
-		return "user/modifyhotel";
+		return "hotel/modifyhotel";
 	}
 
 	@RequestMapping("/updateHotel")
@@ -172,7 +172,12 @@ public class HotelAction {
 			result = "更新酒店信息成功！";
 		}
 		model.addAttribute("result", result);
-		return "user/manager";
+		return "hotel/HotelManager";
 	}
 
+	@RequestMapping("/HotelManager")
+	public String HotelManager(){
+		
+		return "hotel/HotelManager";
+	}
 }
