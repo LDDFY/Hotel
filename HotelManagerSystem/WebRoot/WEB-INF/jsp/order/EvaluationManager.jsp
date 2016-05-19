@@ -179,7 +179,7 @@
 			</div>
 		</c:if>
 		<div class="col-md-15">
-			<table id="menuList" name="menuList" class="table table-striped">
+			<table id="menuList" name="menuList" class="table table-bordered">
 				<caption>评价信息列表</caption>
 				<thead>
 					<tr>

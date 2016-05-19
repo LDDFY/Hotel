@@ -1,5 +1,7 @@
 package cn.edu.whut.hotelsystem.baseinfor.serviceimp;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +22,7 @@ public class UserService implements IUserService {
 	@Override
 	public boolean saveOrUpdate(User user) {
 		// TODO Auto-generated method stub
-		
+
 		return userDAO.saveOrUpdateUser(user);
 	}
 
@@ -34,6 +36,26 @@ public class UserService implements IUserService {
 	public User findUserById(Integer uid) {
 		// TODO Auto-generated method stub
 		return userDAO.findUserById(uid);
+	}
+
+	@Override
+	public List<User> findAllUser() {
+		// TODO Auto-generated method stub
+		return userDAO.findAllUser();
+	}
+
+	@Override
+	public boolean resetPassword(Integer uid) {
+		// TODO Auto-generated method stub
+		User u = userDAO.loadUser(uid);
+		u.setUpwd(u.getUname());
+		return userDAO.saveOrUpdateUser(u);
+	}
+
+	@Override
+	public List<User> serchUserByUname(String uname) {
+		// TODO Auto-generated method stub
+		return userDAO.findByUname(uname);
 	}
 
 }

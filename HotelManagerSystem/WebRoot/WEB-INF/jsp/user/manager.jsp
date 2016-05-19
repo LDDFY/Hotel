@@ -112,13 +112,13 @@
 									<span class="replies-icon left"></span> <span class="dtxt">新闻信息管理</span>
 								</div>
 						</a></li>
-						<li><a href="#appearance" data-toggle="tab">
+						<li><a href="userManager.do"  target="content">
 								<div class="dash-ct">
 									<span class="appearance-icon left"></span> <span class="dtxt">用户信息管理</span>
 								</div>
 						</a></li>
 						<c:if test="${user.level ==2}">
-							<li><a href="#users" data-toggle="tab">
+							<li><a href="AdninistratorManager.do" target="content">
 									<div class="dash-ct">
 										<span class="profile-icon left"></span> <span class="dtxt">管理员信息管理</span>
 									</div>

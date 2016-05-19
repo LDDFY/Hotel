@@ -77,45 +77,37 @@
 <script type="text/javascript">
 	$(function() {
 
-		freshHotelRole();
-		
+		freshUser();
+
 	});
 
-	function freshOrder() {
-
-		var role = document.getElementById('HotelID').value;
-
+	function freshUser() {
 		$.ajax({
 			type : "GET",
-			url : "findOrderByHid.do",
-			data : {
-				"hid" : role
-			},
+			url : "freshUser.do",
+
 			success : function(data) {
 
 				var strHtml = "";
-				 var strtitle = "<tr>";
-				 var strtitleed = "</tr>";
-				 var strtd = "<td>";
-				 var strtded = "</td>";
-				 
-				 var a = "<a href='deleteOrder.do?oid=";
-				 var a1 = "'>删除</a>";
-				 for (var i = 0; i < data.length; i++) {
+				var strtitle = "<tr>";
+				var strtitleed = "</tr>";
+				var strtd = "<td>";
+				var strtded = "</td>";
 
-				 $("#menuList tr:not(:first)").remove();
-				 strHtml += strtitle + 
-				 strtd + (i+1) + strtded 
-				 + strtd + data[i].uid + strtded 
-				 + strtd + data[i].hid + strtded
-				 + strtd + data[i].rid + strtded 
-				 + strtd + data[i].innumber + strtded 
-				 + strtd + data[i].indete+ strtded 
-				 + strtd + data[i].outdate+ strtded 
-				 + strtd + a+data[i].oid+a1 + strtded
-				 + strtitleed; 
-				 $("#menuList").append(strHtml);
-				 }
+				var a = "<a href='resetUser.do?uid=";
+				var a1 = "'>重置密码</a>";
+				for (var i = 0; i < data.length; i++) {
+
+					$("#menuList tr:not(:first)").remove();
+					strHtml += strtitle + strtd + (i + 1) + strtded + strtd
+							+ data[i].uname + strtded + strtd
+							+ data[i].realname + strtded + strtd
+							+ data[i].ugender + strtded + strtd + data[i].utel
+							+ strtded + strtd + data[i].uemail + strtded
+							+ strtd + data[i].money + strtded + strtd + a
+							+ data[i].uid + a1 + strtded + strtitleed;
+					$("#menuList").append(strHtml);
+				}
 			},
 			error : function() {
 				alert("刷新失败！");
@@ -124,34 +116,43 @@
 		});
 	}
 
-	function freshHotelRole() {
+	function serchUser() {
 
-		var level = document.getElementById("level").value;
-		var uid = document.getElementById("uID").value;
+		var uname = document.getElementById("uname").value;
 
 		$($.ajax({
 			type : "GET",
 
-			url : "findHotelBylevel.do",
+			url : "serchUser.do",
 			data : {
-				"level" : level,
-				"uid" : uid,
+				"uname" : uname,
 			},
-			success : function(Datas) {
-				$("#HotelID").empty();
-				for (var i = 0; i < Datas.length; i++) {
-					$("#HotelID").append(
-							"<option value='"+Datas[i].hid+"'>"
-									+ Datas[i].hname + "</option>");
+			success : function(data) {
+				var strHtml = "";
+				var strtitle = "<tr>";
+				var strtitleed = "</tr>";
+				var strtd = "<td>";
+				var strtded = "</td>";
+				var a = "<a href='resetUser.do?uid=";
+				var a1 = "'>重置密码</a>";
+				for (var i = 0; i < data.length; i++) {
+					
+					$("#menuList tr:not(:first)").remove();
+					strHtml += strtitle + strtd + (i + 1) + strtded + strtd
+							+ data[i].uname + strtded + strtd
+							+ data[i].realname + strtded + strtd
+							+ data[i].ugender + strtded + strtd + data[i].utel
+							+ strtded + strtd + data[i].uemail + strtded
+							+ strtd + data[i].money + strtded + strtd + a
+							+ data[i].uid + a1 + strtded + strtitleed;
+					$("#menuList").append(strHtml);
 				}
-				freshOrder();
 			},
 			error : function() {
-				alert("酒店信息更新失败！");
+				alert("查找信息更新失败！");
 			}
 		}));
 	}
-
 </script>
 </head>
 
@@ -166,11 +167,11 @@
 		<div class="line2"></div>
 		<div class="clearfix"></div>
 		<div style="float: left; padding-right: 3px;">
-			<select id="HotelID" name="HotelID" style="width: 60px;height: 30px;">
-			</select>
+			<input type="text" id="uname" name="uname" value="请输入用户名"
+				style="height:30px;" />
 		</div>
 		<div>
-			<a class="btn btn-primary btn-sm" onclick="javascript:freshOrder()">刷新订单</a>
+			<a class="btn btn-primary btn-sm" onclick="javascript:serchUser()">搜索</a>
 		</div>
 
 		<c:if test="${not empty result }">
@@ -182,16 +183,16 @@
 		</c:if>
 		<div class="col-md-15">
 			<table id="menuList" name="menuList" class="table table-bordered">
-				<caption>订单信息列表</caption>
+				<caption>用户信息列表</caption>
 				<thead>
 					<tr>
-						<th>订单号</th>
-						<th>用户</th>
-						<th>酒店</th>
-						<th>房间</th>
-						<th>入住人数</th>
-						<th>入住时间</th>
-						<th>离开时间</th>
+						<th>序号</th>
+						<th>用户编号</th>
+						<th>真实姓名</th>
+						<th>性别</th>
+						<th>电话</th>
+						<th>email</th>
+						<th>账户余额</th>
 						<th>操作</th>
 					</tr>
 				</thead>
@@ -204,42 +205,6 @@
 
 	</div>
 
-	<%-- <div class="col-md-15">
-			<div class="tab-pane" id="history">
-				<div class="padding40">
-
-					<span class="dark size18">历史记录</span>
-					<div class="line4"></div>
-
-					<br />
-					<div class="col-md-3 bold" size="10">入住时间</div>
-					<div class="col-md-3 bold">退房时间</div>
-					<div class="col-md-3 bold">酒店名称</div>
-					<div class="col-md-3 bold">花费</div>
-
-					<c:forEach var="userOlistLists" items="${userOlistLists }">
-						<div class="clearfix"></div>
-						<div class="line4"></div>
-
-						<div class="col-md-3">
-							<fmt:formatDate value="${userOlistLists.indate }"
-								pattern="yyyy/MM/dd" />
-						</div>
-
-						<div class="col-md-3">
-							<fmt:formatDate value="${userOlistLists.outdate }"
-								pattern="yyyy/MM/dd" />
-						</div>
-						<div class="col-md-3">${userOlistLists.hotel.hname}</div>
-						<div class="col-md-3">${userOlistLists.ammount}</div>
-
-					</c:forEach>
-
-				</div>
-			</div>
-			<!-- END OF TAB 5 -->
-
-		</div> --%>
 	</div>
 	</div>
 	<!-- This page JS -->

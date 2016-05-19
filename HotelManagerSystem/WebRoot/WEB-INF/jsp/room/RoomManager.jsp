@@ -295,7 +295,7 @@
 
 
 	<div class="col-md-15">
-		<table id="RoomList" name="RoomList" class="table table-striped">
+		<table id="RoomList" name="RoomList" class="table table-bordered">
 			<caption>房间信息列表</caption>
 			<thead>
 				<tr>

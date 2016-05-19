@@ -95,12 +95,11 @@
 
 					$("#menuList tr:not(:first)").remove();
 					strHtml += strtitle + strtd + data[i].hid + strtded + strtd
-							+ data[i].hname + strtded + strtd + data[i].hcity
-							+ strtded + strtd + data[i].haddr + strtded + strtd
-							+ data[i].htel + strtded + strtd + data[i].hemail
-							+ strtded + strtd + a + data[i].hid + a1
-							+ data[i].hid + a2 + data[i].hid + a3 + strtded
-							+ strtitleed;
+							+ data[i].hname + strtded + strtd + data[i].haddr
+							+ strtded + strtd + data[i].htel + strtded + strtd
+							+ data[i].hemail + strtded + strtd + a
+							+ data[i].hid + a1 + data[i].hid + a2 + data[i].hid
+							+ a3 + strtded + strtitleed;
 					$("#menuList").append(strHtml);
 				}
 			},
@@ -114,7 +113,7 @@
 
 </head>
 
-<body>
+<body >
 	<input id="uID" name="uID" value="${user.uid }" hidden="hidden" />
 	<input id="level" name="level" value="${user.level }" hidden="hidden" />
 	<div class="tab-content5">
@@ -128,8 +127,8 @@
 			<div style="padding-left: 5px;">
 				<button type="button" class="btn btn-primary btn-sm"
 					onclick="fresh()">刷新列表</button>
-				<button class="btn btn-primary btn-sm" 
-					data-target="#myModal" data-toggle="modal">添加信息</button>
+				<button class="btn btn-primary btn-sm" data-target="#myModal"
+					data-toggle="modal">添加信息</button>
 
 			</div>
 
@@ -206,17 +205,14 @@
 				<!-- /.modal -->
 			</div>
 
-
-
 			<div class="col-md-15">
-				<table id="menuList" name="menuList" class="table table-striped">
+				<table id="menuList" name="menuList" class="table table-bordered">
 					<caption>酒店信息列表</caption>
 					<thead>
 						<tr>
 							<th>序号</th>
-							<th>名称</th>
-							<th>城市</th>
-							<th>地址</th>
+							<th >名称</th>							
+							<th >地址</th>
 							<th>电话</th>
 							<th>email</th>
 							<th>操作</th>

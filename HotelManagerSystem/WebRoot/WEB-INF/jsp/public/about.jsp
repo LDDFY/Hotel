@@ -17,12 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 	<link href="resourse/examples/carousel/carousel.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="resourse/assets/js/html5shiv.js"></script>
-      <script src="resourse/assets/js/respond.min.js"></script>
-    <![endif]-->
-	
+   
     <!-- Fonts -->	
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,400,300,300italic' rel='stylesheet' type='text/css'>	

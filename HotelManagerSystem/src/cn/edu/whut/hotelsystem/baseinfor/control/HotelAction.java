@@ -29,23 +29,7 @@ public class HotelAction {
 	@Autowired
 	private IEvalutionService evalutionService;
 
-	@RequestMapping("/hotelListUI")
-	public String hotelListUI(Model model, String hcity, String checkInData,
-
-			String checkOutData,String keyWords) {
-		String[] city = hcity.split(",");
-		hcity=city[0];
-		System.out.println(hcity);
-		List<Hotel> hotelLists = hotelService.findByHcity(hcity);
-		model.addAttribute("hotelLists", hotelLists);
-		model.addAttribute("count", hotelLists.size());
-		model.addAttribute("hcity", hcity);
-		model.addAttribute("checkInData", checkInData);
-		model.addAttribute("checkOutData", checkOutData);
-		model.addAttribute("keyWords", keyWords);
-		return "hotel/hotelList1";
-	}
-
+	
 	@RequestMapping("/aboutUI")
 	public String aboutUI() {
 		return "public/about";
@@ -54,24 +38,41 @@ public class HotelAction {
 	@RequestMapping("/hotelDetailsUI")
 	public String hotelDetailsUI(Model model, HttpSession session,
 
-			HttpServletRequest request, HttpServletResponse response,Integer hid) {
+			HttpServletRequest request, HttpServletResponse response,Integer HotelID, String checkInData,
+
+			String checkOutData) {
 		
-		Hotel hotel=hotelService.findHotelById(hid);
+		Hotel hotel=hotelService.findHotelById(HotelID);
 		List<Room> roomLists=new ArrayList<Room>(0);
 		
 		Iterator<Room> room=hotel.getRooms().iterator();
 		while(room.hasNext()){
-				roomLists.add(room.next());
+				roomLists.add(room.next());			
 		}
 
-		System.out.println(hid);
-		double applauseRate = evalutionService.getCustomersApplauseRate(hid);
-		double applause = evalutionService.getApplause(hid);
+		List<Room> roomList=new ArrayList<Room>(0);
+		roomList.add(roomLists.get(0));
+		for(Room r:roomLists)
+		{
+			int flag=0;
+			for(int i=0;i<roomList.size();i++){
+				if(r.getRpattern().equals(roomList.get(i).getRpattern())){
+					flag=1;
+				}
+			}
+			if(flag==0)
+				roomList.add(r);
+		}
+		
+		double applauseRate = evalutionService.getCustomersApplauseRate(HotelID);
+		double applause = evalutionService.getApplause(HotelID);
 
 		model.addAttribute("hotel", hotel);
-		model.addAttribute("roomLists", roomLists);
+		model.addAttribute("roomLists", roomList);
 		model.addAttribute("applauseRate", applauseRate);
 		model.addAttribute("applause", applause * 100);
+		model.addAttribute("checkInData",checkInData);
+		model.addAttribute("checkOutData",checkOutData);
 
 		return "hotel/hotelDetails";
 	}
