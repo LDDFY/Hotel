@@ -46,8 +46,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<form action="Login"  method="post" >
 		<!-- Login Wrap  -->
 		<div class="login-wrap">
-			<img src="resourse/images/logo.png" class="login-img" alt="logo"/><br/>
+			<img src="resourse/images/logo.png" class="login-img" alt="logo"/>
 			<div class="login-c1">
+			
 				<div class="cpadding50">
 					<input type="text" id="uname" name="uname" class="form-control logpadding" placeholder="用户名">
 					<br/>

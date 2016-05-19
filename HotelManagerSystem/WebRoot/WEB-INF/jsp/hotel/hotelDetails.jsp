@@ -380,12 +380,12 @@
 					<!-- TAB 2 -->
 					<div id="roomrates" class="tab-pane fade active in">
 						<p class="hpadding20 dark">房间种类</p>
-						<c:forEach var="roomLists" items="${roomLists }">
+						<c:forEach var="roomLists" items="${roomLists }" varStatus="status">
 							<div class="line2"></div>
 							<div class="padding20">
 								<div class="col-md-4 offset-0">
-									<a href="#"><img src="resourse/images/items2/item1.jpg"
-										alt="" class="fwimg" /></a>
+									<a href="#"><img src="resourse/images/items2/item${status.index+1}.jpg"
+										alt="暂无图片" class="fwimg" /></a>
 								</div>
 								<div class="col-md-8 offset-0">
 									<div class="col-md-8 mediafix1">

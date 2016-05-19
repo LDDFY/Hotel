@@ -1,6 +1,5 @@
 package cn.edu.whut.hotelsystem.managesystem.ordermanage.control;
 
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -39,32 +38,39 @@ public class OlistAction {
 	private IOlistService olistService;
 
 	@RequestMapping("/bookingRoom")
-	public String bookingRoom(HttpSession session,
-			HttpServletRequest request, HttpServletResponse response,
-			Olist olist,Integer userid,Integer hid,Integer roomid) throws ParseException {
-		String indate=request.getParameter("indate");
-		String outdate=request.getParameter("outdate");
-		
-		SimpleDateFormat sp=new SimpleDateFormat("yyyy-mm-dd");
-		Date in=sp.parse(formate(indate));
-		Date out=sp.parse(formate(outdate));
-		Hotel hotel=hotelService.findHotelById(hid);
-		User user=userService.findUserById(userid);
-		Room room=roomService.findRoomByid(roomid);
-		olist.setUserByUid(user);
+	public String bookingRoom(HttpSession session, HttpServletRequest request,
+			HttpServletResponse response, Olist olist, Integer userid,
+			Integer hid, Integer roomid) throws ParseException {
+		String result = "public/login";
+		String indate = request.getParameter("indate");
+		String outdate = request.getParameter("outdate");
+
+		SimpleDateFormat sp = new SimpleDateFormat("yyyy-mm-dd");
+		Date in = sp.parse(formate(indate));
+		Date out = sp.parse(formate(outdate));
+		Hotel hotel = hotelService.findHotelById(hid);
+		Room room = roomService.findRoomByid(roomid);
+
+		if (userid != null) {
+			User user = userService.findUserById(userid);
+			olist.setUserByUid(user);
+			result = "user/payment";
+		} else {
+			return result;
+		}
 		olist.setHotel(hotel);
 		olist.setRoom(room);
 		olist.setOutdate(out);
 		olist.setIndate(in);
 		olistService.saveOlist(olist);
-		
-		return "public/login";
+
+		return result;
 	}
 
 	private String formate(String indate) {
-		String[] s=indate.split("/");
-		String sd=null;
-		return sd=s[2]+"-"+s[0]+"-"+s[1];
+		String[] s = indate.split("/");
+		String sd = null;
+		return sd = s[2] + "-" + s[0] + "-" + s[1];
 	}
-	
+
 }

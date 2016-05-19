@@ -29,7 +29,6 @@ public class HotelAction {
 	@Autowired
 	private IEvalutionService evalutionService;
 
-	
 	@RequestMapping("/aboutUI")
 	public String aboutUI() {
 		return "public/about";
@@ -38,41 +37,43 @@ public class HotelAction {
 	@RequestMapping("/hotelDetailsUI")
 	public String hotelDetailsUI(Model model, HttpSession session,
 
-			HttpServletRequest request, HttpServletResponse response,Integer HotelID, String checkInData,
+	HttpServletRequest request, HttpServletResponse response, Integer HotelID,
+			String checkInData,
 
 			String checkOutData) {
-		
-		Hotel hotel=hotelService.findHotelById(HotelID);
-		List<Room> roomLists=new ArrayList<Room>(0);
-		
-		Iterator<Room> room=hotel.getRooms().iterator();
-		while(room.hasNext()){
-				roomLists.add(room.next());			
+
+		Hotel hotel = hotelService.findHotelById(HotelID);
+		List<Room> roomLists = new ArrayList<Room>(0);
+
+		Iterator<Room> room = hotel.getRooms().iterator();
+		while (room.hasNext()) {
+			roomLists.add(room.next());
 		}
 
-		List<Room> roomList=new ArrayList<Room>(0);
+		List<Room> roomList = new ArrayList<Room>(0);
 		roomList.add(roomLists.get(0));
-		for(Room r:roomLists)
-		{
-			int flag=0;
-			for(int i=0;i<roomList.size();i++){
-				if(r.getRpattern().equals(roomList.get(i).getRpattern())){
-					flag=1;
+		for (Room r : roomLists) {
+			int flag = 0;
+			for (int i = 0; i < roomList.size(); i++) {
+				if (r.getRpattern().equals(roomList.get(i).getRpattern())) {
+					flag = 1;
 				}
 			}
-			if(flag==0)
+			if (flag == 0)
 				roomList.add(r);
 		}
-		
-		double applauseRate = evalutionService.getCustomersApplauseRate(HotelID);
+
+		double applauseRate = evalutionService
+				.getCustomersApplauseRate(HotelID);
 		double applause = evalutionService.getApplause(HotelID);
 
 		model.addAttribute("hotel", hotel);
 		model.addAttribute("roomLists", roomList);
 		model.addAttribute("applauseRate", applauseRate);
-		model.addAttribute("applause", applause * 100);
-		model.addAttribute("checkInData",checkInData);
-		model.addAttribute("checkOutData",checkOutData);
+		java.text.DecimalFormat df = new java.text.DecimalFormat("#.##");
+		model.addAttribute("applause", df.format(applause * 100));
+		model.addAttribute("checkInData", checkInData);
+		model.addAttribute("checkOutData", checkOutData);
 
 		return "hotel/hotelDetails";
 	}
@@ -80,11 +81,12 @@ public class HotelAction {
 	@RequestMapping("/findHotelBylevel")
 	public @ResponseBody List<Hotel> findHotelBylevel(Model model,
 			HttpSession session, HttpServletRequest request,
-			HttpServletResponse response,@RequestParam Integer level,@RequestParam Integer uid) {
+			HttpServletResponse response, @RequestParam Integer level,
+			@RequestParam Integer uid) {
 		// 根据权限获取hotel
-		
-		List<Hotel> hotelList = hotelService.findHotelByLevel(uid,level);
-	
+
+		List<Hotel> hotelList = hotelService.findHotelByLevel(uid, level);
+
 		return hotelList;
 	}
 
@@ -177,8 +179,8 @@ public class HotelAction {
 	}
 
 	@RequestMapping("/HotelManager")
-	public String HotelManager(){
-		
+	public String HotelManager() {
+
 		return "hotel/HotelManager";
 	}
 }
