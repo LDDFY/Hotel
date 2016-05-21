@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -109,9 +109,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="navbar-collapse collapse">
 						<ul class="nav nav2 navlight navbar-nav navbar-right">
 							<li><a href="index.jsp">首页</a></li>
-							  <li><a href="hotelListUI">宾馆</a></li>
+							  
 							  <li class="dropdown active"><a href="newsPageUI">新闻</a></li>			  			  
-							  <li><a href="aboutUI">关于我们</a></li>				  			  
+							  <li><a href="aboutUI">关于我们</a></li>	
+							  <li><a href="goContact.do">联系我们</a></li>			  			  
 							  <li style="display:${user.uname==null?"":'none'}"><a href="loginUI">登录</a></li>
 							  <li class="dropdown" style="display:${user.uname==null?"none":''}">
 								<a data-toggle="dropdown" class="dropdown-toggle" href="#">操作<b class="lightcaret mt-2"></b></a>

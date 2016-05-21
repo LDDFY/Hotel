@@ -1,13 +1,10 @@
 package cn.edu.whut.hotelsystem.managesystem.ordermanage.serviceimp;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.dao.IOlistDAO;
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.service.IOlistService;
-import cn.edu.whut.hotelsystem.managesystem.ordermanage.service.IOrderService;
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Olist;
 
 @Service

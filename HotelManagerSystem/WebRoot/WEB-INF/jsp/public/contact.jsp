@@ -71,9 +71,9 @@
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="index.jsp">首页</a></li>
-							<li class="dropdown active"><a href="#">联系我们</a></li>
 							<li><a href="newsPageUI">新闻</a></li>
 							<li><a href="aboutUI">关于我们</a></li>
+							<li class="dropdown active"><a href="goContact.do">联系我们</a></li>
 							<li style="display:${user.uname==null?"":'none'}"><a
 								href="loginUI">登录</a></li>
 							<li class="dropdown" style="display:${user.uname==null?"none":''}">
@@ -102,89 +102,88 @@
 
 
 
-<!-- WRAP -->
+	<!-- WRAP -->
 	<div class="wrap cstyle03">
-		
-		<div class="container mt-200 z-index100">		
-		  <div class="row">
-			<div class="col-md-12">
-				<div class="bs-example bs-example-tabs cstyle04">
-				
-					<div class="tab-content">
 
-						<div class="col-md-4">
-						<form action="#">
-							<span class="opensans size24 slim">联系</span>
-							<input type="text" placeholder="姓名" class="form-control logpadding margtop10">
-							<input type="text" placeholder="电话" class="form-control logpadding margtop20">
-							<input type="text" placeholder="E-mail" class="form-control logpadding margtop20">
+		<div class="container mt-200 z-index100">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="bs-example bs-example-tabs cstyle04">
+
+						<div class="tab-content">
+
+							<div class="col-md-4">
+								<form action="#">
+									<span class="opensans size24 slim">联系</span> <input type="text"
+										placeholder="姓名" class="form-control logpadding margtop10">
+									<input type="text" placeholder="电话"
+										class="form-control logpadding margtop20"> <input
+										type="text" placeholder="E-mail"
+										class="form-control logpadding margtop20">
+							</div>
+							<div class="col-md-4">
+								<textarea rows="9" class="form-control margtop10"></textarea>
+							</div>
+							<div class="col-md-4 opensans grey">
+								地址:<br /> <span class="dark"> 李龙<br /> 科学大道166号<br /> 河南
+									郑州<br />
+								</span> <br /> 电话<br />
+								<p class="opensans size30 cyan xslim">1-866-599-6674</p>
+								Email<br /> <a href="mailto:office@company.com" class="green2">office@company.com</a>
+							</div>
 						</div>
-						<div class="col-md-4">
-							<textarea rows="9" class="form-control margtop10"></textarea>
+
+						<div class="searchbg3">
+							<button type="submit" class="btn-search right mr20">发送邮件</button>
+							</form>
 						</div>
-						<div class="col-md-4 opensans grey">
-							地址:<br/>
-							<span class="dark">
-								李龙<br/>
-								科学大道166号<br/>
-								河南 郑州<br/>
-							</span>
-							<br/>
-							电话<br/>
-							<p class="opensans size30 cyan xslim">1-866-599-6674</p>
-							Email<br/>
-							<a href="mailto:office@company.com" class="green2">office@company.com</a>
-						</div>
+
 					</div>
-					
-					<div class="searchbg3">
-						<button type="submit" class="btn-search right mr20">发送邮件</button>
-						</form>
-					</div>
-						
 				</div>
 			</div>
-		  </div>
 		</div>
-		
 
-		
+
+
 		<div class="lastminutecontact lcfix">
-			<div class="container lmc">	
-				<img src="resourse/images/rating-4.png" alt=""/><br/>
-				最新消息: <b>巴塞罗那</b> -  10月 27日起  209RMB/人<br/>
-				<form action="newsPageUI" >
+			<div class="container lmc">
+				<img src="resourse/images/rating-4.png" alt="" /><br /> 最新消息: <b>巴塞罗那</b>
+				- 10月 27日起 209RMB/人<br />
+				<form action="newsPageUI">
 					<button class="btn iosbtn" type="submit">阅读更多</button>
 				</form>
 			</div>
 		</div>
-		
 
-		
-		
+
+
+
 		<!-- FOOTER -->
-		
+
 		<div class="footerbg sfix3">
-			<div class="container">		
+			<div class="container">
 				<footer>
 					<div class="footer">
-						<a href="#" class="social1"><img src="images/icon-facebook.png" alt=""/></a>
-						<a href="#" class="social2"><img src="images/icon-twitter.png" alt=""/></a>
-						<a href="#" class="social3"><img src="images/icon-gplus.png" alt=""/></a>
-						<a href="#" class="social4"><img src="images/icon-youtube.png" alt=""/></a>
-						<br/><br/>
-						Copyright &copy; 2013 <a href="#">Travel Agency</a> All rights reserved. <a href="http://titanicthemes.com">TitanicThemes.com</a>
-						<br/><br/>
-						<a href="#top" id="gotop2" class="gotop"><img src="images/spacer.png" alt=""/></a>
+						<a href="#" class="social1"><img
+							src="resourse/images/icon-facebook.png" alt="" /></a> <a href="#"
+							class="social2"><img src="resourse/images/icon-twitter.png" alt="" /></a>
+						<a href="#" class="social3"><img src="resourse/images/icon-gplus.png"
+							alt="" /></a> <a href="#" class="social4"><img
+							src="resourse/images/icon-youtube.png" alt="" /></a> <br />
+						<br /> Copyright &copy; 2013 <a href="#">Travel Agency</a> All
+						rights reserved. <a href="http://titanicthemes.com">TitanicThemes.com</a>
+						<br />
+						<br /> <a href="#top" id="gotop2" class="gotop"><img
+							src="resourse/images/spacer.png" alt="" /></a>
 					</div>
 				</footer>
-			</div>	
+			</div>
 		</div>
-		
-		
 
-		
-		
+
+
+
+
 	</div>
 	<!-- END OF WRAP -->
 

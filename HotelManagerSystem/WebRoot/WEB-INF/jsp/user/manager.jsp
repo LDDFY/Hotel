@@ -73,8 +73,8 @@
 								</div>
 						</a></li>
 						<c:if test="${user.level ==2}">
-							<li class=“margbottom10" ><a href="HotelManager.do" target="content"
-								>
+							<li class=“margbottom10" ><a href="HotelManager.do"
+								target="content">
 
 									<div class="dash-ct">
 										<span class="posts-icon left"></span><span class="dtxt">酒店信息管理
@@ -101,18 +101,18 @@
 								</div>
 						</a></li>
 
-						<li><a href="#forums" data-toggle="tab">
+						<li><a href="mailManager.do" target="content">
 								<div class="dash-ct">
 									<span class="forums-icon left"></span> <span class="dtxt">邮件</span>
 								</div>
 						</a></li>
 
-						<li><a href="#replies" data-toggle="tab">
+						<li><a href="newsManager.do" target="content">
 								<div class="dash-ct">
 									<span class="replies-icon left"></span> <span class="dtxt">新闻信息管理</span>
 								</div>
 						</a></li>
-						<li><a href="userManager.do"  target="content">
+						<li><a href="userManager.do" target="content">
 								<div class="dash-ct">
 									<span class="appearance-icon left"></span> <span class="dtxt">用户信息管理</span>
 								</div>
@@ -137,8 +137,8 @@
 				<!-- RIGHT CPNTENT -->
 				<div class="dashboard-right  offset-0">
 
-					<Iframe id="content" name="content" style="width:100%;height: 800px;"
-						scrolling="no" frameborder="0"></iframe>
+					<Iframe id="content" name="content"
+						style="width:100%;height: 800px;" scrolling="no" frameborder="0"></iframe>
 
 				</div>
 				<!-- END OF RIGHT CPNTENT -->

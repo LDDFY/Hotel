@@ -98,7 +98,7 @@
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="index.jsp">首页</a></li>
-							<li class="dropdown active"><a href="#">联系我们</a></li>
+							<li class="dropdown"><a href="goContact.do">联系我们</a></li>
 							<li><a href="newsPageUI">新闻</a></li>
 							<li><a href="aboutUI">关于我们</a></li>
 							<li style="display:${user.uname==null?"":'none'}"><a
@@ -380,11 +380,13 @@
 					<!-- TAB 2 -->
 					<div id="roomrates" class="tab-pane fade active in">
 						<p class="hpadding20 dark">房间种类</p>
-						<c:forEach var="roomLists" items="${roomLists }" varStatus="status">
+						<c:forEach var="roomLists" items="${roomLists }"
+							varStatus="status">
 							<div class="line2"></div>
 							<div class="padding20">
 								<div class="col-md-4 offset-0">
-									<a href="#"><img src="resourse/images/items2/item${status.index+1}.jpg"
+									<a href="#"><img
+										src="resourse/images/items2/item${status.index+1}.jpg"
 										alt="暂无图片" class="fwimg" /></a>
 								</div>
 								<div class="col-md-8 offset-0">

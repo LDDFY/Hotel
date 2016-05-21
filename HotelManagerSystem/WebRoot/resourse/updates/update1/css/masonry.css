@@ -10,6 +10,7 @@
   margin:0 auto;
   padding:0px;
   
+  
 }
 
 /* clearfix */
@@ -22,7 +23,7 @@
 
 .item {
   width:  100%;
-  height: 240px;
+  height: 340px;
   float: left;
   /*background: #D26;*/
   background: transparent;

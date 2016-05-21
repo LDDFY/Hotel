@@ -96,9 +96,9 @@
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown active"><a href="#">首页</a></li>
-							<li><a href="aboutUI">关于我们</a></li>
 							<li><a href="newsPageUI">新闻</a></li>
-							<li><a href="contact">联系我们</a></li>
+							<li><a href="aboutUI">关于我们</a></li>
+							<li><a href="goContact.do">联系我们</a></li>
 							<li style="display:${user.uname==null?"":'none'}"><a
 								href="loginUI">登录</a></li>
 							<li class="dropdown" style="display:${user.uname==null?"none":''}">
@@ -253,7 +253,7 @@
 										<div class="wh90percent textleft">
 											<span class="opensans size13"><b>选择入住时间</b></span> <input
 												type="text" class="form-control mySelectCalendar"
-												id="datepicker" name="checkInData" placeholder="入住时间"  />
+												id="datepicker" name="checkInData" placeholder="入住时间" />
 										</div>
 									</div>
 
@@ -285,10 +285,10 @@
 						</div>
 					</div>
 					<div class="ctitle">
-						Rome<a
+						特价房<a
 							href="${pageContext.request.contextPath}/resourse/list4.html"><img
 							src="${pageContext.request.contextPath}/resourse/images/spacer.png"
-							alt="" /></a> <span>$59.99</span>
+							alt="" /></a> <span>59RMB</span>
 					</div>
 				</div>
 			</div>
@@ -307,10 +307,10 @@
 						</div>
 					</div>
 					<div class="ctitle">
-						Cote d'azur<a
+						标准房<a
 							href="${pageContext.request.contextPath}/resourse/list3.html"><img
 							src="${pageContext.request.contextPath}/resourse/images/spacer.png"
-							alt="" /></a> <span>$59.99</span>
+							alt="" /></a> <span>89RMB</span>
 					</div>
 				</div>
 			</div>

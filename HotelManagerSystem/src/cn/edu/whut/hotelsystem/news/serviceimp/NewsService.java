@@ -20,4 +20,23 @@ public class NewsService implements INewsService {
 
 		return newsDAO.findAllNews();
 	}
+
+	@Override
+	public News findNewsById(Integer newsid) {
+		// TODO Auto-generated method stub
+		return newsDAO.findNewsById(newsid);
+	}
+
+	@Override
+	public boolean deleteNews(Integer newsid) {
+		// TODO Auto-generated method stub
+		News n = newsDAO.findNewsById(newsid);
+		return newsDAO.deleteNews(n);
+	}
+
+	@Override
+	public boolean addNews(News news) {
+		// TODO Auto-generated method stub
+		return newsDAO.saveNews(news);
+	}
 }
