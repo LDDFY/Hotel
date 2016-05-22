@@ -20,7 +20,7 @@ public class UserDAO extends BaseHibernateDAO<User> implements IUserDAO {
 	public static final String UGENDER = "ugender";
 	public static final String IDNUMBER = "idnumber";
 	public static final String UTEL = "utel";
-	public static final String UEMAIL = "uemail";
+
 	public static final String LEVEL = "level";
 	public static final String MONEY = "money";
 
@@ -54,9 +54,7 @@ public class UserDAO extends BaseHibernateDAO<User> implements IUserDAO {
 		return findByProperty(UTEL, utel);
 	}
 
-	public List<User> findByUemail(Object uemail) {
-		return findByProperty(UEMAIL, uemail);
-	}
+	
 
 	public List<User> findByLevel(Object level) {
 		return findByProperty(LEVEL, level);
@@ -155,4 +153,6 @@ public class UserDAO extends BaseHibernateDAO<User> implements IUserDAO {
 		// TODO Auto-generated method stub
 		return (User) getSession().load(User.class,uid);
 	}
+
+	
 }

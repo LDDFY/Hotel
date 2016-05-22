@@ -94,11 +94,75 @@ public class UserAction {
 		return "user/user";
 	}
 
-	@RequestMapping("/freshUser")
-	public @ResponseBody JSONArray freshUser() {
+	@RequestMapping("/findUserSize")
+	public @ResponseBody int findUserSize(Model model, HttpSession session,
+			HttpServletRequest request, HttpServletResponse response) {
 
 		List<User> userList = userService.findAllUser();
 		JSONArray list = formatUser(userList);
+		return list.size();
+	}
+
+	@RequestMapping("/ProListUser")
+	public @ResponseBody JSONArray ProListUser(Integer pageindexs,
+			Integer pageSize) {
+		List<User> userList = userService.findAllUser();
+		JSONArray list = formatUser(userList);
+		int current = (pageindexs - 1) * pageSize;
+		int totle = current + pageSize;
+		if (totle > list.size()) {
+			totle = list.size();
+		}
+
+		JSONArray userList1 = new JSONArray();
+		for (int i = current; i < totle; i++) {
+			userList1.add(list.get(i));
+		}
+		return userList1;
+	}
+
+	@RequestMapping("/findAdminSize")
+	public @ResponseBody int Admin(Model model, HttpSession session,
+			HttpServletRequest request, HttpServletResponse response) {
+
+		List<User> userList = userService.findAllUser();
+		JSONArray list = formatAdmin(userList);
+		return list.size();
+	}
+
+	@RequestMapping("/ProListAdmin")
+	public @ResponseBody JSONArray ProListAdmin(Integer pageindexs,
+			Integer pageSize) {
+		List<User> userList = userService.findAllUser();
+		JSONArray list = formatAdmin(userList);
+		int current = (pageindexs - 1) * pageSize;
+		int totle = current + pageSize;
+		if (totle > list.size()) {
+			totle = list.size();
+		}
+
+		JSONArray userList1 = new JSONArray();
+		for (int i = current; i < totle; i++) {
+			userList1.add(list.get(i));
+		}
+		return userList1;
+	}
+
+	private JSONArray formatAdmin(List<User> userList) {
+		JSONArray list = new JSONArray();
+		for (User u : userList) {
+			if (u.getLevel() == 1) {
+				JSONObject j = new JSONObject();
+				j.put("uid", u.getUid());
+				j.put("uname", u.getUname());
+				j.put("realname", u.getRealname());
+				j.put("ugender", u.getUgender());
+				j.put("utel", u.getUtel());
+				j.put("uemail", u.getUemail());
+				j.put("money", u.getMoney());
+				list.add(j);
+			}
+		}
 		return list;
 	}
 
@@ -161,9 +225,5 @@ public class UserAction {
 
 		return "user/Administrator";
 	}
-	@RequestMapping("/AAA")
-	public String AAA() {
-		
-		return "public/contact";
-	}
+
 }

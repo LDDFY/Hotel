@@ -77,57 +77,6 @@
 		freshHotelRole();
 	});
 
-	function freshNews() {
-
-		var role = document.getElementById('HotelID').value;
-
-		$.ajax({
-			type : "GET",
-			url : "findNewsByHid.do",
-			data : {
-				"hid" : role
-			},
-			success : function(data) {
-				var strHtml = "";
-				var strtitle = "<tr>";
-				var strtitleed = "</tr>";
-				var strtd = "<td>";
-				var strtded = "</td>";
-				var a = "<a href='newsInfor.do?newsid=";
-				var a1 = "'>详情</a><a href='javascript:deleteNews(";
-				var a3 = ")'>删除</a>";
-
-				for (var i = 0; i < data.length; i++) {
-
-					$("#newsList tr:not(:first)").remove();
-
-					strHtml += strtitle + strtd + data[i].newsid
-
-					+ strtded + strtd + data[i].title
-
-					+ strtded + strtd + data[i].keyword
-
-					+ strtded + strtd + data[i].hid
-
-					+ strtded + strtd + data[i].author
-
-					+ strtded + strtd + data[i].releasetime
-
-					+ strtded + strtd + a + data[i].newsid + a1
-							+ data[i].newsid + a3
-
-							+ strtded + strtitleed;
-
-					$("#newsList").append(strHtml);
-				}
-			},
-			error : function() {
-				alert("刷新失败！");
-			}
-
-		});
-	}
-
 	function freshHotelRole() {
 		var level = document.getElementById("level").value;
 		var uid = document.getElementById("uID").value;
@@ -147,12 +96,103 @@
 							"<option value='"+Datas[i].hid+"'>"
 									+ Datas[i].hname + "</option>");
 				}
-
+				fresh();
 			},
 			error : function() {
 				alert("酒店信息更新失败！");
 			}
 		}));
+	}
+
+	// 分页
+	var totalCounts = 0;
+	var url = "findNewsSize.do"
+	var urlPage = "ProListNews.do"
+
+	function fresh() {
+
+		InitProperties();
+	}
+
+	function InitProperties() {
+		var role = document.getElementById('HotelID').value;
+		$.ajax({
+			type : "GET",
+
+			url : url,
+			data : {
+				hid : role,
+			},
+
+			success : function(data) {
+				totalCounts = data;
+
+				initPagination();
+			},
+			error : function() {
+				alert("查询失败！");
+			}
+		});
+	}
+	function PageSelect(num, type) {
+
+		ProList(num, 12, urlPage);
+
+	};
+
+	function ProList(pageindexs, pageSize, urlPage) {
+		var role = document.getElementById('HotelID').value;
+		$.ajax({
+			type : "GET",
+			url : urlPage,
+			data : {
+
+				hid : role,
+				pageindexs : pageindexs,
+				pageSize : pageSize,
+			},
+			success : function(data) {
+				PageStrConvert(data);
+			},
+			error : function() {
+				alert("加载失败！");
+			}
+		});
+
+	}
+
+	function PageStrConvert(data) {
+		var strHtml = "";
+		var strtitle = "<tr>";
+		var strtitleed = "</tr>";
+		var strtd = "<td>";
+		var strtded = "</td>";
+		var a = "<a href='newsInfor.do?newsid=";
+		var a1 = "'>详情</a><a href='javascript:deleteNews(";
+		var a3 = ")'>删除</a>";
+
+		for (var i = 0; i < data.length; i++) {
+
+			$("#newsList tr:not(:first)").remove();
+
+			strHtml += strtitle + strtd + data[i].newsid
+
+			+ strtded + strtd + data[i].title
+
+			+ strtded + strtd + data[i].keyword
+
+			+ strtded + strtd + data[i].hid
+
+			+ strtded + strtd + data[i].author
+
+			+ strtded + strtd + data[i].releasetime
+
+			+ strtded + strtd + a + data[i].newsid + a1 + data[i].newsid + a3
+
+			+ strtded + strtitleed;
+
+			$("#newsList").append(strHtml);
+		}
 	}
 
 	function deleteNews(newsid) {
@@ -191,15 +231,16 @@
 		<div style="float: left; padding-left: 15px;">
 			<select id="HotelID" name="HotelID" style="width: 60px;height: 30px;">
 			</select>
-			<button class="btn btn-primary btn-sm"
-				onclick="javascript:freshNews()">刷新列表</button>
-				<a class="btn btn-primary btn-sm"  href="addNews.do?hid=" >添加新闻信息</a>
-			
+			<button class="btn btn-primary btn-sm" onclick="javascript:fresh()">刷新列表</button>
+			<a class="btn btn-primary btn-sm" href="addNews.do?hid=">添加新闻信息</a>
+
 		</div>
 
 		<div class="clearfix"></div>
-		<div class="col-md-12">
-			<table id="newsList" name="newsList" class="table table-bordered">
+		<div class="col-md-12" style="height: 400px;">
+			<table id="newsList" name="newsList"
+				class="table table-bordered table-hover table-striped"
+				style=" font-size:13px;">
 				<caption>新闻信息列表</caption>
 				<thead>
 					<tr>
@@ -218,6 +259,7 @@
 		</div>
 	</div>
 	</div>
+	<jsp:include page="../pagination.jsp" />
 	<!-- This page JS -->
 	<script src="resourse/assets/js/js-index.js"></script>
 	<script src="resourse/assets/js/js-dashboard.js"></script>

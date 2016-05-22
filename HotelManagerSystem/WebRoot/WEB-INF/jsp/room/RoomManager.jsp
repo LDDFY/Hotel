@@ -71,64 +71,18 @@
 <!-- jQuery -->
 <script src="resourse/assets/js/jquery.v2.0.3.js"></script>
 <script src="resourse/js/jquery.form.js"></script>
+<script src="resourse/javascript/RoomManager.js"></script>
 <!-- end -->
+
 <script type="text/javascript">
+	// 分页
+	var totalCounts = 0;
+	var url = "findRoomSize.do"
+	var urlPage = "ProListRoom.do"
 	$(function() {
 		freshHotelRole();
+
 	});
-
-	function freshRoom() {
-
-		var role = document.getElementById('HotelID').value;
-
-		$.ajax({
-			type : "GET",
-			url : "findRoomByHid.do",
-			data : {
-				"hid" : role
-			},
-			success : function(data) {
-				var strHtml = "";
-				var strtitle = "<tr>";
-				var strtitleed = "</tr>";
-				var strtd = "<td>";
-				var strtded = "</td>";
-				var a = "<a href='roomInfor.do?rid=";
-				var a1 = "'>详情</a><a href='modifyRoom.do?rid=";
-				var a2 = "'>修改</a><a href='javascript:deleteRoom(";
-				var a3 = ")'>删除</a>";
-
-				for (var i = 0; i < data.length; i++) {
-
-					$("#RoomList tr:not(:first)").remove();
-					strHtml += strtitle + strtd + data[i].rid
-
-					+ strtded + strtd + data[i].rtype
-
-					+ strtded + strtd + data[i].rarea
-
-					+ strtded + strtd + data[i].rprice
-
-					+ strtded + strtd + data[i].rpattern
-
-					+ strtded + strtd + data[i].customs
-
-					+ strtded + strtd + data[i].total
-
-					+ strtded + strtd + a + data[i].roomid + a1
-							+ data[i].roomid + a2 + data[i].roomid + a3
-
-							+ strtded + strtitleed;
-
-					$("#RoomList").append(strHtml);
-				}
-			},
-			error : function() {
-				alert("刷新失败！");
-			}
-
-		});
-	}
 
 	function freshHotelRole() {
 
@@ -150,7 +104,7 @@
 							"<option value='"+Datas[i].hid+"'>"
 									+ Datas[i].hname + "</option>");
 				}
-				freshRoom();
+				fresh();
 			},
 			error : function() {
 				alert("酒店信息更新失败！");
@@ -200,6 +154,93 @@
 			}
 		});
 	}
+
+	function fresh() {
+
+		InitProperties();
+	}
+	function PageStrConvert(data) {
+		var strHtml = "";
+		var strtitle = "<tr>";
+		var strtitleed = "</tr>";
+		var strtd = "<td>";
+		var strtded = "</td>";
+		var a = "<a href='roomInfor.do?rid=";
+		var a1 = "'>详情</a><a href='modifyRoom.do?rid=";
+		var a2 = "'>修改</a><a href='javascript:deleteRoom(";
+		var a3 = ")'>删除</a>";
+
+		for (var i = 0; i < data.length; i++) {
+
+			$("#RoomList tr:not(:first)").remove();
+			strHtml += strtitle + strtd + data[i].rid
+
+			+ strtded + strtd + data[i].rtype
+
+			+ strtded + strtd + data[i].rarea
+
+			+ strtded + strtd + data[i].rprice
+
+			+ strtded + strtd + data[i].rpattern
+
+			+ strtded + strtd + data[i].customs
+
+			+ strtded + strtd + data[i].total
+
+			+ strtded + strtd + a + data[i].roomid + a1 + data[i].roomid + a2
+					+ data[i].roomid + a3
+
+					+ strtded + strtitleed;
+
+			$("#RoomList").append(strHtml);
+		}
+	}
+
+	function InitProperties() {
+		var role = document.getElementById('HotelID').value;
+		$.ajax({
+			type : "GET",
+
+			url : "findRoomSize.do",
+			data : {
+				hid : role,
+			},
+
+			success : function(data) {
+				totalCounts = data;
+				initPagination();
+			},
+			error : function() {
+				alert("查询失败！");
+			}
+		});
+	}
+	function PageSelect(num, type) {
+
+		ProList(num, 12, urlPage);
+
+	};
+
+	function ProList(pageindexs, pageSize, urlPage) {
+		var role = document.getElementById('HotelID').value;
+		$.ajax({
+			type : "GET",
+			url : urlPage,
+			data : {
+
+				hid : role,
+				pageindexs : pageindexs,
+				pageSize : pageSize,
+			},
+			success : function(data) {
+				PageStrConvert(data);
+			},
+			error : function() {
+				alert("加载失败！");
+			}
+		});
+
+	}
 </script>
 </head>
 
@@ -220,13 +261,11 @@
 				</select>
 			</div>
 			<div style="float: left;">
-				<a class="btn btn-primary btn-sm" onclick="javascript:freshRoom()">刷新列表</a>
+				<a class="btn btn-primary btn-sm" onclick="javascript:fresh()">刷新列表</a>
 				<button class="btn btn-primary btn-sm" data-target="#myModal1"
 					data-toggle="modal">添加房间信息</button>
 			</div>
 		</div>
-
-
 
 		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
@@ -294,8 +333,10 @@
 	</div>
 
 
-	<div class="col-md-15">
-		<table id="RoomList" name="RoomList" class="table table-bordered">
+	<div class="col-md-15" style="height: 400px;">
+		<table id="RoomList" name="RoomList"
+			class="table table-bordered table-hover table-striped"
+			style=" font-size:13px;">
 			<caption>房间信息列表</caption>
 			<thead>
 				<tr>
@@ -316,6 +357,9 @@
 	</div>
 	</div>
 	</div>
+
+	<jsp:include page="../pagination.jsp" />
+
 	<!-- This page JS -->
 	<script src="resourse/assets/js/js-index.js"></script>
 	<script src="resourse/assets/js/js-dashboard.js"></script>

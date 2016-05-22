@@ -72,7 +72,7 @@ public class RoomAction {
 	public String RoomManager() {
 		return "room/RoomManager";
 	}
-	
+
 	@RequestMapping("/modifyRoom")
 	public String modifyHotel(Model model, HttpServletRequest request,
 			HttpServletResponse response, Integer rid) {
@@ -82,4 +82,26 @@ public class RoomAction {
 
 		return "room/modifyRoom";
 	}
+
+	@RequestMapping("/findRoomSize")
+	public @ResponseBody int findRoomSize(Integer hid) {
+
+		List<Room> roomList = roomService.findRoomByHid(hid);
+
+		return roomList.size();
+	}
+
+	@RequestMapping("/ProListRoom")
+	public @ResponseBody List<Room> ProListRoom(Integer hid,
+			Integer pageindexs, Integer pageSize) {
+		List<Room> roomList = roomService.findRoomByHid(hid);
+
+		int current = (pageindexs - 1) * pageSize;
+		int totle = current + pageSize;
+		if (totle > roomList.size()) {
+			totle = roomList.size();
+		}
+		return roomList.subList(current, totle);
+	}
+
 }

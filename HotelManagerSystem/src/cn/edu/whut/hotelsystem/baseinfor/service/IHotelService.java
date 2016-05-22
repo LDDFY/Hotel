@@ -23,4 +23,6 @@ public interface IHotelService {
 	public boolean attachHocal(Hotel hotel);
 
 	public List<Hotel> findHotelByLevel(Integer level,Integer uid);
+
+	public List<Hotel> ProList(Integer pageindexs, Integer pageSize);
 }

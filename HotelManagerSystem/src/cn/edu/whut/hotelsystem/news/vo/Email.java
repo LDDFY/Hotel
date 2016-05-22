@@ -1,18 +1,12 @@
 package cn.edu.whut.hotelsystem.news.vo;
+// default package
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-
 import static javax.persistence.GenerationType.IDENTITY;
-
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import cn.edu.whut.hotelsystem.baseinfor.vo.User;
 
 /**
  * Email entity. @author MyEclipse Persistence Tools
@@ -27,11 +21,12 @@ public class Email implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Integer emailid;
-	private User userBySendid;
-	private User userByReciveid;
+	private Integer id;
+	private Integer name;
+	private Integer tel;
 	private String content;
 	private Integer status;
+	private String email;
 
 	// Constructors
 
@@ -40,44 +35,43 @@ public class Email implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Email(User userBySendid, User userByReciveid, String content,
-			Integer status) {
-		this.userBySendid = userBySendid;
-		this.userByReciveid = userByReciveid;
+	public Email(Integer name, Integer tel, String content, Integer status,
+			String email) {
+		this.name = name;
+		this.tel = tel;
 		this.content = content;
 		this.status = status;
+		this.email = email;
 	}
 
 	// Property accessors
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "emailid", unique = true, nullable = false)
-	public Integer getEmailid() {
-		return this.emailid;
+	@Column(name = "id", unique = true, nullable = false)
+	public Integer getId() {
+		return this.id;
 	}
 
-	public void setEmailid(Integer emailid) {
-		this.emailid = emailid;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "sendid")
-	public User getUserBySendid() {
-		return this.userBySendid;
+	@Column(name = "name")
+	public Integer getName() {
+		return this.name;
 	}
 
-	public void setUserBySendid(User userBySendid) {
-		this.userBySendid = userBySendid;
+	public void setName(Integer name) {
+		this.name = name;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "reciveid")
-	public User getUserByReciveid() {
-		return this.userByReciveid;
+	@Column(name = "tel")
+	public Integer getTel() {
+		return this.tel;
 	}
 
-	public void setUserByReciveid(User userByReciveid) {
-		this.userByReciveid = userByReciveid;
+	public void setTel(Integer tel) {
+		this.tel = tel;
 	}
 
 	@Column(name = "content", length = 5000)
@@ -96,6 +90,15 @@ public class Email implements java.io.Serializable {
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	@Column(name = "email", length = 80)
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

@@ -74,5 +74,11 @@ public class HotelService implements IHotelService {
 	
 	}
 
+	@Override
+	public List<Hotel> ProList(Integer pageindexs, Integer pageSize) {
+		// TODO Auto-generated method stub
+		return hotelDAO.ProList(pageindexs, pageSize);
+	}
+
 	
 }

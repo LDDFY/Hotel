@@ -27,6 +27,8 @@ public class OrderControl {
 	@Autowired
 	private IHotelService hotelService;
 
+	private SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+
 	@RequestMapping("/OrderManager")
 	public String OrderManager() {
 		return "order/OrderManager";
@@ -38,10 +40,15 @@ public class OrderControl {
 			Integer hid) {
 
 		Hotel h = hotelService.loadHotel(hid);
+		JSONArray js = formatOrder(h);
+		return js;
+
+	}
+
+	private JSONArray formatOrder(Hotel h) {
+
 		JSONArray js = new JSONArray();
 		Iterator<Olist> it = h.getOlists().iterator();
-
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
 		while (it.hasNext()) {
 			JSONObject node = new JSONObject();
@@ -63,25 +70,48 @@ public class OrderControl {
 			// <th>离开时间</th>
 			String outdate = formatter.format(o.getOutdate());
 			node.put("outdate", outdate);
-			
+
 			js.add(node);
 		}
 
 		return js;
 	}
-	
+
 	@RequestMapping("/deleteOrder")
-	public  String deleteOrder(Model model,Integer oid){
-		
-		String result="删除订单失败！";
-		boolean flag=orderService.deleteOrderByid(oid);
-		if(flag)
-		{
-			result="删除订单成功！";
+	public String deleteOrder(Model model, Integer oid) {
+
+		String result = "删除订单失败！";
+		boolean flag = orderService.deleteOrderByid(oid);
+		if (flag) {
+			result = "删除订单成功！";
 		}
-		
-		model.addAttribute("result",result);
+
+		model.addAttribute("result", result);
 		return "order/OrderManager";
 	}
 
+	@RequestMapping("/findOrderSize")
+	public @ResponseBody int findOrderSize(Integer hid) {
+		Hotel h = hotelService.loadHotel(hid);
+
+		return h.getOlists().size();
+	}
+
+	@RequestMapping("/ProListOrder")
+	public @ResponseBody JSONArray ProListOrder(Integer hid,
+			Integer pageindexs, Integer pageSize) {
+		Hotel h = hotelService.loadHotel(hid);
+		JSONArray js = formatOrder(h);
+		int current = (pageindexs - 1) * pageSize;
+		int totle = current + pageSize;
+		if (totle > js.size()) {
+			totle = js.size();
+		}
+		JSONArray orderList=new JSONArray();
+		for(int i=current;i<totle;i++)
+		{
+			orderList.add(js.get(i));
+		}
+		return orderList;
+	}
 }

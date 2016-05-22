@@ -75,44 +75,74 @@
 <script src="resourse/js/jquery.form.js"></script>
 <!-- end -->
 <script type="text/javascript">
+	var url = "findUserSize.do"
+	var urlPage = "ProListUser.do"
 	$(function() {
-
-		freshUser();
+		fresh();
 
 	});
+	function fresh() {
+		InitProperties(url);
+	}
+	function PageStrConvert(data) {
+		var strHtml = "";
+		var strtitle = "<tr>";
+		var strtitleed = "</tr>";
+		var strtd = "<td>";
+		var strtded = "</td>";
 
-	function freshUser() {
+		var a = "<a href='resetUser.do?uid=";
+		var a1 = "'>重置密码</a>";
+		for (var i = 0; i < data.length; i++) {
+
+			$("#menuList tr:not(:first)").remove();
+			strHtml += strtitle + strtd + (i + 1) + strtded + strtd
+					+ data[i].uname + strtded + strtd + data[i].realname
+					+ strtded + strtd + data[i].ugender + strtded + strtd
+					+ data[i].utel + strtded + strtd + data[i].uemail + strtded
+					+ strtd + data[i].money + strtded + strtd + a + data[i].uid
+					+ a1 + strtded + strtitleed;
+			$("#menuList").append(strHtml);
+		}
+	}
+	function PageSelect(num, type) {
+		/* $('#p1').text(type + '：' + num); */
+		ProList(num, 12, urlPage);
+
+	};
+
+	function ProList(pageindexs, pageSize, urlPage) {
 		$.ajax({
 			type : "GET",
-			url : "freshUser.do",
-
+			url : urlPage,
+			data : {
+				/* totalCounts : totalCounts, */
+				pageindexs : pageindexs,
+				pageSize : pageSize,
+			},
 			success : function(data) {
-
-				var strHtml = "";
-				var strtitle = "<tr>";
-				var strtitleed = "</tr>";
-				var strtd = "<td>";
-				var strtded = "</td>";
-
-				var a = "<a href='resetUser.do?uid=";
-				var a1 = "'>重置密码</a>";
-				for (var i = 0; i < data.length; i++) {
-
-					$("#menuList tr:not(:first)").remove();
-					strHtml += strtitle + strtd + (i + 1) + strtded + strtd
-							+ data[i].uname + strtded + strtd
-							+ data[i].realname + strtded + strtd
-							+ data[i].ugender + strtded + strtd + data[i].utel
-							+ strtded + strtd + data[i].uemail + strtded
-							+ strtd + data[i].money + strtded + strtd + a
-							+ data[i].uid + a1 + strtded + strtitleed;
-					$("#menuList").append(strHtml);
-				}
+				PageStrConvert(data);
 			},
 			error : function() {
-				alert("刷新失败！");
+				alert("加载失败！");
 			}
+		});
 
+	}
+	var totalCounts = 0;//记录总数
+	function InitProperties(url) {
+		$.ajax({
+			type : "GET",
+			contentType : "application/json",
+			url : url,
+			dataType : "json",
+			success : function(data) {
+				totalCounts = data;
+				initPagination();
+			},
+			error : function() {
+				alert("查询失败！");
+			}
 		});
 	}
 
@@ -136,7 +166,7 @@
 				var a = "<a href='resetUser.do?uid=";
 				var a1 = "'>重置密码</a>";
 				for (var i = 0; i < data.length; i++) {
-					
+
 					$("#menuList tr:not(:first)").remove();
 					strHtml += strtitle + strtd + (i + 1) + strtded + strtd
 							+ data[i].uname + strtded + strtd
@@ -172,6 +202,7 @@
 		</div>
 		<div>
 			<a class="btn btn-primary btn-sm" onclick="javascript:serchUser()">搜索</a>
+			<a class="btn btn-primary btn-sm" onclick="javascript:fresh()">刷新</a>
 		</div>
 
 		<c:if test="${not empty result }">
@@ -181,8 +212,10 @@
 				<strong>提示!</strong>${result}
 			</div>
 		</c:if>
-		<div class="col-md-15">
-			<table id="menuList" name="menuList" class="table table-bordered">
+		<div class="col-md-15" style="height: 400px;">
+			<table id="menuList" name="menuList"
+				class="table table-bordered table-hover table-striped"
+				style=" font-size:13px;">
 				<caption>用户信息列表</caption>
 				<thead>
 					<tr>
@@ -207,6 +240,7 @@
 
 	</div>
 	</div>
+	<jsp:include page="../pagination.jsp" />
 	<!-- This page JS -->
 	<script src="resourse/assets/js/js-index.js"></script>
 	<script src="resourse/assets/js/js-dashboard.js"></script>

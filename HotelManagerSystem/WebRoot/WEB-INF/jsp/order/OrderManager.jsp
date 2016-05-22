@@ -78,52 +78,8 @@
 	$(function() {
 
 		freshHotelRole();
-		
+
 	});
-
-	function freshOrder() {
-
-		var role = document.getElementById('HotelID').value;
-
-		$.ajax({
-			type : "GET",
-			url : "findOrderByHid.do",
-			data : {
-				"hid" : role
-			},
-			success : function(data) {
-
-				var strHtml = "";
-				 var strtitle = "<tr>";
-				 var strtitleed = "</tr>";
-				 var strtd = "<td>";
-				 var strtded = "</td>";
-				 
-				 var a = "<a href='deleteOrder.do?oid=";
-				 var a1 = "'>删除</a>";
-				 for (var i = 0; i < data.length; i++) {
-
-				 $("#menuList tr:not(:first)").remove();
-				 strHtml += strtitle + 
-				 strtd + (i+1) + strtded 
-				 + strtd + data[i].uid + strtded 
-				 + strtd + data[i].hid + strtded
-				 + strtd + data[i].rid + strtded 
-				 + strtd + data[i].innumber + strtded 
-				 + strtd + data[i].indete+ strtded 
-				 + strtd + data[i].outdate+ strtded 
-				 + strtd + a+data[i].oid+a1 + strtded
-				 + strtitleed; 
-				 $("#menuList").append(strHtml);
-				 }
-			},
-			error : function() {
-				alert("刷新失败！");
-			}
-
-		});
-	}
-
 	function freshHotelRole() {
 
 		var level = document.getElementById("level").value;
@@ -144,14 +100,94 @@
 							"<option value='"+Datas[i].hid+"'>"
 									+ Datas[i].hname + "</option>");
 				}
-				freshOrder();
+				fresh();
 			},
 			error : function() {
 				alert("酒店信息更新失败！");
 			}
 		}));
 	}
+	// 分页
+	var totalCounts = 0;
+	var url = "findOrderSize.do"
+	var urlPage = "ProListOrder.do"
 
+	function fresh() {
+
+		InitProperties();
+	}
+
+	function InitProperties() {
+		var role = document.getElementById('HotelID').value;
+		$.ajax({
+			type : "GET",
+
+			url : url,
+			data : {
+				hid : role,
+			},
+
+			success : function(data) {
+				totalCounts = data;
+				
+				initPagination();
+			},
+			error : function() {
+				alert("查询失败！");
+			}
+		});
+	}
+	function PageSelect(num, type) {
+
+		ProList(num, 12, urlPage);
+
+	};
+
+	function ProList(pageindexs, pageSize, urlPage) {
+		var role = document.getElementById('HotelID').value;
+		$.ajax({
+			type : "GET",
+			url : urlPage,
+			data : {
+
+				hid : role,
+				pageindexs : pageindexs,
+				pageSize : pageSize,
+			},
+			success : function(data) {
+				PageStrConvert(data);
+			},
+			error : function() {
+				alert("加载失败！");
+			}
+		});
+
+	}
+	
+
+	function PageStrConvert(data) {
+
+		var strHtml = "";
+		var strtitle = "<tr>";
+		var strtitleed = "</tr>";
+		var strtd = "<td>";
+		var strtded = "</td>";
+
+		var a = "<a href='deleteOrder.do?oid=";
+		var a1 = "'>删除</a>";
+		for (var i = 0; i < data.length; i++) {
+
+			$("#menuList tr:not(:first)").remove();
+			strHtml += strtitle + strtd + (i + 1) + strtded + strtd
+					+ data[i].uid + strtded + strtd + data[i].hid + strtded
+					+ strtd + data[i].rid + strtded + strtd + data[i].innumber
+					+ strtded + strtd + data[i].indete + strtded + strtd
+					+ data[i].outdate + strtded + strtd + a + data[i].oid + a1
+					+ strtded + strtitleed;
+			$("#menuList").append(strHtml);
+
+		}
+	}
 </script>
 </head>
 
@@ -170,7 +206,7 @@
 			</select>
 		</div>
 		<div>
-			<a class="btn btn-primary btn-sm" onclick="javascript:freshOrder()">刷新订单</a>
+			<a class="btn btn-primary btn-sm" onclick="javascript:fresh()">刷新订单</a>
 		</div>
 
 		<c:if test="${not empty result }">
@@ -180,8 +216,9 @@
 				<strong>提示!</strong>${result}
 			</div>
 		</c:if>
-		<div class="col-md-15">
-			<table id="menuList" name="menuList" class="table table-bordered">
+		<div class="col-md-15" style="height: 400px;">
+			<table id="menuList" name="menuList" class="table table-bordered table-hover table-striped"
+			style=" font-size:13px;">
 				<caption>订单信息列表</caption>
 				<thead>
 					<tr>
@@ -204,44 +241,11 @@
 
 	</div>
 
-	<%-- <div class="col-md-15">
-			<div class="tab-pane" id="history">
-				<div class="padding40">
 
-					<span class="dark size18">历史记录</span>
-					<div class="line4"></div>
-
-					<br />
-					<div class="col-md-3 bold" size="10">入住时间</div>
-					<div class="col-md-3 bold">退房时间</div>
-					<div class="col-md-3 bold">酒店名称</div>
-					<div class="col-md-3 bold">花费</div>
-
-					<c:forEach var="userOlistLists" items="${userOlistLists }">
-						<div class="clearfix"></div>
-						<div class="line4"></div>
-
-						<div class="col-md-3">
-							<fmt:formatDate value="${userOlistLists.indate }"
-								pattern="yyyy/MM/dd" />
-						</div>
-
-						<div class="col-md-3">
-							<fmt:formatDate value="${userOlistLists.outdate }"
-								pattern="yyyy/MM/dd" />
-						</div>
-						<div class="col-md-3">${userOlistLists.hotel.hname}</div>
-						<div class="col-md-3">${userOlistLists.ammount}</div>
-
-					</c:forEach>
-
-				</div>
-			</div>
-			<!-- END OF TAB 5 -->
-
-		</div> --%>
 	</div>
 	</div>
+	<jsp:include page="../pagination.jsp" />
+
 	<!-- This page JS -->
 	<script src="resourse/assets/js/js-index.js"></script>
 	<script src="resourse/assets/js/js-dashboard.js"></script>

@@ -53,4 +53,6 @@ public interface IHotelDAO {
 
 	public List<Hotel> findByAvgprice(Object avgprice);
 
+	public List<Hotel> ProList(Integer pageindexs, Integer pageSize);
+
 }

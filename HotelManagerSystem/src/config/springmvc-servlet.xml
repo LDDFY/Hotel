@@ -20,6 +20,7 @@
 	<!-- 静态资源(js/image)的访问 -->
 	<mvc:resources location="/resourse/" mapping="/resourse/**"
 		cache-period="31556926" />
+	<mvc:resources location="/javascript/" mapping="/javascript/**" />
 	<!-- ②：启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
 	<bean
 		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">

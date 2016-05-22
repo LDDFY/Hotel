@@ -80,48 +80,6 @@
 		freshHotelRole();
 
 	});
-
-	function freshEvaluation() {
-
-		var role = document.getElementById('HotelID').value;
-
-		$.ajax({
-			type : "GET",
-			url : "freshEvaluationByHid.do",
-			data : {
-				"hid" : role
-			},
-			success : function(data) {
-				
-				var strHtml = "";
-				var strtitle = "<tr>";
-				var strtitleed = "</tr>";
-				var strtd = "<td>";
-				var strtded = "</td>";
-
-				var a = "<a href='deleteEvaluation.do?eid=";
-				var a1 = "'>删除</a>";
-
-				for (var i = 0; i < data.length; i++) {
-
-					$("#menuList tr:not(:first)").remove();
-					strHtml += strtitle +  strtd
-							+ (i+1) + strtded + strtd + data[i].user
-							+ strtded + strtd + data[i].hotel + strtded + strtd
-							+ data[i].content + strtded + strtd + data[i].star
-							+ strtded + strtd + data[i].evaluationtime
-							+ strtded + strtd + a + data[i].eid + a1 + strtded
-							+ strtitleed;
-					$("#menuList").append(strHtml);
-				}
-			},
-			error : function() {
-				alert("刷新失败！");
-			}
-
-		});
-	}
-
 	function freshHotelRole() {
 
 		var level = document.getElementById("level").value;
@@ -142,12 +100,91 @@
 							"<option value='"+Datas[i].hid+"'>"
 									+ Datas[i].hname + "</option>");
 				}
-				freshEvaluation();
+				fresh();
 			},
 			error : function() {
 				alert("酒店信息更新失败！");
 			}
 		}));
+	}
+	// 分页
+	var totalCounts = 0;
+	var url = "findEvaluationSize.do"
+	var urlPage = "ProListEvaluation.do"
+
+	function fresh() {
+
+		InitProperties();
+	}
+
+	function InitProperties() {
+		var role = document.getElementById('HotelID').value;
+		$.ajax({
+			type : "GET",
+
+			url : url,
+			data : {
+				hid : role,
+			},
+
+			success : function(data) {
+				totalCounts = data;
+
+				initPagination();
+			},
+			error : function() {
+				alert("查询失败！");
+			}
+		});
+	}
+	function PageSelect(num, type) {
+
+		ProList(num, 12, urlPage);
+
+	};
+
+	function ProList(pageindexs, pageSize, urlPage) {
+		var role = document.getElementById('HotelID').value;
+		$.ajax({
+			type : "GET",
+			url : urlPage,
+			data : {
+
+				hid : role,
+				pageindexs : pageindexs,
+				pageSize : pageSize,
+			},
+			success : function(data) {
+				PageStrConvert(data);
+			},
+			error : function() {
+				alert("加载失败！");
+			}
+		});
+
+	}
+
+	function PageStrConvert(data) {
+
+		var strHtml = "";
+		var strtitle = "<tr>";
+		var strtitleed = "</tr>";
+		var strtd = "<td>";
+		var strtded = "</td>";
+
+		var a = "<a href='deleteEvaluation.do?eid=";
+		var a1 = "'>删除</a>";
+
+		for (var i = 0; i < data.length; i++) {
+
+			$("#menuList tr:not(:first)").remove();
+			strHtml += strtitle + strtd + (i + 1) + strtded + strtd
+					+ data[i].user + strtded + strtd + data[i].hotel + strtded
+					+ strtd + data[i].content + strtded + strtd + data[i].star
+					+ strtded + strtd + data[i].evaluationtime + strtded
+					+ strtd + a + data[i].eid + a1 + strtded + strtitleed;
+			$("#menuList").append(strHtml);
+		}
 	}
 </script>
 </head>
@@ -167,8 +204,7 @@
 			</select>
 		</div>
 		<div>
-			<a class="btn btn-primary btn-sm"
-				onclick="javascript:freshEvaluation()">刷新评价</a>
+			<a class="btn btn-primary btn-sm" onclick="javascript:fresh()">刷新评价</a>
 		</div>
 
 		<c:if test="${not empty result }">
@@ -178,8 +214,10 @@
 				<strong>提示!</strong>${result}
 			</div>
 		</c:if>
-		<div class="col-md-15">
-			<table id="menuList" name="menuList" class="table table-bordered">
+		<div class="col-md-15" style="height: 400px;">
+			<table id="menuList" name="menuList"
+				class="table table-bordered table-hover table-striped"
+				style=" font-size:13px;">
 				<caption>评价信息列表</caption>
 				<thead>
 					<tr>
@@ -204,6 +242,7 @@
 
 	</div>
 	</div>
+	<jsp:include page="../pagination.jsp" />
 	<!-- This page JS -->
 	<script src="resourse/assets/js/js-index.js"></script>
 	<script src="resourse/assets/js/js-dashboard.js"></script>

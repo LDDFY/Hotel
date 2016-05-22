@@ -183,4 +183,26 @@ public class HotelAction {
 
 		return "hotel/HotelManager";
 	}
+
+	@RequestMapping("/pagination")
+	public String pagination() {
+
+		return "pagination";
+	}
+
+	@RequestMapping("/findHotelSize")
+	public @ResponseBody int findHotelSize(Model model, HttpSession session,
+			HttpServletRequest request, HttpServletResponse response) {
+
+		List<Hotel> hotelList = hotelService.findAllHotel();
+		return hotelList.size();
+	}
+
+	@RequestMapping("/ProListHotel")
+	public @ResponseBody List<Hotel> ProList(Integer pageindexs,
+			Integer pageSize) {
+		List<Hotel> hotelList=hotelService.ProList(pageindexs,pageSize);
+		hotelList=JsonFomart(hotelList);
+		return hotelList;
+	}
 }

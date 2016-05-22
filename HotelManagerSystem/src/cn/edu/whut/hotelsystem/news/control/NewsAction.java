@@ -31,6 +31,8 @@ public class NewsAction {
 	@Autowired
 	private IHotelService hotelservice;
 
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
 	@RequestMapping("/newsPageUI")
 	public String newsPageUI(Model model) {
 
@@ -49,10 +51,16 @@ public class NewsAction {
 	@RequestMapping("/findNewsByHid")
 	public @ResponseBody JSONArray findNewsByHid(Integer hid) {
 		Hotel hotel = hotelservice.findHotelById(hid);
+		JSONArray newsList = formatNews(hotel);
+		return newsList;
+	}
+
+	private JSONArray formatNews(Hotel hotel) {
+
 		Set<News> news = hotel.getNewses();
 		JSONArray newsList = new JSONArray();
 		Iterator<News> it = news.iterator();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
 		while (it.hasNext()) {
 			JSONObject js = new JSONObject();
 			News n = it.next();
@@ -110,5 +118,35 @@ public class NewsAction {
 		}
 		model.addAttribute("result", result);
 		return "news/addNews";
+	}
+
+	/*
+	 * var url = "findNewsSize.do" var urlPage = "ProListNews.do"
+	 */
+
+	@RequestMapping("/findNewsSize")
+	public @ResponseBody int findNewsSize(Integer hid) {
+
+		Hotel hotel = hotelservice.findHotelById(hid);
+		return hotel.getNewses().size();
+
+	}
+
+	@RequestMapping("/ProListNews")
+	public @ResponseBody JSONArray ProListNews(Integer hid, Integer pageindexs,
+			Integer pageSize) {
+		Hotel hotel = hotelservice.findHotelById(hid);
+		JSONArray list = formatNews(hotel);
+		int current = (pageindexs - 1) * pageSize;
+		int totle = current + pageSize;
+		if (totle > list.size()) {
+			totle = list.size();
+		}
+
+		JSONArray newsList = new JSONArray();
+		for (int i = current; i < totle; i++) {
+			newsList.add(list.get(i));
+		}
+		return newsList;
 	}
 }

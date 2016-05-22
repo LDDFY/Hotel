@@ -72,49 +72,11 @@
 <!-- jQuery -->
 <script src="resourse/assets/js/jquery.v2.0.3.js"></script>
 <script src="resourse/js/jquery.form.js"></script>
-<script>
-	$(function() {
-		fresh();
-
-	});
-	function fresh() {
-		$.ajax({
-			type : "GET",
-			url : "findAllHotel.do",
-
-			success : function(data) {
-				var strHtml = "";
-				var strtitle = "<tr>";
-				var strtitleed = "</tr>";
-				var strtd = "<td>";
-				var strtded = "</td>";
-				var a = "<a href='hotelInfor.do?hid=";
-				var a1 = "'>详情</a><a href='modifyHotel.do?hid=";
-				var a2 = "'>修改</a><a href='deleteHotel.do?hid=";
-				var a3 = "'>删除</a>";
-				for (var i = 0; i < data.length; i++) {
-
-					$("#menuList tr:not(:first)").remove();
-					strHtml += strtitle + strtd + data[i].hid + strtded + strtd
-							+ data[i].hname + strtded + strtd + data[i].haddr
-							+ strtded + strtd + data[i].htel + strtded + strtd
-							+ data[i].hemail + strtded + strtd + a
-							+ data[i].hid + a1 + data[i].hid + a2 + data[i].hid
-							+ a3 + strtded + strtitleed;
-					$("#menuList").append(strHtml);
-				}
-			},
-			error : function() {
-				alert("刷新失败！");
-			}
-
-		});
-	}
-</script>
+<script src="resourse/javascript/HotelManager.js"></script>
 
 </head>
 
-<body >
+<body>
 	<input id="uID" name="uID" value="${user.uid }" hidden="hidden" />
 	<input id="level" name="level" value="${user.level }" hidden="hidden" />
 	<div class="tab-content5">
@@ -206,14 +168,16 @@
 				<!-- /.modal -->
 			</div>
 
-			<div class="col-md-15">
-				<table id="menuList" name="menuList" class="table table-bordered">
+			<div class="col-md-15" style="height: 450px;">
+				<table id="menuList" name="menuList"
+					class="table table-bordered table-hover table-striped"
+					style=" font-size:13px;">
 					<caption>酒店信息列表</caption>
 					<thead>
 						<tr>
 							<th>序号</th>
-							<th >名称</th>							
-							<th >地址</th>
+							<th>名称</th>
+							<th>地址</th>
 							<th>电话</th>
 							<th>email</th>
 							<th>操作</th>
@@ -225,47 +189,52 @@
 				</table>
 
 			</div>
-
 		</div>
 
-		<!-- This page JS -->
-		<script src="resourse/assets/js/js-index.js"></script>
-		<script src="resourse/assets/js/js-dashboard.js"></script>
+	</div>
 
-		<!-- Sparkline -->
-		<script src="resourse/assets/js/jquery.sparkline.js"></script>
+	<jsp:include page="../pagination.jsp" />
 
-		<!-- Custom functions -->
-		<script src="resourse/assets/js/functions.js"></script>
 
-		<!-- Counter -->
-		<script src="resourse/assets/js/counter.js"></script>
+	<!-- This page JS -->
+	<script src="resourse/assets/js/js-index.js"></script>
+	<script src="resourse/assets/js/js-dashboard.js"></script>
 
-		<!-- Picker UI-->
-		<script src="resourse/assets/js/jquery-ui.js"></script>
+	<!-- Sparkline -->
+	<script src="resourse/assets/js/jquery.sparkline.js"></script>
 
-		<!-- Easing -->
-		<script src="resourse/assets/js/jquery.easing.js"></script>
+	<!-- Custom functions -->
+	<script src="resourse/assets/js/functions.js"></script>
 
-		<!-- Nicescroll  -->
-		<script src="resourse/assets/js/jquery.nicescroll.min.js"></script>
+	<!-- Counter -->
+	<script src="resourse/assets/js/counter.js"></script>
 
-		<!-- CarouFredSel -->
-		<script src="resourse/assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
-		<script
-			src="resourse/assets/js/helper-plugins/jquery.touchSwipe.min.js"></script>
-		<script type="text/javascript"
-			src="resourse/assets/js/helper-plugins/jquery.mousewheel.min.js"></script>
-		<script type="text/javascript"
-			src="resourse/assets/js/helper-plugins/jquery.transit.min.js"></script>
-		<script type="text/javascript"
-			src="resourse/assets/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+	<!-- Picker UI-->
+	<script src="resourse/assets/js/jquery-ui.js"></script>
 
-		<!-- Custom Select -->
-		<script type='text/javascript'
-			src='resourse/assets/js/jquery.customSelect.js'></script>
+	<!-- Easing -->
+	<script src="resourse/assets/js/jquery.easing.js"></script>
 
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="resourse/dist/js/bootstrap.min.js"></script>
+	<!-- Nicescroll  -->
+	<script src="resourse/assets/js/jquery.nicescroll.min.js"></script>
+
+	<!-- CarouFredSel -->
+	<script src="resourse/assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+	<script
+		src="resourse/assets/js/helper-plugins/jquery.touchSwipe.min.js"></script>
+	<script type="text/javascript"
+		src="resourse/assets/js/helper-plugins/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript"
+		src="resourse/assets/js/helper-plugins/jquery.transit.min.js"></script>
+	<script type="text/javascript"
+		src="resourse/assets/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
+
+	<!-- Custom Select -->
+	<script type='text/javascript'
+		src='resourse/assets/js/jquery.customSelect.js'></script>
+
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="resourse/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>

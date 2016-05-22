@@ -144,8 +144,15 @@ public class HotelDAO extends BaseHibernateDAO<Hotel> implements IHotelDAO {
 
 		return (Hotel) getSession().load(Hotel.class, hid);
 	}
+
 	public List<Hotel> queryHotel(String Hql) {
 
 		return queryHQL(Hql);
+	}
+
+	@Override
+	public List<Hotel> ProList(Integer pageindexs, Integer pageSize) {
+		// TODO Auto-generated method stub
+		return findByPageIndex(((pageindexs - 1) * pageSize), pageSize);
 	}
 }

@@ -26,6 +26,8 @@ public class EvaluationControl {
 	@Autowired
 	private IHotelService hotelService;
 
+	private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
 	@RequestMapping("/EvaluationManager")
 	public String EvaluationManager() {
 
@@ -34,8 +36,14 @@ public class EvaluationControl {
 
 	@RequestMapping("/freshEvaluationByHid")
 	public @ResponseBody JSONArray freshEvaluationByHid(Integer hid) {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+
 		Hotel hotel = hotelService.loadHotel(hid);
+		JSONArray list = formatEvaluation(hotel);
+		return list;
+
+	}
+
+	private JSONArray formatEvaluation(Hotel hotel) {
 		Set<Evaluation> olistList = hotel.getEvaluations();
 		Iterator<Evaluation> it = olistList.iterator();
 		JSONArray list = new JSONArray();
@@ -52,7 +60,6 @@ public class EvaluationControl {
 			list.add(js);
 		}
 		return list;
-
 	}
 
 	@RequestMapping("/deleteEvaluation")
@@ -64,5 +71,36 @@ public class EvaluationControl {
 		}
 		model.addAttribute("result", result);
 		return "order/EvaluationManager";
+	}
+
+	/*
+	 * var url = "findEvaluationSize.do" var urlPage = "ProListEvaluation.do"
+	 */
+
+	@RequestMapping("/findEvaluationSize")
+	public @ResponseBody int findEvaluationSize(Integer hid) {
+
+		Hotel hotel = hotelService.loadHotel(hid);
+		return hotel.getEvaluations().size();
+
+	}
+
+	@RequestMapping("/ProListEvaluation")
+	public @ResponseBody JSONArray ProListEvaluation(Integer hid,
+			Integer pageindexs, Integer pageSize) {
+		Hotel hotel = hotelService.loadHotel(hid);
+		JSONArray list = formatEvaluation(hotel);
+
+		int current = (pageindexs - 1) * pageSize;
+		int totle = current + pageSize;
+		if (totle > list.size()) {
+			totle = list.size();
+		}
+
+		JSONArray evaluationList = new JSONArray();
+		for (int i = current; i < totle; i++) {
+			evaluationList.add(list.get(i));
+		}
+		return evaluationList;
 	}
 }

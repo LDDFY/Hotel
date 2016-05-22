@@ -31,15 +31,11 @@ public interface IUserDAO {
 
 	public List<User> findByUpwd(Object upwd);
 
-	public List<User> findByRealname(Object realname);
-
 	public List<User> findByUgender(Object ugender);
 
 	public List<User> findByIdnumber(Object idnumber);
 
 	public List<User> findByUtel(Object utel);
-
-	public List<User> findByUemail(Object uemail);
 
 	public List<User> findByLevel(Object level);
 

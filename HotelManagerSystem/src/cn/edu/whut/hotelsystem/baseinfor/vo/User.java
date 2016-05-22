@@ -17,7 +17,6 @@ import javax.persistence.Table;
 
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Evaluation;
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Olist;
-import cn.edu.whut.hotelsystem.news.vo.Email;
 
 /**
  * User entity. @author MyEclipse Persistence Tools
@@ -45,10 +44,9 @@ public class User implements java.io.Serializable {
 	private String imgpath;
 	private Set<Olist> olistsForOdealid = new HashSet<Olist>(0);
 	private Set<Olist> olistsForUid = new HashSet<Olist>(0);
-	private Set<Email> emailsForReciveid = new HashSet<Email>(0);
+
 	private Set<Evaluation> evaluations = new HashSet<Evaluation>(0);
 	private Set<Hotel> hotels = new HashSet<Hotel>(0);
-	private Set<Email> emailsForSendid = new HashSet<Email>(0);
 
 	// Constructors
 
@@ -65,9 +63,8 @@ public class User implements java.io.Serializable {
 	public User(String uname, String upwd, String realname, String ugender,
 			String idnumber, String utel, String uemail, Integer level,
 			Double money, String imgpath, Set<Olist> olistsForOdealid,
-			Set<Olist> olistsForUid, Set<Email> emailsForReciveid,
-			Set<Evaluation> evaluations, Set<Hotel> hotels,
-			Set<Email> emailsForSendid) {
+			Set<Olist> olistsForUid, Set<Evaluation> evaluations,
+			Set<Hotel> hotels) {
 		this.uname = uname;
 		this.upwd = upwd;
 		this.realname = realname;
@@ -80,10 +77,10 @@ public class User implements java.io.Serializable {
 		this.imgpath = imgpath;
 		this.olistsForOdealid = olistsForOdealid;
 		this.olistsForUid = olistsForUid;
-		this.emailsForReciveid = emailsForReciveid;
+
 		this.evaluations = evaluations;
 		this.hotels = hotels;
-		this.emailsForSendid = emailsForSendid;
+
 	}
 
 	// Property accessors
@@ -206,15 +203,6 @@ public class User implements java.io.Serializable {
 		this.olistsForUid = olistsForUid;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "userByReciveid")
-	public Set<Email> getEmailsForReciveid() {
-		return this.emailsForReciveid;
-	}
-
-	public void setEmailsForReciveid(Set<Email> emailsForReciveid) {
-		this.emailsForReciveid = emailsForReciveid;
-	}
-
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
 	public Set<Evaluation> getEvaluations() {
 		return this.evaluations;
@@ -231,15 +219,6 @@ public class User implements java.io.Serializable {
 
 	public void setHotels(Set<Hotel> hotels) {
 		this.hotels = hotels;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "userBySendid")
-	public Set<Email> getEmailsForSendid() {
-		return this.emailsForSendid;
-	}
-
-	public void setEmailsForSendid(Set<Email> emailsForSendid) {
-		this.emailsForSendid = emailsForSendid;
 	}
 
 }
