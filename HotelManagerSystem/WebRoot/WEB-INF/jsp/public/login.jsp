@@ -59,7 +59,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="logmargfix">
 					<div class="chpadding50">
 							<div class="alignbottom">
-								<button class="btn-search4"  type="submit">登录</button>							
+								<button class="btn-search4"  type="submit">登录</button>	&nbsp;&nbsp;		
+								<a href="registerUI">注册</a>					
 							</div>
 							<div class="alignbottom2">
 							  <div class="checkbox">

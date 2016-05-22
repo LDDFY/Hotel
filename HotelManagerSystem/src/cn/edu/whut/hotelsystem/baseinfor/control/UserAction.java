@@ -226,4 +226,17 @@ public class UserAction {
 		return "user/Administrator";
 	}
 
+	
+	@RequestMapping("/registerUI")
+	public String registerUI(){
+		return "public/register";
+	}
+	@RequestMapping("/register")
+	public String register(Model model, HttpSession session,
+			HttpServletRequest request, HttpServletResponse response,User user){
+		user.setLevel(2);
+		userService.saveOrUpdate(user);
+		return "public/login";
+	}
+
 }
