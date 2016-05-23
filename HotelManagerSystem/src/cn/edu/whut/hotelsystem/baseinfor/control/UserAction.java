@@ -15,12 +15,15 @@ import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.edu.whut.hotelsystem.baseinfor.service.IHotelService;
 import cn.edu.whut.hotelsystem.baseinfor.service.IUserService;
+import cn.edu.whut.hotelsystem.baseinfor.vo.Hotel;
 import cn.edu.whut.hotelsystem.baseinfor.vo.User;
 import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Olist;
 
@@ -28,6 +31,8 @@ import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Olist;
 public class UserAction {
 	@Autowired
 	private IUserService userService;
+	@Autowired
+	private IHotelService hotelService;
 
 	@RequestMapping("/Login")
 	public String Login(Model model, HttpSession session,
@@ -226,17 +231,54 @@ public class UserAction {
 		return "user/Administrator";
 	}
 
-	
 	@RequestMapping("/registerUI")
-	public String registerUI(){
+	public String registerUI() {
 		return "public/register";
 	}
+
 	@RequestMapping("/register")
 	public String register(Model model, HttpSession session,
-			HttpServletRequest request, HttpServletResponse response,User user){
+			HttpServletRequest request, HttpServletResponse response, User user) {
 		user.setLevel(2);
 		userService.saveOrUpdate(user);
 		return "public/login";
 	}
 
+	@RequestMapping("/adminInfor")
+	public String adminInfor(Model model, Integer uid) {
+		User u = userService.findUserById(uid);
+		Hotel h = hotelService.findHotelByUid(uid);
+		model.addAttribute("admin", u);
+		model.addAttribute("hotelname", h.getHname());
+		return "user/adminInfor";
+	}
+
+	@RequestMapping("/addAdmin")
+	@Transactional
+	public String addAdmin(Model model, HttpServletRequest request,
+			HttpServletResponse response, User u) {
+		Integer hid = Integer.parseInt(request.getParameter("HotelID"));
+		String result = "添加信息失败！";
+		Hotel h = hotelService.loadHotel(hid);
+		h.setUser(u);
+		boolean flag = userService.saveOrUpdate(u);
+		Hotel h1 = hotelService.mergeHotel(h);
+		boolean hotelflag = hotelService.attachHocal(h1);
+		if (flag && hotelflag) {
+			result = "添加信息成功！";
+		}
+		model.addAttribute("result", result);
+		return "user/Administrator";
+	}
+
+	@RequestMapping("/deleteAdmin")
+	public String deleteAdmin(Integer uid, Model model) {
+		String result = "删除信息失败！";
+		boolean flag = userService.deleteUserByUid(uid);
+		if (flag) {
+			result = "删除信息成功！";
+		}
+		model.addAttribute("result", result);
+		return "user/Administrator";
+	}
 }

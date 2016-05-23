@@ -97,7 +97,9 @@
 
 
 	<div id="dajy" class="mtslide sliderbg fixed cstyle11">
-		<div id="map-canvas2"></div>
+
+		<img src="/HotelManagerSystem/resourse/images/slider/paris.jpg"
+			style="width: 100%;" />
 	</div>
 
 
@@ -113,31 +115,43 @@
 						<div class="tab-content">
 
 							<div class="col-md-4">
-								<form action="#">
-									<span class="opensans size24 slim">联系</span> <input type="text"
-										placeholder="姓名" class="form-control logpadding margtop10">
-									<input type="text" placeholder="电话"
+
+								<form action="sendEmail.do" method="post">
+									<div>
+										<span class="opensans size24 slim">联系</span>
+										<c:if test="${not empty result }">
+											<div class="alert alert-success alert-dismissable">
+												<button type="button" class="close" data-dismiss="alert"
+													aria-hidden="true">&times;</button>
+												${result }
+											</div>
+										</c:if>
+									</div>
+									<input id="name" name="name" type="text" placeholder="姓名"
+										class="form-control logpadding margtop10"> <input
+										id="tel" name="tel" type="text" placeholder="电话"
 										class="form-control logpadding margtop20"> <input
-										type="text" placeholder="E-mail"
+										id="email" name="email" type="text" placeholder="E-mail"
 										class="form-control logpadding margtop20">
 							</div>
 							<div class="col-md-4">
-								<textarea rows="9" class="form-control margtop10"></textarea>
+								<textarea rows="9" class="form-control margtop10" id="content"
+									name="content"></textarea>
 							</div>
 							<div class="col-md-4 opensans grey">
-								地址:<br /> <span class="dark"> 李龙<br /> 科学大道166号<br /> 河南
-									郑州<br />
+								地址:<br /> <span class="dark"> XX<br /> XXXXX-XXX-XXX<br />
+									武汉<br />
 								</span> <br /> 电话<br />
-								<p class="opensans size30 cyan xslim">1-866-599-6674</p>
+								<p class="opensans size30 cyan xslim">1-866-599-XXXX</p>
 								Email<br /> <a href="mailto:office@company.com" class="green2">office@company.com</a>
 							</div>
 						</div>
 
 						<div class="searchbg3">
 							<button type="submit" class="btn-search right mr20">发送邮件</button>
-							</form>
-						</div>
 
+						</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -147,8 +161,8 @@
 
 		<div class="lastminutecontact lcfix">
 			<div class="container lmc">
-				<img src="resourse/images/rating-4.png" alt="" /><br /> 最新消息: <b>巴塞罗那</b>
-				- 10月 27日起 209RMB/人<br />
+				<img src="resourse/images/rating-4.png" /><br /> 最新消息: <b>特价房</b>
+				- 10月 27日起 50RMB/人<br />
 				<form action="newsPageUI">
 					<button class="btn iosbtn" type="submit">阅读更多</button>
 				</form>
@@ -166,14 +180,13 @@
 					<div class="footer">
 						<a href="#" class="social1"><img
 							src="resourse/images/icon-facebook.png" alt="" /></a> <a href="#"
-							class="social2"><img src="resourse/images/icon-twitter.png" alt="" /></a>
-						<a href="#" class="social3"><img src="resourse/images/icon-gplus.png"
-							alt="" /></a> <a href="#" class="social4"><img
-							src="resourse/images/icon-youtube.png" alt="" /></a> <br />
-						<br /> Copyright &copy; 2013 <a href="#">Travel Agency</a> All
-						rights reserved. <a href="http://titanicthemes.com">TitanicThemes.com</a>
-						<br />
-						<br /> <a href="#top" id="gotop2" class="gotop"><img
+							class="social2"><img src="resourse/images/icon-twitter.png"
+							alt="" /></a> <a href="#" class="social3"><img
+							src="resourse/images/icon-gplus.png" alt="" /></a> <a href="#"
+							class="social4"><img src="resourse/images/icon-youtube.png"
+							alt="" /></a> <br /> <br /> Copyright &copy; 2013 <a href="#">Travel
+							Agency</a> All rights reserved. <a href="http://titanicthemes.com">TitanicThemes.com</a>
+						<br /> <br /> <a href="#top" id="gotop2" class="gotop"><img
 							src="resourse/images/spacer.png" alt="" /></a>
 					</div>
 				</footer>

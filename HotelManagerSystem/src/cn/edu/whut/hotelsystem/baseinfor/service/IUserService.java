@@ -19,4 +19,8 @@ public interface IUserService {
 	public boolean resetPassword(Integer uid);
 
 	public List<User> serchUserByUname(String uname);
+
+	public User findUserByName(String uname);
+
+	public boolean deleteUserByUid(Integer uid);
 }

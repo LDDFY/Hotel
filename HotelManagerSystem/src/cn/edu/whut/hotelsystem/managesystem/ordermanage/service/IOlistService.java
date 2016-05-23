@@ -4,6 +4,6 @@ import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Olist;
 
 public interface IOlistService {
 
-	void saveOlist(Olist olist);
+	boolean saveOlist(Olist olist);
 
 }

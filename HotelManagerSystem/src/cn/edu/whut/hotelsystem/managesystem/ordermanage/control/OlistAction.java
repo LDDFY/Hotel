@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.edu.whut.hotelsystem.baseinfor.service.IHotelService;
@@ -36,10 +38,11 @@ public class OlistAction {
 	private IOlistService olistService;
 
 	@RequestMapping("/bookingRoom")
-	public String bookingRoom(HttpSession session, HttpServletRequest request,
-			HttpServletResponse response, Olist olist, Integer userid,
-			Integer hid, Integer roomid) throws ParseException {
-		String result = "public/login";
+	public String bookingRoom(Model model, HttpSession session,
+			HttpServletRequest request, HttpServletResponse response,
+			Olist olist, Integer userid, Integer hid, Integer roomid)
+			throws ParseException {
+		String result = "user/payment";
 		String indate = request.getParameter("indate");
 		String outdate = request.getParameter("outdate");
 
@@ -52,17 +55,20 @@ public class OlistAction {
 		if (userid != null) {
 			User user = userService.findUserById(userid);
 			olist.setUserByUid(user);
-			result = "user/payment";
+			olist.setHotel(hotel);
+			olist.setRoom(room);
+			olist.setOutdate(out);
+			olist.setIndate(in);
+			session.setAttribute("olistinfor", olist);
+			return result;
 		} else {
+			olist.setHotel(hotel);
+			olist.setRoom(room);
+			olist.setOutdate(out);
+			olist.setIndate(in);
+			session.setAttribute("olistinfor", olist);
 			return result;
 		}
-		olist.setHotel(hotel);
-		olist.setRoom(room);
-		olist.setOutdate(out);
-		olist.setIndate(in);
-		olistService.saveOlist(olist);
-
-		return result;
 	}
 
 	private String formate(String indate) {
@@ -71,4 +77,57 @@ public class OlistAction {
 		return sd;
 	}
 
+	@RequestMapping("/SubmitRoom")
+	@Transactional
+	public String SubmitRoom(Model model, HttpSession session,
+			HttpServletRequest request, HttpServletResponse response,
+			String uname, String upwd) {
+
+		String result = null;
+		Olist olist = (Olist) session.getAttribute("olistinfor");
+		User u = userService.findUserByName(uname);
+		if (u == null) {
+			result = "用户名错误！";
+		} else if (!u.getUpwd().equals(upwd)) {
+			result = "密码错误！";
+		} else if (u.getMoney() < olist.getAmmount()) {
+
+			result = "余额不足！";
+		} else if (olist.getUserByUid() == null) {
+			olist.setUserByUid(u);
+		} else if (u.getMoney() >= olist.getAmmount()) {
+
+			u.setMoney(u.getMoney() - olist.getAmmount());
+			boolean userflag = userService.saveOrUpdate(u);
+			boolean flag = olistService.saveOlist(olist);
+			if (flag && userflag) {
+				result = "预定成功！";
+			} else {
+				result = "预定失败！";
+			}
+		}
+		model.addAttribute("result", result);
+		return "user/payment";
+	}
+
+	@RequestMapping("/orderLoginLogin")
+	public String orderLogin(Model model, HttpSession session,
+			HttpServletRequest request, HttpServletResponse response,
+			String uname, String upwd) {
+		String result = null;
+
+		User user = userService.Login(uname, upwd);
+
+		if (user == null) {
+			result = "用户名或密码错误，请重新登陆";
+			model.addAttribute("loginResult", result);
+			
+		} else {
+			session.setAttribute("user", user);
+			SubmitRoom(model, session, request, response, uname, upwd);
+			
+		}
+
+		return "user/payment";
+	}
 }

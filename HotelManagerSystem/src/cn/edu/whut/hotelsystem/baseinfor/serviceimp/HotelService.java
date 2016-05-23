@@ -62,16 +62,15 @@ public class HotelService implements IHotelService {
 	}
 
 	@Override
-	public List<Hotel> findHotelByLevel(Integer uid,Integer level) {
+	public List<Hotel> findHotelByLevel(Integer uid, Integer level) {
 		// TODO Auto-generated method stub
-		String Hql="FROM Hotel";
-		if( level==1)
-		{
-			Hql="FROM Hotel u WHERE u.user.uid="+uid;
+		String Hql = "FROM Hotel";
+		if (level == 1) {
+			Hql = "FROM Hotel u WHERE u.user.uid=" + uid;
 		}
 		System.out.println(Hql);
 		return hotelDAO.queryHotel(Hql);
-	
+
 	}
 
 	@Override
@@ -80,5 +79,14 @@ public class HotelService implements IHotelService {
 		return hotelDAO.ProList(pageindexs, pageSize);
 	}
 
-	
+	@Override
+	public Hotel findHotelByUid(Integer uid) {
+		// TODO Auto-generated method stub
+		List<Hotel> list = hotelDAO.findHotelByProperty("user.uid", uid);
+		if (list.size() != 0) {
+			return list.get(0);
+		}
+		return null;
+	}
+
 }

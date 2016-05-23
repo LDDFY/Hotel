@@ -22,23 +22,16 @@
 
 
 <link href="resourse/examples/carousel/carousel.css" rel="stylesheet">
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="resourse/assets/js/html5shiv.js"></script>
-      <script src="resourse/assets/js/respond.min.js"></script>
-    <![endif]-->
 
-<!-- Fonts -->
 <link
 	href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic'
 	rel='stylesheet' type='text/css'>
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:700,400,300,300italic'
 	rel='stylesheet' type='text/css'>
-<!-- Font-Awesome -->
+
 <link rel="stylesheet" type="text/css"
 	href="resourse/assets/css/font-awesome.css" media="screen" />
-<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="resourse/assets/css/font-awesome-ie7.css" media="screen" /><![endif]-->
 
 <!-- REVOLUTION BANNER CSS SETTINGS -->
 <link rel="stylesheet" type="text/css"
@@ -84,65 +77,47 @@
 			<div class="col-md-15 pagecontainer2 offset-0">
 				<div class="cstyle10">
 					<h4>
-						<span style="padding-left: 50%;">修改酒店信息</span>
+						<span style="padding-left: 50%;">管理员信息</span>
 					</h4>
 				</div>
+
 				<div class="tab-content4 ">
-					<!-- TAB 1 -->
-					<form action="updateHotel" method="post">
-						<table class="table table-striped">
-							<input hidden="hidden" id="hid" name="hid" type="text"
-								value=" ${hotel.hid }"
-								<tr>
-										<th>酒店名称</th>
-										<th>地址：</th>
-										<th>星级：</th>
-										<th>所在省：</th>
-										<th>所在市</th>
+					<table class="table table-striped">
+						<input hidden="hidden" id="hid" name="hid" type="text"
+							value=" ${admin.uid }"
+							<tr>
+										<th>姓名</th>
+										<th>真实姓名：</th>
+										<th>性别：</th>
+										<th>电话：</th>
+										
 									</tr>
-								<tr>
-										<td><input style="width: 150px;" id="hname" name="hname"
-									type="text" value=" ${hotel.hname }"/></td>
-										<td><input style="width: 150px;"id="haddr" name="haddr"
-									type="text" value=" ${hotel.haddr }"/></td>
-										<td><input style="width: 150px;" id="grand" name="grand"
-									type="text" value=" ${hotel.grand }"/></td>
-										<td><input style="width: 150px;" id="hprovince" name="hprovince" type="text"
-													value="${hotel.hprovince }"/></td>
-										<td><input style="width: 150px;" id="hcity" name="hcity" type="text"
-													value="${hotel.hcity }"/></td>
+							<tr>
+										<td> ${admin.uname }</td>
+										<td>${admin.realname }</td>
+										<td>${admin.ugender }</td>
+										<td>${admin.utel }</td>
 										<tr>
 									
 									</tr>
-								<tr>							
-										<th>联系电话</th>
-										<th>邮箱</th>
-										<th>平均每晚价格</th>
-										<th>简介</th>
+							<tr>			
+							            <th>email</th>				
+										<th>账户余额</th>										
+										<th>所管酒店</th>
+																	
 									</tr>
-								<td><input style="width: 150px;" id="htel" name="htel" type="text"
-													value="${hotel.htel }"/></td>
-								<td><input style="width: 150px;" id="hemail" name="hemail" type="text"
-													value="${hotel.hemail }"/></td>
-								<td><input style="width: 150px;" id="avgprice" name="avgprice" type="text"
-													value="${hotel.avgprice }"/></td>
-								<td colspan="2"><input style="width: 350px;" id="summary" name="summary" type="text"
-													value="${hotel.summary  }" />
-													
-													</td>
-							</tr>
-							<tr>
-								<td><button type="submit" class="btn btn-primary btn-sm">确认</button>
-									<button type="submit" class="btn btn-primary btn-sm"
-										onclick="JavaScript:history.back(-1);">返回</button></td>
-							</tr>
-						</table>
+							<td>${admin.uemail }</td> <td>${admin.money }</td>
+							<td>${hotelname }</td>
+						</tr>
+					</table>
+					<div style="padding-left: 80px; width: 80px;">
+						<button type="submit" class="btn btn-primary btn-sm"
+							onclick="JavaScript:history.back(-1);">返回</button>
+					</div>
 				</div>
-				</form>
 			</div>
-		</div>
 
-	</div>
+		</div>
 
 	</div>
 	</div>

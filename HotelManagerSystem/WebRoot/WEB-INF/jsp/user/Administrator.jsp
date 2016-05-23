@@ -75,10 +75,38 @@
 <script src="resourse/js/jquery.form.js"></script>
 <!-- end -->
 <script type="text/javascript">
+	function freshHotelRole() {
+
+		var level = document.getElementById("level").value;
+		var uid = document.getElementById("uID").value;
+
+		$($.ajax({
+			type : "GET",
+
+			url : "findHotelBylevel.do",
+			data : {
+				"level" : level,
+				"uid" : uid,
+			},
+			success : function(Datas) {
+				$("#HotelID").empty();
+				for (var i = 0; i < Datas.length; i++) {
+					$("#HotelID").append(
+							"<option value='"+Datas[i].hid+"'>"
+									+ Datas[i].hname + "</option>");
+				}
+
+			},
+			error : function() {
+				alert("酒店信息更新失败！");
+			}
+		}));
+	}
 	var totalCounts = 0;//记录总数
 	var url = "findAdminSize.do"
 	var urlPage = "ProListAdmin.do"
 	$(function() {
+		freshHotelRole();
 		fresh();
 
 	});
@@ -86,15 +114,14 @@
 		InitProperties(url);
 	}
 	function PageStrConvert(data) {
-
 		var strHtml = "";
 		var strtitle = "<tr>";
 		var strtitleed = "</tr>";
 		var strtd = "<td>";
 		var strtded = "</td>";
-
-		var a = "<a href='resetUser.do?uid=";
-		var a1 = "'>重置密码</a>";
+		var a = "<a href='adminInfor.do?uid=";
+		var a1 = "'>详细信息</a>&nbsp;<a href='deleteAdmin.do?uid=";
+		var a2 = "'>删除</a>";
 		for (var i = 0; i < data.length; i++) {
 
 			$("#menuList tr:not(:first)").remove();
@@ -102,8 +129,8 @@
 					+ data[i].realname + strtded + strtd + data[i].ugender
 					+ strtded + strtd + data[i].utel + strtded + strtd
 					+ data[i].uemail + strtded + strtd + data[i].money
-					+ strtded + strtd + a + data[i].uid + a1 + strtded
-					+ strtitleed;
+					+ strtded + strtd + a + data[i].uid + a1 + data[i].uid + a2
+			strtded + strtitleed;
 			$("#menuList").append(strHtml);
 		}
 	}
@@ -165,8 +192,9 @@
 				var strtitleed = "</tr>";
 				var strtd = "<td>";
 				var strtded = "</td>";
-				var a = "<a href='resetUser.do?uid=";
-				var a1 = "'>重置密码/</a>";
+				var a = "<a href='adminInfor.do?uid=";
+				var a1 = "'>详细信息</a> &nbsp;<a href='deleteAdmin.do?uid=";
+				var a2 = "'>删除</a>";
 				for (var i = 0; i < data.length; i++) {
 
 					$("#menuList tr:not(:first)").remove();
@@ -175,7 +203,8 @@
 							+ data[i].ugender + strtded + strtd + data[i].utel
 							+ strtded + strtd + data[i].uemail + strtded
 							+ strtd + data[i].money + strtded + strtd + a
-							+ data[i].uid + a1 + strtded + strtitleed;
+							+ data[i].uid + a1 + data[i].uid + a2
+					strtded + strtitleed;
 					$("#menuList").append(strHtml);
 				}
 			},
@@ -204,15 +233,88 @@
 		<div>
 			<a class="btn btn-primary btn-sm" onclick="javascript:serchUser()">搜索</a>
 			<a class="btn btn-primary btn-sm" onclick="javascript:fresh()">刷新</a>
+			<button class="btn btn-primary btn-sm" data-target="#myModal"
+				data-toggle="modal">添加信息</button>
 		</div>
 
 		<c:if test="${not empty result }">
 			<div class="alert alert-warning fade in margtop20">
 				<button aria-hidden="true" data-dismiss="alert" class="close"
 					type="button">×</button>
-				<strong>提示!</strong>${result}
+				<strong>提示:</strong>&nbsp;${result}
 			</div>
 		</c:if>
+
+		<div class="modal  fade" id="myModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+						<h5 class="modal-title" id="myModalLabel">添加酒店信息</h5>
+					</div>
+					<div class="modal-body">
+
+						<form action="addAdmin.do" method="post">
+							<table class="table table-bordered">
+								<tbody>
+
+									<tr>
+										<td align="right">姓名:</td>
+										<td align="left"><input name="uname" type="text"
+											id="uname" class="span1-1" /> *</td>
+										<td align="right">密码:</td>
+										<td align="left" colspan="3"><input name="upwd"
+											type="text" id="upwd" class="span1-1" />*</td>
+									</tr>
+									<tr>
+										<td align="right">真实姓名</td>
+										<td align="left"><input name="realname" type="text"
+											id="realname" class="span1-1" />*</td>
+										<td align="right">性别:</td>
+										<td align="left" colspan="3"><select name="ugender"
+											id="ugender" style="width: 175px;height: 30px;">
+												<option value="男">男</option>
+												<option value="女">女</option>
+										</select>*</td>
+									</tr>
+									<tr>
+										<td align="right">电话:</td>
+										<td align="left"><input name="utel" type="text" id="utel"
+											class="span1-1" />*</td>
+										<td align="right">email:</td>
+										<td colspan="3" align="left"><input name="uemail"
+											type="text" id="uemail" class="span1-1" /></td>
+									</tr>
+
+									<tr>
+										<td align="right">级别:</td>
+										<td align="left"><input name="level" id="level"
+											class="span1-1" value="1" readonly="readonly"> *</td>
+										<td align="right">所管酒店:</td>
+										<td colspan="3" align="left"><select id="HotelID"
+											name="HotelID" style="width: 175px;height: 30px;">
+										</select></td>
+									</tr>
+
+								</tbody>
+							</table>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button type="submit" class="btn btn-primary">提交更改</button>
+					</div>
+					</form>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+
+
+
 		<div class="col-md-15" style="height: 400px;">
 			<table id="menuList" name="menuList"
 				class="table table-bordered table-hover table-striped"

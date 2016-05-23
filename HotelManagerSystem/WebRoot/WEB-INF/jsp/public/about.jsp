@@ -1,7 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE html>
@@ -135,8 +137,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					<!-- LEFT IMG -->
 					<div class="col-md-8 cpdd01">
-						<img src="resourse/images/about-man.jpg" class="fwimg" alt="" />
-						<hr/>
+						<img src="resourse/images/slider/paris.jpg" class="fwimg" alt="" />
+						<hr />
 						<img src="resourse/images/about-man.jpg" class="fwimg" alt="" />
 					</div>
 					<!-- END OF LEFT IMG -->

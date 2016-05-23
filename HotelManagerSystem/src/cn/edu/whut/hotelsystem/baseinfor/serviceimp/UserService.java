@@ -58,4 +58,21 @@ public class UserService implements IUserService {
 		return userDAO.findByUname(uname);
 	}
 
+	@Override
+	public User findUserByName(String uname) {
+		// TODO Auto-generated method stub
+		List<User> userList = userDAO.findByUname(uname);
+		if (!userList.isEmpty()) {
+			return userList.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public boolean deleteUserByUid(Integer uid) {
+		// TODO Auto-generated method stub
+		User u = userDAO.loadUser(uid);
+		return userDAO.deleteUser(u);
+	}
+
 }

@@ -57,79 +57,75 @@
 			<div class="col-md-12  offset-0">
 				<!-- LEFT MENU -->
 				<div class="dashboard-left offset-0 textcenter">
-					<br /> <br /> <a><img src="resourse/images/dash/logo.png" /></a><br />
-					<br /> <a><img src="resourse/images/dash/avatar.jpg"
-						class="dash-avatar" alt="" /></a><br /> <span class="size12 dark">管理员：${user.uname }</span><br />
-					<a href="loginOut.do"><img
-						src="resourse/images/dash/logout.png" alt="" /></a><br /> <br /> <br />
+					<br /> <br /> <a><a href="loginOut.do"><img src="resourse/images/dash/logo.png" />
+						<br /> <span class="size12 dark">
+							<h5>欢迎：${user.uname }</h5>
+					</span> </a><br /> <br /> <!-- Nav tabs -->
+						<ul class="nav dashboard-tabs">
 
-					<!-- Nav tabs -->
-					<ul class="nav dashboard-tabs">
-
-						<li><a href="#">
-								<div class="dash-ct">
-									<span class="dashboard-icon left"></span> <span class="dtxt">首页
-									</span>
-								</div>
-						</a></li>
-						<c:if test="${user.level ==2}">
-							<li class=“margbottom10" ><a href="HotelManager.do"
-								target="content">
-
+							<li><a href="#">
 									<div class="dash-ct">
-										<span class="posts-icon left"></span><span class="dtxt">酒店信息管理
+										<span class="dashboard-icon left"></span> <span class="dtxt">首页
 										</span>
 									</div>
-
 							</a></li>
-						</c:if>
-						<li><a href="RoomManager.do" target="content">
-								<div class="dash-ct">
-									<span class="topics-icon left"></span> <span class="dtxt">房间信息管理
-									</span>
-								</div>
-						</a></li>
+							<c:if test="${user.level ==2}">
+								<li class=“margbottom10" ><a href="HotelManager.do"
+									target="content">
 
-						<li><a href="OrderManager.do" target="content">
-								<div class="dash-ct">
-									<span class="pages-icon left"></span> <span class="dtxt">订单管理</span>
-								</div>
-						</a></li>
-						<li><a href="EvaluationManager.do" target="content">
-								<div class="dash-ct">
-									<span class="comments-icon left"></span> <span class="dtxt">评价信息管理</span>
-								</div>
-						</a></li>
+										<div class="dash-ct">
+											<span class="posts-icon left"></span><span class="dtxt">酒店信息管理
+											</span>
+										</div>
 
-						<li><a href="mailManager.do" target="content">
-								<div class="dash-ct">
-									<span class="forums-icon left"></span> <span class="dtxt">邮件</span>
-								</div>
-						</a></li>
-
-						<li><a href="newsManager.do" target="content">
-								<div class="dash-ct">
-									<span class="replies-icon left"></span> <span class="dtxt">新闻信息管理</span>
-								</div>
-						</a></li>
-						<li><a href="userManager.do" target="content">
-								<div class="dash-ct">
-									<span class="appearance-icon left"></span> <span class="dtxt">用户信息管理</span>
-								</div>
-						</a></li>
-						<c:if test="${user.level ==2}">
-							<li><a href="AdninistratorManager.do" target="content">
+								</a></li>
+							</c:if>
+							<li><a href="RoomManager.do" target="content">
 									<div class="dash-ct">
-										<span class="profile-icon left"></span> <span class="dtxt">管理员信息管理</span>
+										<span class="topics-icon left"></span> <span class="dtxt">房间信息管理
+										</span>
 									</div>
 							</a></li>
-						</c:if>
-					</ul>
-					<br /> <span class="dtxt"> <span class="size12 grey">
-							Copyright &copy; 2013.<br /> XXXXXXXXX.com
-					</span> <br /> <br /> <br />
+
+							<li><a href="OrderManager.do" target="content">
+									<div class="dash-ct">
+										<span class="pages-icon left"></span> <span class="dtxt">订单管理</span>
+									</div>
+							</a></li>
+							<li><a href="EvaluationManager.do" target="content">
+									<div class="dash-ct">
+										<span class="comments-icon left"></span> <span class="dtxt">评价信息管理</span>
+									</div>
+							</a></li>
+
+							<li><a href="mailManager.do" target="content">
+									<div class="dash-ct">
+										<span class="forums-icon left"></span> <span class="dtxt">邮件</span>
+									</div>
+							</a></li>
+
+							<li><a href="newsManager.do" target="content">
+									<div class="dash-ct">
+										<span class="replies-icon left"></span> <span class="dtxt">新闻信息管理</span>
+									</div>
+							</a></li>
+							<li><a href="userManager.do" target="content">
+									<div class="dash-ct">
+										<span class="appearance-icon left"></span> <span class="dtxt">用户信息管理</span>
+									</div>
+							</a></li>
+							<c:if test="${user.level ==2}">
+								<li><a href="AdninistratorManager.do" target="content">
+										<div class="dash-ct">
+											<span class="profile-icon left"></span> <span class="dtxt">管理员信息管理</span>
+										</div>
+								</a></li>
+							</c:if>
+						</ul> <br /> <span class="dtxt"> <span class="size12 grey">
+								Copyright &copy; 2013.<br /> XXXXXXXXX.com
+						</span> <br /> <br /> <br />
 					</span>
-					<div class="clearfix"></div>
+						<div class="clearfix"></div>
 				</div>
 				<!-- LEFT MENU -->
 

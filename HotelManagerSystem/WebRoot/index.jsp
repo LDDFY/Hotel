@@ -26,12 +26,12 @@
 	href="${pageContext.request.contextPath}/resourse/examples/carousel/carousel.css"
 	rel="stylesheet">
 
-<link
+<!-- <link
 	href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic'
 	rel='stylesheet' type='text/css'>
 <link
 	href='http://fonts.googleapis.com/css?family=Open+Sans:700,400,300,300italic'
-	rel='stylesheet' type='text/css'>
+	rel='stylesheet' type='text/css'> -->
 <!-- Font-Awesome -->
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resourse/assets/css/font-awesome.css"
@@ -279,16 +279,16 @@
 							alt="" />
 						<div class="mhover none">
 							<span class="icon"><a
-								href="${pageContext.request.contextPath}/resourse/list4.html"><img
+								><img
 									src="${pageContext.request.contextPath}/resourse/images/spacer.png"
-									alt="" /></a></span>
+									 /></a></span>
 						</div>
 					</div>
 					<div class="ctitle">
 						特价房<a
-							href="${pageContext.request.contextPath}/resourse/list4.html"><img
+							><img
 							src="${pageContext.request.contextPath}/resourse/images/spacer.png"
-							alt="" /></a> <span>59RMB</span>
+							/></a> <span>59RMB</span>
 					</div>
 				</div>
 			</div>
@@ -301,16 +301,16 @@
 							alt="" />
 						<div class="mhover none">
 							<span class="icon"><a
-								href="${pageContext.request.contextPath}/resourse/list3.html"><img
+								><img
 									src="${pageContext.request.contextPath}/resourse/images/spacer.png"
-									alt="" /></a></span>
+								/></a></span>
 						</div>
 					</div>
 					<div class="ctitle">
 						标准房<a
-							href="${pageContext.request.contextPath}/resourse/list3.html"><img
+							><img
 							src="${pageContext.request.contextPath}/resourse/images/spacer.png"
-							alt="" /></a> <span>89RMB</span>
+							/></a> <span>89RMB</span>
 					</div>
 				</div>
 			</div>

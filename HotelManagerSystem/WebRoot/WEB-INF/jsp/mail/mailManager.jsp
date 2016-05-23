@@ -72,12 +72,87 @@
 <!-- jQuery -->
 <script src="resourse/assets/js/jquery.v2.0.3.js"></script>
 <script src="resourse/js/jquery.form.js"></script>
+
+
 </head>
 
 <body>
+	<input id="uID" name="uID" value="${user.uid }" hidden="hidden" />
+	<input id="level" name="level" value="${user.level }" hidden="hidden" />
+	<div class="tab-content5">
+
+		<!-- TAB 1 -->
+		<div class="tab-pane cpadding40 active" id="profile">
+			<span class="lato size12 grey">Welcome:&nbsp; <a
+				class="orange">${user.uname }</a></span>
+			<div class="line2"></div>
+			<div class="clearfix"></div>
+			<div style="padding-left: 5px;">
+				<a type="button" class="btn btn-primary btn-sm"
+					href="mailManager.do">刷新列表</a>
+				<a class="btn btn-primary btn-sm" href="unRead.do">未查看</a>
+
+			</div>
+
+			<c:if test="${not empty result }">
+				<div class="alert alert-warning fade in margtop20">
+					<button aria-hidden="true" data-dismiss="alert" class="close"
+						type="button">×</button>
+					<strong>提示!</strong>${result}
+				</div>
+			</c:if>
 
 
-	邮件信息管理
+			<div class="col-md-15" style="height: 450px;">
+				<table id="menuList" name="menuList"
+					class="table table-bordered table-hover table-striped"
+					style=" font-size:13px;">
+					<caption>Email列表</caption>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>发信人</th>
+							<th>电话</th>
+							<th>email</th>
+							<th colspan="2" >内容</th>
+
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="emailList" items="${ emailList}"
+							varStatus="status">
+
+							<c:if test="${emailList.status==1 }">
+								<tr class="success">
+									<td>${status.count }</td>
+									<td>${emailList.name}</td>
+									<td>${emailList.tel}</td>
+									<td>${emailList.email}</td>
+									<td colspan="2" >${emailList.content}</td>
+									<td><a   href="deleteEmail?id=${emailList.id}">删除</a> </td>
+								</tr>
+							</c:if>
+							<c:if test="${emailList.status==0 }">
+								<tr class="warning">
+									<td>${status.count }</td>
+									<td>${emailList.name}</td>
+									<td>${emailList.tel}</td>
+									<td>${emailList.email}</td>
+									<td colspan="2">${emailList.content}</td>
+									<td><a  href="deleteEmail?id=${emailList.id}">删除</a>&nbsp;<a  href="readEmail?id=${emailList.id}">已读</a></td>
+								</tr>
+							</c:if>
+						</c:forEach>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+
+	</div>
+
+	<jsp:include page="../pagination.jsp" />
 
 
 	<!-- This page JS -->
@@ -120,4 +195,5 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="resourse/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>

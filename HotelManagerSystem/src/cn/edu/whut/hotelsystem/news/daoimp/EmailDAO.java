@@ -6,6 +6,9 @@ import cn.edu.whut.hotelsystem.news.vo.Email;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class EmailDAO extends BaseHibernateDAO<Email> implements IEmailDAO {
 
 	@Override
@@ -32,4 +35,19 @@ public class EmailDAO extends BaseHibernateDAO<Email> implements IEmailDAO {
 		return findAll();
 	}
 
+	@Override
+	public boolean attachDirtyEmail(Email instance) {
+		// TODO Auto-generated method stub
+		return attachDirty(instance);
+	}
+
+	@Override
+	public Email mergeEmail(Email detachedInstance) {
+		// TODO Auto-generated method stub
+		return merge(detachedInstance);
+	}
+	public List<Email> queryHQLEmail(String hql){
+		
+		return queryHQL(hql);
+	}
 }

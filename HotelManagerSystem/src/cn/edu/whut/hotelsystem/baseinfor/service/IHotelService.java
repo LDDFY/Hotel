@@ -25,4 +25,6 @@ public interface IHotelService {
 	public List<Hotel> findHotelByLevel(Integer level,Integer uid);
 
 	public List<Hotel> ProList(Integer pageindexs, Integer pageSize);
+
+	public Hotel findHotelByUid(Integer uid);
 }

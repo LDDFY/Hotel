@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Travel Agency - HTML5 Booking template</title>
+	<title>汉译连锁酒店</title>
 	
 	<!-- Bootstrap -->
 	<link href="resourse/dist/css/bootstrap.css" rel="stylesheet" media="screen">
@@ -34,10 +34,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<!-- Load jQuery -->
 	<script src="resourse/assets/js/jquery.v2.0.3.js"></script>
-
-
-	
-
   </head>
   <body>
 	<!-- 100% Width & Height container  -->
