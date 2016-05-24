@@ -1,6 +1,5 @@
 package cn.edu.whut.hotelsystem.baseinfor.daoimp;
 
-
 import java.util.List;
 import org.hibernate.SQLQuery;
 import org.springframework.stereotype.Repository;
@@ -58,7 +57,7 @@ public class RoomDAO extends BaseHibernateDAO<Room> implements IRoomDAO {
 	@Override
 	public boolean saveRoom(Room transientInstance) {
 		// TODO Auto-generated method stub
-		
+
 		return save(transientInstance);
 	}
 
@@ -119,14 +118,21 @@ public class RoomDAO extends BaseHibernateDAO<Room> implements IRoomDAO {
 
 		return queryHQL(sql);
 	}
-	
-	public void callUpdateRoom()
-	{
-		
-		String sql="{call updateroom()}";
-		
+
+	public void callUpdateRoom() {
+
+		String sql = "{call updateroom()}";
+
 		SQLQuery sqlquery = getSession().createSQLQuery(sql);
 		sqlquery.executeUpdate();
 		System.out.println("更新房间信息成功！");
+	}
+
+	@Override
+	public boolean saveOrUpdateRoom(Room room) {
+		// TODO Auto-generated method stub
+		Room r = findRoomById(room.getRoomid());
+		r = merge(room);
+		return attachDirtyRoom(r);
 	}
 }

@@ -22,13 +22,7 @@
 
 
 <link href="resourse/examples/carousel/carousel.css" rel="stylesheet">
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="resourse/assets/js/html5shiv.js"></script>
-      <script src="resourse/assets/js/respond.min.js"></script>
-    <![endif]-->
 
-<!-- Fonts -->
 <link
 	href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic'
 	rel='stylesheet' type='text/css'>
@@ -88,51 +82,63 @@
 				</div>
 				<div class="tab-content4 ">
 					<!-- TAB 1 -->
-					<form action="updateHotel" method="post">
+					<form action="updateRoom.do" method="post"
+						enctype="multipart/form-data">
 						<table class="table table-striped">
-							<input hidden="hidden" id="hotel" name="hotel" type="text"
-								value=" ${room.hotel}"
-								<tr>
-										<th>房间编号：</th>
-										<th>房间号：</th>
-										<th>房间类型：</th>
-										<th>房间大小：</th>									
-									</tr>
-								<tr>										
-										<td><input style="width: 150px;"id="haddr" name="haddr"
-									type="text" value="${room.roomid }"/></td>
-										<td><input style="width: 150px;" id="grand" name="grand"
-									type="text" value=" ${room.rid }"/></td>
-										<td><input style="width: 150px;" id="hprovince" name="hprovince" type="text"
-													value="${room.rtype }"/></td>
-										<td><input style="width: 150px;" id="hcity" name="hcity" type="text"
-													value="${room.rarea }"/></td>
-										<tr>									
-									</tr>
+							<input hidden="hidden" id="hotelId" name="hotelId" type="text"
+								value="${room.hotel.hid}" />
+								<input hidden="hidden" id="imagepath" name="imagepath" type="text"
+								value="${room.imagepath }" />
+							<tr>
+								<th>房间编号：</th>
+								<th>房间号：</th>
+								<th>房间类型：</th>
+								<th>房间大小：</th>
+								<th>图片：</th>
+							</tr>
+							<tr>
+								<td><input style="width: 150px;" id="roomid" name="roomid"
+									type="text" value="${room.roomid }" /></td>
+								<td><input style="width: 150px;" id="rid" name="rid"
+									type="text" value=" ${room.rid }" /></td>
+								<td><input style="width: 150px;" id="rtype"
+									name="rtype" type="text" value="${room.rtype }" /></td>
+								<td><input style="width: 150px;" id="rarea" name="rarea"
+									type="text" value="${room.rarea }" /></td>
+								<td><input name="file" type="file" id="file"
+									style="width: 150px;" /></td>
+							<tr>
+
+							</tr>
 								<tr>			
 							<th>该类房间总数：</th>
 							<th>房间格局：</th>
 							<th>可住人数：</th>
 							<th>是否可用：</th>
+							
 									</tr>
-								<td><input style="width: 150px;" id="hname" name="hname"
+								<td><input style="width: 150px;" id="total" name="total"
 								type="text" value="${room.total}" /></td>
-								<td><input style="width: 150px;" id="htel" name="htel"
+								<td><input style="width: 150px;" id="rpattern" name="rpattern"
 								type="text" value="${room.rpattern}" /></td>
-								<td><input style="width: 150px;" id="hemail" name="hemail"
+								<td><input style="width: 150px;" id="customs" name="customs"
 								type="text" value="${room.customs}" /></td>
 								<td><select id="rstatus" name="rstatus">
 									<option value="1">可用</option>
 									<option value="o">不可用</option>
 							</select></td>
 							</tr>
+							
 							<tr>
 								<td><button type="submit" class="btn btn-primary btn-sm">确认</button>
-									<button type="submit" class="btn btn-primary btn-sm"
-										onclick="JavaScript:history.back(-1);">返回</button></td>
+									<a class="btn btn-primary btn-sm" href="RoomManager.do">返回</a></td>
 							</tr>
 						</table>
 					</form>
+				</div>
+				<div>
+					<img src="${room.imagepath }" alt="暂无图片"
+						style="width: 400px;height: 300px;" />
 				</div>
 			</div>
 		</div>
@@ -140,7 +146,7 @@
 	</div>
 	</div>
 	</div>
-	
+
 	<script src="resourse/assets/js/js-details.js"></script>
 	<!-- Custom functions -->
 	<script src="resourse/assets/js/functions.js"></script>

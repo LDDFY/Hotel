@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -112,27 +113,12 @@
 		}));
 	}
 
-	function addRoom() {
+
+	function CheckaddRoom() {
 		$('#myModal1').modal('hide');
 
 		$("#hid").val($("#HotelID").val());
-
-		$.ajax({
-			cache : true,
-			type : "POST",
-			url : "addRoom.do",
-			data : $('#roomInfor').serialize(),// 你的formid
-			async : false,
-			error : function(request) {
-				alert("添加房间信息失败！");
-
-			},
-			success : function(data) {
-				window.location.reload();
-				alert("添加房间信息成功！");
-
-			}
-		});
+		return true;
 	}
 	function deleteRoom(rid) {
 		$.ajax({
@@ -148,7 +134,7 @@
 				alert("删除房间信息失败！");
 			},
 			success : function(data) {
-				freshRoom();
+				freshHotelRole();
 				alert("删除房间信息成功！");
 
 			}
@@ -166,8 +152,8 @@
 		var strtd = "<td>";
 		var strtded = "</td>";
 		var a = "<a href='roomInfor.do?rid=";
-		var a1 = "'>详情</a><a href='modifyRoom.do?rid=";
-		var a2 = "'>修改</a><a href='javascript:deleteRoom(";
+		var a1 = "'>详情</a>&nbsp;<a href='modifyRoom.do?rid=";
+		var a2 = "'>修改</a>&nbsp;<a href='javascript:deleteRoom(";
 		var a3 = ")'>删除</a>";
 
 		for (var i = 0; i < data.length; i++) {
@@ -270,17 +256,25 @@
 		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
-				<form action="javascript:addRoom()" id="roomInfor" name="roomInfor"
-					method="post">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal"
-								aria-hidden="true">&times;</button>
-							<h4 class="modal-title" id="myModalLabel">添加房间信息</h4>
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">添加房间信息</h4>
+					</div>
+
+					<c:if test="${not empty result }">
+						<div class="alert alert-warning fade in margtop20">
+							<button aria-hidden="true" data-dismiss="alert" class="close"
+								type="button">×</button>
+							<strong>提示!</strong>${result}
 						</div>
-
-						<div class="modal-body">
-
+					</c:if>
+					<div class="modal-body">
+						<form id="roomInfor" name="roomInfor" method="post"
+							enctype="multipart/form-data" role="form" action="addRoom.do"
+							onsubmit="return CheckaddRoom()">
 							<table class="table table-bordered">
 								<tr>
 									<td align="right">房间号:</td>
@@ -314,47 +308,49 @@
 											<option value="1">可住</option>
 											<option value="0">不可住</option>
 									</select></td>
+									<td align="right">图片:</td>
+									<td align="left"><input name="file" type="file" id="file"
+										style="width: 200px;" /></td>
 								</tr>
 								<input name="hid" type="text" id="hid" hidden="hidden" "/>
-								</tbody>
+
 							</table>
-
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default"
-								data-dismiss="modal">关闭</button>
-							<button type="submit" class="btn btn-primary">提交更改</button>
-						</div>
-				</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+						<button type="submit" class="btn btn-primary">提交更改</button>
+					</div>
+					</form>
+				</div>
+				<!-- /.modal-content -->
 			</div>
-			<!-- /.modal-content -->
+			<!-- /.modal -->
 		</div>
-		<!-- /.modal -->
-	</div>
 
 
-	<div class="col-md-15" style="height: 400px;">
-		<table id="RoomList" name="RoomList"
-			class="table table-bordered table-hover table-striped"
-			style=" font-size:13px;">
-			<caption>房间信息列表</caption>
-			<thead>
-				<tr>
-					<th>房间号</th>
-					<th>房间类型</th>
-					<th>大小</th>
-					<th>价格</th>
-					<th>格局</th>
-					<th>可住人数</th>
-					<th>总数</th>
-					<th>操作</th>
-				</tr>
-			</thead>
-			<tbody>
+		<div class="col-md-15" style="height: 400px;">
+			<table id="RoomList" name="RoomList"
+				class="table table-bordered table-hover table-striped"
+				style=" font-size:13px;">
+				<caption>房间信息列表</caption>
+				<thead>
+					<tr>
+						<th>房间号</th>
 
-			</tbody>
-		</table>
-	</div>
+						<th>房间类型</th>
+						<th>大小</th>
+						<th>价格</th>
+						<th>格局</th>
+						<th>可住人数</th>
+						<th>总数</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+			</table>
+		</div>
 	</div>
 	</div>
 

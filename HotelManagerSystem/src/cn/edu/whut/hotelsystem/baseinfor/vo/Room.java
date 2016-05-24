@@ -26,7 +26,7 @@ import cn.edu.whut.hotelsystem.managesystem.ordermanage.vo.Olist;
  */
 @Entity
 @Table(name = "room", catalog = "hotel")
-@JsonIgnoreProperties(value={"olists","hotel"})  
+@JsonIgnoreProperties(value = { "olists", "hotel" })
 public class Room implements java.io.Serializable {
 
 	// Fields
@@ -38,6 +38,7 @@ public class Room implements java.io.Serializable {
 	private Integer roomid;
 	private Hotel hotel;
 	private String rid;
+	private String imagepath;
 	private String rtype;
 	private Integer rarea;
 	private Float rprice;
@@ -181,6 +182,14 @@ public class Room implements java.io.Serializable {
 
 	public void setOlists(Set<Olist> olists) {
 		this.olists = olists;
+	}
+
+	public String getImagepath() {
+		return imagepath;
+	}
+
+	public void setImagepath(String imagepath) {
+		this.imagepath = imagepath;
 	}
 
 	@Override

@@ -43,4 +43,6 @@ public interface IRoomDAO {
 
 	public List<Room> findByRstatus(Object rstatus);
 
+	public boolean saveOrUpdateRoom(Room room);
+
 }

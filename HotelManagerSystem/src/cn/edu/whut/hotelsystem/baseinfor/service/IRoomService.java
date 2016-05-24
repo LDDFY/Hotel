@@ -20,4 +20,6 @@ public interface IRoomService {
 
 	public Room findRoomById(String rid);
 
+	public boolean updateRoom(Room room);
+
 }

@@ -386,7 +386,7 @@
 							<div class="padding20">
 								<div class="col-md-4 offset-0">
 									<a href="#"><img
-										src="resourse/images/items2/item${status.index+1}.jpg"
+										src="${roomLists.imagepath }"
 										alt="暂无图片" class="fwimg" /></a>
 								</div>
 								<div class="col-md-8 offset-0">

@@ -134,7 +134,7 @@
 				<div class="dashboard-right  offset-0">
 
 					<Iframe id="content" name="content"
-						style="width:100%;height:650px;" scrolling="no" frameborder="0"></iframe>
+						style="width:100%;height:850px;" scrolling="no" frameborder="0"></iframe>
 
 				</div>
 				<!-- END OF RIGHT CPNTENT -->

@@ -55,5 +55,11 @@ public class RoomService implements IRoomService {
 		List<Room> roomList=roomDAO.findByRid(rid);
 		return roomDAO.findRoomById(roomList.get(0).getRoomid());
 	}
+
+	@Override
+	public boolean updateRoom(Room room) {
+		// TODO Auto-generated method stub
+		return roomDAO.saveOrUpdateRoom(room);
+	}
 	
 }
