@@ -28,15 +28,14 @@ public class EmailAction {
 	@RequestMapping("/unRead")
 	public String unRead(Model model, HttpServletRequest request,
 			HttpServletResponse response) {
-		
+
 		List<Email> emailList = emailService.findUread();
 
 		model.addAttribute("emailList", emailList);
 
 		return "mail/mailManager";
 	}
-	
-	
+
 	@RequestMapping("/mailManager")
 	public String mailManager(Model model, HttpServletRequest request,
 			HttpServletResponse response) {
@@ -75,9 +74,17 @@ public class EmailAction {
 	}
 
 	@RequestMapping("/sendEmail")
-	public String sendEmail(Email email, Model model,
-			HttpServletRequest request, HttpServletResponse response) {
+	// Email email
+	public String sendEmail(String name, String tel, String add,
+			String content, Model model, HttpServletRequest request,
+			HttpServletResponse response) {
 		String result = "发送邮件信息失败，请重试！";
+	
+		Email email = new Email();
+		email.setContent(content);
+		email.setName(name);
+		email.setTel(tel);
+		email.setEmail(add);
 		email.setStatus(0);
 		boolean flag = emailService.addEmail(email);
 

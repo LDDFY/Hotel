@@ -17,22 +17,15 @@
 <link
 	href="${pageContext.request.contextPath}/resourse/dist/css/bootstrap.css"
 	rel="stylesheet" media="screen">
-<link
-	href="${pageContext.request.contextPath}/resourse/assets/css/custom.css"
-	rel="stylesheet" media="screen">
+<link href="resourse/assets/css/custom.css" rel="stylesheet"
+	media="screen">
 
 <!-- Carousel -->
 <link
 	href="${pageContext.request.contextPath}/resourse/examples/carousel/carousel.css"
 	rel="stylesheet">
 
-<!-- <link
-	href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic'
-	rel='stylesheet' type='text/css'>
-<link
-	href='http://fonts.googleapis.com/css?family=Open+Sans:700,400,300,300italic'
-	rel='stylesheet' type='text/css'> -->
-<!-- Font-Awesome -->
+
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resourse/assets/css/font-awesome.css"
 	media="screen" />
@@ -55,9 +48,7 @@
 <script type="text/javascript">
 	$($.ajax({
 		type : "GET",
-
 		url : "findAllHotel.do",
-
 		success : function(Datas) {
 
 			for (var i = 0; i < Datas.length; i++) {
@@ -71,6 +62,22 @@
 		}
 
 	}));
+
+	function checkDate() {
+		var d1 = document.getElementById("datepicker").value
+		var d2 = document.getElementById("datepicker2").value
+		var checkInData = new Date(d1.replace(/\-/g, "\/"));
+		var checkOutData = new Date(d2.replace(/\-/g, "\/"));
+		
+		if (checkOutData >= checkInData) {
+			return true;
+		} else if (d1 == "" && d2 == "") {
+			return true;
+		} else {
+			alert("时间选取错误，请重新选择！");
+			return false;
+		}
+	}
 </script>
 </head>
 <body id="top">
@@ -238,7 +245,7 @@
 		<div class="container mt-200 z-index100">
 			<div class="row">
 				<div class="col-md-4">
-					<form action="hotelDetailsUI">
+					<form action="hotelDetailsUI" onsubmit="return checkDate();">
 						<div class="bs-example bs-example-tabs cstyle04">
 							<ul class="nav nav-tabs" id="myTab">
 							</ul>
@@ -264,13 +271,20 @@
 												id="datepicker2" name="checkOutData" placeholder="退房时间" />
 											<br>
 											<button type="submit" class="btn-search ">查询</button>
+
 										</div>
+
 									</div>
+
 								</div>
+
 							</div>
 					</form>
 				</div>
 			</div>
+
+
+
 			<div class="col-md-4">
 				<div class="shadow cstyle05">
 					<div class="fwi one">
@@ -278,17 +292,16 @@
 							src="${pageContext.request.contextPath}/resourse/images/rome.jpg"
 							alt="" />
 						<div class="mhover none">
-							<span class="icon"><a
-								><img
-									src="${pageContext.request.contextPath}/resourse/images/spacer.png"
-									 /></a></span>
+							<span class="icon"><a><img
+									src="${pageContext.request.contextPath}/resourse/images/spacer.png" /></a></span>
 						</div>
+
+
 					</div>
 					<div class="ctitle">
-						特价房<a
-							><img
-							src="${pageContext.request.contextPath}/resourse/images/spacer.png"
-							/></a> <span>59RMB</span>
+						特价房<a><img
+							src="${pageContext.request.contextPath}/resourse/images/spacer.png" /></a>
+						<span>59RMB</span>
 					</div>
 				</div>
 			</div>
@@ -300,17 +313,14 @@
 							src="${pageContext.request.contextPath}/resourse/images/surfer.jpg"
 							alt="" />
 						<div class="mhover none">
-							<span class="icon"><a
-								><img
-									src="${pageContext.request.contextPath}/resourse/images/spacer.png"
-								/></a></span>
+							<span class="icon"><a><img
+									src="${pageContext.request.contextPath}/resourse/images/spacer.png" /></a></span>
 						</div>
 					</div>
 					<div class="ctitle">
-						标准房<a
-							><img
-							src="${pageContext.request.contextPath}/resourse/images/spacer.png"
-							/></a> <span>89RMB</span>
+						标准房<a><img
+							src="${pageContext.request.contextPath}/resourse/images/spacer.png" /></a>
+						<span>89RMB</span>
 					</div>
 				</div>
 			</div>
@@ -401,6 +411,7 @@
 		src="${pageContext.request.contextPath}/resourse/js/fixdiv.js"></script>
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/resourse/js/address.js"></script>
+
 </body>
 </html>
 

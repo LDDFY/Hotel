@@ -252,7 +252,14 @@
 					data-toggle="modal">添加房间信息</button>
 			</div>
 		</div>
-
+		<br/>
+		<c:if test="${not empty result }">
+			<div class="alert alert-warning fade in margtop20">
+				<button aria-hidden="true" data-dismiss="alert" class="close"
+					type="button">×</button>
+				<strong>提示!</strong>${result}
+			</div>
+		</c:if>
 		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
 			aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -264,13 +271,7 @@
 						<h4 class="modal-title" id="myModalLabel">添加房间信息</h4>
 					</div>
 
-					<c:if test="${not empty result }">
-						<div class="alert alert-warning fade in margtop20">
-							<button aria-hidden="true" data-dismiss="alert" class="close"
-								type="button">×</button>
-							<strong>提示!</strong>${result}
-						</div>
-					</c:if>
+
 					<div class="modal-body">
 						<form id="roomInfor" name="roomInfor" method="post"
 							enctype="multipart/form-data" role="form" action="addRoom.do"

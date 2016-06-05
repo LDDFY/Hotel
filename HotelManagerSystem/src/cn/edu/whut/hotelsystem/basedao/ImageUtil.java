@@ -4,15 +4,13 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class ImageUtil {
-
+	
 	// 增加图片
 	public String addImage(MultipartFile file, HttpServletRequest request) {
 
@@ -44,8 +42,7 @@ public class ImageUtil {
 	}
 
 	// 修改图片
-	public String updateImage(MultipartFile file, HttpServletRequest request,
-			String address) {
+	public String updateImage(MultipartFile file, HttpServletRequest request,String address) {
 		if (!file.isEmpty()) {
 			// 先删除原来图片
 			try {

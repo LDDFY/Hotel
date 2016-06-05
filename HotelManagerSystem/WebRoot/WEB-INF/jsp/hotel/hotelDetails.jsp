@@ -73,7 +73,22 @@
 <script type="text/javascript"
 	src="resourse/plugins/jslider/js/jquery.slider.js"></script>
 <!-- end -->
+<script type="text/javascript">
 
+	function checkDate() {
+		var d1 = document.getElementById("datepicker").value
+		var d2 = document.getElementById("datepicker2").value
+		var checkInData = new Date(d1.replace(/\-/g, "\/"));
+		var checkOutData = new Date(d2.replace(/\-/g, "\/"));
+		
+		if (checkOutData >= checkInData) {
+			return true;
+		} else {
+			alert("时间选取错误，请重新选择！");
+			return false;
+		}
+	}
+</script>
 </head>
 <body id="top" class="thebg">
 
@@ -427,7 +442,7 @@
 														<h4 class="modal-title">预订信息</h4>
 													</div>
 													<form class="form-horizontal" role="form"
-														action="bookingRoom" method="post">
+														action="bookingRoom" method="post" onsubmit="return checkDate();">
 														<div class="modal-body">
 
 															<input type="text" id="userid" name="userid"

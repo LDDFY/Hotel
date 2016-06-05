@@ -31,16 +31,13 @@ public class HotelAction {
 
 	@RequestMapping("/aboutUI")
 	public String aboutUI() {
-		return "public/about";
+		
+		 return "public/about";
 	}
 
 	@RequestMapping("/hotelDetailsUI")
 	public String hotelDetailsUI(Model model, HttpSession session,
-
-	HttpServletRequest request, HttpServletResponse response, Integer HotelID,
-			String checkInData,
-
-			String checkOutData) {
+	HttpServletRequest request, HttpServletResponse response, Integer HotelID,String checkInData,String checkOutData) {
 
 		Hotel hotel = hotelService.findHotelById(HotelID);
 		List<Room> roomLists = new ArrayList<Room>(0);
@@ -74,7 +71,6 @@ public class HotelAction {
 		model.addAttribute("applause", df.format(applause * 100));
 		model.addAttribute("checkInData", checkInData);
 		model.addAttribute("checkOutData", checkOutData);
-
 		return "hotel/hotelDetails";
 	}
 
@@ -84,9 +80,7 @@ public class HotelAction {
 			HttpServletResponse response, @RequestParam Integer level,
 			@RequestParam Integer uid) {
 		// 根据权限获取hotel
-
 		List<Hotel> hotelList = hotelService.findHotelByLevel(uid, level);
-
 		return hotelList;
 	}
 
@@ -94,7 +88,6 @@ public class HotelAction {
 	public @ResponseBody List<Hotel> findAllHotel(Model model,
 			HttpSession session, HttpServletRequest request,
 			HttpServletResponse response) {
-
 		List<Hotel> hotelList = hotelService.findAllHotel();
 		hotelList = JsonFomart(hotelList);
 		return hotelList;

@@ -46,9 +46,10 @@ public class OlistAction {
 		String indate = request.getParameter("indate");
 		String outdate = request.getParameter("outdate");
 
-		SimpleDateFormat sp = new SimpleDateFormat("yyyy-mm-dd");
+		SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd");
 		Date in = sp.parse(formate(indate));
 		Date out = sp.parse(formate(outdate));
+
 		Hotel hotel = hotelService.findHotelById(hid);
 		Room room = roomService.findRoomByid(roomid);
 
@@ -101,6 +102,7 @@ public class OlistAction {
 			boolean userflag = userService.saveOrUpdate(u);
 			boolean flag = olistService.saveOlist(olist);
 			if (flag && userflag) {
+				
 				result = "预定成功！";
 			} else {
 				result = "预定失败！";
@@ -121,11 +123,11 @@ public class OlistAction {
 		if (user == null) {
 			result = "用户名或密码错误，请重新登陆";
 			model.addAttribute("loginResult", result);
-			
+
 		} else {
 			session.setAttribute("user", user);
 			SubmitRoom(model, session, request, response, uname, upwd);
-			
+
 		}
 
 		return "user/payment";

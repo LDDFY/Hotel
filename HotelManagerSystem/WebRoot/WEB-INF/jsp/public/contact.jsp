@@ -33,7 +33,6 @@
 <!-- Font-Awesome -->
 <link rel="stylesheet" type="text/css"
 	href="resourse/assets/css/font-awesome.css" media="screen" />
-<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="assets/css/font-awesome-ie7.css" media="screen" /><![endif]-->
 
 <!-- PIECHART -->
 <link rel="stylesheet" type="text/css"
@@ -45,13 +44,8 @@
 
 <!-- Picker -->
 <link rel="stylesheet" href="resourse/assets/css/jquery-ui.css" />
-
-<!-- jQuery -->
-<script src="resourse/assets/js/jquery.v2.0.3.js"></script>
-
-
 </head>
-<body id="top">
+<b ody id="top">
 	<div class="navbar-wrapper2 navbar-fixed-top">
 		<div class="container">
 			<div class="navbar mtnav">
@@ -100,11 +94,7 @@
 
 		<img src="/HotelManagerSystem/resourse/images/slider/paris.jpg"
 			style="width: 100%;" />
-	</div>
-
-
-
-	<!-- WRAP -->
+	</div> <!-- WRAP -->
 	<div class="wrap cstyle03">
 
 		<div class="container mt-200 z-index100">
@@ -116,7 +106,9 @@
 
 							<div class="col-md-4">
 
-								<form action="sendEmail.do" method="post">
+								<form action="sendEmail.do" method="post" id="EmailForm"
+									name="EmailForm">
+
 									<div>
 										<span class="opensans size24 slim">联系</span>
 										<c:if test="${not empty result }">
@@ -129,7 +121,7 @@
 									</div>
 									<input id="name" name="name" type="text" placeholder="姓名"
 										class="form-control logpadding margtop10"> <input
-										id="tel" name="tel" type="text" placeholder="电话"
+										id="tel" name="tel" type="text" placeholder="手机号"
 										class="form-control logpadding margtop20"> <input
 										id="email" name="email" type="text" placeholder="E-mail"
 										class="form-control logpadding margtop20">
@@ -151,12 +143,61 @@
 							<button type="submit" class="btn-search right mr20">发送邮件</button>
 
 						</div>
+
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-
+		<script src="resourse/js/jquery-1.9.1.js"></script>
+		<script src="resourse/js/jquery.validate.js"></script>
+		<script>
+			var validator;
+			$(document)
+					.ready(
+							function() {
+								validator = $("#EmailForm").validate({
+									rules : {
+										name : {
+											required : true,
+										},
+										tel : {
+											required : true,
+											isMobile : true,
+										},
+										email : {
+											email : true,
+										},
+									},
+									messages : {
+										name : {
+											required : '请输入用户名',
+										},
+										tel : {
+											required : '请输入手手机号',
+										},
+										email : {
+											email : "email格式不正确！",
+										},
+									},
+									 submitHandler : function(form) {  
+							                form.submit();  
+							            },
+								});
+								$.validator
+										.addMethod(
+												"isMobile",
+												function(value, element) {
+													var length = value.length;
+													var mobile = /^(13[0-9]{9})|(18[0-9]{9})|(14[0-9]{9})|(17[0-9]{9})|(15[0-9]{9})$/;
+													return this
+															.optional(element)
+															|| (length == 11 && mobile
+																	.test(value));
+												}, $.validator
+														.format("请填写正确的手机号！"));
+							});
+		</script>
 
 
 		<div class="lastminutecontact lcfix">
@@ -197,32 +238,18 @@
 
 
 
-	</div>
-	<!-- END OF WRAP -->
-
-
-	<!-- Javascript -->
-	<script src="resourse/assets/js/js-details.js"></script>
-
-	<!-- Googlemap -->
-	<script src="resourse/assets/js/initialize-google-map.js"></script>
-
-	<!-- Custom Select -->
+	</div> <!-- END OF WRAP --> <!-- Javascript --> <script
+		src="resourse/assets/js/js-details.js"></script> <!-- Googlemap --> <script
+		src="resourse/assets/js/initialize-google-map.js"></script> <!-- Custom Select -->
 	<script type='text/javascript'
-		src="resourse/assets/js/jquery.customSelect.js"></script>
-
-	<!-- Custom functions -->
-	<script src="resourse/assets/js/functions.js"></script>
-
-	<!-- Nicescroll  -->
-	<script src="resourse/assets/js/jquery.nicescroll.min.js"></script>
-
-	<!-- jQuery KenBurn Slider  -->
+		src="resourse/assets/js/jquery.customSelect.js"></script> <!-- Custom functions -->
+	<script src="resourse/assets/js/functions.js"></script> <!-- Nicescroll  -->
+	<script src="resourse/assets/js/jquery.nicescroll.min.js"></script> <!-- jQuery KenBurn Slider  -->
 	<script type="text/javascript"
 		src="resourse/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
-	<!-- CarouFredSel -->
-	<script src="resourse/assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+	<!-- CarouFredSel --> <script
+		src="resourse/assets/js/jquery.carouFredSel-6.2.1-packed.js"></script>
 	<script
 		src="resourse/assets/js/helper-plugins/jquery.touchSwipe.min.js"></script>
 
@@ -233,17 +260,14 @@
 	<script type="text/javascript"
 		src="resourse/assets/js/helper-plugins/jquery.ba-throttle-debounce.min.js"></script>
 
-	<!-- Counter -->
-	<script src="resourse/assets/js/counter.js"></script>
+	<!-- Counter --> <script src="resourse/assets/js/counter.js"></script>
 
-	<!-- Carousel-->
-	<script src="resourse/assets/js/initialize-carousel-detailspage.js"></script>
+	<!-- Carousel--> <script
+		src="resourse/assets/js/initialize-carousel-detailspage.js"></script>
 
-	<!-- Js Easing-->
-	<script src="resourse/assets/js/jquery.easing.js"></script>
+	<!-- Js Easing--> <script src="resourse/assets/js/jquery.easing.js"></script>
 
 
-	<!-- Bootstrap-->
-	<script src="resourse/dist/js/bootstrap.min.js"></script>
-</body>
+	<!-- Bootstrap--> <script src="resourse/dist/js/bootstrap.min.js"></script>
+	</body>
 </html>

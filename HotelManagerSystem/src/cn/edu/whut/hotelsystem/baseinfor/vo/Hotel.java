@@ -32,9 +32,6 @@ public class Hotel implements java.io.Serializable {
 
 	// Fields
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Integer hid;
 	private User user;
@@ -60,6 +57,7 @@ public class Hotel implements java.io.Serializable {
 
 	/** default constructor */
 	public Hotel() {
+		
 	}
 
 	/** full constructor */

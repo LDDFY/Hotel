@@ -22,8 +22,8 @@ public class Email implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private Integer id;
-	private Integer name;
-	private Integer tel;
+	private String name;
+	private String tel;
 	private String content;
 	private Integer status;
 	private String email;
@@ -35,7 +35,7 @@ public class Email implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Email(Integer name, Integer tel, String content, Integer status,
+	public Email(String name, String tel, String content, Integer status,
 			String email) {
 		this.name = name;
 		this.tel = tel;
@@ -57,20 +57,20 @@ public class Email implements java.io.Serializable {
 	}
 
 	@Column(name = "name")
-	public Integer getName() {
+	public String getName() {
 		return this.name;
 	}
 
-	public void setName(Integer name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
 	@Column(name = "tel")
-	public Integer getTel() {
+	public String getTel() {
 		return this.tel;
 	}
 
-	public void setTel(Integer tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 
