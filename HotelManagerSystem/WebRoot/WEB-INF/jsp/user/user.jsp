@@ -203,45 +203,41 @@
 							<!-- COL 1 -->
 							<div class="col-md-12 offset-0">
 								<form action="update">
-								<table>
-									<tr>
-										<td>
-											<div class="radio left">
-												<label> <input type="radio" name="ugender"
-													id="ugender" value="女" ${user.ugender== "女"?"checked":''} />
-													女
-												</label>
-											</div>
-										</td>
-										<td>
-											<div class="radio">
-												<label> <input type="radio" name="ugender"
-													id="ugender" value="男" ${user.ugender== "男"?"checked":''} />
-													男
-												</label>
-											</div>
-										</td>
-									</tr>
-								</table>
+									<table>
+										<tr>
+											<td>
+												<div class="radio left">
+													<label> <input type="radio" name="ugender"
+														id="ugender" value="女" ${user.ugender== "女"?"checked":''} />
+														女
+													</label>
+												</div>
+											</td>
+											<td>
+												<div class="radio">
+													<label> <input type="radio" name="ugender"
+														id="ugender" value="男" ${user.ugender== "男"?"checked":''} />
+														男
+													</label>
+												</div>
+											</td>
+										</tr>
+									</table>
 
-								<br /> <input type="text" style="display:none;" id="uid"
-									class="form-control" value="${user.uid }" rel="popover"
-									name="uid"> 
-									姓名*: <input type="text" class="form-control"
-									value="${user.realname }" rel="popover" id="realname" name="realname"
-									readonly="readonly"> <br /> 
-									用户名*: <input type="text"
-									class="form-control" value="${user.uname }" rel="popover" name="uname"
-									id="uname" readonly="readonly"> <br /> 
-									E-mail*: <input
-									type="text" class="form-control" value="${user.uemail }" name="uemail"
-									id="uemail"> <br /> 
-									电话号码: <input type="text"
-									class="form-control" value="${user.utel }" id="utel" name="utel"> <br />
+									<br /> <input type="text" style="display:none;" id="uid"
+										class="form-control" value="${user.uid }" rel="popover"
+										name="uid"> 姓名*: <input type="text"
+										class="form-control" value="${user.realname }" rel="popover"
+										id="realname" name="realname" readonly="readonly"> <br />
+									用户名*: <input type="text" class="form-control"
+										value="${user.uname }" rel="popover" name="uname" id="uname"
+										readonly="readonly"> <br /> E-mail*: <input
+										type="text" class="form-control" value="${user.uemail }"
+										name="uemail" id="uemail"> <br /> 电话号码: <input
+										type="text" class="form-control" value="${user.utel }"
+										id="utel" name="utel"> <br /> <br /> <br />
+									<button type="submit" class="cyanbtn  margtop20">更新</button>
 
-								<br /> <br />
-								<button type="submit" class="cyanbtn  margtop20">更新</button>
-								
 								</form>
 							</div>
 							<!-- END OF COL 1 -->
@@ -249,31 +245,6 @@
 							<div class="clearfix"></div>
 							<br /> <br /> <br />
 
-							<div class="row">
-								<div class="col-md-4 grey">
-									<span class="size16 bold dark">个人基本信息</span>
-									<div class="line2"></div>
-									<a href="#" class="clblue">New York Marriott Marquis</a> from <span
-										class="bold green">$150</span><br /> <a href="#"
-										class="clblue">The Jade Hotel</a> from <span
-										class="bold green">$49</span><br /> <a href="#">查看所有</a>
-								</div>
-								<div class="col-md-4">
-									<span class="size16 bold dark">愿望清单</span>
-									<div class="line2"></div>
-									<a href="#" class="clblue">Incredible places</a> (1)<br /> <a
-										href="#" class="clblue">My next places</a> (0)<br /> <a
-										href="#">+ 添加新计划</a>
-								</div>
-								<div class="col-md-4">
-									<span class="size16 bold dark">历史记录</span>
-									<div class="line2"></div>
-									<a href="#" class="clblue">Solita Soho Hotel</a> from <span
-										class="bold green">$150</span><br /> <a href="#"
-										class="clblue">Helmsley Park Lane Hotel</a> from <span
-										class="bold green">$49</span><br /> <a href="#">查看所有</a>
-								</div>
-							</div>
 
 						</div>
 						<!-- END OF TAB 1 -->
@@ -315,9 +286,13 @@
 										<span class="grey">${userBookingsLists.hotel.summary }</span>
 									</div>
 									<div class="col-md-1 offset-0">
-										<input type="text" value="${userBookingsLists.hotel.avgprice }" id="pri" name="pri" style="display:none;">
-										<button type=""
-											class="btn-search5 right" ><a href="tuiding?oid=${userBookingsLists.oid }&uid=${user.uid}">退订</a></button>
+										<input type="text"
+											value="${userBookingsLists.hotel.avgprice }" id="pri"
+											name="pri" style="display:none;">
+										<button type="" class="btn-search5 right">
+											<a
+												href="tuiding?oid=${userBookingsLists.oid }&uid=${user.uid}">退订</a>
+										</button>
 									</div>
 									<div class="clearfix"></div>
 									<div class="line4"></div>
@@ -362,11 +337,9 @@
 												<td>${userOlistLists.ammount}</td>
 
 												<td><a class="btn btn-default  btn-xs"
-													href="deleteOrder?oid=${userOlistLists.oid }">删除</a>&nbsp;
-													
-														<a class="btn btn-default  btn-xs"
-															href="deleteOrder?oid=${userOlistLists.oid }">评价</a>
-													</td>
+													href="deleteUserOrder?oid=${userOlistLists.oid }&uid=${user.uid}">删除</a>&nbsp;
+
+												</td>
 
 											</tr>
 										</c:forEach>

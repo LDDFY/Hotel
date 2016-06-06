@@ -84,18 +84,24 @@ public class UserAction {
 		String str = format.format(new Date());
 
 		User user = userService.findUserById(uid);
+		List<Olist> userOlistLists1 = new ArrayList<Olist>();
 		List<Olist> userOlistLists = new ArrayList<Olist>();
 		List<Olist> userBookingsLists = new ArrayList<Olist>();
 
 		Iterator<Olist> olist = user.getOlistsForUid().iterator();
 		while (olist.hasNext()) {
-			userOlistLists.add(olist.next());
+			userOlistLists1.add(olist.next());
 
 		}
-		for (int i = 0; i < userOlistLists.size(); i++) {
-			if (userOlistLists.get(i).getIndate()
+		for (int i = 0; i < userOlistLists1.size(); i++) {
+			if (userOlistLists1.get(i).getIndate()
 					.after(java.sql.Date.valueOf(str)))
-				userBookingsLists.add(userOlistLists.get(i));
+				userBookingsLists.add(userOlistLists1.get(i));
+		}
+		for (int i = 0; i < userOlistLists1.size(); i++) {
+			if (userOlistLists1.get(i).getOutdate()
+					.before(java.sql.Date.valueOf(str)))
+				userOlistLists.add(userOlistLists1.get(i));
 		}
 		model.addAttribute("userOlistLists", userOlistLists);
 		model.addAttribute("userBookingsLists", userBookingsLists);
@@ -154,14 +160,6 @@ public class UserAction {
 			userList1.add(list.get(i));
 		}
 		return userList1;
-	}
-	
-	@RequestMapping("/serchAdmin")
-	public @ResponseBody JSONArray serchAdmin(String uname) {
-
-		List<User> userList = userService.serchUserByUname(uname);
-		JSONArray list = formatAdmin(userList);
-		return list;
 	}
 
 	@RequestMapping("/serchAdmin")
@@ -300,11 +298,11 @@ public class UserAction {
 		model.addAttribute("result", result);
 		return "user/Administrator";
 	}
-	
+
 	@RequestMapping("/update")
 	public String updatePersonal(Model model, HttpServletRequest request,
-			HttpServletResponse response, User u,HttpSession session){
-		User u1=userService.findUserById(u.getUid());
+			HttpServletResponse response, User u, HttpSession session) {
+		User u1 = userService.findUserById(u.getUid());
 		u.setMoney(u1.getMoney());
 		u.setLevel(u1.getLevel());
 		u.setEvaluations(u1.getEvaluations());
@@ -312,7 +310,7 @@ public class UserAction {
 		u.setIdnumber(u1.getIdnumber());
 		u.setOlistsForOdealid(u1.getOlistsForOdealid());
 		u.setUpwd(u1.getUpwd());
-		User user=userService.mergerUser(u);
+		User user = userService.mergerUser(u);
 		session.setAttribute("user", user);
 		return "user/user";
 	}
