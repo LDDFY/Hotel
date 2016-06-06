@@ -75,18 +75,18 @@ public class EmailAction {
 
 	@RequestMapping("/sendEmail")
 	// Email email
-	public String sendEmail(String name, String tel, String add,
+	public String sendEmail(String name, String tel, String email,
 			String content, Model model, HttpServletRequest request,
 			HttpServletResponse response) {
 		String result = "发送邮件信息失败，请重试！";
 	
-		Email email = new Email();
-		email.setContent(content);
-		email.setName(name);
-		email.setTel(tel);
-		email.setEmail(add);
-		email.setStatus(0);
-		boolean flag = emailService.addEmail(email);
+		Email email1 = new Email();
+		email1.setContent(content);
+		email1.setName(name);
+		email1.setTel(tel);
+		email1.setEmail(email);
+		email1.setStatus(0);
+		boolean flag = emailService.addEmail(email1);
 
 		if (flag) {
 			result = "发送邮件信息成功！";
