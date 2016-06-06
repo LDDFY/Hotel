@@ -29,13 +29,7 @@
 
 
 <link href="resourse/css/carousel.css" rel="stylesheet">
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
 
-<!-- Fonts -->
 <link
 	href='http://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic'
 	rel='stylesheet' type='text/css'>
@@ -244,6 +238,7 @@
 									id="uemail"> <br /> 
 									电话号码: <input type="text"
 									class="form-control" value="${user.utel }" id="utel" name="utel"> <br />
+
 								<br /> <br />
 								<button type="submit" class="cyanbtn  margtop20">更新</button>
 								
@@ -286,7 +281,7 @@
 						<div class="tab-pane" id="bookings">
 							<div class="padding40">
 								<div class="clearfix"></div>
-																
+
 								<br /> <br /> <span class="dark size18">最新订单</span>
 								<div class="right mt-5">
 									<select
@@ -338,7 +333,7 @@
 							</div>
 						</div>
 						<!-- END OF TAB 2 -->
-							
+
 						<!-- TAB 5 -->
 						<div class="tab-pane" id="history">
 							<div class="padding40">
@@ -346,28 +341,37 @@
 								<span class="dark size18">历史记录</span>
 								<div class="line4"></div>
 
-								<br />
-								<div class="col-md-3 bold" size="10">入住时间</div>
-								<div class="col-md-3 bold">退房时间</div>
-								<div class="col-md-3 bold">酒店名称</div>
-								<div class="col-md-3 bold">花费</div>
-								<!-- <div class="col-md-3 bold textright">操作</div> -->
 
-								<c:forEach var="userOlistLists" items="${userOlistLists }">
-									<div class="clearfix"></div>
-									<div class="line4"></div>
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<td>入住时间</td>
+											<td>退房时间</td>
+											<td>酒店名称</td>
+											<td>花费</td>
+											<td>操作</td>
+										</tr>
+									</thead>
 
-									<div class="col-md-3">${userOlistLists.indate }</div>
-									<div class="col-md-3">${userOlistLists.outdate }</div>
-									<div class="col-md-3">${userOlistLists.hotel.hname}</div>
-									<div class="col-md-3">${userOlistLists.ammount}</div>
-									<!-- <div class="col-md-3 textright">
-										<button type="submit" class="btn-search5">
-											<span class="glyphicon glyphicon-plus"></span>
-										</button>
-									</div> -->
-								</c:forEach>
+									<tbody>
+										<c:forEach var="userOlistLists" items="${userOlistLists }">
+											<tr>
+												<td>${userOlistLists.indate }</td>
+												<td>${userOlistLists.outdate }</td>
+												<td>${userOlistLists.hotel.hname}</td>
+												<td>${userOlistLists.ammount}</td>
 
+												<td><a class="btn btn-default  btn-xs"
+													href="deleteOrder?oid=${userOlistLists.oid }">删除</a>&nbsp;
+													
+														<a class="btn btn-default  btn-xs"
+															href="deleteOrder?oid=${userOlistLists.oid }">评价</a>
+													</td>
+
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
 							</div>
 						</div>
 						<!-- END OF TAB 5 -->

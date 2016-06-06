@@ -1,11 +1,9 @@
 package cn.edu.whut.hotelsystem.basedao;
 
 import static org.hibernate.criterion.Example.create;
-
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
-
 import org.hibernate.LockOptions;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -20,6 +18,7 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+
 	protected Class<?> clazz;
 	protected Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -33,8 +32,8 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 	@Override
 	public Session getSession() {
 		// 获取当前session
-				
 		return sessionFactory.getCurrentSession();
+
 	}
 
 	@Override
@@ -140,7 +139,7 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 					+ " as model where model." + propertyName + "= ?";
 			Query queryObject = getSession().createQuery(queryString);
 			queryObject.setParameter(0, value);
-
+			
 			return queryObject.list();
 		} catch (RuntimeException re) {
 			log.error("find by property name failed", re);
@@ -227,7 +226,6 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 		// TODO Auto-generated method stub
 		System.out.println(sql + "------------");
 		Query sqlquery = getSession().createSQLQuery(sql);
-
 		return sqlquery.list();
 	}
 
@@ -235,7 +233,6 @@ public class BaseHibernateDAO<T> implements IBaseHibernateDAO<T> {
 	public List<T> queryHQL(String hql) {
 		log.debug("finding all " + clazz.getSimpleName() + " instances");
 		try {
-			
 			Query queryObject = getSession().createQuery(hql);
 			return queryObject.list();
 		} catch (RuntimeException re) {

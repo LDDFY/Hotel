@@ -38,7 +38,7 @@ public class UserAction {
 	public String Login(Model model, HttpSession session,
 			HttpServletRequest request, HttpServletResponse response,
 			String uname, String upwd) {
-
+		String note = "账号或密码错误请重新输入！";
 		String result = "public/login";
 		User user = userService.Login(uname, upwd);
 		if (user != null) {
@@ -56,6 +56,9 @@ public class UserAction {
 
 			}
 			session.setAttribute("user", user);
+		}
+		if (result.equals("public/login")) {
+			model.addAttribute("note", note);
 		}
 		return result;
 	}
@@ -153,6 +156,14 @@ public class UserAction {
 		return userList1;
 	}
 	
+	@RequestMapping("/serchAdmin")
+	public @ResponseBody JSONArray serchAdmin(String uname) {
+
+		List<User> userList = userService.serchUserByUname(uname);
+		JSONArray list = formatAdmin(userList);
+		return list;
+	}
+
 	@RequestMapping("/serchAdmin")
 	public @ResponseBody JSONArray serchAdmin(String uname) {
 

@@ -125,7 +125,10 @@
 					</div>
 				</div>
 			</div>
-
+			<div>
+				<img src="${room.imagepath }" alt="暂无图片"
+					style="width: 400px;height: 300px;" />
+			</div>
 		</div>
 
 	</div>

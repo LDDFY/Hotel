@@ -182,11 +182,12 @@
 		$($.ajax({
 			type : "GET",
 
-			url : "serchUser.do",
+			url : "serchAdmin.do",
 			data : {
 				"uname" : uname,
 			},
 			success : function(data) {
+				
 				var strHtml = "";
 				var strtitle = "<tr>";
 				var strtitleed = "</tr>";

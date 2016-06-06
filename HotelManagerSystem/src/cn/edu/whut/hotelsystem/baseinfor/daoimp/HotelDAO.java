@@ -1,10 +1,8 @@
 package cn.edu.whut.hotelsystem.baseinfor.daoimp;
 
 import java.util.List;
-
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import cn.edu.whut.hotelsystem.basedao.BaseHibernateDAO;
 import cn.edu.whut.hotelsystem.baseinfor.dao.IHotelDAO;
 import cn.edu.whut.hotelsystem.baseinfor.vo.Hotel;
@@ -13,6 +11,7 @@ import cn.edu.whut.hotelsystem.baseinfor.vo.Hotel;
 @Repository
 public class HotelDAO extends BaseHibernateDAO<Hotel> implements IHotelDAO {
 
+	
 	// property constants
 	public static final String HNAME = "hname";
 	public static final String HEMAIL = "hemail";

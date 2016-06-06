@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -70,38 +70,21 @@
 
 </head>
 <body>
-<!-- 
 
-private Integer newsid;
-	private Hotel hotel;
-	private String title;
-	private String content;
-	private String author;
-	private Date releasetime;
-	private String keyword;
-	private String imgpath;
- -->
-	<h2>标题${news.title }</h2>
+	<h2 >标题${news.title }</h2>
 	<h3>序号：${news.newsid }</h3>
 	<h3>酒店：${news.hotel.hname}</h3>
 	<h3>日期：${news.releasetime}</h3>
-	<img alt="" src="src="${ news.imgpath}">
-	<p class="lead">${ news.content}</p>
-
+	<div style="padding-left: 30px;padding-right: 30px; ">
+		<p class="lead">${ news.content}</p>
+	</div>
 
 
 
 	<script src="resourse/assets/js/js-details.js"></script>
-
-
-
-
 	<!-- Custom functions -->
 	<script src="resourse/assets/js/functions.js"></script>
-
-
 	<script src="resourse/assets/js/jquery.nicescroll.min.js"></script>
-
 	<!-- jQuery KenBurn Slider  -->
 	<script type="text/javascript"
 		src="resourse/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>

@@ -96,7 +96,7 @@
 								<th>房间号：</th>
 								<th>房间类型：</th>
 								<th>房间大小：</th>
-								<th>图片：</th>
+								<th>图片：(小于2M)</th>
 							</tr>
 							<tr>
 								<td><input style="width: 150px;" id="roomid" name="roomid"
