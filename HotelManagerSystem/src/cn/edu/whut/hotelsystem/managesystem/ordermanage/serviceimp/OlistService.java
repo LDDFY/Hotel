@@ -15,4 +15,15 @@ public class OlistService implements IOlistService {
 	public boolean saveOlist(Olist olist) {
 		return olistDAO.saveOlist(olist);
 	}
+
+	@Override
+	public void deleteByOid(Integer oid) {
+		olistDAO.deleteOlist(olistDAO.findOlistById(oid));
+		
+	}
+
+	@Override
+	public Olist findOlistById(Integer oid) {
+		return olistDAO.findOlistById(oid);
+	}
 }

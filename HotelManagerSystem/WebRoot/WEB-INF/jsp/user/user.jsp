@@ -208,6 +208,7 @@
 
 							<!-- COL 1 -->
 							<div class="col-md-12 offset-0">
+								<form action="update">
 								<table>
 									<tr>
 										<td>
@@ -231,17 +232,22 @@
 
 								<br /> <input type="text" style="display:none;" id="uid"
 									class="form-control" value="${user.uid }" rel="popover"
-									id="uid"> 姓名*: <input type="text" class="form-control"
-									value="${user.realname }" rel="popover" id="relname"
-									readonly="readonly"> <br /> 用户名*: <input type="text"
-									class="form-control" value="${user.uname }" rel="popover"
-									id="uname" readonly="readonly"> <br /> E-mail*: <input
-									type="text" class="form-control" value="${user.uemail }"
-									id="uemail"> <br /> 电话号码: <input type="text"
-									class="form-control" value="${user.utel }" id="utel"> <br />
+									name="uid"> 
+									姓名*: <input type="text" class="form-control"
+									value="${user.realname }" rel="popover" id="realname" name="realname"
+									readonly="readonly"> <br /> 
+									用户名*: <input type="text"
+									class="form-control" value="${user.uname }" rel="popover" name="uname"
+									id="uname" readonly="readonly"> <br /> 
+									E-mail*: <input
+									type="text" class="form-control" value="${user.uemail }" name="uemail"
+									id="uemail"> <br /> 
+									电话号码: <input type="text"
+									class="form-control" value="${user.utel }" id="utel" name="utel"> <br />
 								<br /> <br />
-
 								<button type="submit" class="cyanbtn  margtop20">更新</button>
+								
+								</form>
 							</div>
 							<!-- END OF COL 1 -->
 
@@ -314,8 +320,9 @@
 										<span class="grey">${userBookingsLists.hotel.summary }</span>
 									</div>
 									<div class="col-md-1 offset-0">
-										<button onclick="errorMessage()" type="submit"
-											class="btn-search5 right">更多</button>
+										<input type="text" value="${userBookingsLists.hotel.avgprice }" id="pri" name="pri" style="display:none;">
+										<button type=""
+											class="btn-search5 right" ><a href="tuiding?oid=${userBookingsLists.oid }&uid=${user.uid}">退订</a></button>
 									</div>
 									<div class="clearfix"></div>
 									<div class="line4"></div>

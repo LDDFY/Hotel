@@ -2,6 +2,7 @@ package cn.edu.whut.hotelsystem.managesystem.ordermanage.control;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -46,7 +47,7 @@ public class OlistAction {
 		String indate = request.getParameter("indate");
 		String outdate = request.getParameter("outdate");
 
-		SimpleDateFormat sp = new SimpleDateFormat("yyyy-mm-dd");
+		SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd");
 		Date in = sp.parse(formate(indate));
 		Date out = sp.parse(formate(outdate));
 		Hotel hotel = hotelService.findHotelById(hid);
@@ -85,19 +86,27 @@ public class OlistAction {
 
 		String result = null;
 		Olist olist = (Olist) session.getAttribute("olistinfor");
+		
+		Calendar cal = Calendar.getInstance();    
+        cal.setTime(olist.getOutdate());    
+        long time1 = cal.getTimeInMillis();                 
+        cal.setTime(olist.getIndate());    
+        long time2 = cal.getTimeInMillis();         
+        long between_days=(time1-time2)/(1000*3600*24);
+		
 		User u = userService.findUserByName(uname);
 		if (u == null) {
 			result = "用户名错误！";
 		} else if (!u.getUpwd().equals(upwd)) {
 			result = "密码错误！";
-		} else if (u.getMoney() < olist.getAmmount()) {
+		} else if (u.getMoney() < (olist.getAmmount()*Integer.parseInt(String.valueOf(between_days)))) {
 
 			result = "余额不足！";
 		} else if (olist.getUserByUid() == null) {
 			olist.setUserByUid(u);
-		} else if (u.getMoney() >= olist.getAmmount()) {
+		} else if (u.getMoney() >= (olist.getAmmount()*Integer.parseInt(String.valueOf(between_days)))) {
 
-			u.setMoney(u.getMoney() - olist.getAmmount());
+			u.setMoney(u.getMoney() - (olist.getAmmount()*Integer.parseInt(String.valueOf(between_days))));
 			boolean userflag = userService.saveOrUpdate(u);
 			boolean flag = olistService.saveOlist(olist);
 			if (flag && userflag) {
@@ -129,5 +138,17 @@ public class OlistAction {
 		}
 
 		return "user/payment";
+	}
+	
+	@RequestMapping("/tuiding")
+	public String tuiDing(Model model, HttpSession session,
+			HttpServletRequest request, HttpServletResponse response,Integer oid,Integer uid){
+		User u=userService.findUserById(uid);
+		Olist o=olistService.findOlistById(oid);
+		u.setMoney(u.getMoney()+o.getAmmount().doubleValue());
+		userService.mergerUser(u);
+		
+		olistService.deleteByOid(oid);
+		return "/../../index";
 	}
 }

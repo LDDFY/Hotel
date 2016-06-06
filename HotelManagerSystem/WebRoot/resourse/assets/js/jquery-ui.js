@@ -9135,9 +9135,17 @@ $.extend(Datepicker.prototype, {
 
 	/* Retrieve the date(s) directly. */
 	_getDate: function(inst) {
-		var startDate = (!inst.currentYear || (inst.input && inst.input.val() === "") ? null :
+		
+		var myDate = new Date();
+		/*myDate.getYear();        //获取当前年份(2位)
+		myDate.getFullYear();    //获取完整的年份(4位,1970-????)
+		myDate.getMonth();       //获取当前月份(0-11,0代表1月)
+		myDate.getDate();        //获取当前日(1-31)
+*/		
+		/*var startDate = (!inst.currentYear || (inst.input && inst.input.val() === "") ? null :
 			this._daylightSavingAdjust(new Date(
-			inst.currentYear, inst.currentMonth, inst.currentDay)));
+			inst.currentYear, inst.currentMonth, inst.currentDay)));*/
+		var startDate=new Date(myDate.getFullYear(),myDate.getMonth()+1,myDate.getDate());
 			return startDate;
 	},
 

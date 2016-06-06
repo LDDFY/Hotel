@@ -6,4 +6,8 @@ public interface IOlistService {
 
 	boolean saveOlist(Olist olist);
 
+	void deleteByOid(Integer oid);
+
+	Olist findOlistById(Integer oid);
+
 }

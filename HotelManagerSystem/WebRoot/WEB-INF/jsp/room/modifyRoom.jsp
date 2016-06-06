@@ -89,6 +89,8 @@
 								value="${room.hotel.hid}" />
 								<input hidden="hidden" id="imagepath" name="imagepath" type="text"
 								value="${room.imagepath }" />
+								<input hidden="hidden" id="rprice" name="rprice" type="text"
+								value="${room.rprice }" />
 							<tr>
 								<th>房间编号：</th>
 								<th>房间号：</th>

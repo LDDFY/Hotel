@@ -71,6 +71,11 @@
 		}
 
 	}));
+	
+	/* $(function(){$("#datepicker2").datepicker({ 
+ 	startDate:new Date(2016,5,25) //开始时间，在这时间之前都不可选
+ 	})
+ 	}); */
 </script>
 </head>
 <body id="top">

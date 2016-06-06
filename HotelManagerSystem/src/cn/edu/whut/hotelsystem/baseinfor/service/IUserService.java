@@ -23,4 +23,6 @@ public interface IUserService {
 	public User findUserByName(String uname);
 
 	public boolean deleteUserByUid(Integer uid);
+
+	public User mergerUser(User u);
 }

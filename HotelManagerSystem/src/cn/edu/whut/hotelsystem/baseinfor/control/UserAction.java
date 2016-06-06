@@ -152,6 +152,14 @@ public class UserAction {
 		}
 		return userList1;
 	}
+	
+	@RequestMapping("/serchAdmin")
+	public @ResponseBody JSONArray serchAdmin(String uname) {
+
+		List<User> userList = userService.serchUserByUname(uname);
+		JSONArray list = formatAdmin(userList);
+		return list;
+	}
 
 	private JSONArray formatAdmin(List<User> userList) {
 		JSONArray list = new JSONArray();
@@ -239,7 +247,7 @@ public class UserAction {
 	@RequestMapping("/register")
 	public String register(Model model, HttpSession session,
 			HttpServletRequest request, HttpServletResponse response, User user) {
-		user.setLevel(2);
+		user.setLevel(0);
 		userService.saveOrUpdate(user);
 		return "public/login";
 	}
@@ -280,5 +288,21 @@ public class UserAction {
 		}
 		model.addAttribute("result", result);
 		return "user/Administrator";
+	}
+	
+	@RequestMapping("/update")
+	public String updatePersonal(Model model, HttpServletRequest request,
+			HttpServletResponse response, User u,HttpSession session){
+		User u1=userService.findUserById(u.getUid());
+		u.setMoney(u1.getMoney());
+		u.setLevel(u1.getLevel());
+		u.setEvaluations(u1.getEvaluations());
+		u.setHotels(u1.getHotels());
+		u.setIdnumber(u1.getIdnumber());
+		u.setOlistsForOdealid(u1.getOlistsForOdealid());
+		u.setUpwd(u1.getUpwd());
+		User user=userService.mergerUser(u);
+		session.setAttribute("user", user);
+		return "user/user";
 	}
 }

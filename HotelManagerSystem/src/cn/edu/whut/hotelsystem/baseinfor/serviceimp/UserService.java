@@ -75,4 +75,10 @@ public class UserService implements IUserService {
 		return userDAO.deleteUser(u);
 	}
 
+	@Override
+	public User mergerUser(User u) {
+		// TODO Auto-generated method stub
+		return userDAO.mergeUser(u);
+	}
+
 }
